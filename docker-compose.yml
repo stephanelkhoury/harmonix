@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:80"       # Map the container’s port 80 (nginx) to host port 3000.
+    depends_on:
+      - server
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"     # Map port 5000 of container to host port 5000.
