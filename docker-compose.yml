@@ -1,14 +1,32 @@
 version: '3.8'
 
 services:
-  client:
-    build: ./client
+  python_service:
+    build: ./python_service
     ports:
-      - "3000:80"       # Map the container’s port 80 (nginx) to host port 3000.
-    depends_on:
-      - server
+      - "8000:8000"
+    volumes:
+      - ./python_service:/app
+    environment:
+      - PYTHONUNBUFFERED=1
 
-  server:
+  backend:
     build: ./server
     ports:
-      - "5000:5000"     # Map port 5000 of container to host port 5000.
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      - PYTHON_SERVICE_URL=http://python_service:8000
+    depends_on:
+      - python_service
+
+  frontend:
+    build: ./client
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+    depends_on:
+      - backend
