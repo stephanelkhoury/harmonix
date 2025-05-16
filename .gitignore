@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build caches
+.cache/
+**/.cache/
+
+# Build artifacts
+*.pack
+**/dist/
+build/
+
+# Other common ignores
+.env
+.DS_Store

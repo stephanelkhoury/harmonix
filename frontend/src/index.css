@@ -1,0 +1,178 @@
+/* Global Styles */
+/* @font-face {
+  font-family: 'Nobel';
+  src: url('fonts/Nobel-Regular.woff2') format('woff2'),
+       url('fonts/Nobel-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+/* Adding font-face for Nobel Book */
+@font-face {
+  font-family: 'Nobel';
+  src: url('./assets/fonts/Nobel Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Nobel', sans-serif;
+  background-color: #0B1C30; /* Dark Base */
+  color: #0fa2dc; /* Text Light */
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Nobel', sans-serif;
+}
+
+/* Color Palette */
+:root {
+  --primary-color: #0DA1C0;
+  --secondary-color: #3B7DAD;
+  --accent-color: #8C94F1;
+  --dark-base: #0B1C30;
+  --text-light: #0fa2dc;
+  --cool-gray: #ACB5BD;
+}
+
+/* Placeholder CSS file */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('./assets/images/hero-image.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.cta-button {
+    background: #ff6600;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Mission & Vision Section */
+.mission-vision-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem 2rem;
+}
+.mission-vision-section .text-content {
+    flex: 1;
+    padding: 1rem;
+}
+.mission-vision-section .visual-content {
+    flex: 1;
+    padding: 1rem;
+}
+
+/* Features Section */
+.features-section {
+    background: #f9f9f9;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.feature-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+}
+.feature-slide {
+    flex: 0 0 300px;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Use Case Section */
+.use-case-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem 2rem;
+}
+.use-case {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Tech Stack Section */
+.tech-stack-section {
+    background: #f1f1f1;
+    padding: 4rem 2rem;
+}
+.tech-stack-section ul {
+    list-style: none;
+    padding: 0;
+}
+.tech-stack-section li {
+    margin-bottom: 1rem;
+}
+
+/* Why Harmonix Section */
+.why-harmonix-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.feature {
+    flex: 1;
+    padding: 1rem;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Section */
+.cta-section {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.cta-section a {
+    background: #ff6600;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}

@@ -1,32 +1,49 @@
 version: '3.8'
-
 services:
-  python_service:
-    build: ./python_service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     ports:
-      - "8000:8000"
+      - "27017:27017"
     volumes:
-      - ./python_service:/app
-    environment:
-      - PYTHONUNBUFFERED=1
+      - mongo_data:/data/db
 
   backend:
-    build: ./server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: backend
     ports:
-      - "5000:5000"
-    volumes:
-      - ./server:/app
-      - /app/node_modules
+      - "5001:5001"
     environment:
+      - MONGO_URL=mongodb://mongodb:27017/harmonix
       - PYTHON_SERVICE_URL=http://python_service:8000
     depends_on:
+      - mongodb
       - python_service
+    volumes:
+      - ./backend/uploads:/app/uploads
+    restart: always
+
+  python_service:
+    build: ./python_service
+    container_name: python_service
+    ports:
+      - "8000:8000"
+    restart: always
 
   frontend:
-    build: ./client
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
     ports:
       - "3000:80"
     environment:
-      - REACT_APP_API_URL=http://localhost:5000
+      - REACT_APP_API_URL=http://backend:5001
     depends_on:
       - backend
+    restart: always
+
+volumes:
+  mongo_data:

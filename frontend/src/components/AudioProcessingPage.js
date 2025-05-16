@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import WaveSurfer from 'wavesurfer.js';
 
 function AudioProcessingPage() {
     const [chords, setChords] = useState([]);

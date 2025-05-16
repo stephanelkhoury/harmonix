@@ -15,7 +15,7 @@ function HomePage() {
     };
 
     return (
-        <div>
+        <div className="hero-section">
             <h1>Welcome to Harmonix</h1>
             <p>Real-time audio chord recognition and visualization.</p>
             <AudioRecorder onAudioReady={handleAudioReady} />

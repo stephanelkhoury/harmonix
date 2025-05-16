@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 import uvicorn
@@ -6,6 +6,8 @@ import librosa
 import numpy as np
 import tempfile
 import os
+import subprocess
+import json
 
 app = FastAPI()
 
@@ -78,6 +80,40 @@ async def analyze(file: UploadFile = File(...)):
         return {"chords": chords}
     finally:
         os.remove(tmp_path)
+
+@app.post("/analyze-youtube")
+async def analyze_youtube(request: Request):
+    data = await request.json()
+    url = data.get("url")
+    if not url:
+        return {"error": "No YouTube URL provided."}
+    with tempfile.TemporaryDirectory() as tmpdir:
+        audio_path = os.path.join(tmpdir, "audio.mp3")
+        # Download audio using yt-dlp
+        try:
+            subprocess.run([
+                "yt-dlp", "-x", "--audio-format", "mp3", "-o", audio_path, url
+            ], check=True)
+        except Exception as e:
+            return {"error": f"Failed to download audio: {str(e)}"}
+        # Analyze as before
+        try:
+            y, sr = librosa.load(audio_path)
+            y_harmonic, _ = librosa.effects.hpss(y)
+            duration = librosa.get_duration(y=y, sr=sr)
+            bin_size = 3  # seconds
+            chords = []
+            for i in range(0, int(duration)//bin_size):
+                tstart = bin_size * i
+                tend = bin_size * (i+1)
+                fragment = Tonal_Fragment(y_harmonic, sr, tstart=tstart, tend=tend)
+                chords.append({
+                    "time": tstart,
+                    "chord": fragment.key
+                })
+            return {"chords": chords}
+        except Exception as e:
+            return {"error": f"Failed to analyze audio: {str(e)}"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

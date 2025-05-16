@@ -1,0 +1,128 @@
+.faq-page {
+  font-family: 'Nobel', sans-serif;
+  color: #0fa2dc; /* Text Light */
+  background-color: #0B1C30; /* Dark Base */
+}
+
+.faq-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../assets/images/hero-image.jpg') center/cover no-repeat;
+  text-align: center;
+  color: #0fa2dc; /* Text Light */
+  animation: fadeIn 2s ease-in-out;
+  height: 85vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-hero h1 {
+  font-size: 4rem; /* Increased font size */
+  letter-spacing: 2px;
+  color: white; /* Primary */
+  margin-bottom: 1rem;
+}
+
+.faq-hero p {
+  font-size: 1.5rem; /* Adjusted font size */
+  color: white; /* Accent */
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-tabs {
+  position: sticky;
+  top: 0;
+  background: #3B7DAD; /* Secondary */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.faq-tabs button {
+  background: transparent;
+  border: 2px solid #0DA1C0; /* Primary */
+  color: #0fa2dc; /* Text Light */
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-tabs button.active,
+.faq-tabs button:hover {
+  background: #0DA1C0; /* Primary */
+  color: #0B1C30; /* Dark Base */
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem 1rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid #8C94F1; /* Accent */
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #0fa2dc; /* Text Light */
+  transition: 0.3s;
+}
+
+.faq-question:hover {
+  color: #0DA1C0; /* Primary */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  color: #ACB5BD; /* Cool Gray */
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+.faq-cta {
+  background: #0DA1C0; /* Primary */
+  color: #0fa2dc; /* Text Light */
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta-button {
+  margin-top: 1rem;
+  display: inline-block;
+  background: #0fa2dc; /* Text Light */
+  color: #0B1C30; /* Dark Base */
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #3B7DAD; /* Secondary */
+  color: #0fa2dc; /* Text Light */
+}

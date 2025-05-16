@@ -7,39 +7,100 @@ const Meyda = require('meyda');
 const { AudioContext } = require('web-audio-api');
 const axios = require('axios');
 const FormData = require('form-data');
+const jwt = require('jsonwebtoken');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001; // Change to a different port
 
 // Allow CORS so that your client (likely running on a different port) can communicate with the server.
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+app.use(express.json()); // For parsing application/json
 
 // Set up multer to handle file uploads. Files are temporarily stored in memory.
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+
+// Secret key for JWT
+const SECRET_KEY = 'your_secret_key';
+
+// Hardcoded user credentials
+const USERNAME = 'stephanelkhoury';
+const PASSWORD = 'S@1234';
+
+// In-memory storage for user activity
+const userActivity = [];
+
+// Login endpoint
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  if (username === USERNAME && password === PASSWORD) {
+    // Generate a JWT token
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+
+    // Track user login activity
+    userActivity.push({ username, action: 'login', timestamp: new Date() });
+
+    return res.json({ token });
+  }
+
+  res.status(401).json({ error: 'Invalid username or password' });
+});
+
+// Middleware to protect routes
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) return res.status(401).json({ error: 'Access denied' });
+
+  jwt.verify(token, SECRET_KEY, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+}
+
+// Protected dashboard route
+app.get('/dashboard', authenticateToken, (req, res) => {
+  res.json({ message: `Welcome to the dashboard, ${req.user.username}!` });
+});
+
+// Endpoint to get user activity
+app.get('/users', authenticateToken, (req, res) => {
+  res.json(userActivity);
+});
 
 // Define our analysis endpoint.
 app.post('/api/analyze-chords', upload.single('audio'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No audio file uploaded.' });
   }
-
   try {
-    const audioBuffer = req.file.buffer;
-    const audioContext = new AudioContext();
+    // Save the uploaded file to a temporary file
+    const tempPath = path.join(__dirname, 'uploads', `${Date.now()}-${req.file.originalname}`);
+    fs.writeFileSync(tempPath, req.file.buffer);
 
-    // Decode the audio data
-    const decodedAudio = await audioContext.decodeAudioData(audioBuffer);
+    // Forward the file to the Python service
+    const form = new FormData();
+    form.append('file', fs.createReadStream(tempPath), req.file.originalname);
+    const response = await axios.post('http://localhost:8000/analyze', form, {
+      headers: form.getHeaders(),
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+    });
 
-    // Extract features using Meyda
-    const features = Meyda.extract('chroma', decodedAudio.getChannelData(0));
-
-    // Placeholder for converting features to chords
-    const chords = features ? ['Cmaj', 'Gmaj', 'Amin', 'Fmaj'] : [];
-
-    res.json({ chords });
+    // Clean up the temp file
+    fs.unlinkSync(tempPath);
+    res.json(response.data);
   } catch (error) {
-    console.error('Error processing audio:', error);
+    if (tempPath && fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    console.error('Error forwarding audio to Python service:', error);
     res.status(500).json({ error: 'Failed to process audio.' });
   }
 });
@@ -67,7 +128,26 @@ app.post('/upload', uploadDest.single('mp3'), async (req, res) => {
   }
 });
 
+// Endpoint to analyze YouTube links
+app.post('/api/analyze-youtube', async (req, res) => {
+  const { url } = req.body;
+  if (!url) {
+    return res.status(400).json({ error: 'No YouTube URL provided.' });
+  }
+  try {
+    const response = await axios.post('http://localhost:8000/analyze-youtube', { url });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error analyzing YouTube link:', error);
+    res.status(500).json({ error: 'Failed to analyze YouTube link.' });
+  }
+});
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the Harmonix Backend!');
+});
+
 // Start the server.
 app.listen(PORT, () => {
-  console.log(`Express server running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

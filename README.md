@@ -8,15 +8,6 @@ A web application that analyzes MP3 files to detect musical chords and keys usin
 - Chord and key detection
 - Audio playback control
 
-## Running with Docker
-```bash
-docker-compose up
-```
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
-- Python Service: http://localhost:8000
-
 ## Running Locally
 
 ### Python Service
@@ -51,6 +42,5 @@ npm start
 harmonix/
 ├── client/          # React frontend
 ├── server/          # Node.js backend
-├── python_service/  # Python chord detection
-└── docker-compose.yml
+└── python_service/  # Python chord detection
 ```
