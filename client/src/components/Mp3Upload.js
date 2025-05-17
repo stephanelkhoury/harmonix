@@ -51,7 +51,7 @@ const Mp3Upload = () => {
     const formData = new FormData();
     formData.append('mp3', file);
     try {
-      const res = await axios.post('http://localhost:5000/upload', formData, {
+      const res = await axios.post('http://localhost:5001/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setChords(res.data.chords || []);

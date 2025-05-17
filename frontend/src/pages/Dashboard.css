@@ -1,0 +1,106 @@
+.dashboard-container {
+    padding: 40px 0;
+    min-height: 80vh;
+    background-color: #f8f9fa;
+}
+
+.dashboard-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.dashboard-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h2 {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th, 
+.users-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.users-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+.users-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.actions-column {
+    width: 100px;
+    text-align: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #495057;
+    transition: color 0.2s;
+}
+
+.action-btn.edit:hover {
+    color: #4f46e5;
+}
+
+.action-btn.delete:hover {
+    color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    padding: 15px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .dashboard-card {
+        padding: 15px;
+    }
+    
+    .users-table th, 
+    .users-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .actions-column {
+        width: 70px;
+    }
+}

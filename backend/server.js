@@ -12,18 +12,37 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import { fileURLToPath } from 'url';
+import cors from 'cors';
+import FormData from 'form-data';
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: ['http://localhost:3001', 'http://localhost:3000'], // Frontend URLs
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
+});
 const PORT = process.env.PORT || 5001;
 
 // Get Python service URL from environment variables or use default
 const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'http://localhost:8000';
 console.log(`Python service URL: ${PYTHON_SERVICE_URL}`);
+
+// Configure CORS
+const corsOptions = {
+  origin: ['http://localhost:3001', 'http://localhost:3000'], // Frontend URLs
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+  credentials: true, // Allow cookies and authentication headers
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+app.use(cors(corsOptions));
 
 // Middleware for parsing JSON
 app.use(express.json());
@@ -62,12 +81,12 @@ const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-});
+}, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
 
 // Endpoint for audio file upload
-app.post('/upload', upload.single('audio'), (req, res) => {
+app.post('/upload', upload.single('mp3'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
@@ -121,10 +140,85 @@ app.post('/login', async (req, res) => {
             return res.status(401).send({ error: 'Invalid credentials' });
         }
         const token = jwt.sign({ id: user._id }, 'secret_key', { expiresIn: '1h' });
-        res.status(200).send({ message: 'Login successful', token });
+        // Return user data without password
+        const userData = {
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            createdAt: user.createdAt
+        };
+        res.status(200).send({ message: 'Login successful', token, user: userData });
     } catch (err) {
         res.status(500).send({ error: 'Error logging in' });
     }
+});
+
+// Middleware to verify JWT token
+const verifyToken = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        return res.status(403).send({ error: 'No token provided!' });
+    }
+    
+    const token = authHeader.split(' ')[1];
+    
+    jwt.verify(token, 'secret_key', (err, decoded) => {
+        if (err) {
+            return res.status(401).send({ error: 'Unauthorized!' });
+        }
+        req.userId = decoded.id;
+        next();
+    });
+};
+
+// API endpoint for user profile
+app.get('/api/user/profile', verifyToken, async (req, res) => {
+    try {
+        const userId = req.userId;
+        const user = await User.findById(userId).select('-password'); // Exclude password from the result
+        if (!user) {
+            return res.status(404).send({ error: 'User not found' });
+        }
+        res.json(user);
+    } catch (err) {
+        console.error('Error fetching user profile:', err);
+        res.status(500).send({ error: 'Failed to fetch user profile' });
+    }
+});
+
+// API endpoint for admin to get all users
+app.get('/api/admin/users', verifyToken, async (req, res) => {
+    try {
+        // In a real application, you would check if the user is an admin
+        const users = await User.find().select('-password'); // Exclude passwords
+        res.json(users);
+    } catch (err) {
+        console.error('Error fetching users:', err);
+        res.status(500).send({ error: 'Failed to fetch users' });
+    }
+});
+
+// API endpoint to delete a user (admin only)
+app.delete('/api/admin/users/:userId', verifyToken, async (req, res) => {
+    try {
+        // In a real application, you would check if the user is an admin
+        const userId = req.params.userId;
+        const deletedUser = await User.findByIdAndDelete(userId);
+        
+        if (!deletedUser) {
+            return res.status(404).send({ error: 'User not found' });
+        }
+        
+        res.status(200).send({ message: 'User deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting user:', err);
+        res.status(500).send({ error: 'Failed to delete user' });
+    }
+});
+
+// Dashboard endpoint
+app.get('/dashboard', verifyToken, (req, res) => {
+    res.status(200).send({ message: 'Welcome to the admin dashboard!' });
 });
 
 // WebSocket connection for real-time audio processing

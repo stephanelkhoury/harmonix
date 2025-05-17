@@ -3,20 +3,36 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
-function Login() {
-  const [email, setEmail] = useState('');
+function Login({ setIsAuthenticated }) {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    
     try {
-      const response = await axios.post('http://localhost:5001/login', { email, password });
+      const response = await axios.post('http://localhost:5001/login', { username, password });
+      
+      // Store auth token
       localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
+      
+      // Store user data if available
+      if (response.data.user) {
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+      }
+      
+      setIsAuthenticated(true);
+      setLoading(false);
+      navigate('/');
     } catch (err) {
-      setError('Invalid email or password');
+      console.error('Login error:', err);
+      setError(err.response?.data?.error || 'Invalid username or password');
+      setLoading(false);
     }
   };
 
@@ -28,12 +44,12 @@ function Login() {
           <p>Enter to get unlimited access to data & information.</p>
           <form onSubmit={handleLogin}>
             <div className="form-group">
-              <label>Email *</label>
+              <label>Username *</label>
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your mail address"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter your username"
                 required
               />
             </div>
@@ -54,7 +70,9 @@ function Login() {
               <a href="#">Forgot your password?</a>
             </div>
             {error && <p className="error-message">{error}</p>}
-            <button type="submit" className="login-button">Log In</button>
+            <button type="submit" className="login-button" disabled={loading}>
+              {loading ? 'Logging in...' : 'Log In'}
+            </button>
           </form>
           <div className="login-divider">Or, Login with</div>
           <button className="google-login">Sign up with Google</button>

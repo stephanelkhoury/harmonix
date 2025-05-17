@@ -7,6 +7,8 @@ A web application that analyzes MP3 files to detect musical chords and keys usin
 - Waveform visualization
 - Chord and key detection
 - Audio playback control
+- YouTube link analysis
+- Cross-platform support (macOS, Linux, Windows)
 
 ## Running Locally
 
@@ -86,13 +88,93 @@ npm install
 npm start
 ```
 
+## Getting Started
+
+Follow these steps for a quick setup:
+
+1. **View Project Structure** (optional)
+   ```bash
+   # Display an overview of the project structure
+   ./project_info.sh
+   ```
+
+2. **Initial Setup** (first time only)
+   ```bash
+   # Set up the application environment and install dependencies
+   ./scripts/setup.sh
+   # Or use the symlink:
+   ./setup.sh
+   ```
+
+2. **Start the Application**
+   ```bash
+   # Start all services (Python, backend, server, frontend)
+   ./scripts/start_harmonix.sh
+   # Or use the symlink:
+   ./start_harmonix.sh
+   ```
+
+3. **Test Your Environment**
+   ```bash
+   # Verify that all required components are properly configured
+   ./tests/test_environment.sh
+   # Or use the symlink:
+   ./test_environment.sh
+   ```
+
+4. **Clean Up if Needed**
+   ```bash
+   # Clean temporary files or reset the application
+   ./scripts/cleanup.sh
+   ```
+
 ## Documentation
 
-- [LOCAL_SETUP.md](LOCAL_SETUP.md) - Detailed local setup instructions
-- [MONGODB_ATLAS_SETUP.md](MONGODB_ATLAS_SETUP.md) - MongoDB configuration options
-- [RUNNING_LOCALLY.md](RUNNING_LOCALLY.md) - Guide for running without Docker
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Solutions to common issues
+- [docs/QUICK_START.md](docs/QUICK_START.md) - Quick guide to get started
+- [docs/LOCAL_SETUP.md](docs/LOCAL_SETUP.md) - Detailed local setup instructions
+- [docs/MONGODB_ATLAS_SETUP.md](docs/MONGODB_ATLAS_SETUP.md) - MongoDB configuration options
+- [docs/RUNNING_LOCALLY.md](docs/RUNNING_LOCALLY.md) - Guide for running without Docker
+- [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) - Solutions to common issues
+- [docs/USAGE_GUIDE.md](docs/USAGE_GUIDE.md) - Complete feature usage instructions
+- [docs/SETUP_CHECKLIST.md](docs/SETUP_CHECKLIST.md) - Verification checklist for your installation
+- [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) - Overview of project organization
+
+## Testing
+
+### Basic Functionality Testing
+
+To verify that the application's core functionality is working correctly, run:
+
+```bash
+# Make the script executable (only needed once)
+chmod +x tests/test_analysis.sh
+
+# Test MP3 and YouTube analysis functionality
+./tests/test_analysis.sh
 ```
+
+This script will:
+1. Test MP3 file analysis with a sample audio file
+2. Test YouTube link analysis with a public domain music video
+3. Verify that both the Python and backend services are processing audio correctly
+
+### Integration Testing
+
+For more comprehensive testing of the service integration, you can run:
+
+```bash
+# Make the script executable (only needed once)
+chmod +x tests/run_integration_tests.sh
+
+# Run integration tests
+./tests/run_integration_tests.sh
+```
+
+This will perform a series of end-to-end tests to verify:
+- Service health and connectivity
+- MP3 file analysis through both direct Python service and backend
+- YouTube link analysis functionality
+- Proper communication between all services
 
 ## Development
 - Run tests: `npm test` in respective directories
@@ -103,7 +185,15 @@ npm start
 ## Project Structure
 ```
 harmonix/
-├── client/          # React frontend
-├── server/          # Node.js backend
-└── python_service/  # Python chord detection
+├── backend/         # Node.js Express API
+├── client/          # Legacy React frontend (deprecated)
+├── config/          # Configuration templates
+├── config.js        # Central configuration manager
+├── docs/            # Documentation files
+├── frontend/        # React frontend
+├── logs/            # Log files
+├── python_service/  # Python chord detection service
+├── scripts/         # Utility and startup scripts
+├── server/          # Node.js file upload server
+└── tests/           # Test scripts and integration tests
 ```
