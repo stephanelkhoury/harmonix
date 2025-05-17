@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import WaveSurfer from 'wavesurfer.js';
 
+// Use environment variables or default to localhost
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+
 function AudioProcessingPage() {
     const [chords, setChords] = useState([]);
     const [recording, setRecording] = useState(false);
     const [mediaRecorder, setMediaRecorder] = useState(null);
-    const socket = io('http://localhost:5000');
+    const socket = io(BACKEND_URL);
 
     useEffect(() => {
         socket.on('chords-update', (updatedChords) => {

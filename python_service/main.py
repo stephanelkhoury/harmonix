@@ -19,6 +19,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/health")
+def health_check():
+    """Health check endpoint for monitoring and startup verification"""
+    return {"status": "healthy", "service": "python_service"}
+
 # Tonal_Fragment class from your notebook
 class Tonal_Fragment(object):
     def __init__(self, waveform, sr, tstart=None, tend=None):
@@ -59,9 +64,12 @@ class Tonal_Fragment(object):
 
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
+    print(f"Received file: {file.filename}")
     # Save uploaded file to a temp file
     with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmp:
-        tmp.write(await file.read())
+        content = await file.read()
+        print(f"File size: {len(content)} bytes")
+        tmp.write(content)
         tmp_path = tmp.name
     try:
         y, sr = librosa.load(tmp_path)

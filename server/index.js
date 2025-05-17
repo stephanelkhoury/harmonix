@@ -8,6 +8,11 @@ const { AudioContext } = require('web-audio-api');
 const axios = require('axios');
 const FormData = require('form-data');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+// Get Python service URL from environment variables or use default
+const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'http://localhost:8000';
+console.log(`Python service URL: ${PYTHON_SERVICE_URL}`);
 
 const app = express();
 const PORT = process.env.PORT || 5001; // Change to a different port
@@ -89,7 +94,7 @@ app.post('/api/analyze-chords', upload.single('audio'), async (req, res) => {
     // Forward the file to the Python service
     const form = new FormData();
     form.append('file', fs.createReadStream(tempPath), req.file.originalname);
-    const response = await axios.post('http://localhost:8000/analyze', form, {
+    const response = await axios.post(`${PYTHON_SERVICE_URL}/analyze`, form, {
       headers: form.getHeaders(),
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
@@ -114,7 +119,7 @@ app.post('/upload', uploadDest.single('mp3'), async (req, res) => {
   try {
     const form = new FormData();
     form.append('file', fs.createReadStream(req.file.path), req.file.originalname);
-    const response = await axios.post('http://localhost:8000/analyze', form, {
+    const response = await axios.post(`${PYTHON_SERVICE_URL}/analyze`, form, {
       headers: form.getHeaders(),
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
@@ -135,7 +140,7 @@ app.post('/api/analyze-youtube', async (req, res) => {
     return res.status(400).json({ error: 'No YouTube URL provided.' });
   }
   try {
-    const response = await axios.post('http://localhost:8000/analyze-youtube', { url });
+    const response = await axios.post(`${PYTHON_SERVICE_URL}/analyze-youtube`, { url });
     res.json(response.data);
   } catch (error) {
     console.error('Error analyzing YouTube link:', error);
@@ -145,6 +150,15 @@ app.post('/api/analyze-youtube', async (req, res) => {
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Harmonix Backend!');
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'healthy',
+    service: 'server',
+    pythonServiceUrl: PYTHON_SERVICE_URL
+  });
 });
 
 // Start the server.

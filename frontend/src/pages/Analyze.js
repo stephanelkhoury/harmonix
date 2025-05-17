@@ -13,13 +13,16 @@ function Analyze() {
     const [error, setError] = useState("");
     const audioRef = useRef(null);
 
+    // Use environment variables or default to localhost
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+    
     useEffect(() => {
         if (audioBlob) {
             setLoading(true);
             const formData = new FormData();
             formData.append('audio', audioBlob);
 
-            axios.post('http://localhost:5001/api/analyze-chords', formData, {
+            axios.post(`${BACKEND_URL}/api/analyze-chords`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
                 .then(response => {
@@ -58,7 +61,7 @@ function Analyze() {
         setLoading(true);
         setChords([]);
         try {
-            const response = await axios.post('http://localhost:5001/api/analyze-youtube', { url: youtubeUrl });
+            const response = await axios.post(`${BACKEND_URL}/api/analyze-youtube`, { url: youtubeUrl });
             setChords(response.data.chords);
         } catch (err) {
             setError("Failed to analyze YouTube link. Please check the URL and try again.");
