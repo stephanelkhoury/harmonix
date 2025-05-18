@@ -1,0 +1,123 @@
+/* FAQSection.css */
+
+.faq-section {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.faq-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.faq-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(15, 162, 220, 0.3));
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(11, 38, 68, 0.7);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 125, 173, 0.2);
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 25px rgba(13, 161, 192, 0.2);
+  border-color: rgba(15, 162, 220, 0.3);
+}
+
+.faq-item.expanded {
+  background: rgba(11, 38, 68, 0.9);
+}
+
+.faq-question {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.faq-item.expanded .faq-question h3 {
+  color: #0FA2DC;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0FA2DC;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.faq-item.expanded .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.expanded .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer p {
+  padding: 0 25px 20px;
+  color: #ACB5BD;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 15px 20px;
+  }
+  
+  .faq-question h3 {
+    font-size: 1rem;
+    padding-right: 10px;
+  }
+  
+  .faq-answer p {
+    padding: 0 20px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .faq-question h3 {
+    font-size: 0.95rem;
+  }
+}

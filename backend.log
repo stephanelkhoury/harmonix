@@ -4,115 +4,27 @@
 
 Python service URL: http://localhost:8000
 Connecting to MongoDB at mongodb://localhost:27017/harmonix
-(node:42608) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(node:69185) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:42608) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
-Server is running on http://localhost:5001
-MongoDB connection error: MongoServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
-    at Topology.selectServer (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/sdam/topology.js:321:38)
-    at async Topology._connect (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/sdam/topology.js:200:28)
-    at async Topology.connect (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/sdam/topology.js:152:13)
-    at async topologyConnect (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/mongo_client.js:233:17)
-    at async MongoClient._connect (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/mongo_client.js:246:13)
-    at async MongoClient.connect (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/mongo_client.js:171:13)
-    at async NativeConnection.createClient (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:336:3) {
-  errorLabelSet: Set(0) {},
-  reason: TopologyDescription {
-    type: 'Unknown',
-    servers: Map(1) { 'localhost:27017' => [ServerDescription] },
-    stale: false,
-    compatible: true,
-    heartbeatFrequencyMS: 10000,
-    localThresholdMS: 15,
-    setName: null,
-    maxElectionId: null,
-    maxSetVersion: null,
-    commonWireVersion: 0,
-    logicalSessionTimeoutMinutes: null
-  },
-  code: undefined,
-  [cause]: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
-      at Socket.<anonymous> (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/cmap/connect.js:285:44)
-      at Object.onceWrapper (node:events:629:26)
-      at Socket.emit (node:events:514:28)
-      at emitErrorNT (node:internal/streams/destroy:151:8)
-      at emitErrorCloseNT (node:internal/streams/destroy:116:3)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
-    errorLabelSet: Set(1) { 'ResetPool' },
-    beforeHandshake: false,
-    [cause]: AggregateError
-        at internalConnectMultiple (node:net:1082:18)
-        at afterConnectMultiple (node:net:1533:5) {
-      code: 'ECONNREFUSED',
-      [errors]: [Array]
-    }
-  }
-}
-/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongoose/lib/connection.js:1165
-    err = new ServerSelectionError();
-          ^
+(node:69185) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+node:events:492
+      throw er; // Unhandled 'error' event
+      ^
 
-MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
-    at _handleConnectionErrors (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongoose/lib/connection.js:1165:11)
-    at NativeConnection.openUri (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongoose/lib/connection.js:1096:11) {
-  errorLabelSet: Set(0) {},
-  reason: TopologyDescription {
-    type: 'Unknown',
-    servers: Map(1) {
-      'localhost:27017' => ServerDescription {
-        address: 'localhost:27017',
-        type: 'Unknown',
-        hosts: [],
-        passives: [],
-        arbiters: [],
-        tags: {},
-        minWireVersion: 0,
-        maxWireVersion: 0,
-        roundTripTime: -1,
-        minRoundTripTime: 0,
-        lastUpdateTime: 307836030,
-        lastWriteDate: 0,
-        error: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
-            at Socket.<anonymous> (/Users/stephanelkhoury/Documents/GitHub/harmonix/backend/node_modules/mongodb/lib/cmap/connect.js:285:44)
-            at Object.onceWrapper (node:events:629:26)
-            at Socket.emit (node:events:514:28)
-            at emitErrorNT (node:internal/streams/destroy:151:8)
-            at emitErrorCloseNT (node:internal/streams/destroy:116:3)
-            at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
-          errorLabelSet: Set(1) { 'ResetPool' },
-          beforeHandshake: false,
-          [cause]: AggregateError
-              at internalConnectMultiple (node:net:1082:18)
-              at afterConnectMultiple (node:net:1533:5) {
-            code: 'ECONNREFUSED',
-            [errors]: [Array]
-          }
-        },
-        topologyVersion: null,
-        setName: null,
-        setVersion: null,
-        electionId: null,
-        logicalSessionTimeoutMinutes: null,
-        maxMessageSizeBytes: null,
-        maxWriteBatchSize: null,
-        maxBsonObjectSize: null,
-        primary: null,
-        me: null,
-        '$clusterTime': null,
-        iscryptd: false
-      }
-    },
-    stale: false,
-    compatible: true,
-    heartbeatFrequencyMS: 10000,
-    localThresholdMS: 15,
-    setName: null,
-    maxElectionId: null,
-    maxSetVersion: null,
-    commonWireVersion: 0,
-    logicalSessionTimeoutMinutes: null
-  },
-  code: undefined
+Error: listen EADDRINUSE: address already in use :::5001
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at Server.listen (node:net:1887:7)
+    at file:///Users/stephanelkhoury/Documents/GitHub/harmonix/backend/server.js:305:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:194:25)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1778:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 5001
 }
 
 Node.js v18.17.0

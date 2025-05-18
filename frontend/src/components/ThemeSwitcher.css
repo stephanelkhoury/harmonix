@@ -1,0 +1,143 @@
+/* ThemeSwitcher.css */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: rgba(11, 38, 68, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ACB5BD;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 125, 173, 0.3);
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(15, 162, 220, 0.3);
+}
+
+.theme-toggle-btn.dark {
+  background: rgba(11, 38, 68, 0.8);
+  color: #FFC107;
+}
+
+.theme-toggle-btn.light {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0FA2DC;
+  border-color: rgba(15, 162, 220, 0.3);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Light theme styles */
+.light-theme {
+  --bg-gradient-start: #f0f4f8;
+  --bg-gradient-end: #e1e8ed;
+  --text-color: #2c3e50;
+  --text-muted: #546e7a;
+  --accent-color: #0FA2DC;
+  --secondary-accent: #3B7DAD;
+  --highlight-color: #FFC107;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(15, 162, 220, 0.2);
+  --section-bg: rgba(240, 244, 248, 0.8);
+}
+
+/* Apply light theme styles */
+body.light-theme .home-container {
+  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-color);
+}
+
+body.light-theme .floating-element {
+  background: linear-gradient(135deg, rgba(15, 162, 220, 0.1) 0%, rgba(140, 148, 241, 0.1) 100%);
+  border: 1px solid rgba(15, 162, 220, 0.2);
+  color: var(--accent-color);
+}
+
+body.light-theme .section-title,
+body.light-theme .feature-card h3,
+body.light-theme .step-card h3 {
+  color: var(--accent-color);
+}
+
+body.light-theme .hero-description,
+body.light-theme .feature-card p,
+body.light-theme .step-card p,
+body.light-theme .testimonial-content {
+  color: var(--text-muted);
+}
+
+body.light-theme .action-container,
+body.light-theme .step-card,
+body.light-theme .feature-card,
+body.light-theme .testimonial-card,
+body.light-theme .faq-item,
+body.light-theme .chord-visualizer {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .upload-box,
+body.light-theme .record-section {
+  background: rgba(240, 244, 248, 0.9);
+  border-color: var(--card-border);
+}
+
+body.light-theme .key-benefits,
+body.light-theme .cta-section {
+  background: var(--section-bg);
+}
+
+body.light-theme .mock-chord {
+  background: rgba(15, 162, 220, 0.1);
+  color: var(--text-muted);
+}
+
+body.light-theme .testimonial-content::after {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+body.light-theme .testimonial-meta h3 {
+  color: var(--text-color);
+}
+
+body.light-theme .faq-question h3 {
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .theme-switcher {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .theme-toggle-btn {
+    padding: 6px 12px;
+  }
+  
+  .theme-label {
+    display: none;
+  }
+}
