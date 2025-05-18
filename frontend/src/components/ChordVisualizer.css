@@ -18,7 +18,7 @@
 .visualizer-tab {
   background: rgba(11, 38, 68, 0.8);
   border: 1px solid rgba(59, 125, 173, 0.3);
-  color: #ACB5BD;
+  color: white;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -55,14 +55,15 @@
 }
 
 .chord-selector span {
-  color: #ACB5BD;
+  color: white;
   font-size: 1.1rem;
 }
 
 .chord-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+    display: flex;
+    flex-flow: row;
+    gap: 8px;
+    flex-direction: row;
 }
 
 .chord-button {
@@ -70,7 +71,7 @@
   border: 1px solid rgba(59, 125, 173, 0.3);
   border-radius: 5px;
   padding: 8px 12px;
-  color: #ACB5BD;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: bold;
@@ -236,7 +237,7 @@
 }
 
 .chord-info p {
-  color: #ACB5BD;
+  color: white;
 }
 
 @media (max-width: 768px) {

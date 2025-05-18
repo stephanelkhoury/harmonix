@@ -9,11 +9,12 @@ import WaveSurfer from 'wavesurfer.js';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
-const PORT = 5001;
+const PORT = process.env.PORT || 5002;
 
 // Middleware for parsing JSON
 app.use(express.json());

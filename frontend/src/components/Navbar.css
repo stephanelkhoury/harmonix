@@ -104,7 +104,7 @@
 
 .account-dropdown a, .account-dropdown-reactbs a {
   text-decoration: none;
-  color: #ACB5BD;
+  color: white;
   padding: 10px 15px;
   transition: all 0.3s;
   border-radius: 4px;
@@ -126,7 +126,7 @@
 }
 
 .navbar-custom .nav-link {
-  color: #ACB5BD !important;
+  color: white !important;
   font-weight: 500;
   transition: color 0.3s ease;
   margin: 0 10px;

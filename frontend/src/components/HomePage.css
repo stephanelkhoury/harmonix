@@ -200,7 +200,7 @@
   max-width: 800px;
   width: 90%;
   line-height: 1.6;
-  color: #ACB5BD;
+  color: white;
 }
 
 .action-container {
@@ -263,7 +263,7 @@
 .upload-box p {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: #ACB5BD;
+  color: white;
 }
 
 .separator {
@@ -271,7 +271,7 @@
   align-items: center;
   width: 100%;
   margin: 20px 0;
-  color: #ACB5BD;
+  color: white;
 }
 
 .separator hr {
@@ -343,7 +343,7 @@
 }
 
 .analyze-button:disabled {
-  background: #ACB5BD;
+  background: white;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -426,7 +426,7 @@
 }
 
 .step-card p {
-  color: #ACB5BD;
+  color: white;
   margin: 10px 0 20px;
   line-height: 1.6;
 }
@@ -514,7 +514,7 @@
 }
 
 .feature-card p {
-  color: #ACB5BD;
+  color: white;
   line-height: 1.6;
 }
 
@@ -575,7 +575,7 @@
 }
 
 .benefit-item span {
-  color: #ACB5BD;
+  color: white;
   font-size: 1.1rem;
 }
 
@@ -661,7 +661,7 @@
   font-size: 1.3rem;
   font-weight: bold;
   background: rgba(59, 125, 173, 0.2);
-  color: #ACB5BD;
+  color: white;
   border: 1px solid rgba(59, 125, 173, 0.3);
   transition: all 0.3s ease;
 }
@@ -704,7 +704,7 @@
 
 .testimonials-subtitle {
   font-size: 1.2rem;
-  color: #ACB5BD;
+  color: white;
   margin-bottom: 40px;
   max-width: 800px;
   margin-left: auto;
@@ -777,7 +777,7 @@
 }
 
 .testimonial-content {
-  color: #ACB5BD;
+  color: white;
   line-height: 1.6;
   margin-bottom: 15px;
   flex: 1;
@@ -851,7 +851,7 @@
 
 .cta-section p {
   font-size: 1.2rem;
-  color: #ACB5BD;
+  color: white;
   margin-bottom: 30px;
 }
 
@@ -903,7 +903,7 @@
 
 .section-subtitle {
   font-size: 1.2rem;
-  color: #ACB5BD;
+  color: white;
   margin: 0 auto 40px;
   max-width: 800px;
 }

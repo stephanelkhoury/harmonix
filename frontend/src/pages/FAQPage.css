@@ -97,7 +97,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
-  color: #ACB5BD; /* Cool Gray */
+  color: white; /* Cool Gray */
 }
 
 .faq-item.open .faq-answer {
