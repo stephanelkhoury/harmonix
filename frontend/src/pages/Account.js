@@ -90,7 +90,7 @@ function Account() {
 
         <div className="account-actions">
           <button className="account-btn">Edit Profile</button>
-          <button className="account-btn">Change Password</button>
+          <button className="account-btn" onClick={() => window.location.href = '/account/security'}>Account Security</button>
         </div>
       </div>
     </div>

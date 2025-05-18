@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaRegHandshake, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './About.css';
 
-const About = () => {
+const NewAbout = () => {
     return (
         <div className="about-page">
             {/* 1. Hero Section */}
@@ -401,4 +401,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default NewAbout;

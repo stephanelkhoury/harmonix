@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import authUtils from '../utils/authUtils';
 import './Signup.css';
 
-function Signup() {
+function Signup({ setIsAuthenticated }) {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -21,6 +21,7 @@ function Signup() {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const countryOptions = countryList().getData();
@@ -36,17 +37,52 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
+    
+    // Validate passwords match
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-    try {
-      await axios.post('http://localhost:5001/signup', formData);
-      setSuccess('Signup successful! You can now log in.');
-      setTimeout(() => navigate('/login'), 2000);
-    } catch (err) {
-      setError('Signup failed. Please try again.');
+    
+    // Client-side password validation
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
     }
+    
+    if (!/\d/.test(formData.password)) {
+      setError('Password must include at least one number');
+      return;
+    }
+    
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
+      setError('Password must include at least one special character');
+      return;
+    }
+    
+    // Remove confirmPassword as the server doesn't need it
+    const dataToSend = {...formData};
+    delete dataToSend.confirmPassword;
+    
+    setLoading(true);
+    const result = await authUtils.signup(dataToSend);
+    
+    if (result.success) {
+      setSuccess('Signup successful! Logging you in...');
+      
+      // If setIsAuthenticated prop is provided, update auth state
+      if (setIsAuthenticated) {
+        setIsAuthenticated(true);
+      }
+      
+      setTimeout(() => navigate('/'), 1500); // Navigate to home page
+    } else {
+      setError(result.error || 'Signup failed. Please try again.');
+    }
+    
+    setLoading(false);
   };
 
   return (
@@ -131,6 +167,9 @@ function Signup() {
                   onChange={handleChange}
                   required
                 />
+                <small className="form-text text-muted">
+                  Password must be at least 6 characters and include a number and special character.
+                </small>
               </div>
               <div className="form-group">
                 <label>Confirm Password:</label>
@@ -169,7 +208,9 @@ function Signup() {
             </div>
             {error && <p className="error-message">{error}</p>}
             {success && <p className="success-message">{success}</p>}
-            <button type="submit">Sign Up</button>
+            <button type="submit" disabled={loading}>
+              {loading ? 'Creating account...' : 'Sign Up'}
+            </button>
           </form>
         </div>
       </div>

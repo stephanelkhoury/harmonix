@@ -121,15 +121,15 @@ else
   echo -e "${GREEN}✓ Backend dependencies installed successfully${NC}"
 fi
 
-# Start the backend service
+# Start the backend service using our robust server manager
 echo -e "\n${BLUE}Starting backend service...${NC}"
-npm start > ../backend.log 2>&1 &
-BACKEND_PID=$!
-sleep 2
-if ps -p $BACKEND_PID > /dev/null; then
-  echo -e "${GREEN}✓ Backend service started on port 5001 (PID: $BACKEND_PID)${NC}"
+$HARMONIX_DIR/../scripts/server_manager.sh restart
+
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}✓ Backend service started and validated successfully${NC}"
 else
-  echo -e "${RED}Failed to start Backend service. Check backend.log for details.${NC}"
+  echo -e "${RED}Failed to start Backend service. Check server.log for details.${NC}"
+  echo -e "${YELLOW}Attempting to continue startup process...${NC}"
 fi
 cd "$HARMONIX_DIR"
 

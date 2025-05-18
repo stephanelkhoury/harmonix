@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import authUtils from '../utils/authUtils';
 import './Login.css';
 
 function Login({ setIsAuthenticated }) {
@@ -9,31 +9,44 @@ function Login({ setIsAuthenticated }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const [successMessage, setSuccessMessage] = useState('');
+  
+  useEffect(() => {
+    // Check for query params
+    const queryParams = new URLSearchParams(location.search);
+    
+    // Handle expired session
+    if (queryParams.get('expired') === 'true') {
+      setError('Your session has expired. Please log in again.');
+    }
+    
+    // Handle successful password reset
+    if (queryParams.get('reset') === 'success') {
+      setSuccessMessage('Your password has been reset successfully. Please log in with your new password.');
+    }
+  }, [location]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
     
-    try {
-      const response = await axios.post('http://localhost:5001/login', { username, password });
-      
-      // Store auth token
-      localStorage.setItem('token', response.data.token);
-      
-      // Store user data if available
-      if (response.data.user) {
-        localStorage.setItem('user', JSON.stringify(response.data.user));
-      }
-      
+    const result = await authUtils.login(username, password);
+    
+    if (result.success) {
       setIsAuthenticated(true);
-      setLoading(false);
       navigate('/');
-    } catch (err) {
-      console.error('Login error:', err);
-      setError(err.response?.data?.error || 'Invalid username or password');
-      setLoading(false);
+    } else {
+      if (result.status === 401) {
+        setError('Invalid username or password');
+      } else {
+        setError(result.error || 'Login failed. Please try again later.');
+      }
     }
+    
+    setLoading(false);
   };
 
   return (
@@ -67,9 +80,10 @@ function Login({ setIsAuthenticated }) {
               <label>
                 <input type="checkbox" /> Remember me
               </label>
-              <a href="#">Forgot your password?</a>
+              <a href="/reset-password-request">Forgot your password?</a>
             </div>
             {error && <p className="error-message">{error}</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
             <button type="submit" className="login-button" disabled={loading}>
               {loading ? 'Logging in...' : 'Log In'}
             </button>

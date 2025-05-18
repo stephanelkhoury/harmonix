@@ -120,6 +120,24 @@
   text-decoration: underline;
 }
 
+.error-message {
+  color: #d32f2f;
+  background-color: #fdecea;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #388e3c;
+  background-color: #edf7ed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
 .login-right {
   flex: 1;
   background: url('../assets/images/harmonix-logo-03.png') no-repeat center center/cover;

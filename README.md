@@ -12,9 +12,57 @@ A web application that analyzes MP3 files to detect musical chords and keys usin
 
 ## Running Locally
 
-### Option 1: Using the Unified Startup Script (Recommended)
+### Option 1: Using the Split Terminal Launcher (Recommended for Development)
 
-We've created a unified startup script that detects your operating system and runs the appropriate version:
+For development, the split terminal launcher creates separate terminal windows for each service, making debugging and monitoring easier:
+
+```bash
+# Make the script executable (only needed once)
+chmod +x start_harmonix_split_terminals.sh
+
+# Run Harmonix with each service in a separate, named terminal
+./start_harmonix_split_terminals.sh
+```
+
+This script:
+1. Creates separate, named terminal windows for each service:
+   - Python Service (port 8000)
+   - Server (port 4000)
+   - Backend (port 5001)
+   - Frontend (port 3000)
+   - Frontend Alt (port 3001)
+2. Shows real-time logs in each terminal window
+3. Makes debugging individual services easier
+
+**Command Line Options:**
+```bash
+# Show help and available options
+./start_harmonix_split_terminals.sh --help
+
+# Skip dependency installation for faster startup (after first run)
+./start_harmonix_split_terminals.sh --skip-install
+
+# Don't automatically open browser
+./start_harmonix_split_terminals.sh --no-browser
+```
+
+**Note:** The script detects your OS (macOS, Linux, Windows) and uses the appropriate terminal commands. See [detailed documentation](docs/SPLIT_TERMINAL_SETUP.md) for more information.
+
+**macOS Users:** For the best experience on macOS, use our optimized launcher:
+
+```bash
+# Make the script executable (only needed once)
+chmod +x run_harmonix_mac.sh
+
+# Run with optimal terminal settings for macOS
+./run_harmonix_mac.sh
+```
+
+This automatically detects if you have iTerm2 installed (recommended) and uses the optimal terminal settings.
+
+### Option 2: Using the Unified Startup Script
+
+We've also created a unified startup script that detects your operating system and runs all services in a single window:
 
 ```bash
 # Make the script executable (only needed once)
@@ -30,13 +78,13 @@ If the unified script doesn't work for you, you can use these platform-specific 
 
 **For macOS/Linux:**
 ```bash
-chmod +x harmonix-start.sh
-./harmonix-start.sh
+chmod +x scripts/harmonix-start.sh
+./scripts/harmonix-start.sh
 ```
 
 **For Windows:**
 ```
-windows-start.bat
+scripts/windows-start.bat
 ```
 
 This script:

@@ -123,6 +123,6 @@
 }
 
 .cta-button:hover {
-  background: #3B7DAD; /* Secondary */
-  color: #0fa2dc; /* Text Light */
+  background: rgb(60, 157, 253); /* Secondary */
+  color: #ffffff; /* Text Light */
 }
