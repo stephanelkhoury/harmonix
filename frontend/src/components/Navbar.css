@@ -25,7 +25,7 @@
 .burger-menu .line {
   width: 25px;
   height: 3px;
-  background-color: #0fa2dc; /* Text Light */
+  background-color: white; /* Changed to white */
   transition: all 0.3s ease;
 }
 
@@ -80,6 +80,16 @@
 
 .navbar-account {
   position: relative;
+}
+
+.navbar-account .account-icon {
+  color: #0fa2dc; /* Text Light */
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-account .account-icon:hover {
+  color: #0DA1C0; /* Primary */
 }
 
 .account-logo {
@@ -140,10 +150,29 @@
   font-weight: bold;
 }
 
+/* Style for the navbar toggle button */
+.navbar-toggler {
+  width: auto !important;
+  border: none !important;
+  padding: 0.25rem;
+}
+
+/* Make sure the logo and toggle button are on the same line */
+.navbar-custom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Change burger icon color to white */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row; /* Change to row to keep items on same line */
+    align-items: center;
   }
 
   .burger-menu {
@@ -169,5 +198,11 @@
   .social-icons {
     justify-content: center;
     margin-top: 1rem;
+  }
+  
+  /* Ensure navbar-brand and toggler are on same line */
+  .navbar-brand, .navbar-toggler {
+    display: inline-flex;
+    align-items: center;
   }
 }

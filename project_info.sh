@@ -1,1 +1,1 @@
-/Users/stephanelkhoury/Documents/GitHub/harmonix/scripts/project_structure.sh
+scripts/project_structure.sh

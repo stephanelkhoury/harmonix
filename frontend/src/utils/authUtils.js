@@ -1,11 +1,14 @@
 // Utils for managing authentication
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:5002';
+const SERVER_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
 
 export const authUtils = {
   // Initialize auth from localStorage
   initializeAuth: () => {
+    // Set baseURL globally for all axios requests
+    axios.defaults.baseURL = SERVER_URL;
+    
     const token = localStorage.getItem('token');
     if (token) {
       setAuthHeader(token);
@@ -17,7 +20,12 @@ export const authUtils = {
   // Login user and store token
   login: async (username, password) => {
     try {
-      const response = await axios.post(`${SERVER_URL}/login`, { username, password });
+      // Set baseURL if it hasn't been set
+      if (!axios.defaults.baseURL) {
+        axios.defaults.baseURL = SERVER_URL;
+      }
+      
+      const response = await axios.post(`/login`, { username, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         if (response.data.user) {
@@ -39,7 +47,7 @@ export const authUtils = {
   // Refresh token explicitly (used by SessionTimer)
   refreshToken: async (token) => {
     try {
-      const response = await axios.post(`${SERVER_URL}/refresh-token`, { token });
+      const response = await axios.post(`/refresh-token`, { token });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         setAuthHeader(response.data.token);
@@ -58,7 +66,7 @@ export const authUtils = {
   // Register new user
   signup: async (userData) => {
     try {
-      const response = await axios.post(`${SERVER_URL}/signup`, userData);
+      const response = await axios.post(`/signup`, userData);
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         if (response.data.user) {
@@ -90,6 +98,62 @@ export const authUtils = {
     return !!localStorage.getItem('token');
   },
   
+  // Check if user is an admin - enhanced to check token if user data is inconsistent
+  isAdmin: () => {
+    // First check user object in localStorage
+    const userData = localStorage.getItem('user');
+    let isAdminInUserData = false;
+    
+    if (userData) {
+      try {
+        const user = JSON.parse(userData);
+        isAdminInUserData = user.isAdmin === true;
+        
+        // If user data says we're admin, return true immediately
+        if (isAdminInUserData) {
+          return true;
+        }
+      } catch (e) {
+        console.error('Error parsing user data:', e);
+      }
+    }
+    
+    // If user data doesn't indicate admin status, check the JWT token directly
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return false;
+      
+      // Decode the token to check admin status
+      const base64Url = token.split('.')[1];
+      if (!base64Url) return false;
+      
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      
+      const tokenData = JSON.parse(jsonPayload);
+      const isAdminInToken = tokenData.isAdmin === true;
+      
+      // If token indicates admin status but user data doesn't, fix user data
+      if (isAdminInToken && !isAdminInUserData && userData) {
+        try {
+          const user = JSON.parse(userData);
+          user.isAdmin = true;
+          localStorage.setItem('user', JSON.stringify(user));
+          console.log('Admin status fixed in localStorage based on token data');
+        } catch (e) {
+          console.error('Error updating user data with admin status:', e);
+        }
+      }
+      
+      return isAdminInToken;
+    } catch (e) {
+      console.error('Error checking token for admin status:', e);
+      return false;
+    }
+  },
+  
   // Get user data
   getUserData: () => {
     const userData = localStorage.getItem('user');
@@ -99,7 +163,7 @@ export const authUtils = {
   // Get user's active sessions
   getUserSessions: async () => {
     try {
-      const response = await axios.get(`${SERVER_URL}/user/sessions`);
+      const response = await axios.get(`/user/sessions`);
       return { success: true, data: response.data };
     } catch (error) {
       return { 
@@ -113,7 +177,7 @@ export const authUtils = {
   // Track new session
   trackSession: async (deviceInfo) => {
     try {
-      const response = await axios.post(`${SERVER_URL}/user/session`, { 
+      const response = await axios.post(`/user/session`, { 
         device: deviceInfo || getBrowserInfo() 
       });
       localStorage.setItem('sessionId', response.data.sessionId);
@@ -130,7 +194,7 @@ export const authUtils = {
   // End specific session
   terminateSession: async (sessionId) => {
     try {
-      const response = await axios.delete(`${SERVER_URL}/user/session/${sessionId}`);
+      const response = await axios.delete(`/user/session/${sessionId}`);
       return { success: true, data: response.data };
     } catch (error) {
       return { 
@@ -149,7 +213,7 @@ export const authUtils = {
         return { success: false, error: 'No current session ID found' };
       }
       
-      const response = await axios.delete(`${SERVER_URL}/user/sessions/all-except-current`, {
+      const response = await axios.delete(`/user/sessions/all-except-current`, {
         data: { currentSessionId }
       });
       return { success: true, data: response.data };
@@ -217,7 +281,7 @@ axios.interceptors.response.use(
         }
         
         // Attempt to refresh the token
-        const response = await axios.post(`${SERVER_URL}/refresh-token`, { token: currentToken });
+        const response = await axios.post(`/refresh-token`, { token: currentToken });
         
         if (response.data.token) {
           // Store new token

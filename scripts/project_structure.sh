@@ -25,12 +25,18 @@ echo "${YELLOW}└── server/${NC}          - File upload server"
 echo 
 
 echo "${BOLD}Support Directories:${NC}"
-echo "${YELLOW}├── config/${NC}          - Configuration templates"
+echo "${YELLOW}├── admin/${NC}           - Admin tools and fixes"
+echo "${YELLOW}├── config/${NC}          - Configuration and environment files"
+echo "${YELLOW}│   └── templates/${NC}   - Environment file templates"
 echo "${YELLOW}├── docs/${NC}            - Documentation files"
 echo "${YELLOW}├── logs/${NC}            - Application log files"
 echo "${YELLOW}├── samples/${NC}         - Sample MP3 files for testing"
-echo "${YELLOW}├── scripts/${NC}         - Utility and startup scripts"
-echo "${YELLOW}├── tests/${NC}           - Test scripts"
+echo "${YELLOW}├── scripts/${NC}         - Scripts and utilities"
+echo "${YELLOW}│   ├── admin/${NC}       - Admin-related scripts"
+echo "${YELLOW}│   ├── setup/${NC}       - Setup and startup scripts"
+echo "${YELLOW}│   ├── tests/${NC}       - Test scripts"
+echo "${YELLOW}│   └── utils/${NC}       - Utility scripts"
+echo "${YELLOW}├── tests/${NC}           - Integration tests"
 echo "${YELLOW}└── uploads/${NC}         - Temporary file storage"
 echo 
 

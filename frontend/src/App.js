@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import authUtils from './utils/authUtils';
+import { authUtils } from './utils/authUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './components/HomePage';
 import AudioProcessingPage from './components/AudioProcessingPage';
@@ -26,9 +26,11 @@ function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     
     useEffect(() => {
-        // Initialize authentication state using our utility
-        const isAuth = authUtils.initializeAuth();
-        setIsAuthenticated(isAuth);
+        // Initialize axios default baseURL and auth state
+        authUtils.initializeAuth();
+        // Check if token exists to set auth state
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token);
     }, []);
 
     // Initialize session tracking when user is authenticated

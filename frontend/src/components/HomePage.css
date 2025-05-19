@@ -343,7 +343,7 @@
 }
 
 .analyze-button:disabled {
-  background: white;
+  background: rgb(116, 0, 0);
   cursor: not-allowed;
   transform: none;
   box-shadow: none;

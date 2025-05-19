@@ -65,8 +65,10 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                   <SessionTimer onExpiringSoon={handleTokenExpiringSoon} />
                 </div>
               )}
-              <div className="navbar-account position-relative">
-                <FaUserCircle size={24} style={{ cursor: 'pointer' }} onClick={() => setShowAccount(!showAccount)} />
+              <div className="navbar-account position-relative me-3">
+                <a href="#" className="account-icon" onClick={(e) => {e.preventDefault(); setShowAccount(!showAccount);}}>
+                  <FaUserCircle />
+                </a>
                 {showAccount && (
                   <div className="account-dropdown-reactbs">
                     {isAuthenticated ? (
@@ -83,7 +85,7 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                   </div>
                 )}
               </div>
-              <div className="social-icons ms-3">
+              <div className="social-icons">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>

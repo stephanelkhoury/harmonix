@@ -52,12 +52,66 @@ const users = [
     id: 1, 
     username: 'stephanelkhoury', 
     // Store hashed password - this is the hash of 'S@1234'
-    password: '$2a$10$nzGj1xQQlACwJTvntWXw4OHm7Z.rxBn38KnRV5I5nEhUlJ2NOUtE.', 
-    email: 'stephane@example.com', 
+    password: '$2b$10$7ATh1gTje78RnABZnFUrNuh3ayuENoyGmqJCVUylcoovNdqOVyIwi', 
+    email: 'stephane@example.com',
+    role: 'admin',
+    isAdmin: true, 
+    createdAt: new Date() 
+  },
+  { 
+    id: 2, 
+    username: 'admin', 
+    // Store hashed password - this is the hash of 'Admin@123'
+    password: '$2b$10$O2HjatEtrAJJt0YW3Zu0yONgShqdSKn7FQvlddZnsO.cobOiyQ146',
+    email: 'admin@harmonix.ai',
+    role: 'admin',
+    isAdmin: true, 
     createdAt: new Date() 
   }
 ];
 const userActivity = [];
+
+// TEMPORARY DEBUG LOGIN - REMOVE BEFORE PRODUCTION
+app.post('/debug-login', (req, res) => {
+  const { username } = req.body;
+  
+  // Find user by username
+  const user = users.find(u => u.username === username);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  // Generate a JWT token for testing
+  const token = jwt.sign(
+    { 
+      username: user.username, 
+      id: user.id,
+      role: user.role || 'user',
+      isAdmin: user.isAdmin || false
+    }, 
+    SECRET_KEY, 
+    { 
+      expiresIn: JWT_EXPIRY,
+      issuer: 'harmonix-app',
+      subject: user.id.toString()
+    }
+  );
+  
+  console.log(`DEBUG LOGIN: Generated token for user ${username}`);
+  
+  return res.json({ 
+    token,
+    user: {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role || 'user',
+      isAdmin: user.isAdmin || false
+    },
+    message: 'DEBUG LOGIN - DO NOT USE IN PRODUCTION'
+  });
+});
 
 // Login endpoint
 app.post('/login', async (req, res) => {
@@ -71,16 +125,30 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid username or password' });
     }
     
+    // Debug info - remove in production
+    console.log(`Login attempt for user: ${username}`);
+    console.log(`Password from request: ${password}`);
+    console.log(`Stored password (first few chars): ${user.password.substring(0, 10)}...`);
+    
     // Compare password with stored hash
     const validPassword = await bcrypt.compare(password, user.password);
     
+    // Log result of password comparison
+    console.log(`Password validation result: ${validPassword}`);
+    
     if (!validPassword) {
+      console.log(`Failed login attempt for user: ${username}`);
       return res.status(401).json({ error: 'Invalid username or password' });
     }
     
     // Generate a JWT token with better options
     const token = jwt.sign(
-      { username: user.username, id: user.id }, 
+      { 
+        username: user.username, 
+        id: user.id,
+        role: user.role || 'user',
+        isAdmin: user.isAdmin || false
+      }, 
       SECRET_KEY, 
       { 
         expiresIn: JWT_EXPIRY,
@@ -97,7 +165,9 @@ app.post('/login', async (req, res) => {
       user: {
         id: user.id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        role: user.role || 'user',
+        isAdmin: user.isAdmin || false
       }
     });
   } catch (error) {
@@ -168,6 +238,8 @@ app.post('/signup', async (req, res) => {
       dateOfBirth: dateOfBirth || null,
       gender: gender || null,
       country: country || null,
+      role: 'user',
+      isAdmin: false,
       createdAt: new Date()
     };
     
@@ -245,6 +317,72 @@ function authenticateToken(req, res, next) {
     return res.status(500).json({ error: 'Authentication failed due to server error' });
   }
 }
+
+// Middleware to check if user is admin
+function checkAdmin(req, res, next) {
+  if (!req.user) {
+    console.error(`[${new Date().toISOString()}] Admin access denied - No user in request`);
+    return res.status(401).json({ error: 'Authentication required. Please login first.' });
+  }
+  
+  if (!req.user.isAdmin) {
+    console.error(`[${new Date().toISOString()}] Admin access attempt by unauthorized user: ${req.user.username} (id: ${req.user.id})`);
+    // Track failed admin access attempt
+    userActivity.push({ 
+      username: req.user.username, 
+      action: 'admin_access_denied', 
+      timestamp: new Date(),
+      ip: req.ip,
+      path: req.originalUrl
+    });
+    return res.status(403).json({ 
+      error: 'Access denied. Admin privileges required.', 
+      message: 'Your account does not have administrative permissions. Please contact support if you believe this is an error.' 
+    });
+  }
+  
+  // Log successful admin access
+  console.log(`[${new Date().toISOString()}] Admin access by: ${req.user.username} (id: ${req.user.id}), path: ${req.originalUrl}`);
+  next();
+}
+
+// Admin routes
+app.get('/api/admin/users', authenticateToken, checkAdmin, (req, res) => {
+  try {
+    // Track admin activity
+    userActivity.push({ 
+      username: req.user.username, 
+      action: 'admin_view_users', 
+      timestamp: new Date(),
+      ip: req.ip
+    });
+    
+    // Return all users with sensitive data removed
+    const safeUsers = users.map(user => ({
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role || 'user',
+      isAdmin: user.isAdmin || false,
+      createdAt: user.createdAt,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      // Add metadata about when user was last active
+      lastActivity: userActivity
+        .filter(act => act.username === user.username)
+        .sort((a, b) => b.timestamp - a.timestamp)[0]?.timestamp || null
+    }));
+    
+    console.log(`[${new Date().toISOString()}] Admin ${req.user.username} retrieved ${safeUsers.length} users`);
+    res.status(200).json(safeUsers);
+  } catch (error) {
+    console.error(`[${new Date().toISOString()}] Error fetching admin users:`, error);
+    res.status(500).json({ 
+      error: 'Failed to retrieve users',
+      message: 'An unexpected error occurred while fetching user data.' 
+    });
+  }
+});
 
 // Token refresh endpoint
 app.post('/refresh-token', (req, res) => {

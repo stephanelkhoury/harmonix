@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Admin Login Fix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        .button-secondary {
+            background-color: #6b7280;
+        }
+        .button-secondary:hover {
+            background-color: #4b5563;
+        }
+        .button-danger {
+            background-color: #dc2626;
+        }
+        .button-danger:hover {
+            background-color: #b91c1c;
+        }
+        pre {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .message {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d1fae5;
+            color: #064e3b;
+            border-left: 4px solid #10b981;
+        }
+        .error {
+            background-color: #fee2e2;
+            color: #7f1d1d;
+            border-left: 4px solid #ef4444;
+        }
+        .info {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border-left: 4px solid #3b82f6;
+        }
+        .warning {
+            background-color: #fef3c7;
+            color: #92400e;
+            border-left: 4px solid #f59e0b;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
+        }
+        .tab.active {
+            background-color: #4f46e5;
+            color: white;
+            border-bottom: none;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+        .action-group {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .result-panel {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛠️ Harmonix Advanced Admin Login Fix</h1>
+        <p>This tool provides advanced diagnostics and fixes for admin dashboard access issues.</p>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="diagnostics">Diagnostics</div>
+            <div class="tab" data-tab="token">Token Fix</div>
+            <div class="tab" data-tab="axios">Axios Fix</div>
+            <div class="tab" data-tab="test">Test API</div>
+        </div>
+        
+        <!-- Diagnostics Tab -->
+        <div class="tab-content active" id="diagnostics">
+            <fieldset>
+                <legend>Current Authentication State</legend>
+                <div class="action-group">
+                    <button id="checkTokenButton">Check Token Status</button>
+                    <button id="checkLocalStorageButton">Check localStorage</button>
+                    <button id="checkAxiosButton">Check Axios Headers</button>
+                </div>
+                <div id="diagnosticsResult" class="result-panel"></div>
+            </fieldset>
+        </div>
+        
+        <!-- Token Fix Tab -->
+        <div class="tab-content" id="token">
+            <fieldset>
+                <legend>Authentication Token Fix</legend>
+                <div class="action-group">
+                    <button id="getDebugTokenButton">Get Debug Admin Token</button>
+                    <button id="clearTokenButton" class="button-danger">Clear Auth Data</button>
+                </div>
+                <div id="tokenResult" class="result-panel"></div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Manual Login</legend>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" value="admin">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" value="adminpass">
+                </div>
+                <div class="action-group">
+                    <button id="manualLoginButton">Login Manually</button>
+                </div>
+                <div id="manualLoginResult" class="result-panel"></div>
+            </fieldset>
+        </div>
+        
+        <!-- Axios Fix Tab -->
+        <div class="tab-content" id="axios">
+            <fieldset>
+                <legend>Axios Headers Fix</legend>
+                <div class="action-group">
+                    <button id="fixAxiosHeadersButton">Fix Axios Headers</button>
+                    <button id="testAxiosHeadersButton">Test Headers</button>
+                </div>
+                <div id="axiosResult" class="result-panel"></div>
+            </fieldset>
+        </div>
+        
+        <!-- Test API Tab -->
+        <div class="tab-content" id="test">
+            <fieldset>
+                <legend>API Access Tests</legend>
+                <div class="form-group">
+                    <label for="serverUrl">Server URL:</label>
+                    <input type="text" id="serverUrl" value="http://localhost:5001">
+                </div>
+                <div class="action-group">
+                    <button id="testApiButton">Test Admin API</button>
+                    <button id="testNormalButton">Test Normal API</button>
+                </div>
+                <div id="apiTestResult" class="result-panel"></div>
+            </fieldset>
+        </div>
+    </div>
+    
+    <script>
+        // Server URL - adjust if needed
+        const DEFAULT_SERVER_URL = 'http://localhost:5001';
+        
+        // Function to switch tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Remove active class from tabs
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to the clicked tab
+                tab.classList.add('active');
+                
+                // Show the corresponding content
+                const tabId = tab.dataset.tab;
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Function to decode JWT token
+        function decodeJWT(token) {
+            try {
+                const base64Url = token.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                
+                return JSON.parse(jsonPayload);
+            } catch (e) {
+                console.error('Error decoding token:', e);
+                return null;
+            }
+        }
+        
+        // Diagnostics Functions
+        document.getElementById('checkTokenButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('diagnosticsResult');
+            const token = localStorage.getItem('token');
+            
+            if (!token) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ No token found</h3>
+                        <p>There is no authentication token in localStorage.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const decodedToken = decodeJWT(token);
+            let html = `
+                <div class="message info">
+                    <h3>Token Information:</h3>
+                `;
+                
+            if (decodedToken) {
+                const expiryDate = new Date(decodedToken.exp * 1000);
+                const isExpired = expiryDate < new Date();
+                
+                html += `
+                    <p><strong>Valid JWT Structure:</strong> ✅</p>
+                    <p><strong>Username:</strong> ${decodedToken.username || 'Not found'}</p>
+                    <p><strong>User ID:</strong> ${decodedToken.id || 'Not found'}</p>
+                    <p><strong>Role:</strong> ${decodedToken.role || 'Not found'}</p>
+                    <p><strong>Is Admin:</strong> ${decodedToken.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    <p><strong>Expiry:</strong> ${expiryDate.toLocaleString()} ${isExpired ? '❌ EXPIRED' : '✅ Valid'}</p>
+                    <p><strong>Issuer:</strong> ${decodedToken.iss || 'Not found'}</p>
+                `;
+            } else {
+                html += `<p><strong>Error:</strong> ❌ Invalid token format - could not decode</p>`;
+            }
+            
+            html += `</div>
+                <h3>Raw Token:</h3>
+                <pre>${token}</pre>
+            `;
+            
+            resultDiv.innerHTML = html;
+        });
+        
+        document.getElementById('checkLocalStorageButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('diagnosticsResult');
+            const token = localStorage.getItem('token');
+            const userData = localStorage.getItem('user');
+            
+            let html = `<div class="message info"><h3>localStorage Contents:</h3>`;
+            
+            // Check token
+            if (token) {
+                html += `<p><strong>Token:</strong> ✅ Present (${token.substring(0, 15)}...)</p>`;
+            } else {
+                html += `<p><strong>Token:</strong> ❌ Not found</p>`;
+            }
+            
+            // Check user data
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    html += `
+                        <p><strong>User Data:</strong> ✅ Present</p>
+                        <p><strong>Username:</strong> ${user.username || 'Not found'}</p>
+                        <p><strong>User ID:</strong> ${user.id || 'Not found'}</p>
+                        <p><strong>Email:</strong> ${user.email || 'Not found'}</p>
+                        <p><strong>Role:</strong> ${user.role || 'Not found'}</p>
+                        <p><strong>Is Admin:</strong> ${user.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    `;
+                } catch (e) {
+                    html += `<p><strong>User Data:</strong> ❌ Invalid format</p>`;
+                }
+            } else {
+                html += `<p><strong>User Data:</strong> ❌ Not found</p>`;
+            }
+            
+            // Check other localStorage items
+            html += `<p><strong>Other Items:</strong></p><ul>`;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key !== 'token' && key !== 'user') {
+                    const value = localStorage.getItem(key);
+                    html += `<li>${key}: ${value.length > 30 ? value.substring(0, 30) + '...' : value}</li>`;
+                }
+            }
+            html += `</ul></div>`;
+            
+            resultDiv.innerHTML = html;
+        });
+        
+        document.getElementById('checkAxiosButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('diagnosticsResult');
+            resultDiv.innerHTML = `
+                <div class="message warning">
+                    <h3>⚠️ Cannot directly access Axios headers</h3>
+                    <p>Axios headers cannot be directly accessed from this diagnostic page.</p>
+                    <p>Use the "Fix Axios Headers" option in the Axios Fix tab which will attempt to set the Authorization header based on your current token.</p>
+                </div>
+            `;
+        });
+        
+        // Token Fix Functions
+        document.getElementById('getDebugTokenButton').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('tokenResult');
+            resultDiv.innerHTML = '<p>Requesting admin token via debug login...</p>';
+            
+            try {
+                // Get server URL from input
+                const serverUrl = document.getElementById('serverUrl').value || DEFAULT_SERVER_URL;
+                
+                // Use debug login endpoint to get admin token
+                const response = await fetch(`${serverUrl}/debug-login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: 'admin' })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.token && data.user) {
+                    // Store the token and user data
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Attempt to set Axios header through window
+                    try {
+                        if (window.setAxiosAuthHeader) {
+                            window.setAxiosAuthHeader(data.token);
+                        }
+                    } catch (e) {
+                        console.error('Could not set Axios auth header:', e);
+                    }
+                    
+                    resultDiv.innerHTML = `
+                        <div class="message success">
+                            <h3>✅ Success! Debug admin token obtained</h3>
+                            <p>Token and user data have been stored in localStorage.</p>
+                        </div>
+                        <h3>Token Data:</h3>
+                        <pre>${JSON.stringify(decodeJWT(data.token), null, 2)}</pre>
+                        <h3>User Data:</h3>
+                        <pre>${JSON.stringify(data.user, null, 2)}</pre>
+                    `;
+                } else {
+                    throw new Error('Invalid response format. Token or user data missing.');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ Error obtaining admin token</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+                console.error('Debug login error:', error);
+            }
+        });
+        
+        document.getElementById('clearTokenButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('tokenResult');
+            
+            // Clear all auth data from localStorage
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            localStorage.removeItem('sessionId');
+            
+            resultDiv.innerHTML = `
+                <div class="message success">
+                    <h3>✅ Authentication data cleared</h3>
+                    <p>All authentication data has been removed from localStorage.</p>
+                </div>
+            `;
+        });
+        
+        document.getElementById('manualLoginButton').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('manualLoginResult');
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ Missing credentials</h3>
+                        <p>Please enter both username and password.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            resultDiv.innerHTML = '<p>Attempting to login...</p>';
+            
+            try {
+                // Get server URL from input
+                const serverUrl = document.getElementById('serverUrl').value || DEFAULT_SERVER_URL;
+                
+                // Attempt to login
+                const response = await fetch(`${serverUrl}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || `Server returned ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.token) {
+                    // Store the token and user data
+                    localStorage.setItem('token', data.token);
+                    if (data.user) {
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                    }
+                    
+                    const tokenData = decodeJWT(data.token);
+                    const isAdmin = tokenData && tokenData.isAdmin === true;
+                    
+                    resultDiv.innerHTML = `
+                        <div class="message success">
+                            <h3>✅ Login successful</h3>
+                            <p>You are now logged in as ${username}.</p>
+                            <p><strong>Admin Status:</strong> ${isAdmin ? '✅ Yes' : '❌ No'}</p>
+                        </div>
+                        <h3>Token Data:</h3>
+                        <pre>${JSON.stringify(tokenData, null, 2)}</pre>
+                    `;
+                } else {
+                    throw new Error('Invalid response format. Token missing.');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ Login failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+                console.error('Login error:', error);
+            }
+        });
+        
+        // Axios Fix Functions
+        document.getElementById('fixAxiosHeadersButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('axiosResult');
+            const token = localStorage.getItem('token');
+            
+            if (!token) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ No token available</h3>
+                        <p>There is no token in localStorage to set in the headers.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Create a global function that the frontend app can use
+            window.setAxiosAuthHeader = function(token) {
+                if (window.axios) {
+                    window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                    return true;
+                }
+                return false;
+            };
+            
+            // Create a script element for injection
+            const script = document.createElement('script');
+            script.innerHTML = `
+                // This script attempts to fix Axios headers
+                try {
+                    const token = "${token}";
+                    if (window.axios) {
+                        window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                        console.log('INJECT: Axios Authorization header set successfully');
+                        document.getElementById('axiosHeaderStatus').textContent = '✅ Axios headers set successfully';
+                    } else {
+                        console.error('INJECT: Axios not found in window');
+                        document.getElementById('axiosHeaderStatus').textContent = '❌ Axios not found in window';
+                    }
+                } catch (e) {
+                    console.error('INJECT: Error setting Axios headers:', e);
+                    document.getElementById('axiosHeaderStatus').textContent = '❌ Error: ' + e.message;
+                }
+            `;
+            
+            resultDiv.innerHTML = `
+                <div class="message info">
+                    <h3>Axios Header Fix Attempt</h3>
+                    <p>Attempting to set Authorization header for Axios...</p>
+                    <p id="axiosHeaderStatus">⏳ Processing...</p>
+                    <p>A global function <code>window.setAxiosAuthHeader(token)</code> has been created. You can use this in your browser console to manually set the header.</p>
+                    <p>Try running this in your console:</p>
+                    <pre>window.setAxiosAuthHeader("${token}");</pre>
+                </div>
+            `;
+            
+            // Add the script to the page
+            document.body.appendChild(script);
+        });
+        
+        document.getElementById('testAxiosHeadersButton').addEventListener('click', () => {
+            const resultDiv = document.getElementById('axiosResult');
+            
+            resultDiv.innerHTML = `
+                <div class="message info">
+                    <h3>Axios Headers Test</h3>
+                    <p>To test if Axios headers are correctly set, please run this code in your browser console:</p>
+                    <pre>console.log('Authorization header:', axios.defaults.headers.common['Authorization']);</pre>
+                    <p>If you see your token prefixed with "Bearer ", the header is set correctly.</p>
+                </div>
+            `;
+        });
+        
+        // API Test Functions
+        document.getElementById('testApiButton').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('apiTestResult');
+            resultDiv.innerHTML = '<p>Testing admin API access...</p>';
+            
+            try {
+                // Get token from localStorage
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('No token found in localStorage');
+                }
+                
+                // Get server URL from input
+                const serverUrl = document.getElementById('serverUrl').value || DEFAULT_SERVER_URL;
+                
+                // Make a request to the admin API endpoint
+                const response = await fetch(`${serverUrl}/api/admin/users`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`API Error (${response.status}): ${errorData.error || response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <div class="message success">
+                        <h3>✅ Admin API access successful</h3>
+                        <p>You were able to access the admin API endpoint.</p>
+                    </div>
+                    <h3>Response Data:</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ Admin API test failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+                console.error('API test error:', error);
+            }
+        });
+        
+        document.getElementById('testNormalButton').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('apiTestResult');
+            resultDiv.innerHTML = '<p>Testing public API access...</p>';
+            
+            try {
+                // Get server URL from input
+                const serverUrl = document.getElementById('serverUrl').value || DEFAULT_SERVER_URL;
+                
+                // Make a request to a public endpoint
+                const response = await fetch(`${serverUrl}/health-check`);
+                
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.text();
+                
+                resultDiv.innerHTML = `
+                    <div class="message success">
+                        <h3>✅ Public API access successful</h3>
+                        <p>The server is responding to public requests.</p>
+                    </div>
+                    <h3>Response:</h3>
+                    <pre>${data}</pre>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="message error">
+                        <h3>❌ Public API test failed</h3>
+                        <p>${error.message}</p>
+                        <p>The server might not be running or the health-check endpoint might not exist.</p>
+                    </div>
+                `;
+                console.error('Public API test error:', error);
+            }
+        });
+    </script>
+    
+    <script>
+        // Create a link to ensure the Axios auth header is set in the main application
+        (function() {
+            try {
+                // Wait for DOM to be ready
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    // Create a link to navigate to the main app with properly set headers
+                    const authFixLink = document.createElement('div');
+                    authFixLink.className = 'container';
+                    authFixLink.innerHTML = `
+                        <h2>🔄 Go to Dashboard</h2>
+                        <p>After fixing the admin login, click below to go to the admin dashboard:</p>
+                        <button id="goDashboardBtn">Go to Admin Dashboard</button>
+                        <p><small>This will attempt to ensure your authorization headers are properly set before navigating.</small></p>
+                    `;
+                    document.body.appendChild(authFixLink);
+                    
+                    // Add event listener
+                    document.getElementById('goDashboardBtn').addEventListener('click', () => {
+                        const token = localStorage.getItem('token');
+                        if (token) {
+                            // Create a function to set the auth header in the target page
+                            const script = `
+                                localStorage.setItem('auth_header_set', 'true');
+                                if (window.axios) {
+                                    window.axios.defaults.headers.common['Authorization'] = 'Bearer ${token}';
+                                    console.log('Dashboard redirect: Auth header set successfully');
+                                }
+                            `;
+                            
+                            // Store the script to be executed in the target page
+                            sessionStorage.setItem('auth_fix_script', script);
+                            
+                            // Navigate to dashboard
+                            window.location.href = '/';
+                        } else {
+                            alert('No authentication token found. Please get a token first using the options in the Token Fix tab.');
+                        }
+                    });
+                });
+            } catch (e) {
+                console.error('Error setting up dashboard link:', e);
+            }
+        })();
+    </script>
+</body>
+</html>

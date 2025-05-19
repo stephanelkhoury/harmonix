@@ -136,8 +136,16 @@ const authenticateToken = (req, res, next) => {
     }
 };
 
+// Middleware to check if user is admin
+const isAdmin = (req, res, next) => {
+    if (!req.user || !req.user.isAdmin) {
+        return res.status(403).send({ error: 'Access denied. Admin privileges required.' });
+    }
+    next();
+};
+
 // Admin route to get all users
-app.get('/api/admin/users', authenticateToken, async (req, res) => {
+app.get('/api/admin/users', authenticateToken, isAdmin, async (req, res) => {
     try {
         const users = await User.find().select('-password');
         res.status(200).send(users);

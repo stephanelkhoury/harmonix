@@ -8,19 +8,24 @@ Harmonix is organized into the following key components:
 
 ```
 harmonix/
-├── backend/         # Node.js Express API
-├── client/          # Legacy React frontend (deprecated)
-├── config/          # Configuration templates
-├── config.js        # Central configuration manager
-├── docs/            # Documentation files
-├── frontend/        # React frontend
-├── logs/            # Log files
-├── python_service/  # Python chord detection service
-├── samples/         # Sample MP3 files for testing
-├── scripts/         # Utility and startup scripts
-├── server/          # Node.js file upload server
-├── tests/           # Test scripts and integration tests
-└── uploads/         # Temporary file storage
+├── admin/          # Admin tools and fixes
+├── backend/        # Node.js Express API
+├── client/         # Legacy React frontend (deprecated)
+├── config/         # Configuration and environment files
+│   └── templates/  # Environment file templates
+├── docs/           # Documentation files
+├── frontend/       # React frontend
+├── logs/           # Application logs
+├── python_service/ # Python chord detection service
+├── samples/        # Sample MP3 files for testing
+├── scripts/        # Utility and startup scripts
+│   ├── admin/      # Admin-related scripts
+│   ├── setup/      # Setup and startup scripts
+│   ├── tests/      # Test scripts
+│   └── utils/      # Utility scripts
+├── server/         # Node.js file upload server
+├── tests/          # Integration tests
+└── uploads/        # Temporary file storage
 ```
 
 ## Directory Description

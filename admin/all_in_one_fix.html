@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Harmonix Admin Access All-In-One Fix</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #4f46e5;
+        }
+        h1 {
+            color: #4f46e5;
+            margin-top: 0;
+        }
+        .steps {
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #3b82f6;
+        }
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        .button-icon {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        .success {
+            background-color: #d1fae5;
+            border-left: 4px solid #10b981;
+            color: #065f46;
+            display: block;
+        }
+        .error {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            color: #b91c1c;
+            display: block;
+        }
+        .steps li {
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛠️ Harmonix Admin Access All-In-One Fix</h1>
+        <p>This tool applies a comprehensive fix to resolve the "Access denied" error when trying to access the admin dashboard.</p>
+        
+        <div class="steps">
+            <h3>What This Fix Does:</h3>
+            <ol>
+                <li>Verifies admin privileges in your token</li>
+                <li>Fixes inconsistencies between token and localStorage data</li>
+                <li>Forces all API requests to use the correct server port (5001)</li>
+                <li>Ensures proper Authorization headers are set for all requests</li>
+                <li>Adds error monitoring to help diagnose any remaining issues</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h3>Fix Status</h3>
+            <button id="applyFixButton">
+                <span class="button-icon">⚡</span> Apply Fix Now
+            </button>
+            <button id="testAdminButton" style="margin-left: 10px; background-color: #6366f1;">
+                <span class="button-icon">🧪</span> Test Admin API
+            </button>
+            <div id="resultSuccess" class="result">
+                <h4>✅ Fix Applied Successfully</h4>
+                <p>The admin access fix has been successfully applied. You should now be able to access the admin dashboard.</p>
+                <p><a href="/" style="color: #059669; font-weight: bold;">Go to Dashboard →</a></p>
+            </div>
+            <div id="resultError" class="result">
+                <h4>❌ Fix Failed</h4>
+                <p id="errorMessage">An error occurred while applying the fix.</p>
+                <p>Please check the browser console (F12) for more details.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Diagnostic Information</h3>
+            <button id="showTokenButton" style="background-color: #6b7280;">
+                <span class="button-icon">🔍</span> Show Token Details
+            </button>
+            <button id="checkLocalStorageButton" style="margin-left: 10px; background-color: #6b7280;">
+                <span class="button-icon">📦</span> Check localStorage
+            </button>
+            <div id="diagnosticResult"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Hide result panels initially
+        document.getElementById('resultSuccess').style.display = 'none';
+        document.getElementById('resultError').style.display = 'none';
+        
+        // ADMIN ACCESS FIX CODE
+        function fixAdminAccess() {
+          console.log('🛠️ Starting admin access fix...');
+          
+          // Step 1: Check token existence
+          const token = localStorage.getItem('token');
+          if (!token) {
+            console.error('❌ No authentication token found in localStorage');
+            alert('No authentication token found. Please login first.');
+            return false;
+          }
+
+          // Step 2: Parse and validate token
+          let tokenData;
+          try {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+              return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            
+            tokenData = JSON.parse(jsonPayload);
+            console.log('✅ Token decoded successfully:', tokenData);
+          } catch (e) {
+            console.error('❌ Failed to decode token:', e);
+            alert('Invalid token format. Please login again.');
+            return false;
+          }
+          
+          // Step 3: Check if token contains admin privilege
+          if (tokenData.isAdmin !== true) {
+            console.error('❌ Token does not have admin privileges. isAdmin =', tokenData.isAdmin);
+            alert('Your account does not have admin privileges according to your token.');
+            return false;
+          }
+          
+          // Step 4: Check & fix user data in localStorage
+          let userData;
+          try {
+            const userString = localStorage.getItem('user');
+            if (userString) {
+              userData = JSON.parse(userString);
+              if (!userData.isAdmin) {
+                console.log('🔄 Fixing user data in localStorage - adding admin status');
+                userData.isAdmin = true;
+                localStorage.setItem('user', JSON.stringify(userData));
+              } else {
+                console.log('✅ User data already has admin status');
+              }
+            } else {
+              console.log('⚠️ No user data in localStorage, creating based on token');
+              userData = {
+                id: tokenData.id,
+                username: tokenData.username,
+                role: tokenData.role || 'admin',
+                isAdmin: true
+              };
+              localStorage.setItem('user', JSON.stringify(userData));
+            }
+          } catch (e) {
+            console.error('❌ Failed to process user data:', e);
+          }
+          
+          // Step 5: Create global function to fix axios headers in the main app
+          window.setAxiosAuthHeader = function(token) {
+            if (window.axios) {
+              window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+              
+              // Force consistent backend URL
+              window.axios.defaults.baseURL = 'http://localhost:5001';
+              
+              // Add request interceptor to ensure headers are set for each request
+              window.axios.interceptors.request.use(
+                function(config) {
+                  // Ensure Authorization header is included
+                  config.headers['Authorization'] = `Bearer ${token}`;
+                  
+                  // Force correct server URL for all requests
+                  if (config.url.includes('localhost:5002')) {
+                    config.url = config.url.replace('localhost:5002', 'localhost:5001');
+                    console.log('🔄 Redirecting request from port 5002 to 5001:', config.url);
+                  }
+                  
+                  return config;
+                },
+                function(error) {
+                  return Promise.reject(error);
+                }
+              );
+              
+              return true;
+            }
+            return false;
+          };
+          
+          // Step 6: Store in sessionStorage for other pages to use
+          const fixScript = `
+            // Fix admin access issues
+            (function() {
+              const token = "${token}";
+              if (window.axios) {
+                window.axios.defaults.headers.common['Authorization'] = 'Bearer ${token}';
+                window.axios.defaults.baseURL = 'http://localhost:5001';
+                console.log('Admin access fix applied successfully');
+                
+                window.axios.interceptors.request.use(
+                  function(config) {
+                    config.headers['Authorization'] = 'Bearer ${token}';
+                    if (config.url.includes('localhost:5002')) {
+                      config.url = config.url.replace('localhost:5002', 'localhost:5001');
+                    }
+                    return config;
+                  },
+                  function(error) {
+                    return Promise.reject(error);
+                  }
+                );
+              }
+            })();
+          `;
+          
+          sessionStorage.setItem('admin_fix_script', fixScript);
+          
+          console.log('✅ Admin access fix completed');
+          return true;
+        }
+        
+        // Function to decode JWT token
+        function decodeJWT(token) {
+            try {
+                const base64Url = token.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                
+                return JSON.parse(jsonPayload);
+            } catch (e) {
+                console.error('Error decoding token:', e);
+                return null;
+            }
+        }
+        
+        // This function makes a direct API request to test admin access
+        async function testAdminAccess() {
+          console.log('🧪 Testing admin API access...');
+          
+          const token = localStorage.getItem('token');
+          if (!token) {
+            console.error('❌ No token available for testing');
+            return false;
+          }
+          
+          try {
+            const response = await fetch('http://localhost:5001/api/admin/users', {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${token}`
+              }
+            });
+            
+            if (!response.ok) {
+              const errorData = await response.json();
+              console.error(`❌ API test failed: ${response.status}`, errorData);
+              return false;
+            }
+            
+            const data = await response.json();
+            console.log('✅ API test successful! Data:', data);
+            return { success: true, data: data };
+          } catch (error) {
+            console.error('❌ API test error:', error);
+            return false;
+          }
+        }
+        
+        
+        // Show token details
+        document.getElementById('showTokenButton').addEventListener('click', () => {
+            const diagnosticResult = document.getElementById('diagnosticResult');
+            const token = localStorage.getItem('token');
+            
+            if (!token) {
+                diagnosticResult.innerHTML = `
+                    <div style="margin-top: 15px; padding: 15px; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; border-radius: 6px;">
+                        <h4>No Token Found</h4>
+                        <p>There is no authentication token in localStorage. You need to login first.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const decodedToken = decodeJWT(token);
+            
+            if (!decodedToken) {
+                diagnosticResult.innerHTML = `
+                    <div style="margin-top: 15px; padding: 15px; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; border-radius: 6px;">
+                        <h4>Invalid Token</h4>
+                        <p>The token could not be decoded. It may be invalid or corrupted.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const expiryDate = new Date(decodedToken.exp * 1000);
+            const isExpired = expiryDate < new Date();
+            
+            diagnosticResult.innerHTML = `
+                <div style="margin-top: 15px; padding: 15px; background-color: #dbeafe; border-left: 4px solid #3b82f6; color: #1e40af; border-radius: 6px;">
+                    <h4>Token Information</h4>
+                    <p><strong>Username:</strong> ${decodedToken.username || 'Not found'}</p>
+                    <p><strong>User ID:</strong> ${decodedToken.id || 'Not found'}</p>
+                    <p><strong>Role:</strong> ${decodedToken.role || 'Not found'}</p>
+                    <p><strong>Is Admin:</strong> ${decodedToken.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    <p><strong>Expiry:</strong> ${expiryDate.toLocaleString()} ${isExpired ? '❌ EXPIRED' : '✅ Valid'}</p>
+                    <p><strong>Issuer:</strong> ${decodedToken.iss || 'Not found'}</p>
+                </div>
+                <h4 style="margin-top: 15px;">Raw Token:</h4>
+                <pre>${token}</pre>
+            `;
+        });
+        
+        // Check localStorage
+        document.getElementById('checkLocalStorageButton').addEventListener('click', () => {
+            const diagnosticResult = document.getElementById('diagnosticResult');
+            const token = localStorage.getItem('token');
+            const userData = localStorage.getItem('user');
+            
+            let html = `
+                <div style="margin-top: 15px; padding: 15px; background-color: #dbeafe; border-left: 4px solid #3b82f6; color: #1e40af; border-radius: 6px;">
+                    <h4>localStorage Contents</h4>
+            `;
+            
+            // Check token
+            if (token) {
+                html += `<p><strong>Token:</strong> ✅ Present (${token.substring(0, 20)}...)</p>`;
+            } else {
+                html += `<p><strong>Token:</strong> ❌ Not found</p>`;
+            }
+            
+            // Check user data
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    html += `
+                        <p><strong>User Data:</strong> ✅ Present</p>
+                        <p><strong>Username:</strong> ${user.username || 'Not found'}</p>
+                        <p><strong>User ID:</strong> ${user.id || 'Not found'}</p>
+                        <p><strong>Email:</strong> ${user.email || 'Not found'}</p>
+                        <p><strong>Role:</strong> ${user.role || 'Not found'}</p>
+                        <p><strong>Is Admin:</strong> ${user.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    `;
+                } catch (e) {
+                    html += `<p><strong>User Data:</strong> ❌ Invalid format</p>`;
+                }
+            } else {
+                html += `<p><strong>User Data:</strong> ❌ Not found</p>`;
+            }
+            
+            html += `</div>`;
+            
+            if (userData) {
+                html += `
+                    <h4 style="margin-top: 15px;">User Data:</h4>
+                    <pre>${JSON.stringify(JSON.parse(userData), null, 2)}</pre>
+                `;
+            }
+            
+            diagnosticResult.innerHTML = html;
+        });
+        
+        // Apply fix
+        document.getElementById('applyFixButton').addEventListener('click', () => {
+            const resultSuccess = document.getElementById('resultSuccess');
+            const resultError = document.getElementById('resultError');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            try {
+                const result = fixAdminAccess();
+                if (result) {
+                    resultSuccess.style.display = 'block';
+                    resultError.style.display = 'none';
+                } else {
+                    errorMessage.textContent = 'The fix function returned false.';
+                    resultSuccess.style.display = 'none';
+                    resultError.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error applying fix:', error);
+                errorMessage.textContent = `Error: ${error.message}`;
+                resultSuccess.style.display = 'none';
+                resultError.style.display = 'block';
+            }
+        });
+        
+        // Test admin API
+        document.getElementById('testAdminButton').addEventListener('click', async () => {
+            const diagnosticResult = document.getElementById('diagnosticResult');
+            diagnosticResult.innerHTML = `<p>Testing admin API access...</p>`;
+            
+            const token = localStorage.getItem('token');
+            if (!token) {
+                diagnosticResult.innerHTML = `
+                    <div style="margin-top: 15px; padding: 15px; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; border-radius: 6px;">
+                        <h4>No Token Available</h4>
+                        <p>There is no authentication token in localStorage. You need to login first.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            try {
+                const result = await testAdminAccess();
+                
+                if (!result) {
+                    diagnosticResult.innerHTML = `
+                        <div style="margin-top: 15px; padding: 15px; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; border-radius: 6px;">
+                            <h4>API Test Failed</h4>
+                            <p>The admin API access test failed. See console for details.</p>
+                            <p>Make sure the server is running on port 5001.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                if (result.success && result.data) {
+                    diagnosticResult.innerHTML = `
+                        <div style="margin-top: 15px; padding: 15px; background-color: #d1fae5; border-left: 4px solid #10b981; color: #065f46; border-radius: 6px;">
+                            <h4>API Test Successful! ✅</h4>
+                            <p>You successfully accessed the admin API endpoint. The admin dashboard should work correctly.</p>
+                        </div>
+                        <h4 style="margin-top: 15px;">Response Data:</h4>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                diagnosticResult.innerHTML = `
+                    <div style="margin-top: 15px; padding: 15px; background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; border-radius: 6px;">
+                        <h4>API Test Error</h4>
+                        <p>${error.message}</p>
+                        <p>This could be due to network issues or CORS problems.</p>
+                    </div>
+                `;
+                console.error('API test error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

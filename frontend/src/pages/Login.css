@@ -51,6 +51,9 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  color: #000000;
+  background-color: #ffffff;
+  outline: none;
 }
 
 .form-options {

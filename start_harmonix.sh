@@ -1,1 +1,1 @@
-scripts/start_harmonix.sh
+scripts/setup/start_harmonix.sh

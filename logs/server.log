@@ -1,0 +1,22 @@
+
+> start
+> node index.js
+
+Python service URL: http://localhost:8000
+Server is running on port 5001
+Login attempt for user: admin
+Password from request: Admin@123
+Stored password (first few chars): $2b$10$O2H...
+Password validation result: true
+[2025-05-19T12:51:31.779Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-19T12:51:31.779Z] Admin admin retrieved 2 users
+Login attempt for user: stephanelkhoury
+Password from request: S@1234
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: true
+[2025-05-19T12:51:31.855Z] Admin access by: stephanelkhoury (id: 1), path: /api/admin/users
+[2025-05-19T12:51:31.855Z] Admin stephanelkhoury retrieved 2 users
+DEBUG LOGIN: Generated token for user admin
+DEBUG LOGIN: Generated token for user admin
+DEBUG LOGIN: Generated token for user admin
+DEBUG LOGIN: Generated token for user admin
