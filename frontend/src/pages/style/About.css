@@ -100,7 +100,7 @@
 }
 
 .vision-image {
-    background-image: url('../assets/images/harmonix-logo-02.png');
+    background-image: url('../../assets/images/harmonix-logo-02.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -113,7 +113,7 @@
 }
 
 .story-image {
-    background-image: url('../assets/images/harmonix-logo-03.png');
+    background-image: url('../../assets/images/harmonix-logo-03.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -292,11 +292,6 @@
     background-color: #e6b500;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact section */
-.contact-section {
-    background-color: #3b7dad;
 }
 
 .contact-info {

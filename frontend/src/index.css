@@ -165,7 +165,12 @@ body {
 
 /* CTA Section */
 .cta-section {
-    background: #333;
+    background-image: url('../src/assets/images/gif-chords.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.751);
     color: white;
     text-align: center;
     padding: 4rem 2rem;

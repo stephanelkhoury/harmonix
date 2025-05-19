@@ -62,7 +62,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../assets/images/welcome/bg-pattern.svg') center center;
+  background: url('../../assets/images/welcome/bg-pattern.svg') center center;
   background-size: 400px;
   opacity: 0.1;
 }

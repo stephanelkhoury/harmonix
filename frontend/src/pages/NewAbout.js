@@ -350,53 +350,6 @@ const NewAbout = () => {
                     </Row>
                 </Container>
             </section>
-
-            {/* 10. Contact Section */}
-            <section className="contact-section">
-                <Container>
-                    <Row>
-                        <Col md={6}>
-                            <h2>Contact Us</h2>
-                            <p>
-                                Have questions about Harmonix? We'd love to hear from you! Reach out to our team 
-                                through any of the channels below.
-                            </p>
-                            <div className="contact-info">
-                                <p>
-                                    <strong>Email:</strong> info@harmonix.ai
-                                </p>
-                                <p>
-                                    <strong>Office:</strong> Beirut, Lebanon
-                                </p>
-                            </div>
-                        </Col>
-                        <Col md={6}>
-                            <h3>Connect With Us</h3>
-                            <div className="social-links">
-                                <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                                    <FaFacebookF /> Facebook
-                                </a>
-                                <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                                    <FaTwitter /> Twitter
-                                </a>
-                                <a href="https://instagram.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                                    <FaInstagram /> Instagram
-                                </a>
-                                <a href="https://youtube.com" className="social-link" target="_blank" rel="noopener noreferrer">
-                                    <FaYoutube /> YouTube
-                                </a>
-                            </div>
-                            <div className="newsletter-signup mt-4">
-                                <h4>Subscribe to our newsletter</h4>
-                                <div className="input-group">
-                                    <input type="email" className="form-control" placeholder="Your email address" />
-                                    <Button variant="primary">Subscribe</Button>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </section>
         </div>
     );
 };

@@ -2067,3 +2067,241 @@ ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??rul
 Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
 
 webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 7 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 6 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 5 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 4 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 3 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './assets/images/cta-background.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css) 7:36-98
+Module not found: Error: Can't resolve './assets/images/cta-background.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+
+webpack compiled with 1 error
+Compiling...
+Compiled with warnings.
+
+(168:5) from "postcss-url-parser" plugin: Unable to find uri in 'background-clip: url('') no-repeat center center/cover'
+Code:
+  background-clip: url('') no-repeat center center/cover
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css)
+Module Warning (from ./node_modules/css-loader/dist/cjs.js):
+(168:5) from "postcss-url-parser" plugin: Unable to find uri in 'background-clip: url('') no-repeat center center/cover'
+
+Code:
+  background-clip: url('') no-repeat center center/cover
+
+webpack compiled with 1 warning
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve 'frontend/src/assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css) 7:36-135
+Module not found: Error: Can't resolve 'frontend/src/assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css) 7:36-125
+Module not found: Error: Can't resolve '../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css) 7:36-128
+Module not found: Error: Can't resolve '../../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../../../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+ERROR in ./src/index.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css) 7:36-131
+Module not found: Error: Can't resolve '../../../assets/images/building blocks of piano GIF by Soundfly.gif' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
