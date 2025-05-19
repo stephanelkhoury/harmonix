@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
-import './Footer.css';
+import './style/Footer.css';
 
 function Footer() {
     const [email, setEmail] = useState('');

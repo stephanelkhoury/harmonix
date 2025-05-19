@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
                                 <br />
                                 Email: privacy@harmonix.ai
                                 <br />
-                                Address: Montreal, Canada
+                                Address: Beirut, Lebanon
                             </p>
 
                             <p className="text-muted mt-4">Last Updated: May 18, 2025</p>

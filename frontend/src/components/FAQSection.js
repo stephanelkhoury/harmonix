@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FAQSection.css';
+import './style/FAQSection.css';
 
 function FAQSection() {
   // Track which FAQ items are expanded

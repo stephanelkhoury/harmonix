@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaUserCircle } from 'react-icons/fa
 import authUtils from '../utils/authUtils';
 import SessionTimer from './SessionTimer';
 import logo from '../assets/images/harmonix-logo-02.png';
-import './Navbar.css';
+import './style/Navbar.css';
 
 function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
   const [showAccount, setShowAccount] = useState(false);

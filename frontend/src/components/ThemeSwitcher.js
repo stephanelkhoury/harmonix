@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ThemeSwitcher.css';
+import './style/ThemeSwitcher.css';
 
 function ThemeSwitcher() {
   const [isDarkMode, setIsDarkMode] = useState(true);

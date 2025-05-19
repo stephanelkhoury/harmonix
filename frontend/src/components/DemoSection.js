@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './DemoSection.css';
+import './style/DemoSection.css';
 
 function DemoSection() {
   const [videoPlaying, setVideoPlaying] = useState(false);

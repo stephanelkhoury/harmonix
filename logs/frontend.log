@@ -1252,3 +1252,818 @@ webpack compiled successfully
 Compiling...
 Compiled successfully!
 webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Syntax error: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/styles/custom.css Unclosed block (4:1)
+  2 | 
+  3 | /* H2 styling customization */
+> 4 | .h2, h2 {
+    | ^
+  5 |   font-size: calc(1.275rem + 0.7vw); /* Slightly smaller than Bootstrap default */
+ERROR in ./src/styles/custom.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/styles/custom.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(4:1) /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/styles/custom.css Unclosed block
+
+  2 | 
+  3 | /* H2 styling customization */
+> 4 | .h2, h2 {
+    | ^
+  5 |   font-size: calc(1.275rem + 0.7vw); /* Slightly smaller than Bootstrap default */
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 7 errors
+Failed to compile.
+
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/AudioRecorder.js 6:0-29
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/FAQSection.js 6:0-26
+Module not found: Error: Can't resolve './FAQSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Footer.js 9:0-22
+Module not found: Error: Can't resolve './Footer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/HomePage.js 13:0-24
+Module not found: Error: Can't resolve './HomePage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/SessionTimer.js 7:0-28
+Module not found: Error: Can't resolve './SessionTimer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 17 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/AudioRecorder.js 6:0-29
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Footer.js 9:0-22
+Module not found: Error: Can't resolve './Footer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/HomePage.js 13:0-24
+Module not found: Error: Can't resolve './HomePage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/SessionTimer.js 7:0-28
+Module not found: Error: Can't resolve './SessionTimer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 16 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/AudioRecorder.js 6:0-29
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/HomePage.js 13:0-24
+Module not found: Error: Can't resolve './HomePage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/SessionTimer.js 7:0-28
+Module not found: Error: Can't resolve './SessionTimer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 15 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/AudioRecorder.js 6:0-29
+Module not found: Error: Can't resolve './AudioRecorder.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/HomePage.js 13:0-24
+Module not found: Error: Can't resolve './HomePage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 14 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/HomePage.js 13:0-24
+Module not found: Error: Can't resolve './HomePage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 13 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/Navbar.js 12:0-22
+Module not found: Error: Can't resolve './Navbar.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 14 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ChordVisualizer.js 6:0-31
+Module not found: Error: Can't resolve './ChordVisualizer.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 13 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/ChordDisplay.js 5:0-28
+Module not found: Error: Can't resolve './ChordDisplay.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 12 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/components/ThemeSwitcher.js 6:0-29
+Module not found: Error: Can't resolve './ThemeSwitcher.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 11 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+ERROR in ./src/components/DemoSection.js 6:0-27
+Module not found: Error: Can't resolve './DemoSection.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components'
+
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 10 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Dashboard.js 9:0-25
+Module not found: Error: Can't resolve './Dashboard.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 10 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/FAQ.js 6:0-23
+Module not found: Error: Can't resolve './FAQPage.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+webpack compiled with 9 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Account.js 8:0-23
+Module not found: Error: Can't resolve './Account.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 9 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Login.js 8:0-21
+Module not found: Error: Can't resolve './Login.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Contact.js 6:0-23
+Module not found: Error: Can't resolve './Contact.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/About.js 7:0-21
+Module not found: Error: Can't resolve './About.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 7 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Signup.js 10:0-22
+Module not found: Error: Can't resolve './Signup.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+ERROR in ./src/components/style/DemoSection.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/DemoSection.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 5:36-103
+Module not found: Error: Can't resolve '../assets/images/welcome/bg-pattern.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/components/style/HomePage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/components/style/HomePage.css) 6:36-100
+Module not found: Error: Can't resolve '../assets/images/welcome/wave-bg.svg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-02.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/About.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/About.css) 6:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/FAQPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/FAQPage.css) 5:36-95
+Module not found: Error: Can't resolve '../assets/images/hero-image.jpg' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+ERROR in ./src/pages/style/Login.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./src/pages/style/Login.css) 5:36-101
+Module not found: Error: Can't resolve '../assets/images/harmonix-logo-03.png' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style'
+
+webpack compiled with 8 errors

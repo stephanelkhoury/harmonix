@@ -1,5 +1,5 @@
 import React from 'react';
-import './ChordDisplay.css';
+import './style/ChordDisplay.css';
 
 function ChordDisplay({ chords = [] }) {
     if (!chords || chords.length === 0) {

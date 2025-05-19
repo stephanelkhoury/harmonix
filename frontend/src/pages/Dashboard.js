@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { authUtils } from '../utils/authUtils';
-import './Dashboard.css';
+import './style/Dashboard.css';
 
 function Dashboard() {
   const navigate = useNavigate();

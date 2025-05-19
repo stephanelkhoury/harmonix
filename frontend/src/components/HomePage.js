@@ -6,7 +6,7 @@ import DemoSection from './DemoSection';
 import FAQSection from './FAQSection';
 import ThemeSwitcher from './ThemeSwitcher';
 import { setupScrollAnimations } from '../utils/scrollAnimations';
-import './HomePage.css';
+import './style/HomePage.css';
 
 function HomePage() {
     const [audioBlob, setAudioBlob] = useState(null);

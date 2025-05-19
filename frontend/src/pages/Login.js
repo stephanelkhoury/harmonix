@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import authUtils from '../utils/authUtils';
-import './Login.css';
+import './style/Login.css';
 
 function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState('');

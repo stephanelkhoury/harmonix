@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Contact.css';
+import './style/Contact.css';
 // Import hero image
 import contactHeroImg from '../assets/images/contact-us-herp.png';
 // Import necessary icons

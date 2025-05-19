@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import './SessionTimer.css';
+import './style/SessionTimer.css';
 
 function SessionTimer({ onExpiringSoon }) {
   const [timeRemaining, setTimeRemaining] = useState(null);

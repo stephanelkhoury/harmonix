@@ -1,0 +1,64 @@
+/* Custom CSS to override Bootstrap defaults */
+
+/* H2 styling customization */
+.h2, h2 {
+  font-size: calc(1.275rem + 0.7vw); /* Slightly smaller than Bootstrap default */
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: var(--text-light); /* Using our custom variable */
+}
+
+@media (min-width: 1200px) {
+  .h2, h2 {
+    font-size: 1.75rem; /* Larger size on bigger screens */
+  }
+}
+
+/* Card customization */
+.card {
+  --bs-card-bg: rgba(11, 28, 48, 0.7); /* Semi-transparent dark background matching app theme */
+  color: var(--text-light); /* Text color to match app theme */
+  border: 1px solid rgba(15, 162, 220, 0.2); /* Subtle border with primary color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 1.5rem; /* More padding than default */
+}
+
+/* Card title (usually h5) styling */
+.card-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Card text styling */
+.card-text {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Custom button styling when inside cards */
+.card .btn {
+  margin-top: 0.5rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.card .btn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.02);
+}

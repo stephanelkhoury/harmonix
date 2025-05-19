@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ChordVisualizer.css';
+import './style/ChordVisualizer.css';
 
 function ChordVisualizer() {
   const [activeChord, setActiveChord] = useState('C');

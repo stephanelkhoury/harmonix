@@ -91,7 +91,7 @@ const Refund = () => {
                                 <br />
                                 Email: billing@harmonix.ai
                                 <br />
-                                Address: Montreal, Canada
+                                Address: Beirut, Lebanon
                                 <br />
                                 Support Hours: Monday-Friday, 9am-5pm EST
                             </p>

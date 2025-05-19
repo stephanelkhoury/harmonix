@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import authUtils from '../utils/authUtils';
-import './Signup.css';
+import './style/Signup.css';
 
 function Signup({ setIsAuthenticated }) {
   const [formData, setFormData] = useState({

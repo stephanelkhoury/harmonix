@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { authUtils } from './utils/authUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/custom.css'; /* Custom styles to override Bootstrap */
 import HomePage from './components/HomePage';
 import AudioProcessingPage from './components/AudioProcessingPage';
 import Analyze from './pages/Analyze';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaUser } from 'react-icons/fa';
-import './Account.css';
+import './style/Account.css';
 
 function Account() {
   const [userData, setUserData] = useState({

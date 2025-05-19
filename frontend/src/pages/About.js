@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaRegHandshake, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import './About.css';
+import './style/About.css';
 
 const About = () => {
     return (
@@ -366,7 +366,7 @@ const About = () => {
                                     <strong>Email:</strong> info@harmonix.ai
                                 </p>
                                 <p>
-                                    <strong>Office:</strong> Montreal, Canada
+                                    <strong>Office:</strong> Beirut, Lebanon
                                 </p>
                             </div>
                         </Col>

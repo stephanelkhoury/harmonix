@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FAQPage.css';
+import './style/FAQPage.css';
 
 const FAQPage = () => {
   const [activeCategory, setActiveCategory] = useState('general');

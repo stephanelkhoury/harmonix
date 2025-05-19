@@ -33,9 +33,21 @@ button {
   --primary-color: #0DA1C0;
   --secondary-color: #3B7DAD;
   --accent-color: #8C94F1;
+  --accent-color-rgb: 140, 148, 241;
+  --accent-light: #adb3f8;
   --dark-base: #0B1C30;
   --text-light: #0fa2dc;
+  --text-dark: #0b4861;
   --cool-gray: white;
+  --background-dark: #0B1C30;
+  --background-gradient: linear-gradient(135deg, #0B1C30, #0D3659);
+  --success-color: #10b981;
+  --error-color: #e53e3e;
+  --input-background: rgba(255, 255, 255, 0.08);
+  --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+  --glow: 0 0 15px rgba(15, 162, 220, 0.3);
 }
 
 /* Placeholder CSS file */
