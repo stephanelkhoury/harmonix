@@ -18,3 +18,1087 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 
 webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token (465:3) (465:3)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token (465:3)
+
+  463 |                       <input 
+  464 |                         type="file" 
+> 465 |    
+      |    ^
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.jsxParseIdentifier (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4575:12)
+    at FlowParserMixin.jsxParseNamespacedName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4582:23)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4658:22)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:77
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:27)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10796:17)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 465:3:  Parsing error: Unexpected token (465:3)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token (560:3) (560:3)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token (560:3)
+
+  558 |                       <input 
+  559 |                         type="file" 
+> 560 |    
+      |    ^
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.jsxParseIdentifier (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4575:12)
+    at FlowParserMixin.jsxParseNamespacedName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4582:23)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4658:22)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:77
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:27)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10796:17)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 560:3:  Parsing error: Unexpected token (560:3)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token (567:3) (567:3)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token (567:3)
+
+  565 |                       <input 
+  566 |                         type="file" 
+> 567 |    
+      |    ^
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.jsxParseIdentifier (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4575:12)
+    at FlowParserMixin.jsxParseNamespacedName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4582:23)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4658:22)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:77
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:27)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10796:17)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 567:3:  Parsing error: Unexpected token (567:3)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token (567:3) (567:3)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token (567:3)
+
+  565 |                       <input 
+  566 |                         type="file" 
+> 567 |    
+      |    ^
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.jsxParseIdentifier (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4575:12)
+    at FlowParserMixin.jsxParseNamespacedName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4582:23)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4658:22)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:77
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:27)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10796:17)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 567:3:  Parsing error: Unexpected token (567:3)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unterminated JSX contents. (582:29) (582:29)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unterminated JSX contents. (582:29)
+
+  580 |                       <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+  581 |                       <FaPaperPlane className={isSubmitting ? 'sending' : ''} />
+> 582 |                     </button> 
+      |                              ^
+  583 |    
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxReadToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4454:20)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4780:12)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3201:13)
+    at FlowParserMixin.nextToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5796:10)
+    at FlowParserMixin.next (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5706:10)
+    at FlowParserMixin.eat (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5710:12)
+    at FlowParserMixin.expect (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6913:15)
+    at FlowParserMixin.jsxParseClosingElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4686:10)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4701:37)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:77
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3022:27)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10796:17)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 582:29:  Parsing error: Unterminated JSX contents. (582:29)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unterminated JSX contents. (588:14) (588:14)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unterminated JSX contents. (588:14)
+
+  586 |             </div>
+  587 |           </div>
+> 588 |         </div> 
+      |               ^
+  589 |    
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxReadToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4454:20)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4780:12)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3201:13)
+    at FlowParserMixin.nextToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5796:10)
+    at FlowParserMixin.next (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5706:10)
+    at FlowParserMixin.eat (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5710:12)
+    at FlowParserMixin.expect (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6913:15)
+    at FlowParserMixin.jsxParseClosingElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4686:10)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4701:37)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 588:14:  Parsing error: Unterminated JSX contents. (588:14)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (615:6) (615:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (615:6)
+
+  613 |           <FaEnvelope />
+  614 |         </button>
+> 615 |       </div>
+      |       ^
+  616 |     </section>
+  617 |   </>
+  618 | ); 
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 615:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (615:6)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (615:6) (615:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (615:6)
+
+  613 |           <FaEnvelope />
+  614 |         </button>
+> 615 |       </div>
+      |       ^
+  616 |     </section>
+  617 |   </>
+  618 | );
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 615:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (615:6)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (666:6) (666:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (666:6)
+
+  664 |           <FaEnvelope />
+  665 |         </button>
+> 666 |       </div>
+      |       ^
+  667 |     </section>
+  668 |   </>
+  669 | );
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 666:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (666:6)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (669:6) (669:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (669:6)
+
+  667 |           <FaEnvelope />
+  668 |         </button>
+> 669 |       </div>
+      |       ^
+  670 |     </section>
+  671 |   </>
+  672 | );
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 669:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (669:6)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (669:6) (669:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (669:6)
+
+  667 |           <FaEnvelope />
+  668 |         </button>
+> 669 |       </div>
+      |       ^
+  670 |     </section>
+  671 |   </>
+  672 | );
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 669:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (669:6)
+
+webpack compiled with 2 errors
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Expected corresponding JSX closing tag for <section>. (669:6) (669:6)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Expected corresponding JSX closing tag for <section>. (669:6)
+
+  667 |           <FaEnvelope />
+  668 |         </button>
+> 669 |       </div>
+      |       ^
+  670 |       </section>
+  671 |   </>
+  672 | );
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4733:16)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.parseReturnStatement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13018:28)
+    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12675:21)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
+    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
+    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
+    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
+    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
+    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 669:6:  Parsing error: Expected corresponding JSX closing tag for <section>. (669:6)
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token, expected "," (450:32) (450:32)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token, expected "," (450:32)
+
+  448 |         className="contact-hero-section"
+  449 |         style={{
+> 450 |           backgroundImage: url(${contactHeroImg}),
+      |                                 ^
+  451 |           height: '85vh'
+  452 |         }}
+  453 |         ref={heroRef}
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.expect (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6914:12)
+    at FlowParserMixin.parseCallExpressionArguments (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11154:14)
+    at FlowParserMixin.parseCoverCallAndAsyncArrowHead (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11097:29)
+    at FlowParserMixin.parseSubscript (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11031:19)
+    at FlowParserMixin.parseSubscript (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3656:18)
+    at FlowParserMixin.parseSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11005:19)
+    at FlowParserMixin.parseSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3622:18)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10996:17)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseObjectProperty (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11868:83)
+    at FlowParserMixin.parseObjPropValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11896:100)
+    at FlowParserMixin.parseObjPropValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3345:26)
+    at FlowParserMixin.parsePropertyDefinition (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11833:17)
+    at FlowParserMixin.parseObjectLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11748:21)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11250:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.jsxParseExpressionContainer (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4638:31)
+    at FlowParserMixin.jsxParseAttributeValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4610:21)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4659:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 450:32:  Parsing error: Unexpected token, expected "," (450:32)
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Contact.js
+Syntax error: Unexpected token (451:22) (451:22)
+ERROR in ./src/pages/Contact.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/Contact.js: Unexpected token (451:22)
+
+  449 |         style={{
+  450 |           backgroundImage: `url(${contactHeroImg})`,
+> 451 |           height: 100%,
+      |                       ^
+  452 |         }}
+  453 |         ref={heroRef}
+  454 |       >
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11358:16)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOpBaseRightExpr (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10897:34)
+    at FlowParserMixin.parseExprOpRightExpr (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10892:21)
+    at FlowParserMixin.parseExprOp (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10858:27)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10819:17)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseObjectProperty (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11868:83)
+    at FlowParserMixin.parseObjPropValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11896:100)
+    at FlowParserMixin.parseObjPropValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3345:26)
+    at FlowParserMixin.parsePropertyDefinition (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11833:17)
+    at FlowParserMixin.parseObjectLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11748:21)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11250:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
+    at FlowParserMixin.jsxParseExpressionContainer (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4638:31)
+    at FlowParserMixin.jsxParseAttributeValue (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4610:21)
+    at FlowParserMixin.jsxParseAttribute (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4659:38)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4673:28)
+    at FlowParserMixin.jsxParseOpeningElementAfterName (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4074:18)
+    at FlowParserMixin.jsxParseOpeningElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4668:17)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4692:33)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+
+ERROR in [eslint] 
+src/pages/Contact.js
+  Line 451:22:  Parsing error: Unexpected token (451:22)
+
+webpack compiled with 2 errors
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
