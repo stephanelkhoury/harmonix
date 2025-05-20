@@ -9,7 +9,7 @@ function ChordDisplay({ chords = [] }) {
         <div className="chord-timeline">
             {chords.map((chord, idx) => (
                 <div className="chord-card" key={idx}>
-                    <span className="chord-label">{typeof chord === 'string' ? chord : chord.name}</span>
+                    <span className="chord-label">{typeof chord === 'string' ? chord : chord.chord}</span>
                     {chord.time && <span className="chord-time">{chord.time}s</span>}
                 </div>
             ))}

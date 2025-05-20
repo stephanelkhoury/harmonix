@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import authUtils from '../utils/authUtils';
+import { authUtils } from '../utils/authUtils';
 import './style/Login.css';
 
 function Login({ setIsAuthenticated }) {

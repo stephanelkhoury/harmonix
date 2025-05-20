@@ -12,7 +12,8 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 // Get Python service URL from environment variables or use default
-const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'http://localhost:8000';
+// Using explicit IPv4 address instead of localhost to avoid IPv6 issues
+const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'http://127.0.0.1:8000';
 console.log(`Python service URL: ${PYTHON_SERVICE_URL}`);
 
 const app = express();
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 5001; // Change to a different port
 
 // Allow CORS so that your client (likely running on a different port) can communicate with the server.
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -675,10 +676,15 @@ app.post('/api/analyze-chords', upload.single('audio'), async (req, res) => {
     tempPath = path.join(__dirname, 'uploads', `${Date.now()}-${req.file.originalname}`);
     fs.writeFileSync(tempPath, req.file.buffer);
 
-    // Forward the file to the Python service
+    // Forward the file to the Python service 
     const form = new FormData();
     form.append('file', fs.createReadStream(tempPath), req.file.originalname);
-    const response = await axios.post(`${PYTHON_SERVICE_URL}/analyze`, form, {
+    
+    // Use explicit IP address to avoid IPv6 issues
+    const pythonServiceUrl = 'http://127.0.0.1:8000';
+    console.log(`Sending request to Python service at: ${pythonServiceUrl}`);
+    
+    const response = await axios.post(`${pythonServiceUrl}/analyze`, form, {
       headers: form.getHeaders(),
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
@@ -729,7 +735,11 @@ app.post('/api/analyze-youtube', async (req, res) => {
     return res.status(400).json({ error: 'No YouTube URL provided.' });
   }
   try {
-    const response = await axios.post(`${PYTHON_SERVICE_URL}/analyze-youtube`, { url });
+    // Use explicit IP address to avoid IPv6 issues
+    const pythonServiceUrl = 'http://127.0.0.1:8000';
+    console.log(`Sending YouTube analysis request to Python service at: ${pythonServiceUrl}`);
+    
+    const response = await axios.post(`${pythonServiceUrl}/analyze-youtube`, { url });
     res.json(response.data);
   } catch (error) {
     console.error('Error analyzing YouTube link:', error);

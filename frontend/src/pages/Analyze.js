@@ -3,14 +3,18 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import ChordDisplay from '../components/ChordDisplay';
 import ControlPanel from '../components/ControlPanel';
+import './style/Analyze.css';
 
 function Analyze() {
     const location = useLocation();
     const { audioBlob } = location.state || {};
     const [chords, setChords] = useState([]);
+    const [songKey, setSongKey] = useState("");
+    const [tempo, setTempo] = useState(0);
     const [loading, setLoading] = useState(false);
     const [youtubeUrl, setYoutubeUrl] = useState("");
     const [error, setError] = useState("");
+    const [fileName, setFileName] = useState("");
     const audioRef = useRef(null);
 
     // Use environment variables or default to localhost
@@ -21,12 +25,21 @@ function Analyze() {
             setLoading(true);
             const formData = new FormData();
             formData.append('audio', audioBlob);
+            
+            // Get the name of the uploaded file if available
+            if (audioBlob.name) {
+                setFileName(audioBlob.name);
+            }
 
             axios.post(`${BACKEND_URL}/api/analyze-chords`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             })
                 .then(response => {
                     setChords(response.data.chords);
+                    // Set additional analysis data
+                    if (response.data.key) setSongKey(response.data.key);
+                    if (response.data.tempo) setTempo(response.data.tempo);
+                    if (response.data.filename) setFileName(response.data.filename);
                 })
                 .catch(err => {
                     console.error('Error analyzing audio:', err);
@@ -60,9 +73,17 @@ function Analyze() {
         setError("");
         setLoading(true);
         setChords([]);
+        setSongKey("");
+        setTempo(0);
+        setFileName("");
         try {
             const response = await axios.post(`${BACKEND_URL}/api/analyze-youtube`, { url: youtubeUrl });
             setChords(response.data.chords);
+            
+            // Set additional analysis data
+            if (response.data.key) setSongKey(response.data.key);
+            if (response.data.tempo) setTempo(response.data.tempo);
+            if (response.data.youtube_url) setFileName("YouTube: " + response.data.youtube_url);
         } catch (err) {
             setError("Failed to analyze YouTube link. Please check the URL and try again.");
         } finally {
@@ -104,7 +125,21 @@ function Analyze() {
                         <p>Analyzing audio, please wait...</p>
                     </div>
                 ) : (
-                    <ChordDisplay chords={chords} />
+                    <>
+                        {(songKey || tempo > 0) && (
+                            <div className="song-info">
+                                {fileName && <div className="file-name"><strong>File:</strong> {fileName}</div>}
+                                <div className="analysis-details">
+                                    {songKey && <span className="song-key"><strong>Key:</strong> {songKey}</span>}
+                                    {tempo > 0 && <span className="song-tempo"><strong>Tempo:</strong> {tempo} BPM</span>}
+                                </div>
+                                <div className="info-note">
+                                    <span className="storage-note">Analysis saved to SongChords folder</span>
+                                </div>
+                            </div>
+                        )}
+                        <ChordDisplay chords={chords} />
+                    </>
                 )}
                 <ControlPanel onPlay={handlePlay} onPause={handlePause} onLoop={handleLoop} />
                 {audioBlob && <audio ref={audioRef} src={URL.createObjectURL(audioBlob)} controls hidden />}

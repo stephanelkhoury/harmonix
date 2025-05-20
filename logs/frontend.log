@@ -2305,3 +2305,64 @@ webpack compiled successfully
 Compiling...
 Compiled successfully!
 webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Analyze.js 10:0-29
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Analyze.js 10:0-29
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Analyze.js 10:0-29
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Analyze.js 10:0-29
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/Analyze.js 10:0-29
+Module not found: Error: Can't resolve './style/Analyze.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Compiling...
+Compiled successfully!
+webpack compiled successfully

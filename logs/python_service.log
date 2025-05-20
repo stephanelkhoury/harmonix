@@ -3,3 +3,33 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 INFO:     127.0.0.1:56375 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62501 - "GET /health HTTP/1.1" 200 OK
+Received file: test_audio.mp3
+File size: 1954212 bytes
+INFO:     127.0.0.1:62532 - "POST /analyze HTTP/1.1" 200 OK
+Received file: test_audio.mp3
+File size: 1954212 bytes
+INFO:     127.0.0.1:62791 - "POST /analyze HTTP/1.1" 200 OK
+[youtube] Extracting URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+[youtube] dQw4w9WgXcQ: Downloading webpage
+[youtube] dQw4w9WgXcQ: Downloading tv client config
+[youtube] dQw4w9WgXcQ: Downloading player 1b376dba-main
+[youtube] dQw4w9WgXcQ: Downloading tv player API JSON
+[youtube] dQw4w9WgXcQ: Downloading ios player API JSON
+[youtube] dQw4w9WgXcQ: Downloading m3u8 information
+[info] dQw4w9WgXcQ: Downloading 1 format(s): 251
+[download] Destination: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmpstg96gwx/audio.webm
+[download]   0.0% of    3.28MiB at  112.78KiB/s ETA 00:29[download]   0.1% of    3.28MiB at  301.39KiB/s ETA 00:11[download]   0.2% of    3.28MiB at  673.86KiB/s ETA 00:04[download]   0.4% of    3.28MiB at    1.36MiB/s ETA 00:02[download]   0.9% of    3.28MiB at  574.90KiB/s ETA 00:05[download]   1.9% of    3.28MiB at  596.82KiB/s ETA 00:05[download]   3.8% of    3.28MiB at  786.92KiB/s ETA 00:04[download]   7.6% of    3.28MiB at    1.08MiB/s ETA 00:02[download]  15.2% of    3.28MiB at    1.49MiB/s ETA 00:01[download]  30.5% of    3.28MiB at    1.94MiB/s ETA 00:01[download]  61.0% of    3.28MiB at    2.00MiB/s ETA 00:00[download] 100.0% of    3.28MiB at    2.27MiB/s ETA 00:00[download] 100% of    3.28MiB in 00:00:01 at 1.98MiB/s   
+ERROR: Postprocessing: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
+INFO:     127.0.0.1:62804 - "POST /analyze-youtube HTTP/1.1" 200 OK
+[youtube] Extracting URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+[youtube] dQw4w9WgXcQ: Downloading webpage
+[youtube] dQw4w9WgXcQ: Downloading tv client config
+[youtube] dQw4w9WgXcQ: Downloading tv player API JSON
+[youtube] dQw4w9WgXcQ: Downloading ios player API JSON
+[youtube] dQw4w9WgXcQ: Downloading m3u8 information
+[info] dQw4w9WgXcQ: Downloading 1 format(s): 251
+[download] Destination: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmpv0cz5fms/audio.webm
+[download]   0.0% of    3.28MiB at   93.58KiB/s ETA 00:35[download]   0.1% of    3.28MiB at  265.86KiB/s ETA 00:12[download]   0.2% of    3.28MiB at  603.71KiB/s ETA 00:05[download]   0.4% of    3.28MiB at    1.24MiB/s ETA 00:02[download]   0.9% of    3.28MiB at  584.10KiB/s ETA 00:05[download]   1.9% of    3.28MiB at  614.96KiB/s ETA 00:05[download]   3.8% of    3.28MiB at  809.74KiB/s ETA 00:03[download]   7.6% of    3.28MiB at  856.86KiB/s ETA 00:03[download]  15.2% of    3.28MiB at  736.81KiB/s ETA 00:03[download]  30.5% of    3.28MiB at  633.58KiB/s ETA 00:03[download]  47.0% of    3.28MiB at  684.32KiB/s ETA 00:02[download]  70.9% of    3.28MiB at  554.08KiB/s ETA 00:01[download]  82.9% of    3.28MiB at  571.28KiB/s ETA 00:01[download] 100.0% of    3.28MiB at  587.24KiB/s ETA 00:00[download] 100% of    3.28MiB in 00:00:05 at 566.48KiB/s 
+ERROR: Postprocessing: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
+INFO:     127.0.0.1:62974 - "POST /analyze-youtube HTTP/1.1" 200 OK

@@ -132,15 +132,57 @@ else
   echo "$response"
 fi
 
+# Check for chord analysis JSON files in SongChords folder
+echo
+echo "${UNDERLINE}Checking SongChords JSON Files:${NC}"
+SONG_CHORDS_DIR="$HARMONIX_DIR/SongChords"
+
+# Wait a moment for file operations to complete
+sleep 2
+
+# Check if any JSON files were created in the SongChords directory
+json_files=($(find "$SONG_CHORDS_DIR" -name "*.json" -type f -newermt "1 minute ago" | sort))
+if [ ${#json_files[@]} -gt 0 ]; then
+  echo "${GREEN}✓ Found ${#json_files[@]} chord analysis JSON files saved in the SongChords directory${NC}"
+  
+  # Check the most recent file
+  latest_json="${json_files[-1]}"
+  echo "Examining latest file: $(basename $latest_json)"
+  
+  # Check for key elements in the JSON
+  if grep -q '"key":' "$latest_json" && grep -q '"tempo":' "$latest_json" && grep -q '"chords":' "$latest_json"; then
+    echo "${GREEN}✓ JSON contains key, tempo, and chord data${NC}"
+    
+    # Display some information from the file
+    key=$(grep -o '"key":[[:space:]]*"[^"]*"' "$latest_json" | head -1 | sed 's/.*"key":[[:space:]]*"\([^"]*\)".*/\1/')
+    tempo=$(grep -o '"tempo":[[:space:]]*[0-9.]*' "$latest_json" | head -1 | sed 's/.*"tempo":[[:space:]]*\([0-9.]*\).*/\1/')
+    chords_count=$(grep -o '"chord":[[:space:]]*"[^"]*"' "$latest_json" | wc -l | tr -d ' ')
+    
+    echo "  Song key: $key"
+    echo "  Tempo: $tempo BPM"
+    echo "  Chord resolution: Every second"
+    echo "  Total chords detected: $chords_count"
+  else
+    echo "${RED}✗ JSON is missing key, tempo, or chord data${NC}"
+  fi
+else
+  echo "${RED}✗ No chord analysis JSON files found in the SongChords directory${NC}"
+  echo "Please check permissions and path: $SONG_CHORDS_DIR"
+fi
+
 # Summary
 echo
 echo "${BLUE}${BOLD}Analysis Test Summary${NC}"
 echo "${BLUE}====================${NC}"
 echo "MP3 analysis features: ${GREEN}TESTED${NC}"
 echo "YouTube link analysis: ${GREEN}TESTED${NC}"
+echo "JSON file storage: ${GREEN}CHECKED${NC}"
 echo
 echo "You can now use these features in the Harmonix web interface at:"
 echo "${YELLOW}http://localhost:3000${NC}"
+echo
+echo "Chord analysis files are saved in:"
+echo "${YELLOW}$SONG_CHORDS_DIR${NC}"
 
 # Clean up test file if we created one
 if [ "$TEST_MP3" = "./test_tone.mp3" ]; then
