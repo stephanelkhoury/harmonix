@@ -54,6 +54,7 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
               <Nav className="me-auto">
                 <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
                 <Nav.Link as={Link} to="/analyze">Chord Analyzer</Nav.Link>
+                <Nav.Link as={Link} to="/tuner">Instrument Tuner</Nav.Link>
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
                 <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
                 <Nav.Link as={Link} to="/faq">FAQ</Nav.Link>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaRegHandshake, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './style/About.css';
+import '../components/style/HomePage.css';
 
 const About = () => {
     return (
@@ -302,9 +303,14 @@ const About = () => {
                                 <div className="testimonial-content">
                                     <p>"Harmonix has completely transformed how I transcribe music. What used to take hours now takes minutes."</p>
                                 </div>
-                                <div className="testimonial-author">
-                                    <strong>Sarah J.</strong><br />
-                                    Music Educator
+                                <div className="d-flex align-items-center">
+                                    <div className="testimonial-avatar">
+                                        <img src={require('../assets/images/avatar/avatar-1.jpg')} alt="Sarah J." />
+                                    </div>
+                                    <div className="testimonial-author">
+                                        <strong>Sarah J.</strong><br />
+                                        Music Educator
+                                    </div>
                                 </div>
                             </div>
                         </Col>
@@ -313,9 +319,14 @@ const About = () => {
                                 <div className="testimonial-content">
                                     <p>"The chord detection accuracy is impressive. I use it constantly while learning new songs and analyzing compositions."</p>
                                 </div>
-                                <div className="testimonial-author">
-                                    <strong>Michael T.</strong><br />
-                                    Professional Guitarist
+                                <div className="d-flex align-items-center">
+                                    <div className="testimonial-avatar">
+                                        <img src={require('../assets/images/avatar/avatar-2.jpg')} alt="Michael T." />
+                                    </div>
+                                    <div className="testimonial-author">
+                                        <strong>Michael T.</strong><br />
+                                        Professional Guitarist
+                                    </div>
                                 </div>
                             </div>
                         </Col>
@@ -324,9 +335,14 @@ const About = () => {
                                 <div className="testimonial-content">
                                     <p>"As a music theory instructor, Harmonix has become an indispensable teaching tool for demonstrating harmonic concepts to students."</p>
                                 </div>
-                                <div className="testimonial-author">
-                                    <strong>David R.</strong><br />
-                                    University Professor
+                                <div className="d-flex align-items-center">
+                                    <div className="testimonial-avatar">
+                                        <img src={require('../assets/images/avatar/avatar-3.jpg')} alt="David R." />
+                                    </div>
+                                    <div className="testimonial-author">
+                                        <strong>David R.</strong><br />
+                                        University Professor
+                                    </div>
                                 </div>
                             </div>
                         </Col>

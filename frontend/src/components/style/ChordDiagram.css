@@ -1,0 +1,186 @@
+.chord-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 0 auto;
+  position: relative;
+  width: 120px;
+  height: 150px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.chord-diagram.full-size {
+  width: 240px;
+  height: 320px;
+  background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.chord-diagram h3.chord-name {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.chord-diagram.full-size h3.chord-name {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.fretboard {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  background-color: transparent;
+}
+
+.chord-diagram.full-size .fretboard {
+  width: 200px;
+  height: 240px;
+}
+
+.nut {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.chord-diagram.full-size .nut {
+  height: 6px;
+}
+
+.fret-numbers {
+  position: absolute;
+  left: -20px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #999;
+  font-size: 12px;
+  padding-top: 12px;
+}
+
+.frets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fret {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.chord-diagram.full-size .fret {
+  height: 2px;
+}
+
+.fret:nth-child(1) { top: 20%; }
+.fret:nth-child(2) { top: 40%; }
+.fret:nth-child(3) { top: 60%; }
+.fret:nth-child(4) { top: 80%; }
+.fret:nth-child(5) { top: 100%; }
+
+.strings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.string {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.5));
+}
+
+.chord-diagram.full-size .string {
+  width: 2px;
+}
+
+.string:nth-child(1) { left: 0%; }
+.string:nth-child(2) { left: 20%; }
+.string:nth-child(3) { left: 40%; }
+.string:nth-child(4) { left: 60%; }
+.string:nth-child(5) { left: 80%; }
+.string:nth-child(6) { left: 100%; }
+
+.finger-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ff5252;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.chord-diagram.full-size .finger-dot {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+
+.open-string {
+  position: absolute;
+  top: -15px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ddd;
+}
+
+.chord-diagram.full-size .open-string {
+  top: -25px;
+  font-size: 20px;
+}
+
+.muted-string {
+  position: absolute;
+  top: -15px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff5252;
+}
+
+.chord-diagram.full-size .muted-string {
+  top: -25px;
+  font-size: 24px;
+}
+
+/* Animation for revealing full diagram */
+@keyframes reveal {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.chord-diagram.full-size {
+  animation: reveal 0.3s ease forwards;
+}

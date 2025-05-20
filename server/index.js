@@ -309,8 +309,15 @@ function authenticateToken(req, res, next) {
         return res.status(403).json({ error: 'User no longer exists', code: 'user_not_found' });
       }
       
-      // Add user info to request
-      req.user = decoded;
+      // Add user info to request - IMPORTANT: Use the complete user data from our system
+      // instead of just the decoded token to ensure we have the correct isAdmin status
+      req.user = {
+        ...decoded,
+        isAdmin: user.isAdmin || false,
+        role: user.role || 'user'
+      };
+      
+      console.log(`Authenticated user: ${req.user.username} (id: ${req.user.id}), isAdmin: ${req.user.isAdmin}`);
       next();
     });
   } catch (error) {
@@ -454,6 +461,31 @@ app.get('/user/sessions', authenticateToken, (req, res) => {
       ipAddress: session.ipAddress,
       lastActive: session.lastActive
     }))
+  });
+});
+
+// Diagnostic endpoint to check authentication and admin status
+app.get('/auth-check', authenticateToken, (req, res) => {
+  const user = users.find(u => u.id === parseInt(req.user.id));
+  
+  res.json({
+    authenticated: true,
+    user: {
+      id: req.user.id,
+      username: req.user.username,
+      isAdmin: req.user.isAdmin || false,
+      role: req.user.role || 'user'
+    },
+    serverUserData: user ? {
+      id: user.id,
+      username: user.username,
+      isAdmin: user.isAdmin || false,
+      role: user.role || 'user'
+    } : null,
+    token: {
+      isAdmin: req.user.isAdmin || false,
+      role: req.user.role || 'user'
+    }
   });
 });
 
@@ -739,11 +771,49 @@ app.post('/api/analyze-youtube', async (req, res) => {
     const pythonServiceUrl = 'http://127.0.0.1:8000';
     console.log(`Sending YouTube analysis request to Python service at: ${pythonServiceUrl}`);
     
-    const response = await axios.post(`${pythonServiceUrl}/analyze-youtube`, { url });
+    // First check if Python service is running
+    try {
+      const healthCheck = await axios.get(`${pythonServiceUrl}/health`, { timeout: 2000 });
+      console.log(`Python service health check: ${JSON.stringify(healthCheck.data)}`);
+    } catch (healthError) {
+      console.error('Python service health check failed:', healthError.message);
+      return res.status(503).json({ 
+        error: 'Python analysis service is not available.',
+        details: 'The chord analysis service is currently unavailable. Please check if the Python service is running.'
+      });
+    }
+    
+    // Send the YouTube analysis request
+    const response = await axios.post(`${pythonServiceUrl}/analyze-youtube`, { url }, { timeout: 180000 }); // 3 minute timeout
+    
+    // Check if response contains an error
+    if (response.data && response.data.error) {
+      console.error('Python service returned an error:', response.data.error);
+      return res.status(400).json(response.data);
+    }
+    
     res.json(response.data);
   } catch (error) {
-    console.error('Error analyzing YouTube link:', error);
-    res.status(500).json({ error: 'Failed to analyze YouTube link.' });
+    console.error('Error analyzing YouTube link:', error.message);
+    // Check specific error types for better error messages
+    if (error.code === 'ECONNREFUSED') {
+      res.status(503).json({ 
+        error: 'Python service connection refused.',
+        details: 'Could not connect to the chord analysis service. Please ensure the Python service is running.'
+      });
+    } else if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      res.status(error.response.status).json({
+        error: 'Python service error',
+        details: error.response.data || 'Unknown error from Python service'
+      });
+    } else {
+      res.status(500).json({ 
+        error: 'Failed to analyze YouTube link.', 
+        details: error.message || 'Unknown error'
+      });
+    }
   }
 });
 

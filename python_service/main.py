@@ -154,38 +154,105 @@ async def analyze_youtube(request: Request):
             print(f"Attempting to download YouTube audio from: {url}")
             print(f"Using temporary path: {audio_path}")
             
-            # Run with verbose output to see what's happening
-            result = subprocess.run([
-                "yt-dlp", "-v", "-x", "--audio-format", "mp3", 
-                "-o", audio_path, url
-            ], 
-            check=False, 
-            capture_output=True, 
-            text=True)
+            # Find the ffmpeg path - try multiple possible locations
+            possible_ffmpeg_paths = [
+                "/opt/homebrew/bin/ffmpeg",  # Homebrew on Apple Silicon
+                "/usr/local/bin/ffmpeg",     # Homebrew on Intel Mac
+                "/usr/bin/ffmpeg"            # Default system location
+            ]
+            
+            # Check if ffmpeg exists in any of these locations
+            ffmpeg_path = None
+            for path in possible_ffmpeg_paths:
+                if os.path.exists(path):
+                    ffmpeg_path = path
+                    print(f"Found ffmpeg at: {ffmpeg_path}")
+                    break
+            
+            # If not found in standard locations, try to find it in PATH
+            if not ffmpeg_path:
+                try:
+                    ffmpeg_path = subprocess.check_output(["which", "ffmpeg"], text=True).strip()
+                    print(f"Found ffmpeg in PATH at: {ffmpeg_path}")
+                except subprocess.CalledProcessError:
+                    print("ffmpeg not found in PATH")
+            
+            if not ffmpeg_path:
+                print("WARNING: ffmpeg not found. YouTube downloads may fail.")
+            
+            # Download the video directly as MP3 using more robust settings
+            cmd = [
+                "yt-dlp", 
+                "-v",                      # Verbose output
+                "-x",                      # Extract audio
+                "--audio-format", "mp3",   # Output format
+                "--audio-quality", "192K", # Set quality to avoid huge files
+                "--no-playlist",           # Don't download playlists
+                "--geo-bypass",            # Try to bypass geo-restrictions
+                "--force-ipv4",            # Force IPv4 to avoid IPv6 issues
+                "--no-check-certificate",  # Skip HTTPS certificate validation
+                "--extract-audio",         # Make sure to extract audio
+                "--prefer-ffmpeg",         # Prefer using ffmpeg for conversion
+                "--progress",              # Show progress
+                "--hls-prefer-native",     # Use native HLS downloader
+                "-o", audio_path           # Output path
+            ]
+            
+            # Add ffmpeg path if found
+            if ffmpeg_path:
+                cmd.extend(["--ffmpeg-location", ffmpeg_path])
+                # Also make sure FFmpeg is in the environment PATH
+                os.environ["PATH"] = f"{os.path.dirname(ffmpeg_path)}:{os.environ.get('PATH', '')}"
+            
+            # Add the URL at the end
+            cmd.append(url)
+            
+            print(f"Running command: {' '.join(cmd)}")
+            result = subprocess.run(
+                cmd, 
+                check=False, 
+                capture_output=True, 
+                text=True
+            )
             
             if result.returncode != 0:
-                print(f"yt-dlp error output: {result.stderr}")
-                # If demo mode is needed, use a placeholder response
-                print("YouTube download failed, using placeholder chords for demo")
-                return {"chords": [
-                    {"time": 0, "chord": "C major"},
-                    {"time": 3, "chord": "G major"},
-                    {"time": 6, "chord": "A minor"},
-                    {"time": 9, "chord": "F major"},
-                    {"time": 12, "chord": "C major"}
-                ]}
+                error_msg = f"YouTube download failed: {result.stderr}"
+                print(error_msg)
+                
+                # Return error instead of placeholder chords for better debugging
+                return {
+                    "error": "YouTube download failed. Please check URL or try a different video.",
+                    "details": error_msg,
+                    "url": url,
+                    "timestamp": str(datetime.datetime.now())
+                }
+            
+            # Verify the file actually exists
+            if not os.path.exists(audio_path):
+                # Check if yt-dlp created a file with a different extension
+                possible_files = [f for f in os.listdir(tmpdir) if f.endswith(('.mp3', '.m4a', '.webm'))]
+                if possible_files:
+                    # Use the first audio file found
+                    audio_path = os.path.join(tmpdir, possible_files[0])
+                    print(f"Found alternative audio file: {audio_path}")
+                else:
+                    return {
+                        "error": "YouTube download produced no audio file.",
+                        "url": url,
+                        "timestamp": str(datetime.datetime.now())
+                    }
             
             print(f"YouTube download completed successfully to {audio_path}")
         except Exception as e:
-            print(f"Exception during YouTube download: {str(e)}")
-            # If demo mode is needed, use a placeholder response
-            return {"chords": [
-                {"time": 0, "chord": "C major"},
-                {"time": 3, "chord": "G major"},
-                {"time": 6, "chord": "A minor"},
-                {"time": 9, "chord": "F major"},
-                {"time": 12, "chord": "C major"}
-            ]}
+            error_msg = f"Exception during YouTube download: {str(e)}"
+            print(error_msg)
+            
+            return {
+                "error": "Exception during YouTube download.",
+                "details": error_msg,
+                "url": url,
+                "timestamp": str(datetime.datetime.now())
+            }
         # Analyze as before
         try:
             y, sr = librosa.load(audio_path)

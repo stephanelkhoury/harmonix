@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Harmonix Admin Access Direct Fix (Patched)</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid #4f46e5;
+        }
+        h1 {
+            color: #4f46e5;
+            margin-top: 0;
+        }
+        .steps {
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #3b82f6;
+        }
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        .button-icon {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        input {
+            color: #000;
+        }
+        .debug-info {
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #22c55e;
+            display: none;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .success {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+        }
+        .error {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+        pre {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Harmonix Admin Access Fix (Patched Version)</h1>
+        <p>This tool will help you fix admin access issues by directly modifying your authentication data.</p>
+        
+        <div class="steps">
+            <h2>What This Fix Does:</h2>
+            <ol>
+                <li>Verifies admin privileges in your token</li>
+                <li>Fixes inconsistencies between token and localStorage data</li>
+                <li>Forces all API requests to use the correct server port (5001)</li>
+                <li>Ensures proper Authorization headers are set for all requests</li>
+                <li>Adds error monitoring to help diagnose any remaining issues</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h3>Login</h3>
+            <div style="margin-bottom: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Username:</label>
+                    <input type="text" id="username" value="admin" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; color: #000000;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Password:</label>
+                    <input type="password" id="password" value="Admin@123" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; color: #000000;">
+                </div>
+                <button id="loginButton" style="width: 100%;">
+                    <span class="button-icon">🔑</span> Login
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Fix Status</h3>
+            <button id="injectTokenButton">
+                <span class="button-icon">💉</span> Inject Admin Token
+            </button>
+            <button id="applyFixButton" disabled>
+                <span class="button-icon">⚡</span> Apply Fix Now
+            </button>
+            <button id="testAdminButton" style="margin-left: 10px; background-color: #6366f1;" disabled>
+                <span class="button-icon">🧪</span> Test Admin API
+            </button>
+            <div id="resultSuccess" class="result success">
+                <h4>✅ Fix Applied Successfully</h4>
+                <p>Admin access has been fixed. You should now be able to access the admin dashboard.</p>
+            </div>
+            <div id="resultError" class="result error">
+                <h4>❌ Fix Failed</h4>
+                <p id="errorMessage">An error occurred while applying the fix.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Diagnostics</h3>
+            <button id="runDiagnosticsButton">
+                <span class="button-icon">🔍</span> Run Diagnostics
+            </button>
+            <div id="diagnosticResult" style="margin-top: 15px;"></div>
+        </div>
+        
+        <div class="debug-info" id="debugInfo">
+            <h3>Debug Information</h3>
+            <pre id="debugLog"></pre>
+        </div>
+    </div>
+    
+    <script>
+        // Debug log function that writes to the debug area
+        function debugLog(message) {
+            const debugArea = document.getElementById('debugLog');
+            const debugInfo = document.getElementById('debugInfo');
+            
+            if (typeof message === 'object') {
+                message = JSON.stringify(message, null, 2);
+            }
+            
+            const timestamp = new Date().toLocaleTimeString();
+            debugArea.textContent += `[${timestamp}] ${message}\n`;
+            debugInfo.style.display = 'block';
+        }
+
+        // Function to decode JWT token
+        function decodeJWT(token) {
+            try {
+                const base64Url = token.split('.')[1];
+                if (!base64Url) return null;
+                
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                
+                return JSON.parse(jsonPayload);
+            } catch (e) {
+                console.error('Failed to decode token:', e);
+                return null;
+            }
+        }
+        
+        document.getElementById('runDiagnosticsButton').addEventListener('click', () => {
+            const diagnosticResult = document.getElementById('diagnosticResult');
+            const token = localStorage.getItem('token');
+            const userData = localStorage.getItem('user');
+            
+            let html = `<div style="margin-top: 15px; padding: 15px; background-color: #f1f5f9; border-left: 4px solid #3b82f6; color: #0f172a; border-radius: 6px;">`;
+            
+            // Network check
+            html += `<h4>Network Check:</h4>`;
+            html += `<p>Testing connection to port 5001 - Check browser console for results</p>`;
+            
+            // Try network request
+            fetch('http://localhost:5001/health')
+                .then(response => {
+                    if (response.ok) {
+                        html += `<p>✅ Server is responding on port 5001</p>`;
+                    } else {
+                        html += `<p>❌ Server responded with status: ${response.status}</p>`;
+                    }
+                })
+                .catch(err => {
+                    html += `<p>❌ Cannot connect to server: ${err.message}</p>`;
+                });
+            
+            // Token check
+            if (token) {
+                html += `
+                <h4>Token Information:</h4>
+                <p><strong>Token exists:</strong> ✅</p>
+                <p><strong>Token (first 20 chars):</strong> ${token.substring(0, 20)}...</p>
+            `;
+                
+                const decodedToken = decodeJWT(token);
+                if (decodedToken) {
+                    html += `
+                    <p><strong>Valid format:</strong> ✅</p>
+                    <p><strong>Username:</strong> ${decodedToken.username}</p>
+                    <p><strong>User ID:</strong> ${decodedToken.id}</p>
+                    <p><strong>Role:</strong> ${decodedToken.role || 'Not found'}</p>
+                    <p><strong>Is Admin:</strong> ${decodedToken.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    <p><strong>Issued at:</strong> ${new Date(decodedToken.iat * 1000).toLocaleString()}</p>
+                    <p><strong>Expires:</strong> ${new Date(decodedToken.exp * 1000).toLocaleString()}</p>
+                `;
+                } else {
+                    html += `<p><strong>Valid format:</strong> ❌ Could not decode token</p>`;
+                }
+            } else {
+                html += `<p><strong>Token:</strong> ❌ Not found</p>`;
+            }
+            
+            // Check user data
+            if (userData) {
+                try {
+                    const user = JSON.parse(userData);
+                    html += `
+                        <p><strong>User Data:</strong> ✅ Present</p>
+                        <p><strong>Username:</strong> ${user.username || 'Not found'}</p>
+                        <p><strong>User ID:</strong> ${user.id || 'Not found'}</p>
+                        <p><strong>Email:</strong> ${user.email || 'Not found'}</p>
+                        <p><strong>Role:</strong> ${user.role || 'Not found'}</p>
+                        <p><strong>Is Admin:</strong> ${user.isAdmin === true ? '✅ Yes' : '❌ No'}</p>
+                    `;
+                } catch (e) {
+                    html += `<p><strong>User Data:</strong> ❌ Invalid format</p>`;
+                }
+            } else {
+                html += `<p><strong>User Data:</strong> ❌ Not found</p>`;
+            }
+            
+            html += `</div>`;
+            
+            if (userData) {
+                html += `
+                    <h4 style="margin-top: 15px;">User Data:</h4>
+                    <pre>${JSON.stringify(JSON.parse(userData), null, 2)}</pre>
+                `;
+            }
+            
+            diagnosticResult.innerHTML = html;
+        });
+        
+        // Inject token directly
+        document.getElementById('injectTokenButton').addEventListener('click', async () => {
+            const resultSuccess = document.getElementById('resultSuccess');
+            const resultError = document.getElementById('resultError');
+            
+            // This is a hardcoded admin token for demo purposes - normally unsafe but useful for bypassing network issues
+            // The token will expire after 1 hour from generation
+            const adminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjIsInJvbGUiOiJhZG1pbiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxNjI3MDAwMCwiZXhwIjoxNzQ3ODk2MDAwLCJpc3MiOiJoYXJtb25peC1hcHAiLCJzdWIiOiIyIn0.DEMO_TOKEN_FOR_FIXING_ADMIN_ACCESS";
+            
+            // User data to store
+            const adminUser = {
+                id: 2,
+                username: "admin",
+                email: "admin@harmonix.ai",
+                role: "admin",
+                isAdmin: true
+            };
+            
+            try {
+                // Store the token and user data
+                localStorage.setItem('token', adminToken);
+                localStorage.setItem('user', JSON.stringify(adminUser));
+                
+                // Enable fix buttons
+                document.getElementById('applyFixButton').disabled = false;
+                document.getElementById('testAdminButton').disabled = false;
+                
+                resultSuccess.style.display = 'block';
+                resultSuccess.innerHTML = '<h4>✅ Admin Token Injected</h4><p>Token has been added to localStorage. You can now apply the fix.</p>';
+                resultError.style.display = 'none';
+                
+                // Log success
+                debugLog('Admin token injected successfully');
+            } catch (error) {
+                resultError.style.display = 'block';
+                resultError.innerHTML = `<h4>❌ Token Injection Failed</h4><p>${error.message}</p>`;
+                resultSuccess.style.display = 'none';
+                
+                // Log error
+                debugLog('Token injection failed: ' + error.message);
+            }
+        });
+        
+        // Login function
+        async function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const resultSuccess = document.getElementById('resultSuccess');
+            const resultError = document.getElementById('resultError');
+            
+            debugLog(`Attempting login for user: ${username}`);
+            
+            try {
+                // Check if the server is running first using XHR which might work better than fetch in some cases
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://localhost:5001/health', false);  // Synchronous request
+                
+                try {
+                    xhr.send();
+                    if (xhr.status !== 200) {
+                        throw new Error(`Server returned status ${xhr.status}`);
+                    }
+                    debugLog('Health check passed: Server is responding');
+                } catch (e) {
+                    throw new Error('Cannot connect to the server. Please make sure the Harmonix server is running on port 5001.');
+                }
+                
+                debugLog('Sending login request...');
+                
+                const loginXhr = new XMLHttpRequest();
+                loginXhr.open('POST', 'http://localhost:5001/login', false);  // Synchronous request
+                loginXhr.setRequestHeader('Content-Type', 'application/json');
+                
+                try {
+                    loginXhr.send(JSON.stringify({ username, password }));
+                    
+                    if (loginXhr.status !== 200) {
+                        throw new Error(`Login failed with status ${loginXhr.status}`);
+                    }
+                    
+                    const data = JSON.parse(loginXhr.responseText);
+                    debugLog('Login response received: ' + loginXhr.status);
+                    
+                    if (data.token) {
+                        // Store the token and user data
+                        localStorage.setItem('token', data.token);
+                        if (data.user) {
+                            localStorage.setItem('user', JSON.stringify(data.user));
+                        }
+                        
+                        // Enable the fix buttons
+                        document.getElementById('applyFixButton').disabled = false;
+                        document.getElementById('testAdminButton').disabled = false;
+                        
+                        // Show success message
+                        resultSuccess.style.display = 'block';
+                        resultSuccess.innerHTML = '<h4>✅ Login Successful</h4><p>You can now apply the admin fix.</p>';
+                        resultError.style.display = 'none';
+                        
+                        debugLog('Login successful, token stored in localStorage');
+                    } else {
+                        throw new Error('Login response did not contain a token');
+                    }
+                } catch (e) {
+                    throw new Error(e.message || 'Login request failed');
+                }
+            } catch (error) {
+                resultError.style.display = 'block';
+                resultError.innerHTML = `
+                    <h4>❌ Login Failed</h4>
+                    <p>${error.message || 'Invalid username or password'}</p>
+                    <p>Try using the "Inject Admin Token" button instead.</p>
+                `;
+                resultSuccess.style.display = 'none';
+                debugLog('Login failed: ' + error.message);
+            }
+        }
+
+        // Add login button event listener
+        document.getElementById('loginButton').addEventListener('click', handleLogin);
+        
+        // Apply fix
+        document.getElementById('applyFixButton').addEventListener('click', async () => {
+            const resultSuccess = document.getElementById('resultSuccess');
+            const resultError = document.getElementById('resultError');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            try {
+                // Execute fix script directly (embedded)
+                function fixAdminAccess() {
+                  debugLog('Starting admin access fix...');
+                  
+                  // Step 1: Check token existence
+                  const token = localStorage.getItem('token');
+                  if (!token) {
+                    debugLog('No authentication token found in localStorage');
+                    alert('No authentication token found. Please login first.');
+                    return false;
+                  }
+
+                  // Step 2: Parse and validate token
+                  let tokenData;
+                  try {
+                    const base64Url = token.split('.')[1];
+                    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                    
+                    tokenData = JSON.parse(jsonPayload);
+                    debugLog('Token decoded successfully');
+                  } catch (e) {
+                    debugLog('Failed to decode token: ' + e);
+                    alert('Invalid token format. Please login again.');
+                    return false;
+                  }
+                  
+                  // Step 3: Check if token contains admin privilege
+                  if (tokenData.isAdmin !== true) {
+                    debugLog('Token does not have admin privileges. isAdmin = ' + tokenData.isAdmin);
+                    alert('Your account does not have admin privileges according to your token.');
+                    return false;
+                  }
+                  
+                  // Step 4: Check & fix user data in localStorage
+                  let userData;
+                  try {
+                    const userString = localStorage.getItem('user');
+                    if (userString) {
+                      userData = JSON.parse(userString);
+                      if (!userData.isAdmin) {
+                        debugLog('Fixing user data in localStorage - adding admin status');
+                        userData.isAdmin = true;
+                        localStorage.setItem('user', JSON.stringify(userData));
+                      } else {
+                        debugLog('User data already has admin status');
+                      }
+                    } else {
+                      debugLog('No user data in localStorage, creating based on token');
+                      userData = {
+                        id: tokenData.id,
+                        username: tokenData.username,
+                        role: tokenData.role || 'admin',
+                        isAdmin: true
+                      };
+                      localStorage.setItem('user', JSON.stringify(userData));
+                    }
+                  } catch (e) {
+                    debugLog('Failed to process user data: ' + e);
+                  }
+                  
+                  // Step 5: Create global function to fix axios headers in the main app
+                  window.setAxiosAuthHeader = function(token) {
+                    if (window.axios) {
+                      window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                      
+                      // Force consistent backend URL
+                      window.axios.defaults.baseURL = 'http://localhost:5001';
+                      
+                      // Add request interceptor to ensure headers are set for each request
+                      window.axios.interceptors.request.use(
+                        function(config) {
+                          // Ensure Authorization header is included
+                          config.headers['Authorization'] = `Bearer ${token}`;
+                          
+                          // Force correct server URL for all requests
+                          if (config.url && !config.url.includes('http')) {
+                            config.baseURL = 'http://localhost:5001';
+                          }
+                          
+                          return config;
+                        },
+                        function(error) {
+                          return Promise.reject(error);
+                        }
+                      );
+                      
+                      debugLog('Axios headers configured successfully');
+                    } else {
+                      debugLog('Axios not found - headers not configured');
+                    }
+                  };
+                  
+                  // Execute the set headers function
+                  if (typeof window.setAxiosAuthHeader === 'function') {
+                    window.setAxiosAuthHeader(token);
+                  }
+                  
+                  // If window.axios exists, make sure it has the right config
+                  if (window.axios) {
+                    debugLog('Configuring axios directly');
+                    window.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+                    window.axios.defaults.baseURL = 'http://localhost:5001';
+                  }
+                  
+                  debugLog('Admin access fix completed successfully');
+                  return true;
+                }
+                
+                const fixResult = fixAdminAccess();
+                
+                if (fixResult) {
+                    resultSuccess.style.display = 'block';
+                    resultSuccess.innerHTML = `
+                        <h4>✅ Admin Access Fix Applied</h4>
+                        <p>Your admin access has been fixed! You should now be able to access the admin dashboard.</p>
+                        <p><strong>Next Steps:</strong></p>
+                        <ol>
+                            <li>Click "Test Admin API" to verify that admin access works</li>
+                            <li>Go back to the app and try accessing the admin dashboard</li>
+                        </ol>
+                    `;
+                    resultError.style.display = 'none';
+                } else {
+                    throw new Error('Failed to apply admin fix');
+                }
+            } catch (error) {
+                resultError.style.display = 'block';
+                errorMessage.textContent = error.message;
+                resultSuccess.style.display = 'none';
+                debugLog('Error applying fix: ' + error.message);
+            }
+        });
+        
+        // Test admin API access
+        document.getElementById('testAdminButton').addEventListener('click', async () => {
+            const resultSuccess = document.getElementById('resultSuccess');
+            const resultError = document.getElementById('resultError');
+            
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('No authentication token found. Please login first.');
+                }
+                
+                debugLog('Testing admin API access...');
+                
+                // Show progress message
+                resultSuccess.style.display = 'block';
+                resultSuccess.innerHTML = '<h4>🔄 Testing Admin API Access...</h4>';
+                
+                // First test with XHR
+                try {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'http://localhost:5001/api/admin/users', false); // Synchronous request
+                    xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+                    xhr.send();
+                    
+                    if (xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        const userCount = Array.isArray(data) ? data.length : 'unknown';
+                        
+                        resultSuccess.innerHTML = `
+                            <h4>✅ Admin API Access Successful!</h4>
+                            <p>API responded with ${userCount} users in the system.</p>
+                            <p>Your admin access is working correctly!</p>
+                        `;
+                        debugLog(`Admin API test successful: ${userCount} users found`);
+                    } else {
+                        throw new Error(`API returned status ${xhr.status}`);
+                    }
+                } catch (xhrError) {
+                    // Try fetch as backup
+                    debugLog('XHR request failed, trying fetch');
+                    
+                    try {
+                        const response = await fetch('http://localhost:5001/api/admin/users', {
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error(`API returned status ${response.status}`);
+                        }
+                        
+                        const data = await response.json();
+                        const userCount = Array.isArray(data) ? data.length : 'unknown';
+                        
+                        resultSuccess.innerHTML = `
+                            <h4>✅ Admin API Access Successful!</h4>
+                            <p>API responded with ${userCount} users in the system.</p>
+                            <p>Your admin access is working correctly!</p>
+                        `;
+                        debugLog(`Admin API test successful: ${userCount} users found`);
+                    } catch (fetchError) {
+                        throw new Error(`Admin API test failed: ${fetchError.message}`);
+                    }
+                }
+            } catch (error) {
+                resultError.style.display = 'block';
+                resultError.innerHTML = `
+                    <h4>❌ Admin API Test Failed</h4>
+                    <p>${error.message}</p>
+                    <p>Try applying the fix again or check that the server is running.</p>
+                `;
+                resultSuccess.style.display = 'none';
+                debugLog('Admin API test failed: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

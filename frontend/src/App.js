@@ -22,6 +22,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import Refund from './pages/Refund';
+import TunerPage from './pages/TunerPage';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,6 +59,7 @@ function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/faq" element={<FAQ />} />
+                        <Route path="/tuner" element={isAuthenticated ? <TunerPage /> : <Navigate to="/login" />} />
                         {/* Legal Pages - Public Access */}
                         <Route path="/privacy" element={<PrivacyPolicy />} />
                         <Route path="/terms" element={<Terms />} />

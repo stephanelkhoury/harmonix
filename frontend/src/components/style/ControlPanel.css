@@ -1,0 +1,163 @@
+/* Control Panel styles */
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.control-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.control-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.play-btn {
+    background-color: #0fa2dc;
+    width: 54px;
+    height: 54px;
+    font-size: 1.3rem;
+}
+
+.play-btn:hover {
+    background-color: #0c89b8;
+}
+
+.prev-btn, .next-btn {
+    background-color: #6c757d;
+    font-size: 1rem;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #5a6268;
+}
+
+.loop-btn {
+    background-color: #6c757d;
+    font-size: 1rem;
+}
+
+.loop-btn:hover {
+    background-color: #5a6268;
+}
+
+.loop-btn.active {
+    background-color: #28a745;
+}
+
+.download-btn {
+    background-color: #28a745;
+}
+
+.download-btn:hover {
+    background-color: #218838;
+}
+
+.time-info {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-divider {
+    color: #888;
+}
+
+/* Playback rate controls */
+.playback-rate-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+    padding: 0 8px;
+    background-color: rgba(11, 38, 68, 0.6);
+    border-radius: 20px;
+    height: 36px;
+}
+
+.speed-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.speed-btn:hover {
+    background-color: rgba(15, 162, 220, 0.3);
+}
+
+.speed-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.playback-rate-display {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    width: 48px;
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .play-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+    
+    .time-info {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.8rem;
+    }
+    
+    .playback-rate-controls {
+        height: 32px;
+        padding: 0 6px;
+    }
+    
+    .speed-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+    
+    .playback-rate-display {
+        font-size: 0.8rem;
+        width: 42px;
+    }
+}

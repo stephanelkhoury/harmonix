@@ -334,7 +334,7 @@ function HomePage() {
                             <div className="testimonial-header">
                                 <div className="testimonial-avatar">
                                     <img 
-                                        src={`${process.env.PUBLIC_URL}/assets/images/welcome/avatar-${testimonial.id}.jpg`} 
+                                        src={require(`../assets/images/avatar/avatar-${testimonial.id}.jpg`)} 
                                         alt={testimonial.name} 
                                         onError={(e) => e.target.src = `${process.env.PUBLIC_URL}/assets/images/welcome/default-avatar.jpg`}
                                     />

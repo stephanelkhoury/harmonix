@@ -1,50 +1,735 @@
+/* Main container styles */
+.analyze-page {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero section styling */
+.hero-section {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero-image-analyze {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                url('../../assets/images/music-analysis-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.analyze-container {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* YouTube player wrapper styles */
+.youtube-player-wrapper {
+    width: 100%;
+    margin: 2rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Tab navigation styles */
+.analyze-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.analyze-tab {
+    background-color: #f1f3f5;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.analyze-tab:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.analyze-tab.active {
+    background-color: #0fa2dc;
+    color: white;
+    box-shadow: 0 4px 15px rgba(15, 162, 220, 0.3);
+}
+
+/* YouTube form styles */
+.analyze-input-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.youtube-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.youtube-input-group {
+    display: flex;
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.youtube-icon-container {
+    background-color: #FF0000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+.youtube-icon {
+    font-size: 1.5rem;
+}
+
+.youtube-input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.analyze-button {
+    padding: 1rem 2rem;
+    background-color: #0fa2dc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    align-self: center;
+}
+
+.analyze-button:hover {
+    background-color: #0c89b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 162, 220, 0.3);
+}
+
+/* Help tip styles */
+.help-tip {
+    text-align: center;
+    margin-top: 10px;
+    color: #777;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid #0fa2dc;
+}
+
+/* File upload area styles */
+.upload-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-dropzone {
+    width: 100%;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    gap: 1rem;
+}
+
+.upload-dropzone:hover {
+    border-color: #0fa2dc;
+    background-color: rgba(15, 162, 220, 0.05);
+}
+
+.upload-dropzone.dragover {
+    border-color: #0fa2dc;
+    background-color: rgba(15, 162, 220, 0.1);
+    transform: scale(1.01);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #0fa2dc;
+    margin-bottom: 1rem;
+}
+
+.file-formats {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.5rem;
+}
+
+.selected-file {
+    width: 100%;
+    background-color: #f1f3f5;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Error and loading states */
+.error-message {
+    color: #dc3545;
+    background-color: #ffe0e3;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    gap: 1.5rem;
+}
+
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 6px solid #eee;
+    border-top: 6px solid #0fa2dc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Analysis results styles */
+.analysis-results {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.analysis-results h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.analysis-results h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #0fa2dc, #8C94F1);
+    border-radius: 2px;
+}
+
+/* Song info styles */
 .song-info {
     background-color: #f8f9fa;
     border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 .file-name {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
     color: #333;
     word-break: break-all;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
 }
 
 .analysis-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 10px;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .song-key, .song-tempo {
-    padding: 5px 12px;
+    padding: 0.6rem 1rem;
     background-color: #e9f7fe;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
     color: #0073b1;
     display: inline-block;
 }
 
+.song-key.transposed {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.analysis-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.download-btn {
+    padding: 0.75rem 1.25rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #218838;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
 .storage-note {
-    font-size: 13px;
+    font-size: 0.9rem;
     color: #666;
     font-style: italic;
 }
 
 .info-note {
-    margin-top: 10px;
+    margin-top: 1rem;
     border-top: 1px dashed #ddd;
-    padding-top: 10px;
+    padding-top: 0.75rem;
+}
+
+/* Transposition controls */
+.transposition-controls {
+    background-color: #f0f7ff; /* Light blue background */
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #d0e3ff;
+}
+
+.transposition-controls h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2a75e0; /* Blue text for heading */
+}
+
+.transpose-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.transpose-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #2a75e0; /* Blue border */
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #2a75e0; /* Blue text */
+    position: relative;
+    overflow: hidden;
+}
+
+.transpose-btn:hover {
+    background-color: #2a75e0; /* Blue background on hover */
+    color: white;
+    border-color: #2a75e0;
+}
+
+/* Active state for the currently selected transposition value */
+.transpose-btn.active {
+    background-color: #2a75e0; /* Blue background for active button */
+    color: white; /* White text for active button */
+    box-shadow: 0 0 8px rgba(42, 117, 224, 0.5); /* Subtle glow for active button */
+}
+
+/* Special styling for the reset button */
+.transpose-btn.reset {
+    width: auto;
+    padding: 0 12px;
+    font-weight: 700;
+    background-color: #eaf2ff;
+}
+
+.transpose-btn.reset:hover {
+    background-color: #f5c6cb;
+}
+
+.transpose-btn.reset.active {
+    background-color: #2a75e0;
+}
+
+/* Add ripple effect on click */
+.transpose-btn:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Audio player section */
+.audio-player-container {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.player-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #0fa2dc;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.player-btn:hover {
+    background-color: #0c89b8;
+    transform: scale(1.05);
+}
+
+.player-btn.loop {
+    background-color: #6c757d;
+    font-size: 1rem;
+}
+
+.player-btn.loop:hover {
+    background-color: #5a6268;
+}
+
+.time-display {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 0.5rem 1rem;
+    background-color: #e9ecef;
+    border-radius: 6px;
+}
+
+.audio-player {
+    width: 100%;
+    height: 48px;
+}
+
+/* Display Mode Selector */
+.display-mode-selector {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-mode-selector h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.display-mode-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.display-mode-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    color: #555;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.display-mode-btn:hover {
+    border-color: #0fa2dc;
+    color: #0fa2dc;
+}
+
+.display-mode-btn.active {
+    background: #0fa2dc;
+    border-color: #0fa2dc;
+    color: white;
+    box-shadow: 0 2px 8px rgba(15, 162, 220, 0.3);
+}
+
+/* Chord display section */
+.chord-display-container {
+    margin-top: 1rem;
+}
+
+.chord-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.chord-card {
+    background: linear-gradient(135deg, #0fa2dc 60%, #8C94F1 100%);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.chord-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.chord-card.active-chord {
+    transform: scale(1.12);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #ff9a00 60%, #ff6b00 100%);
+}
+
+.chord-label {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.chord-time {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    opacity: 0.8;
+}
+
+.no-chords-message {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+}
+
+/* Direct player button styles */
+.youtube-direct-player {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direct-player-btn {
+  padding: 6px 12px;
+  background-color: #3a3a3a;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 10px;
+}
+
+.direct-player-btn:hover {
+  background-color: #555;
+}
+
+.direct-player-hint {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .analyze-tabs {
+        flex-direction: column;
+    }
+    
+    .youtube-input-group {
+        flex-direction: column;
+    }
+    
+    .youtube-icon-container {
+        padding: 0.5rem;
+        width: 100%;
+    }
+    
+    .analysis-details {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .selected-file {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .audio-player-container {
+        padding: 1rem;
+    }
+    
+    .audio-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .chord-card {
+        min-width: 70px;
+        padding: 0.75rem 1rem;
+    }
+    
+    .chord-label {
+        font-size: 1.3rem;
+    }
+    
+    .transpose-buttons {
+        gap: 0.3rem;
+    }
+    
+    .transpose-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .analysis-details {
-        flex-direction: column;
-        gap: 10px;
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .analyze-container {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .analysis-results {
+        padding: 1.5rem 1rem;
+    }
+    
+    .chord-card {
+        min-width: 60px;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .chord-label {
+        font-size: 1.1rem;
+    }
+    
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
     }
 }
