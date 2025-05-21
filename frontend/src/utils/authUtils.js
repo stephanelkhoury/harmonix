@@ -1,7 +1,7 @@
 // Utils for managing authentication
 import axios from 'axios';
 
-const SERVER_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+const SERVER_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5002';
 
 export const authUtils = {
   // Initialize auth from localStorage
