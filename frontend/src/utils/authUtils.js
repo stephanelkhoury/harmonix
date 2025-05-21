@@ -1,7 +1,24 @@
 // Utils for managing authentication
 import axios from 'axios';
 
-const SERVER_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5002';
+// Determine server URL based on current hostname
+const determineServerUrl = () => {
+  // For development environment
+  if (process.env.REACT_APP_BACKEND_URL) {
+    return process.env.REACT_APP_BACKEND_URL;
+  }
+  
+  // For network access (when not on localhost)
+  const hostname = window.location.hostname;
+  if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+    return `http://${hostname}:5001`;
+  }
+  
+  // Default to localhost
+  return 'http://localhost:5001';
+};
+
+const SERVER_URL = determineServerUrl();
 
 export const authUtils = {
   // Initialize auth from localStorage

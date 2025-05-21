@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .result {
+            white-space: pre-wrap;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        button {
+            margin: 10px 0;
+            padding: 8px 16px;
+        }
+        input {
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Test</h1>
+    
+    <div>
+        <label for="serverUrl">Server URL:</label>
+        <input type="text" id="serverUrl" value="http://localhost:5001" />
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" value="admin" />
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" value="Admin@123" />
+        
+        <button onclick="testLogin()">Test Login</button>
+    </div>
+    
+    <div>
+        <h2>Result:</h2>
+        <div id="result" class="result">Results will appear here</div>
+    </div>
+    
+    <script>
+        async function testLogin() {
+            const serverUrl = document.getElementById('serverUrl').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const resultElement = document.getElementById('result');
+            
+            resultElement.innerText = 'Sending request...';
+            
+            try {
+                const response = await fetch(`${serverUrl}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                resultElement.innerText = `Status: ${response.status} ${response.statusText}\n\nResponse:\n${JSON.stringify(data, null, 2)}`;
+                
+                if (response.ok) {
+                    resultElement.innerText += '\n\nLogin successful! Token received.';
+                }
+            } catch (error) {
+                resultElement.innerText = `Error: ${error.message}\n\nThis could be due to CORS issues or the server not running.`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 INFO:     Will watch for changes in these directories: ['/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [13954] using statreload
-INFO:     Started server process [14020]
+INFO:     Started reloader process [60784] using statreload
+INFO:     Started server process [60798]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.

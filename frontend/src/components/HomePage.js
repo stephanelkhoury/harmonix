@@ -44,11 +44,26 @@ function HomePage() {
     const handleAudioReady = (blob) => {
         setAudioBlob(blob);
         setIsRecording(false);
+        
+        // Add pulse animation to analyze button when audio is ready
+        const analyzeBtn = document.querySelector('.analyze-button');
+        if (analyzeBtn) {
+            analyzeBtn.classList.add('pulse-animation');
+        }
     };
 
     const handleStartRecording = () => {
         setIsRecording(true);
         setUploadedFile(null);
+        
+        // Add visual indicators for active recording mode
+        const recordSection = document.querySelector('.record-section');
+        const uploadBox = document.querySelector('.upload-box');
+        
+        if (recordSection && uploadBox) {
+            recordSection.classList.add('active-mode');
+            uploadBox.classList.add('inactive-mode');
+        }
     };
 
     const handleFileUpload = (event) => {
@@ -56,6 +71,22 @@ function HomePage() {
         if (file) {
             setUploadedFile(file);
             setAudioBlob(null);
+            setIsRecording(false);
+            
+            // Add visual indicators for active upload mode
+            const recordSection = document.querySelector('.record-section');
+            const uploadBox = document.querySelector('.upload-box');
+            
+            if (recordSection && uploadBox) {
+                uploadBox.classList.add('active-mode');
+                recordSection.classList.add('inactive-mode');
+            }
+            
+            // Add pulse animation to analyze button when file is uploaded
+            const analyzeBtn = document.querySelector('.analyze-button');
+            if (analyzeBtn) {
+                analyzeBtn.classList.add('pulse-animation');
+            }
         }
     };
 
@@ -95,6 +126,12 @@ function HomePage() {
         if (files.length > 0 && files[0].type.startsWith('audio/')) {
             setUploadedFile(files[0]);
             setAudioBlob(null);
+            
+            // Add pulse animation to analyze button when file is dropped
+            const analyzeBtn = document.querySelector('.analyze-button');
+            if (analyzeBtn) {
+                analyzeBtn.classList.add('pulse-animation');
+            }
         }
     };
 
@@ -125,6 +162,32 @@ function HomePage() {
         // Initialize scroll animations
         const scrollAnimObserver = setupScrollAnimations();
         
+        // Set up global drag handlers to improve the drag and drop experience
+        const handleDocumentDragOver = (e) => {
+            e.preventDefault();
+            if (dropZoneRef.current) {
+                dropZoneRef.current.classList.add('highlight-drop');
+            }
+        };
+        
+        const handleDocumentDragLeave = (e) => {
+            // Only remove highlight if we're leaving to an element outside our container
+            if (!e.currentTarget.contains(e.relatedTarget) && dropZoneRef.current) {
+                dropZoneRef.current.classList.remove('highlight-drop');
+            }
+        };
+        
+        const handleDocumentDrop = (e) => {
+            if (dropZoneRef.current) {
+                dropZoneRef.current.classList.remove('highlight-drop');
+            }
+        };
+        
+        // Add document-level event listeners
+        document.addEventListener('dragover', handleDocumentDragOver);
+        document.addEventListener('dragleave', handleDocumentDragLeave);
+        document.addEventListener('drop', handleDocumentDrop);
+        
         return () => {
             if (scrollAnimObserver) {
                 // Clean up observer
@@ -132,6 +195,11 @@ function HomePage() {
                     scrollAnimObserver.unobserve(element);
                 });
             }
+            
+            // Clean up document-level event listeners
+            document.removeEventListener('dragover', handleDocumentDragOver);
+            document.removeEventListener('dragleave', handleDocumentDragLeave);
+            document.removeEventListener('drop', handleDocumentDrop);
         };
     }, []);
 
@@ -152,64 +220,81 @@ function HomePage() {
             <div className="hero-section">
                 <h1>Discover Chords in Your <span className="highlight">Music</span></h1>
                 <p className="hero-description">
-                    Harmonix uses advanced AI to identify chords in any song or audio recording.
-                    Upload your file or record audio directly to get accurate chord progressions instantly.
+                    Harmonix uses advanced AI to identify chords in any song.
                 </p>
 
                 <div className="action-container">
-                    <div 
-                        className="upload-box" 
-                        onClick={handleUploadClick}
-                        onDragOver={handleDragOver}
-                        onDragLeave={handleDragLeave}
-                        onDrop={handleDrop}
-                        ref={dropZoneRef}
-                    >
-                        <div className="upload-icon">
-                            <img src={`${process.env.PUBLIC_URL}/assets/images/welcome/file-upload-icon.svg`} alt="Upload" className="upload-img" />
-                        </div>
-                        <p>Drag & drop your audio file or click to browse</p>
-                        <p className="small-text">Supports MP3, WAV and most audio formats</p>
-                        <input 
-                            type="file" 
-                            ref={fileInputRef} 
-                            onChange={handleFileUpload} 
-                            accept="audio/*" 
-                            style={{ display: 'none' }} 
-                        />
-                        {uploadedFile && <p className="success">File uploaded: {uploadedFile.name}</p>}
-                    </div>
-
-                    <div className="separator">
-                        <hr />
-                        <span>OR</span>
-                        <hr />
-                    </div>
-
-                    <div className="record-section">
-                        <button 
-                            className="record-button"
-                            onClick={handleStartRecording}
-                            disabled={isRecording}
+                    <div className="action-content-row">
+                        <div 
+                            className="upload-box action-panel" 
+                            onClick={handleUploadClick}
+                            onDragOver={handleDragOver}
+                            onDragLeave={handleDragLeave}
+                            onDrop={handleDrop}
+                            ref={dropZoneRef}
+                            tabIndex="0"
+                            role="button"
+                            aria-label="Upload audio file"
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    handleUploadClick();
+                                }
+                            }}
                         >
-                            <i className="fas fa-microphone">🎤</i>
-                        </button>
-                        <p>{isRecording ? 'Recording...' : 'Record Audio'}</p>
-                        
-                        {isRecording && (
-                            <AudioRecorder onAudioReady={handleAudioReady} />
-                        )}
-                        
-                        {audioBlob && <p className="success">Audio recorded successfully!</p>}
+                            <div className="upload-icon">
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/welcome/file-upload-icon.svg`} alt="Upload" className="upload-img" />
+                            </div>
+                            <p>Drag & drop your audio file or click to browse</p>
+                            <p className="small-text">Supports MP3, WAV and most audio formats</p>
+                            <input 
+                                type="file" 
+                                ref={fileInputRef} 
+                                onChange={handleFileUpload} 
+                                accept="audio/*" 
+                                style={{ display: 'none' }} 
+                            />
+                            {uploadedFile && <p className="success">File uploaded: {uploadedFile.name}</p>}
+                        </div>
+
+                        <div className="separator">
+                            <hr />
+                            <span>OR</span>
+                            <hr />
+                        </div>
+
+                        <div className="record-section action-panel">
+                            <button 
+                                className="record-button"
+                                onClick={handleStartRecording}
+                                disabled={isRecording}
+                                aria-label="Record Audio"
+                            >
+                                <i className="fas fa-microphone">🎤</i>
+                            </button>
+                            <p>{isRecording ? 'Recording...' : 'Record Audio'}</p>
+                            
+                            {isRecording && (
+                                <AudioRecorder onAudioReady={handleAudioReady} />
+                            )}
+                            
+                            {audioBlob && <p className="success">Audio recorded successfully!</p>}
+                        </div>
                     </div>
 
-                    <button 
-                        className="analyze-button"
-                        onClick={handleAnalyze}
-                        disabled={!(audioBlob || uploadedFile)}
-                    >
-                        Analyze Audio
-                    </button>
+                    <div className="action-button-container">
+                        <button 
+                            className="analyze-button"
+                            onClick={handleAnalyze}
+                            disabled={!(audioBlob || uploadedFile)}
+                            aria-label="Analyze Audio"
+                        >
+                            {uploadedFile 
+                                ? `Analyze "${uploadedFile.name.length > 15 ? uploadedFile.name.substring(0, 15) + '...' : uploadedFile.name}"` 
+                                : audioBlob 
+                                    ? "Analyze Recording" 
+                                    : "Analyze Audio"}
+                        </button>
+                    </div>
                 </div>
             </div>
 

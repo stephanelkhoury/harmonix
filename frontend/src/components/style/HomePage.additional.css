@@ -1,0 +1,49 @@
+/* Additional styles for HomePage.css */
+
+/* Fix the action-content-row styling */
+.action-content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Make analyze button align better */
+.analyze-button {
+  width: auto;
+  align-self: center;
+}
+
+/* Fix responsive styles */
+@media (max-width: 900px) {
+  .action-content-row {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .upload-box, .record-section {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .separator {
+    width: 100%;
+  }
+}
+
+/* Make sure the upload box and record section have equal width */
+.action-content-row .upload-box,
+.action-content-row .record-section {
+  flex: 1;
+  width: 100%;
+}
+
+/* Fix the separator position in the row */
+.action-content-row .separator {
+  width: auto;
+}

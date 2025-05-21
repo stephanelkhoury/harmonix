@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+    <h1>Harmonix Login CORS Test</h1>
+    <div id="result">Testing...</div>
+
+    <script>
+        const resultDiv = document.getElementById('result');
+        
+        // Test login with admin credentials
+        async function testLogin() {
+            resultDiv.innerHTML = 'Testing login...';
+            try {
+                const response = await fetch('http://localhost:5001/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: 'admin',
+                        password: 'Admin@123'
+                    })
+                });
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>Login successful! Response: ${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+        
+        // Test the health endpoint
+        async function testHealth() {
+            resultDiv.innerHTML = 'Testing health endpoint...';
+            try {
+                const response = await fetch('http://localhost:5001/health');
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre>Health check successful! Response: ${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        // Run tests
+        testHealth();
+        setTimeout(testLogin, 1000);
+    </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5001; // Change to a different port
 
 // Allow CORS so that your client (likely running on a different port) can communicate with the server.
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://192.168.1.107:3000', 'http://192.168.1.107:3001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonix Network Access Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        .test-card {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        h2 { margin-top: 0; }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .result {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Harmonix Network Access Test</h1>
+    <p>This tool tests connectivity to different Harmonix services from the network.</p>
+
+    <div class="test-card">
+        <h2>Authentication Server</h2>
+        <p>Tests connectivity to the authentication server on port 5001.</p>
+        <div>
+            <label for="authServerIP">Server IP:</label>
+            <input type="text" id="authServerIP" value="192.168.1.107" style="margin-left: 5px;">
+            <label for="authServerPort" style="margin-left: 10px;">Port:</label>
+            <input type="text" id="authServerPort" value="5001" style="width: 50px; margin-left: 5px;">
+        </div>
+        <button onclick="testAuthServer()">Test Connection</button>
+        <div id="authServerResult" class="result">Run the test to see results</div>
+    </div>
+
+    <div class="test-card">
+        <h2>Backend Server</h2>
+        <p>Tests connectivity to the backend server on port 5002.</p>
+        <div>
+            <label for="backendServerIP">Server IP:</label>
+            <input type="text" id="backendServerIP" value="192.168.1.107" style="margin-left: 5px;">
+            <label for="backendServerPort" style="margin-left: 10px;">Port:</label>
+            <input type="text" id="backendServerPort" value="5002" style="width: 50px; margin-left: 5px;">
+        </div>
+        <button onclick="testBackendServer()">Test Connection</button>
+        <div id="backendServerResult" class="result">Run the test to see results</div>
+    </div>
+
+    <div class="test-card">
+        <h2>Frontend</h2>
+        <p>Tests connectivity to the frontend on port 3000 or 3001.</p>
+        <div>
+            <label for="frontendIP">Frontend IP:</label>
+            <input type="text" id="frontendIP" value="192.168.1.107" style="margin-left: 5px;">
+            <label for="frontendPort" style="margin-left: 10px;">Port:</label>
+            <input type="text" id="frontendPort" value="3001" style="width: 50px; margin-left: 5px;">
+        </div>
+        <button onclick="testFrontend()">Test Connection</button>
+        <div id="frontendResult" class="result">Run the test to see results</div>
+    </div>
+
+    <div class="test-card">
+        <h2>Login Test</h2>
+        <p>Performs an actual login through the network.</p>
+        <div>
+            <label for="loginServerIP">Server IP:</label>
+            <input type="text" id="loginServerIP" value="192.168.1.107" style="margin-left: 5px;">
+            <label for="loginServerPort" style="margin-left: 10px;">Port:</label>
+            <input type="text" id="loginServerPort" value="5001" style="width: 50px; margin-left: 5px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" value="admin" style="margin-left: 5px;">
+            <label for="loginPassword" style="margin-left: 10px;">Password:</label>
+            <input type="password" id="loginPassword" value="Admin@123" style="margin-left: 5px;">
+        </div>
+        <button onclick="testLogin()">Test Login</button>
+        <div id="loginResult" class="result">Run the test to see results</div>
+    </div>
+
+    <script>
+        // Test authentication server
+        async function testAuthServer() {
+            const ip = document.getElementById('authServerIP').value;
+            const port = document.getElementById('authServerPort').value;
+            const resultDiv = document.getElementById('authServerResult');
+            
+            resultDiv.innerHTML = "Testing connection to authentication server...";
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`http://${ip}:${port}/health`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const endTime = performance.now();
+                const responseTime = Math.round(endTime - startTime);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.innerHTML = `<span class="success">✅ Connection successful (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">❌ Connection failed (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${await response.text()}`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ Connection error</span>\n` +
+                    `Error: ${error.message}\n\n` +
+                    `This could be due to:\n` +
+                    `- Server not running\n` +
+                    `- Network connectivity issues\n` +
+                    `- CORS restrictions\n` +
+                    `- Incorrect IP/port`;
+            }
+        }
+        
+        // Test backend server
+        async function testBackendServer() {
+            const ip = document.getElementById('backendServerIP').value;
+            const port = document.getElementById('backendServerPort').value;
+            const resultDiv = document.getElementById('backendServerResult');
+            
+            resultDiv.innerHTML = "Testing connection to backend server...";
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`http://${ip}:${port}/health`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const endTime = performance.now();
+                const responseTime = Math.round(endTime - startTime);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.innerHTML = `<span class="success">✅ Connection successful (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">❌ Connection failed (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${await response.text()}`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ Connection error</span>\n` +
+                    `Error: ${error.message}\n\n` +
+                    `This could be due to:\n` +
+                    `- Server not running\n` +
+                    `- Network connectivity issues\n` +
+                    `- CORS restrictions\n` +
+                    `- Incorrect IP/port`;
+            }
+        }
+        
+        // Test frontend
+        async function testFrontend() {
+            const ip = document.getElementById('frontendIP').value;
+            const port = document.getElementById('frontendPort').value;
+            const resultDiv = document.getElementById('frontendResult');
+            
+            resultDiv.innerHTML = "Testing connection to frontend...";
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`http://${ip}:${port}`, {
+                    method: 'GET'
+                });
+                const endTime = performance.now();
+                const responseTime = Math.round(endTime - startTime);
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">✅ Connection successful (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Content type: ${response.headers.get('content-type')}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">❌ Connection failed (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ Connection error</span>\n` +
+                    `Error: ${error.message}\n\n` +
+                    `This could be due to:\n` +
+                    `- Frontend not running\n` +
+                    `- Network connectivity issues\n` +
+                    `- Incorrect IP/port`;
+            }
+        }
+        
+        // Test login
+        async function testLogin() {
+            const ip = document.getElementById('loginServerIP').value;
+            const port = document.getElementById('loginServerPort').value;
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const resultDiv = document.getElementById('loginResult');
+            
+            resultDiv.innerHTML = "Testing login...";
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`http://${ip}:${port}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                const endTime = performance.now();
+                const responseTime = Math.round(endTime - startTime);
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">✅ Login successful (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">❌ Login failed (${responseTime}ms)</span>\n` +
+                        `Status: ${response.status}\n` +
+                        `Response: ${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ Login error</span>\n` +
+                    `Error: ${error.message}\n\n` +
+                    `This could be due to:\n` +
+                    `- Server not running\n` +
+                    `- Network connectivity issues\n` +
+                    `- CORS restrictions\n` +
+                    `- Invalid credentials\n` +
+                    `- Incorrect IP/port`;
+            }
+        }
+    </script>
+</body>
+</html>

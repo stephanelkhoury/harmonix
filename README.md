@@ -12,7 +12,25 @@ A web application that analyzes MP3 files to detect musical chords and keys usin
 
 ## Running Locally
 
-### Option 1: Using the Split Terminal Launcher (Recommended for Development)
+### Option 1: Using the Fixed Startup Script (Recommended)
+
+We've created an updated startup script that ensures all services run on the correct ports:
+
+```bash
+# Make the script executable (only needed once)
+chmod +x scripts/start_harmonix_fixed.sh
+
+# Run the application with fixed port configuration
+./scripts/start_harmonix_fixed.sh
+```
+
+This script properly configures the following services:
+- Authentication Server: Port 5001
+- Backend Server: Port 5002 
+- Frontend: Port 3000
+- Python Service: Port 8000 (if available)
+
+### Option 2: Using the Split Terminal Launcher (for Development)
 
 For development, the split terminal launcher creates separate terminal windows for each service, making debugging and monitoring easier:
 
@@ -96,7 +114,27 @@ This script:
 6. Performs health checks
 7. Opens the application in your browser
 
-### Option 2: Using Docker
+## Network Access
+
+To access Harmonix from other devices on your local network:
+
+1. Use the fixed startup script which displays network access information:
+   ```bash
+   ./scripts/start_harmonix_fixed.sh
+   ```
+
+2. Access the application using your computer's IP address:
+   ```
+   http://192.168.1.107:3001  # Replace with your actual IP
+   ```
+
+3. For troubleshooting network connections, use our test tools:
+   - Authentication Test: `/tests/auth_tester.html`
+   - Network Connectivity Test: `/tests/network_test.html`
+
+For detailed instructions, see [Network Access Guide](docs/NETWORK_ACCESS_GUIDE.md).
+
+## Running with Docker
 
 If you prefer Docker (note: this option is currently experiencing issues):
 

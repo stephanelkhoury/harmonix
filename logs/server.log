@@ -4,11 +4,3 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
-Token verification error: TokenExpiredError
-Token verification error: TokenExpiredError
-Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-21T13:06:50.341Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-21T13:06:50.341Z] Admin admin retrieved 2 users
-Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-21T13:06:50.343Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-21T13:06:50.343Z] Admin admin retrieved 2 users

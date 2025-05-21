@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonix Authentication Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .card {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .error {
+            color: #f44336;
+            font-weight: bold;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background-color: #f1f1f1;
+        }
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Harmonix Authentication Tester</h1>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'login-tab')">Login Test</div>
+        <div class="tab" onclick="openTab(event, 'token-tab')">Token Verification</div>
+        <div class="tab" onclick="openTab(event, 'fetch-tab')">Fetch Protected Resource</div>
+    </div>
+
+    <div id="login-tab" class="tab-content active">
+        <div class="card">
+            <h2>Login Test</h2>
+            <p>Test the authentication endpoint with different credentials and server configurations.</p>
+            
+            <div class="form-group">
+                <label for="serverUrl">Server URL:</label>
+                <select id="serverUrlSelect" onchange="updateServerUrl()">
+                    <option value="http://localhost:5001">localhost:5001 (Default)</option>
+                    <option value="http://192.168.1.107:5001">192.168.1.107:5001 (Network)</option>
+                    <option value="custom">Custom URL</option>
+                </select>
+                <input type="text" id="serverUrl" value="http://localhost:5001" style="margin-top: 5px;" />
+            </div>
+            
+            <div class="form-group">
+                <label for="endpoint">/login Endpoint:</label>
+                <input type="text" id="endpoint" value="/login" />
+            </div>
+            
+            <div class="form-group">
+                <label for="credentials">Select Credentials:</label>
+                <select id="credentials" onchange="selectCredentials()">
+                    <option value="admin">Admin (admin/Admin@123)</option>
+                    <option value="user">User (stephanelkhoury/S@1234)</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" value="admin" />
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" value="Admin@123" />
+            </div>
+            
+            <button onclick="testLogin()">Test Login</button>
+            
+            <div id="loginResult" class="result">Results will appear here</div>
+        </div>
+    </div>
+
+    <div id="token-tab" class="tab-content">
+        <div class="card">
+            <h2>Token Verification</h2>
+            <p>Verify a JWT token from a successful login.</p>
+            
+            <div class="form-group">
+                <label for="tokenInput">JWT Token:</label>
+                <input type="text" id="tokenInput" placeholder="Paste your JWT token here" />
+            </div>
+            
+            <button onclick="verifyToken()">Decode Token</button>
+            
+            <div id="tokenResult" class="result">Token details will appear here</div>
+        </div>
+    </div>
+
+    <div id="fetch-tab" class="tab-content">
+        <div class="card">
+            <h2>Fetch Protected Resource</h2>
+            <p>Test accessing a protected endpoint with your JWT token.</p>
+            
+            <div class="form-group">
+                <label for="protectedUrl">Protected Endpoint URL:</label>
+                <select id="protectedUrlSelect" onchange="updateProtectedUrl()">
+                    <option value="http://localhost:5001/profile">localhost:5001/profile (Default)</option>
+                    <option value="http://192.168.1.107:5001/profile">192.168.1.107:5001/profile (Network)</option>
+                    <option value="custom">Custom URL</option>
+                </select>
+                <input type="text" id="protectedUrl" value="http://localhost:5001/profile" style="margin-top: 5px;" />
+            </div>
+            
+            <div class="form-group">
+                <label for="authToken">Authorization Token:</label>
+                <input type="text" id="authToken" placeholder="Paste your JWT token here" />
+            </div>
+            
+            <button onclick="fetchProtectedResource()">Fetch Resource</button>
+            
+            <div id="fetchResult" class="result">Results will appear here</div>
+        </div>
+    </div>
+
+    <script>
+        // Handle tab switching
+        function openTab(evt, tabName) {
+            const tabcontents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontents.length; i++) {
+                tabcontents[i].className = tabcontents[i].className.replace(" active", "");
+            }
+
+            const tabs = document.getElementsByClassName("tab");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Update server URL based on dropdown selection
+        function updateServerUrl() {
+            const selection = document.getElementById("serverUrlSelect").value;
+            if (selection !== "custom") {
+                document.getElementById("serverUrl").value = selection;
+            } else {
+                document.getElementById("serverUrl").value = "";
+                document.getElementById("serverUrl").focus();
+            }
+        }
+
+        // Update protected URL based on dropdown selection
+        function updateProtectedUrl() {
+            const selection = document.getElementById("protectedUrlSelect").value;
+            if (selection !== "custom") {
+                document.getElementById("protectedUrl").value = selection;
+            } else {
+                document.getElementById("protectedUrl").value = "";
+                document.getElementById("protectedUrl").focus();
+            }
+        }
+        
+        // Set credentials based on selection
+        function selectCredentials() {
+            const selection = document.getElementById("credentials").value;
+            if (selection === "admin") {
+                document.getElementById("username").value = "admin";
+                document.getElementById("password").value = "Admin@123";
+            } else if (selection === "user") {
+                document.getElementById("username").value = "stephanelkhoury";
+                document.getElementById("password").value = "S@1234";
+            } else {
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+            }
+        }
+
+        // Test login functionality
+        async function testLogin() {
+            const serverUrl = document.getElementById("serverUrl").value;
+            const endpoint = document.getElementById("endpoint").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const resultElement = document.getElementById("loginResult");
+            
+            resultElement.innerHTML = "Sending request...";
+            
+            try {
+                const startTime = performance.now();
+                const response = await fetch(`${serverUrl}${endpoint}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Origin": window.location.origin
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                const endTime = performance.now();
+                const responseTime = (endTime - startTime).toFixed(2);
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultElement.innerHTML = `<span class="success">✅ LOGIN SUCCESSFUL (${responseTime}ms)</span>\n\n` +
+                        `Status: ${response.status} ${response.statusText}\n` +
+                        `Response Headers: ${JSON.stringify(Object.fromEntries([...response.headers]), null, 2)}\n\n` +
+                        `Response Body:\n${JSON.stringify(data, null, 2)}\n\n` +
+                        `<span class="success">Token received! You can use this token for authentication.</span>`;
+                    
+                    // Auto-populate the token field in the other tabs
+                    if (data.token) {
+                        document.getElementById("tokenInput").value = data.token;
+                        document.getElementById("authToken").value = data.token;
+                    }
+                } else {
+                    resultElement.innerHTML = `<span class="error">❌ LOGIN FAILED (${responseTime}ms)</span>\n\n` +
+                        `Status: ${response.status} ${response.statusText}\n` +
+                        `Response Headers: ${JSON.stringify(Object.fromEntries([...response.headers]), null, 2)}\n\n` +
+                        `Response Body:\n${JSON.stringify(data, null, 2)}`;
+                }
+            } catch (error) {
+                resultElement.innerHTML = `<span class="error">❌ ERROR</span>\n\n` +
+                    `${error.message}\n\n` +
+                    `This could be due to CORS issues, network connectivity, or the server not running.`;
+            }
+        }
+
+        // Decode and verify JWT token
+        function verifyToken() {
+            const token = document.getElementById("tokenInput").value;
+            const resultElement = document.getElementById("tokenResult");
+            
+            if (!token) {
+                resultElement.innerHTML = `<span class="error">No token provided</span>`;
+                return;
+            }
+            
+            try {
+                // Split the JWT token parts
+                const parts = token.split('.');
+                if (parts.length !== 3) {
+                    resultElement.innerHTML = `<span class="error">Invalid token format</span>`;
+                    return;
+                }
+                
+                // Decode the header and payload
+                const header = JSON.parse(atob(parts[0]));
+                const payload = JSON.parse(atob(parts[1]));
+                
+                // Calculate token expiration
+                let expirationStatus = "";
+                if (payload.exp) {
+                    const expirationDate = new Date(payload.exp * 1000);
+                    const now = new Date();
+                    
+                    if (expirationDate > now) {
+                        const timeLeft = Math.floor((expirationDate - now) / 1000 / 60);
+                        expirationStatus = `<span class="success">Valid for ${timeLeft} more minutes</span>`;
+                    } else {
+                        expirationStatus = `<span class="error">Expired ${Math.floor((now - expirationDate) / 1000 / 60)} minutes ago</span>`;
+                    }
+                }
+                
+                resultElement.innerHTML = `<span class="success">Token Decoded</span>\n\n` +
+                    `<strong>Header:</strong>\n${JSON.stringify(header, null, 2)}\n\n` +
+                    `<strong>Payload:</strong>\n${JSON.stringify(payload, null, 2)}\n\n` +
+                    `<strong>Expiration:</strong> ${expirationStatus}\n\n` +
+                    `<strong>Note:</strong> This is a client-side decode only. Signature validation happens on the server.`;
+            } catch (error) {
+                resultElement.innerHTML = `<span class="error">Error decoding token: ${error.message}</span>`;
+            }
+        }
+
+        // Test protected resource access
+        async function fetchProtectedResource() {
+            const url = document.getElementById("protectedUrl").value;
+            const token = document.getElementById("authToken").value;
+            const resultElement = document.getElementById("fetchResult");
+            
+            if (!token) {
+                resultElement.innerHTML = `<span class="error">No token provided</span>`;
+                return;
+            }
+            
+            resultElement.innerHTML = "Sending request...";
+            
+            try {
+                const response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                });
+                
+                const contentType = response.headers.get("content-type");
+                let data;
+                
+                if (contentType && contentType.includes("application/json")) {
+                    data = await response.json();
+                } else {
+                    data = await response.text();
+                }
+                
+                if (response.ok) {
+                    resultElement.innerHTML = `<span class="success">✅ REQUEST SUCCESSFUL</span>\n\n` +
+                        `Status: ${response.status} ${response.statusText}\n` +
+                        `Response Headers: ${JSON.stringify(Object.fromEntries([...response.headers]), null, 2)}\n\n` +
+                        `Response Body:\n${typeof data === 'object' ? JSON.stringify(data, null, 2) : data}`;
+                } else {
+                    resultElement.innerHTML = `<span class="error">❌ REQUEST FAILED</span>\n\n` +
+                        `Status: ${response.status} ${response.statusText}\n` +
+                        `Response Headers: ${JSON.stringify(Object.fromEntries([...response.headers]), null, 2)}\n\n` +
+                        `Response Body:\n${typeof data === 'object' ? JSON.stringify(data, null, 2) : data}`;
+                }
+            } catch (error) {
+                resultElement.innerHTML = `<span class="error">❌ ERROR</span>\n\n` +
+                    `${error.message}\n\n` +
+                    `This could be due to CORS issues, network connectivity, or the server not running.`;
+            }
+        }
+    </script>
+</body>
+</html>

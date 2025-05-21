@@ -74,6 +74,30 @@
   }
 }
 
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 161, 192, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(13, 161, 192, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 161, 192, 0);
+  }
+}
+
+@keyframes gentle-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(13, 161, 192, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(13, 161, 192, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(13, 161, 192, 0.2);
+  }
+}
+
 .home-container {
   width: 100%;
   min-height: 100vh;
@@ -206,7 +230,9 @@
 .action-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
   width: 100%;
   max-width: 900px;
   backdrop-filter: blur(10px);
@@ -219,134 +245,108 @@
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.upload-box {
-  width: 100%;
-  background: rgba(11, 38, 68, 0.7);
-  border: 2px dashed #3B7DAD;
-  border-radius: 12px;
-  padding: 40px 20px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.upload-box.dragover {
-  border-color: #0DA1C0;
-  background: rgba(13, 161, 192, 0.1);
-  transform: scale(1.02);
-}
-
-.upload-box:hover {
-  border-color: #0DA1C0;
-  background: rgba(11, 38, 68, 0.9);
-}
-
-.upload-icon {
-  font-size: 48px;
-  color: #3B7DAD;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.upload-img {
-  width: 64px;
-  height: 64px;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.upload-box p {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  color: white;
-}
-
-.separator {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0;
-  color: white;
-}
-
-.separator hr {
-  flex: 1;
-  height: 1px;
-  background-color: #3B7DAD;
-  border: none;
-}
-
-.separator span {
-  padding: 0 15px;
-  font-size: 1rem;
-}
-
-.record-section {
-  width: 100%;
-  background: rgba(11, 38, 68, 0.7);
-  border-radius: 12px;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.action-panel {
+  background: rgba(11, 38, 68, 0.5);
   border: 1px solid rgba(59, 125, 173, 0.2);
-}
-
-.record-button {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0DA1C0 0%, #3B7DAD 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  box-shadow: 0 4px 15px rgba(13, 161, 192, 0.5);
-  margin-bottom: 15px;
+  border-radius: 15px;
   transition: all 0.3s ease;
 }
 
-.record-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(13, 161, 192, 0.7);
+.action-panel:hover {
+  border-color: rgba(59, 125, 173, 0.5);
+  box-shadow: 0 5px 15px rgba(13, 161, 192, 0.2);
 }
 
-.record-button i {
-  font-size: 32px;
-  color: white;
+.action-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.action-separator {
+  width: 2px;
+  background: linear-gradient(180deg, #0DA1C0 0%, #3B7DAD 100%);
+  border-radius: 1px;
+  align-self: stretch;
+  margin: 0 20px;
+}
+
+.action-content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+}
+
+.action-content-row .upload-box,
+.action-content-row .record-section {
+  flex: 1;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.action-btn-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .analyze-button {
   background: linear-gradient(90deg, #0DA1C0 0%, #3B7DAD 100%);
   color: white;
-  font-size: 1.1rem;
-  padding: 15px 40px;
+  font-size: 1.2rem;
+  padding: 16px 45px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
   margin-top: 30px;
+  width: auto;
+  min-width: 220px;
   transition: all 0.3s ease;
   font-weight: bold;
-  box-shadow: 0 4px 15px rgba(13, 161, 192, 0.3);
+  box-shadow: 0 6px 18px rgba(13, 161, 192, 0.4);
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.analyze-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .analyze-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(13, 161, 192, 0.5);
+  box-shadow: 0 8px 25px rgba(13, 161, 192, 0.6);
 }
 
-.analyze-button:disabled {
-  background: rgb(116, 0, 0);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+.analyze-button:hover::before {
+  transform: translateX(100%);
+}
+
+.pulse-animation {
+  animation: buttonPulse 1.5s ease-out infinite;
 }
 
 /* How It Works Section */
@@ -558,9 +558,11 @@
 }
 
 .benefits-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    align-content: center;
+    justify-items: start;
 }
 
 .benefit-item {
@@ -1075,4 +1077,165 @@ body.light-theme .section-subtitle {
   .section-title {
     font-size: 2rem;
   }
+  
+  .action-content-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .action-content-row .upload-box,
+  .action-content-row .record-section {
+    width: 100%;
+  }
+  
+  .separator {
+    flex-direction: row;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+/* Enhanced Separator Style */
+.separator {
+  display: flex;
+  align-items: center;
+  width: auto;
+  padding: 0 15px;
+  color: white;
+}
+
+.separator hr {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(13, 161, 192, 0.2), rgba(59, 125, 173, 0.7), rgba(13, 161, 192, 0.2));
+  border: none;
+}
+
+.separator span {
+  padding: 0 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.upload-box {
+  cursor: pointer;
+  padding: 30px 20px;
+  border: 2px dashed rgba(59, 125, 173, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: rgba(13, 161, 192, 0.7);
+  background: rgba(13, 161, 192, 0.05);
+}
+
+.upload-box.dragover {
+  border-color: #0DA1C0;
+  background: rgba(13, 161, 192, 0.1);
+  box-shadow: 0 0 15px rgba(13, 161, 192, 0.3);
+  transform: scale(1.02);
+}
+
+.upload-icon {
+  margin-bottom: 15px;
+}
+
+.upload-icon img {
+  width: 60px;
+  height: 60px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover .upload-icon img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.small-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 10px;
+}
+
+.success {
+  color: #4CAF50;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.record-section {
+  padding: 30px 20px;
+  border: 2px dashed rgba(59, 125, 173, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.record-section:hover {
+  border-color: rgba(13, 161, 192, 0.7);
+  background: rgba(13, 161, 192, 0.05);
+}
+
+.record-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF5722, #FF9800);
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+
+.record-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
+}
+
+.record-button:disabled {
+  background: linear-gradient(135deg, #FF9800, #FFEB3B);
+  animation: pulse 1.5s infinite;
+}
+
+.record-button i {
+  font-size: 32px;
+}
+
+.active-mode {
+  border-color: rgba(13, 161, 192, 0.9) !important;
+  background: rgba(13, 161, 192, 0.1);
+  box-shadow: 0 0 20px rgba(13, 161, 192, 0.2);
+  transform: scale(1.02);
+  animation: gentle-glow 3s infinite;
+}
+
+.inactive-mode {
+  opacity: 0.7;
+  filter: grayscale(30%);
+}
+
+/* Add smooth transitions to the panels */
+.upload-box, .record-section {
+  transition: all 0.4s ease-in-out;
+}
+
+.record-button:focus,
+.analyze-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 161, 192, 0.5), 0 6px 15px rgba(13, 161, 192, 0.3);
+}
+
+.upload-box:focus-visible {
+  outline: none;
+  border-color: #0DA1C0;
+  box-shadow: 0 0 0 3px rgba(13, 161, 192, 0.5);
 }
