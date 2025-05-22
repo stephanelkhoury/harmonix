@@ -24,3 +24,33 @@ Authenticated user: admin (id: 2), isAdmin: true
 Authenticated user: admin (id: 2), isAdmin: true
 [2025-05-22T12:10:08.663Z] Admin access by: admin (id: 2), path: /api/admin/users
 [2025-05-22T12:10:08.663Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:19:51.846Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:19:51.850Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:19:51.853Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:19:51.853Z] Admin admin retrieved 2 users
+Login attempt for user: stephanelkhoury
+Password from request: 1812000
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: false
+Failed login attempt for user: stephanelkhoury
+Login attempt for user: stephanelkhoury
+Password from request: S@1234
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: true
+Login attempt for user: stephanelkhoury
+Password from request: 1812000
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: false
+Failed login attempt for user: stephanelkhoury
+Login attempt for user: stephanelkhoury
+Password from request: S@1234
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: true
+Authenticated user: stephanelkhoury (id: 1), isAdmin: true
+[2025-05-22T12:23:57.726Z] Admin access by: stephanelkhoury (id: 1), path: /api/admin/users
+[2025-05-22T12:23:57.727Z] Admin stephanelkhoury retrieved 2 users
+Authenticated user: stephanelkhoury (id: 1), isAdmin: true
+[2025-05-22T12:23:57.730Z] Admin access by: stephanelkhoury (id: 1), path: /api/admin/users
+[2025-05-22T12:23:57.730Z] Admin stephanelkhoury retrieved 2 users

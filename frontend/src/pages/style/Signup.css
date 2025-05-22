@@ -1,23 +1,30 @@
 /* Reuse the same styles as Login.css */
 @import './Login.css';
+@import './ResponsiveAuth.css';
 
 /* Additional styles specific to Signup */
 .signup-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f4;
+  padding: 20px 0;
 }
 
 .signup-container {
   display: flex;
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 95%;
+  }
 }
 
 .signup-left {
@@ -52,6 +59,11 @@
   display: flex;
   justify-content: space-between;
   gap: 50px; /* Add space between components in the same row */
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .form-group {

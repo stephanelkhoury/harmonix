@@ -1,0 +1,205 @@
+/* ResponsiveAuth.css - Shared responsive styles for authentication pages */
+
+/* Media query styles for responsiveness - to be imported by Login.css and Signup.css */
+
+/* Tablet styles */
+@media (max-width: 992px) {
+  .form-group input,
+  .form-group select,
+  button.login-button,
+  button.google-login,
+  .form-group .css-2b097c-container {
+    font-size: 15px;
+    padding: 8px;
+  }
+  
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .form-options a {
+    margin-top: 5px;
+  }
+  
+  .login-button, 
+  .google-login {
+    padding: 12px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .form-group label {
+    font-size: 14px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  button.login-button,
+  button.google-login {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .login-divider {
+    margin: 15px 0;
+  }
+  
+  .form-text.text-muted {
+    font-size: 12px;
+  }
+  
+  .error-message,
+  .success-message {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .login-button, 
+  .google-login {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  /* For country select dropdown and other third-party components */
+  .css-1s2u09g-control,
+  .css-1pahdxg-control {
+    min-height: 36px !important;
+  }
+  
+  .css-tlfecz-indicatorContainer,
+  .css-1gtu0rj-indicatorContainer {
+    padding: 4px !important;
+  }
+  
+  /* Add smooth focus transitions */
+  .form-group input:focus,
+  .form-group select:focus {
+    box-shadow: 0 0 0 2px rgba(13, 161, 192, 0.4);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: more) {
+  .login-button,
+  .google-login {
+    border: 2px solid #000;
+  }
+  
+  .form-group input,
+  .form-group select {
+    border: 2px solid #444;
+  }
+  
+  .error-message {
+    background-color: #ffdddd;
+    border: 1px solid #ff0000;
+  }
+  
+  .success-message {
+    background-color: #ddffdd;
+    border: 1px solid #00aa00;
+  }
+}
+
+/* Orientation-specific adjustments */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .login-page, 
+  .signup-page {
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .login-left,
+  .signup-right {
+    padding: 20px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .login-container,
+  .signup-container {
+    background-color: #222;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .login-left h1,
+  .signup-right h1 {
+    color: #f0f0f0;
+  }
+  
+  .login-left p,
+  .signup-right p,
+  .form-group label {
+    color: #c0c0c0;
+  }
+  
+  .form-group input,
+  .form-group select {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+  
+  .form-text.text-muted {
+    color: #a0a0a0 !important;
+  }
+  
+  .login-divider {
+    color: #a0a0a0;
+  }
+  
+  .signup-link,
+  .login-link {
+    color: #a0a0a0;
+  }
+  
+  .error-message {
+    background-color: rgba(211, 47, 47, 0.2);
+  }
+  
+  .success-message {
+    background-color: rgba(56, 142, 60, 0.2);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .login-button,
+  .google-login,
+  .form-options a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .login-button:active,
+  .google-login:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

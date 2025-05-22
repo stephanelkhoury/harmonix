@@ -2,18 +2,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f4;
+  padding: 20px 0;
 }
 
 .login-container {
   display: flex;
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  flex-direction: row;
+  
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    width: 95%;
+  }
 }
 
 .login-left {
@@ -33,6 +40,21 @@
 .login-left p {
   color: #666;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .login-left {
+    padding: 30px 20px;
+  }
+  
+  .login-left h1 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  
+  .login-left p {
+    text-align: center;
+  }
 }
 
 .form-group {
@@ -144,4 +166,14 @@
 .login-right {
   flex: 1;
   background: url('../../assets/images/harmonix-logo-03.png') no-repeat center center/cover;
+  min-height: 300px;
+  
+  @media (max-width: 768px) {
+    min-height: 200px;
+    flex: 0.5;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 150px;
+  }
 }
