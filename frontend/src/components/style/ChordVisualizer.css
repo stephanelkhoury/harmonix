@@ -48,22 +48,72 @@
 .chord-selector {
   margin-bottom: 25px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.chord-dropdowns {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.chord-selector span {
+.dropdown-container label {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.chord-dropdown {
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: rgba(11, 38, 68, 0.8);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  min-width: 120px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.chord-dropdown:hover {
+  border-color: rgba(15, 162, 220, 0.5);
+}
+
+.chord-dropdown:focus {
+  border-color: #0DA1C0;
+  box-shadow: 0 0 0 2px rgba(13, 161, 192, 0.25);
+}
+
+.chord-quick-select {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chord-quick-select span {
   color: white;
   font-size: 1.1rem;
 }
 
 .chord-buttons {
-    display: flex;
-    flex-flow: row;
-    gap: 8px;
-    flex-direction: row;
+  display: flex;
+  flex-flow: row;
+  gap: 8px;
+  flex-direction: row;
 }
 
 .chord-button {
@@ -102,44 +152,124 @@
   height: 180px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
+  perspective: 800px;
+}
+
+/* Adjustments for two octaves */
+.piano-keyboard.two-octaves {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 15px;
+}
+
+/* Piano keyboard container with 3D effect */
+.piano-keyboard::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #111;
+  border-radius: 5px 5px 0 0;
+  transform: rotateX(45deg);
+  transform-origin: bottom;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .piano-key {
   position: absolute;
-  top: 10px;
-  height: 160px;
-  width: 14%;
-  background: #F0F0F0;
-  border: 1px solid #444;
-  border-radius: 0 0 5px 5px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border-radius: 0 0 4px 4px;
+}
+
+.piano-key.white {
+  width: 6.25%; /* Width for 2 octaves (14 white keys) */
+  height: 160px;
+  background: linear-gradient(180deg, #fff 0%, #f9f9f9 85%, #e8e8e8 100%);
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1;
   align-items: flex-end;
   padding-bottom: 10px;
-  transition: all 0.3s ease;
+  box-shadow: 
+    0 2px 3px rgba(0, 0, 0, 0.1), 
+    0 -15px 15px rgba(255, 255, 255, 0.5) inset,
+    0 5px 5px rgba(0, 0, 0, 0.1) inset,
+    0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.piano-key.white:hover {
+  background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+  box-shadow: 
+    0 2px 3px rgba(0, 0, 0, 0.2), 
+    0 -15px 15px rgba(255, 255, 255, 0.7) inset,
+    0 5px 5px rgba(0, 0, 0, 0.15) inset;
 }
 
 .piano-key.black {
+  width: 4%;
   height: 100px;
-  width: 8%;
-  background: #333;
+  background: linear-gradient(180deg, #444 0%, #222 70%, #111 100%);
+  border: 1px solid #000;
+  border-top: 1px solid #666;
   z-index: 2;
+  color: rgba(255, 255, 255, 0.7);
+  align-items: flex-end;
+  padding-bottom: 5px;
+  box-shadow: 
+    -1px 0 2px rgba(0, 0, 0, 0.5),
+    1px 0 2px rgba(0, 0, 0, 0.5),
+    0 -2px 0 rgba(255, 255, 255, 0.1) inset,
+    0 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.piano-key.black:hover {
+  background: linear-gradient(180deg, #555 0%, #333 100%);
+}
+
+.piano-key.white.active {
+  background: linear-gradient(180deg, #9CE0F5 0%, #0DA1C0 100%);
+  transform: translateY(2px);
+  box-shadow: 
+    0 0 10px rgba(13, 161, 192, 0.8),
+    0 -10px 15px rgba(156, 224, 245, 0.5) inset,
+    0 5px 5px rgba(13, 161, 192, 0.3) inset;
   color: white;
 }
 
-.piano-key.active {
-  background: linear-gradient(180deg, #0DA1C0 0%, #3B7DAD 100%);
-  transform: translateY(5px);
-  box-shadow: 0 0 15px rgba(15, 162, 220, 0.8);
+.piano-key.black.active {
+  background: linear-gradient(180deg, #0DA1C0 0%, #0A7A94 100%);
+  transform: translateY(1px);
+  box-shadow: 
+    0 0 10px rgba(13, 161, 192, 0.8),
+    0 5px 5px rgba(0, 0, 0, 0.5) inset;
   color: white;
 }
 
 .key-label {
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  opacity: 0.9;
+  transition: all 0.15s ease;
+}
+
+.piano-key.white .key-label {
+  margin-bottom: 8px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.piano-key.black .key-label {
+  margin-bottom: 5px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  font-size: 0.7rem;
 }
 
 /* Guitar Fretboard */
@@ -240,39 +370,90 @@
   color: white;
 }
 
+/* Custom scrollbar for piano keyboard */
+.piano-keyboard.two-octaves::-webkit-scrollbar {
+  height: 6px;
+}
+
+.piano-keyboard.two-octaves::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.piano-keyboard.two-octaves::-webkit-scrollbar-thumb {
+  background: rgba(59, 125, 173, 0.5);
+  border-radius: 3px;
+}
+
+.piano-keyboard.two-octaves::-webkit-scrollbar-thumb:hover {
+  background: rgba(13, 161, 192, 0.7);
+}
+
+/* Chord Note Badges */
+.chord-badge-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.chord-note-badge {
+  background: linear-gradient(135deg, #0DA1C0 0%, #3B7DAD 100%);
+  color: white;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.3s ease-out forwards;
+  transition: transform 0.15s ease;
+}
+
+.chord-note-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(13, 161, 192, 0.4);
+}
+
+/* Improved responsive styles */
 @media (max-width: 768px) {
   .chord-visualizer {
     padding: 20px 15px;
   }
   
   .visualizer-display {
-    height: 150px;
+    height: 170px;
+  }
+  
+  .chord-selector {
+    gap: 10px;
+  }
+  
+  .chord-dropdowns {
+    gap: 10px;
+    flex-direction: column;
+  }
+  
+  .dropdown-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .chord-dropdown {
+    flex: 1;
+    max-width: 200px;
   }
   
   .piano-keyboard {
+    height: 150px;
+  }
+  
+  .piano-key.white {
     height: 130px;
   }
   
-  .piano-key {
-    height: 110px;
-  }
-  
   .piano-key.black {
-    height: 70px;
-  }
-  
-  .guitar-fretboard {
-    height: 140px;
-  }
-  
-  .guitar-string {
-    height: 20px;
-  }
-  
-  .fret-dot {
-    width: 18px;
-    height: 18px;
-    font-size: 0.6rem;
+    height: 85px;
   }
 }
 
@@ -298,6 +479,35 @@
   
   .chord-button {
     padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .visualizer-display {
+    height: 150px;
+  }
+  
+  .chord-quick-select {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .piano-key.white {
+    height: 120px;
+  }
+  
+  .piano-key.black {
+    height: 75px;
+  }
+  
+  .key-label {
+    font-size: 0.6rem;
+  }
+  
+  .chord-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .chord-info p {
     font-size: 0.9rem;
   }
 }

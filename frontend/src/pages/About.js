@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaRegHandshake, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './style/About.css';
 import '../components/style/HomePage.css';
+import ScrollAnimation from '../components/ScrollAnimation';
 
 const About = () => {
     return (
         <div className="about-page">
+            <ScrollAnimation />
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <Container>

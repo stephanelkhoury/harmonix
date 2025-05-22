@@ -1,6 +1,153 @@
 INFO:     Will watch for changes in these directories: ['/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [60784] using statreload
-INFO:     Started server process [60798]
+INFO:     Started reloader process [23150] using statreload
+INFO:     Started server process [23155]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     127.0.0.1:59669 - "GET /health HTTP/1.1" 200 OK
+Attempting to download YouTube audio from: https://www.youtube.com/watch?v=824c2DT3QT8
+Using temporary path: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp8rp2hye9/audio.mp3
+Found ffmpeg at: /opt/homebrew/bin/ffmpeg
+Running command: yt-dlp -v -x --audio-format mp3 --audio-quality 192K --no-playlist --geo-bypass --force-ipv4 --no-check-certificate --extract-audio --prefer-ffmpeg --progress --hls-prefer-native -o /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp8rp2hye9/audio.mp3 --ffmpeg-location /opt/homebrew/bin/ffmpeg https://www.youtube.com/watch?v=824c2DT3QT8
+YouTube download failed: [debug] Command-line config: ['-v', '-x', '--audio-format', 'mp3', '--audio-quality', '192K', '--no-playlist', '--geo-bypass', '--force-ipv4', '--no-check-certificate', '--extract-audio', '--prefer-ffmpeg', '--progress', '--hls-prefer-native', '-o', '/var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp8rp2hye9/audio.mp3', '--ffmpeg-location', '/opt/homebrew/bin/ffmpeg', 'https://www.youtube.com/watch?v=824c2DT3QT8']
+[debug] Encodings: locale UTF-8, fs utf-8, pref UTF-8, out utf-8 (No ANSI), error utf-8 (No ANSI), screen utf-8 (No ANSI)
+[debug] yt-dlp version stable@2025.04.30 from yt-dlp/yt-dlp [505b40079] (pip)
+[debug] Python 3.10.17 (CPython arm64 64bit) - macOS-15.4.1-arm64-arm-64bit (OpenSSL 3.5.0 8 Apr 2025)
+[debug] exe versions: ffmpeg 7.1.1 (setts), ffprobe 7.1.1
+[debug] Optional libraries: certifi-2025.04.26, requests-2.32.3, sqlite3-3.49.2, urllib3-2.4.0
+[debug] Proxy map: {}
+[debug] Request Handlers: urllib, requests
+[debug] Plugin directories: none
+[debug] Loaded 1857 extractors
+[debug] Loading youtube-sts.59b252b9-main from cache
+[debug] [youtube] Extracting signature function 59b252b9-main-105
+[debug] Loading youtube-sigfuncs.59b252b9-main-105 from cache
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = yiMr3A-aC57zWHpI6VW7 ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] [youtube] Traceback (most recent call last):
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/extractor/youtube/_video.py", line 2322, in extract_nsig
+    ret = func([s])
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 928, in resf
+    ret, should_abort = self.interpret_statement(code.replace('\n', ' '), var_stack, allow_recursion - 1)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 241, in interpret_statement
+    ret, should_ret = f(self, stmt, local_vars, allow_recursion, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 394, in interpret_statement
+    ret, should_return = self.interpret_statement(sub_stmt, local_vars, allow_recursion)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 241, in interpret_statement
+    ret, should_ret = f(self, stmt, local_vars, allow_recursion, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 599, in interpret_statement
+    ret = local_vars[var]
+  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/collections/__init__.py", line 986, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/collections/__init__.py", line 978, in __missing__
+    raise KeyError(key)
+KeyError: 'smRLl34tByYhJ4B'
+ (caused by KeyError('smRLl34tByYhJ4B')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = PD1ruxCmnB4G2sCHGTUf ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] [youtube] Extracting signature function 59b252b9-main-101
+[debug] Loading youtube-sigfuncs.59b252b9-main-101 from cache
+[debug] [youtube] 824c2DT3QT8: ios client https formats require a GVS PO Token which was not provided. They will be skipped as they may yield HTTP Error 403. You can manually pass a GVS PO Token for this client with --extractor-args "youtube:po_token=ios.gvs+XXX". For more information, refer to  https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide . To enable these broken formats anyway, pass --extractor-args "youtube:formats=missing_pot"
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = N5_Kd3BTh2CPH7EgP_Mk ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = _tFUzPn_dXRZfSdUQnWk ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] Sort order given by extractor: quality, res, fps, hdr:12, source, vcodec, channels, acodec, lang, proto
+[debug] Formats sorted by: hasvid, ie_pref, quality, res, fps, hdr:12(7), source, vcodec, channels, acodec, lang, proto, size, br, asr, vext, aext, hasaud, id
+ERROR: [youtube] 824c2DT3QT8: Requested format is not available. Use --list-formats for a list of available formats
+Traceback (most recent call last):
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1653, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1809, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1868, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3002, in process_video_result
+    raise ExtractorError(
+yt_dlp.utils.ExtractorError: [youtube] 824c2DT3QT8: Requested format is not available. Use --list-formats for a list of available formats
+
+
+INFO:     127.0.0.1:59670 - "POST /analyze-youtube HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59698 - "GET /health HTTP/1.1" 200 OK
+Attempting to download YouTube audio from: https://youtu.be/824c2DT3QT8?si=Dx6HnWTRNLfq167L
+Using temporary path: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp2iq__9mj/audio.mp3
+Found ffmpeg at: /opt/homebrew/bin/ffmpeg
+Running command: yt-dlp -v -x --audio-format mp3 --audio-quality 192K --no-playlist --geo-bypass --force-ipv4 --no-check-certificate --extract-audio --prefer-ffmpeg --progress --hls-prefer-native -o /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp2iq__9mj/audio.mp3 --ffmpeg-location /opt/homebrew/bin/ffmpeg https://youtu.be/824c2DT3QT8?si=Dx6HnWTRNLfq167L
+YouTube download failed: [debug] Command-line config: ['-v', '-x', '--audio-format', 'mp3', '--audio-quality', '192K', '--no-playlist', '--geo-bypass', '--force-ipv4', '--no-check-certificate', '--extract-audio', '--prefer-ffmpeg', '--progress', '--hls-prefer-native', '-o', '/var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp2iq__9mj/audio.mp3', '--ffmpeg-location', '/opt/homebrew/bin/ffmpeg', 'https://youtu.be/824c2DT3QT8?si=Dx6HnWTRNLfq167L']
+[debug] Encodings: locale UTF-8, fs utf-8, pref UTF-8, out utf-8 (No ANSI), error utf-8 (No ANSI), screen utf-8 (No ANSI)
+[debug] yt-dlp version stable@2025.04.30 from yt-dlp/yt-dlp [505b40079] (pip)
+[debug] Python 3.10.17 (CPython arm64 64bit) - macOS-15.4.1-arm64-arm-64bit (OpenSSL 3.5.0 8 Apr 2025)
+[debug] exe versions: ffmpeg 7.1.1 (setts), ffprobe 7.1.1
+[debug] Optional libraries: certifi-2025.04.26, requests-2.32.3, sqlite3-3.49.2, urllib3-2.4.0
+[debug] Proxy map: {}
+[debug] Request Handlers: urllib, requests
+[debug] Plugin directories: none
+[debug] Loaded 1857 extractors
+[debug] Loading youtube-sts.59b252b9-main from cache
+[debug] [youtube] Extracting signature function 59b252b9-main-101
+[debug] Loading youtube-sigfuncs.59b252b9-main-101 from cache
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = XCRy9h8PYKULKlD0hXlH ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] [youtube] Traceback (most recent call last):
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/extractor/youtube/_video.py", line 2322, in extract_nsig
+    ret = func([s])
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 928, in resf
+    ret, should_abort = self.interpret_statement(code.replace('\n', ' '), var_stack, allow_recursion - 1)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 241, in interpret_statement
+    ret, should_ret = f(self, stmt, local_vars, allow_recursion, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 394, in interpret_statement
+    ret, should_return = self.interpret_statement(sub_stmt, local_vars, allow_recursion)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 241, in interpret_statement
+    ret, should_ret = f(self, stmt, local_vars, allow_recursion, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/jsinterp.py", line 599, in interpret_statement
+    ret = local_vars[var]
+  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/collections/__init__.py", line 986, in __getitem__
+    return self.__missing__(key)            # support subclasses that define __missing__
+  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/collections/__init__.py", line 978, in __missing__
+    raise KeyError(key)
+KeyError: 'smRLl34tByYhJ4B'
+ (caused by KeyError('smRLl34tByYhJ4B')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = CL3hDQRAnjv4QFO27DA3 ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] [youtube] Extracting signature function 59b252b9-main-105
+[debug] Loading youtube-sigfuncs.59b252b9-main-105 from cache
+[debug] [youtube] 824c2DT3QT8: ios client https formats require a GVS PO Token which was not provided. They will be skipped as they may yield HTTP Error 403. You can manually pass a GVS PO Token for this client with --extractor-args "youtube:po_token=ios.gvs+XXX". For more information, refer to  https://github.com/yt-dlp/yt-dlp/wiki/PO-Token-Guide . To enable these broken formats anyway, pass --extractor-args "youtube:formats=missing_pot"
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = JXHf7oYsYR4KOhwz14FF ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+WARNING: [youtube] 824c2DT3QT8: nsig extraction failed: Some formats may be missing
+         n = NcG8CtTk3SEw3cUAbIV3 ; player = https://www.youtube.com/s/player/59b252b9/player_ias.vflset/en_US/base.js
+         Please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+[debug] Sort order given by extractor: quality, res, fps, hdr:12, source, vcodec, channels, acodec, lang, proto
+[debug] Formats sorted by: hasvid, ie_pref, quality, res, fps, hdr:12(7), source, vcodec, channels, acodec, lang, proto, size, br, asr, vext, aext, hasaud, id
+ERROR: [youtube] 824c2DT3QT8: Requested format is not available. Use --list-formats for a list of available formats
+Traceback (most recent call last):
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1653, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1809, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 1868, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/yt_dlp/YoutubeDL.py", line 3002, in process_video_result
+    raise ExtractorError(
+yt_dlp.utils.ExtractorError: [youtube] 824c2DT3QT8: Requested format is not available. Use --list-formats for a list of available formats
+
+
+INFO:     127.0.0.1:59699 - "POST /analyze-youtube HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59730 - "GET /health HTTP/1.1" 200 OK
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=512 is too small for input signal of length=345
+  warnings.warn(
+Attempting to download YouTube audio from: https://youtu.be/GUYKNXvwHaM?si=X4KPgWCMIHJqt5PS
+Using temporary path: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp_bfpqgyr/audio.mp3
+Found ffmpeg at: /opt/homebrew/bin/ffmpeg
+Running command: yt-dlp -v -x --audio-format mp3 --audio-quality 192K --no-playlist --geo-bypass --force-ipv4 --no-check-certificate --extract-audio --prefer-ffmpeg --progress --hls-prefer-native -o /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp_bfpqgyr/audio.mp3 --ffmpeg-location /opt/homebrew/bin/ffmpeg https://youtu.be/GUYKNXvwHaM?si=X4KPgWCMIHJqt5PS
+YouTube download completed successfully to /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp_bfpqgyr/audio.mp3
+Error saving YouTube chord analysis: [Errno 2] No such file or directory: '/Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250522_125105_youtube_https://youtu.be/GUYKNXvwHaM?si=X4KPgWCMIHJqt5PS.json'
+Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250522_125105_youtube_https://youtu.be/GUYKNXvwHaM?si=X4KPgWCMIHJqt5PS.json
+INFO:     127.0.0.1:59731 - "POST /analyze-youtube HTTP/1.1" 200 OK

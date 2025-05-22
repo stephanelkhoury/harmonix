@@ -3,23 +3,39 @@ import './style/ChordVisualizer.css';
 
 function ChordVisualizer() {
   const [activeChord, setActiveChord] = useState('C');
+  const [activeNote, setActiveNote] = useState('C');
+  const [activeChordType, setActiveChordType] = useState('');
   const [visualizerType, setVisualizerType] = useState('keyboard'); // 'keyboard' or 'fretboard'
   
-  // Piano keyboard note mapping
+  // Piano keyboard note mapping - 2 octaves
   const pianoKeys = [
-    { note: 'C', position: 0, isBlack: false },
-    { note: 'C#', position: 0.5, isBlack: true },
-    { note: 'D', position: 1, isBlack: false },
-    { note: 'D#', position: 1.5, isBlack: true },
-    { note: 'E', position: 2, isBlack: false },
-    { note: 'F', position: 3, isBlack: false },
-    { note: 'F#', position: 3.5, isBlack: true },
-    { note: 'G', position: 4, isBlack: false },
-    { note: 'G#', position: 4.5, isBlack: true },
-    { note: 'A', position: 5, isBlack: false },
-    { note: 'A#', position: 5.5, isBlack: true },
-    { note: 'B', position: 6, isBlack: false },
-    { note: 'C', position: 7, isBlack: false },
+    // First octave
+    { note: 'C', octave: 4, position: 0, isBlack: false },
+    { note: 'C#', octave: 4, position: 0.5, isBlack: true },
+    { note: 'D', octave: 4, position: 1, isBlack: false },
+    { note: 'D#', octave: 4, position: 1.5, isBlack: true },
+    { note: 'E', octave: 4, position: 2, isBlack: false },
+    { note: 'F', octave: 4, position: 3, isBlack: false },
+    { note: 'F#', octave: 4, position: 3.5, isBlack: true },
+    { note: 'G', octave: 4, position: 4, isBlack: false },
+    { note: 'G#', octave: 4, position: 4.5, isBlack: true },
+    { note: 'A', octave: 4, position: 5, isBlack: false },
+    { note: 'A#', octave: 4, position: 5.5, isBlack: true },
+    { note: 'B', octave: 4, position: 6, isBlack: false },
+    // Second octave
+    { note: 'C', octave: 5, position: 7, isBlack: false },
+    { note: 'C#', octave: 5, position: 7.5, isBlack: true },
+    { note: 'D', octave: 5, position: 8, isBlack: false },
+    { note: 'D#', octave: 5, position: 8.5, isBlack: true },
+    { note: 'E', octave: 5, position: 9, isBlack: false },
+    { note: 'F', octave: 5, position: 10, isBlack: false },
+    { note: 'F#', octave: 5, position: 10.5, isBlack: true },
+    { note: 'G', octave: 5, position: 11, isBlack: false },
+    { note: 'G#', octave: 5, position: 11.5, isBlack: true },
+    { note: 'A', octave: 5, position: 12, isBlack: false },
+    { note: 'A#', octave: 5, position: 12.5, isBlack: true },
+    { note: 'B', octave: 5, position: 13, isBlack: false },
+    { note: 'C', octave: 6, position: 14, isBlack: false },
   ];
 
   // Guitar fretboard note mapping (6 strings, 5 frets)
@@ -33,18 +49,140 @@ function ChordVisualizer() {
   ];
   
   // Chord note mappings
-  const chordNotes = {
-    'C': ['C', 'E', 'G'],
-    'Dm': ['D', 'F', 'A'],
-    'Em': ['E', 'G', 'B'],
-    'F': ['F', 'A', 'C'],
-    'G': ['G', 'B', 'D'],
-    'Am': ['A', 'C', 'E'],
-    'Bdim': ['B', 'D', 'F'],
-    'C7': ['C', 'E', 'G', 'A#'],
-    'Fmaj7': ['F', 'A', 'C', 'E'],
-    'G7': ['G', 'B', 'D', 'F']
-  };
+const chordNotes = {
+  'C': ['C', 'E', 'G'],
+  'Cm': ['C', 'D#', 'G'],
+  'Cdim': ['C', 'D#', 'F#'],
+  'Caug': ['C', 'E', 'G#'],
+  'C7': ['C', 'E', 'G', 'A#'],
+  'Cmaj7': ['C', 'E', 'G', 'B'],
+  'Cm7': ['C', 'D#', 'G', 'A#'],
+  'Cdim7': ['C', 'D#', 'F#', 'A'],
+  'Csus2': ['C', 'D', 'G'],
+  'Csus4': ['C', 'F', 'G'],
+
+  'C#': ['C#', 'F', 'G#'],
+  'C#m': ['C#', 'E', 'G#'],
+  'C#dim': ['C#', 'E', 'G'],
+  'C#aug': ['C#', 'F', 'A'],
+  'C#7': ['C#', 'F', 'G#', 'B'],
+  'C#maj7': ['C#', 'F', 'G#', 'C'],
+  'C#m7': ['C#', 'E', 'G#', 'B'],
+  'C#dim7': ['C#', 'E', 'G', 'A#'],
+  'C#sus2': ['C#', 'D#', 'G#'],
+  'C#sus4': ['C#', 'F#', 'G#'],
+
+  'D': ['D', 'F#', 'A'],
+  'Dm': ['D', 'F', 'A'],
+  'Ddim': ['D', 'F', 'G#'],
+  'Daug': ['D', 'F#', 'A#'],
+  'D7': ['D', 'F#', 'A', 'C'],
+  'Dmaj7': ['D', 'F#', 'A', 'C#'],
+  'Dm7': ['D', 'F', 'A', 'C'],
+  'Ddim7': ['D', 'F', 'G#', 'B'],
+  'Dsus2': ['D', 'E', 'A'],
+  'Dsus4': ['D', 'G', 'A'],
+
+  'D#': ['D#', 'G', 'A#'],
+  'D#m': ['D#', 'F#', 'A#'],
+  'D#dim': ['D#', 'F#', 'A'],
+  'D#aug': ['D#', 'G', 'B'],
+  'D#7': ['D#', 'G', 'A#', 'C#'],
+  'D#maj7': ['D#', 'G', 'A#', 'D'],
+  'D#m7': ['D#', 'F#', 'A#', 'C#'],
+  'D#dim7': ['D#', 'F#', 'A', 'C'],
+  'D#sus2': ['D#', 'F', 'A#'],
+  'D#sus4': ['D#', 'G#', 'A#'],
+
+  'E': ['E', 'G#', 'B'],
+  'Em': ['E', 'G', 'B'],
+  'Edim': ['E', 'G', 'A#'],
+  'Eaug': ['E', 'G#', 'C'],
+  'E7': ['E', 'G#', 'B', 'D'],
+  'Emaj7': ['E', 'G#', 'B', 'D#'],
+  'Em7': ['E', 'G', 'B', 'D'],
+  'Edim7': ['E', 'G', 'A#', 'C#'],
+  'Esus2': ['E', 'F#', 'B'],
+  'Esus4': ['E', 'A', 'B'],
+
+  'F': ['F', 'A', 'C'],
+  'Fm': ['F', 'G#', 'C'],
+  'Fdim': ['F', 'G#', 'B'],
+  'Faug': ['F', 'A', 'C#'],
+  'F7': ['F', 'A', 'C', 'D#'],
+  'Fmaj7': ['F', 'A', 'C', 'E'],
+  'Fm7': ['F', 'G#', 'C', 'D#'],
+  'Fdim7': ['F', 'G#', 'B', 'D'],
+  'Fsus2': ['F', 'G', 'C'],
+  'Fsus4': ['F', 'A#', 'C'],
+
+  'F#': ['F#', 'A#', 'C#'],
+  'F#m': ['F#', 'A', 'C#'],
+  'F#dim': ['F#', 'A', 'C'],
+  'F#aug': ['F#', 'A#', 'D'],
+  'F#7': ['F#', 'A#', 'C#', 'E'],
+  'F#maj7': ['F#', 'A#', 'C#', 'F'],
+  'F#m7': ['F#', 'A', 'C#', 'E'],
+  'F#dim7': ['F#', 'A', 'C', 'D#'],
+  'F#sus2': ['F#', 'G#', 'C#'],
+  'F#sus4': ['F#', 'B', 'C#'],
+
+  'G': ['G', 'B', 'D'],
+  'Gm': ['G', 'A#', 'D'],
+  'Gdim': ['G', 'A#', 'C#'],
+  'Gaug': ['G', 'B', 'D#'],
+  'G7': ['G', 'B', 'D', 'F'],
+  'Gmaj7': ['G', 'B', 'D', 'F#'],
+  'Gm7': ['G', 'A#', 'D', 'F'],
+  'Gdim7': ['G', 'A#', 'C#', 'E'],
+  'Gsus2': ['G', 'A', 'D'],
+  'Gsus4': ['G', 'C', 'D'],
+
+  'G#': ['G#', 'C', 'D#'],
+  'G#m': ['G#', 'B', 'D#'],
+  'G#dim': ['G#', 'B', 'D'],
+  'G#aug': ['G#', 'C', 'E'],
+  'G#7': ['G#', 'C', 'D#', 'F#'],
+  'G#maj7': ['G#', 'C', 'D#', 'G'],
+  'G#m7': ['G#', 'B', 'D#', 'F#'],
+  'G#dim7': ['G#', 'B', 'D', 'F'],
+  'G#sus2': ['G#', 'A#', 'D#'],
+  'G#sus4': ['G#', 'C#', 'D#'],
+
+  'A': ['A', 'C#', 'E'],
+  'Am': ['A', 'C', 'E'],
+  'Adim': ['A', 'C', 'D#'],
+  'Aaug': ['A', 'C#', 'F'],
+  'A7': ['A', 'C#', 'E', 'G'],
+  'Amaj7': ['A', 'C#', 'E', 'G#'],
+  'Am7': ['A', 'C', 'E', 'G'],
+  'Adim7': ['A', 'C', 'D#', 'F#'],
+  'Asus2': ['A', 'B', 'E'],
+  'Asus4': ['A', 'D', 'E'],
+
+  'A#': ['A#', 'D', 'F'],
+  'A#m': ['A#', 'C#', 'F'],
+  'A#dim': ['A#', 'C#', 'E'],
+  'A#aug': ['A#', 'D', 'F#'],
+  'A#7': ['A#', 'D', 'F', 'G#'],
+  'A#maj7': ['A#', 'D', 'F', 'A'],
+  'A#m7': ['A#', 'C#', 'F', 'G#'],
+  'A#dim7': ['A#', 'C#', 'E', 'G'],
+  'A#sus2': ['A#', 'C', 'F'],
+  'A#sus4': ['A#', 'D#', 'F'],
+
+  'B': ['B', 'D#', 'F#'],
+  'Bm': ['B', 'D', 'F#'],
+  'Bdim': ['B', 'D', 'F'],
+  'Baug': ['B', 'D#', 'G'],
+  'B7': ['B', 'D#', 'F#', 'A'],
+  'Bmaj7': ['B', 'D#', 'F#', 'A#'],
+  'Bm7': ['B', 'D', 'F#', 'A'],
+  'Bdim7': ['B', 'D', 'F', 'G#'],
+  'Bsus2': ['B', 'C#', 'F#'],
+  'Bsus4': ['B', 'E', 'F#']
+};
+
 
   // Guitar chord fingering positions [string, fret]
   const chordFingerings = {
@@ -60,12 +198,51 @@ function ChordVisualizer() {
     'G7': [[6, 3], [5, 2], [4, 0], [3, 0], [2, 0], [1, 1]],
   };
 
-  // Get available chords
-  const availableChords = Object.keys(chordNotes);
+  // Get available notes and chord types
+  const availableNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+  
+  const chordTypes = [
+    { value: '', label: 'Major' },
+    { value: 'm', label: 'Minor' },
+    { value: 'dim', label: 'Diminished' },
+    { value: 'aug', label: 'Augmented' },
+    { value: '7', label: 'Dominant 7th' },
+    { value: 'maj7', label: 'Major 7th' },
+    { value: 'm7', label: 'Minor 7th' },
+    { value: 'dim7', label: 'Diminished 7th' },
+    { value: 'sus2', label: 'Sus2' },
+    { value: 'sus4', label: 'Sus4' }
+  ];
   
   // Check if a piano key is included in the current chord
   const isPianoKeyActive = (note) => {
+    // For simplicity, we'll consider matching notes in any octave
+    // A more sophisticated version could map chord notes to specific octaves
     return chordNotes[activeChord] && chordNotes[activeChord].includes(note);
+  };
+  
+  // Handle note and chord type changes
+  const handleNoteChange = (note) => {
+    setActiveNote(note);
+    const newChord = note + activeChordType;
+    if (chordNotes[newChord]) {
+      setActiveChord(newChord);
+    }
+  };
+  
+  const handleChordTypeChange = (chordType) => {
+    setActiveChordType(chordType);
+    const newChord = activeNote + chordType;
+    if (chordNotes[newChord]) {
+      setActiveChord(newChord);
+    }
+  };
+  
+  // Handle clicking on piano keys
+  const handleKeyClick = (note) => {
+    // We only handle white keys for simplicity
+    handleNoteChange(note);
+    setActiveChordType(''); // Set to major chord when clicking on keys
   };
   
   // Check if a guitar fret position is active for the current chord
@@ -105,32 +282,95 @@ function ChordVisualizer() {
       </div>
 
       <div className="chord-selector">
-        <span>Try a chord: </span>
-        <div className="chord-buttons">
-          {availableChords.slice(0, 6).map(chord => (
-            <button 
-              key={chord} 
-              className={`chord-button ${activeChord === chord ? 'active' : ''}`}
-              onClick={() => setActiveChord(chord)}
+        <div className="chord-dropdowns">
+          <div className="dropdown-container">
+            <label>Note:</label>
+            <select 
+              value={activeNote}
+              onChange={(e) => handleNoteChange(e.target.value)}
+              className="chord-dropdown"
             >
-              {chord}
-            </button>
-          ))}
+              {availableNotes.map(note => (
+                <option key={note} value={note}>{note}</option>
+              ))}
+            </select>
+          </div>
+          
+          <div className="dropdown-container">
+            <label>Type:</label>
+            <select 
+              value={activeChordType}
+              onChange={(e) => handleChordTypeChange(e.target.value)}
+              className="chord-dropdown"
+            >
+              {chordTypes.map(type => (
+                <option key={type.value} value={type.value}>{type.label}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        
+        <div className="chord-quick-select">
+          <span>Quick Select:</span>
+          <div className="chord-buttons">
+            {['C', 'G', 'D', 'A', 'E', 'F'].map(note => (
+              <button 
+                key={note} 
+                className={`chord-button ${activeNote === note && activeChordType === '' ? 'active' : ''}`}
+                onClick={() => {
+                  handleNoteChange(note);
+                  handleChordTypeChange('');
+                }}
+              >
+                {note}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       
       <div className="visualizer-display">
         {visualizerType === 'keyboard' ? (
-          <div className="piano-keyboard">
-            {pianoKeys.map((key, index) => (
-              <div 
-                key={`${key.note}-${index}`}
-                className={`piano-key ${key.isBlack ? 'black' : 'white'} ${isPianoKeyActive(key.note) ? 'active' : ''}`}
-                style={{ left: `${key.position * 14}%` }}
-              >
-                <span className="key-label">{key.note}</span>
-              </div>
-            ))}
+          <div className="piano-keyboard two-octaves">
+            {/* White keys first (to position at the bottom layer) */}
+            {pianoKeys
+              .filter(key => !key.isBlack)
+              .map((key, index) => {
+                const whiteKeyIndex = pianoKeys.filter(k => !k.isBlack).indexOf(key);
+                return (
+                  <div 
+                    key={`white-${key.note}-${key.octave}-${index}`}
+                    className={`piano-key white ${isPianoKeyActive(key.note) ? 'active' : ''}`}
+                    style={{ left: `${whiteKeyIndex * 7.14}%` }}
+                    onClick={() => handleKeyClick(key.note)}
+                  >
+                    <span className="key-label">{key.note}{key.octave}</span>
+                  </div>
+                );
+              })
+            }
+            
+            {/* Black keys on top */}
+            {pianoKeys
+              .filter(key => key.isBlack)
+              .map((key, index) => {
+                // Find the previous white key's index
+                const prevWhiteKeyIndex = pianoKeys
+                  .filter(k => !k.isBlack)
+                  .findIndex(k => (k.note === key.note.charAt(0) && k.octave === key.octave));
+                
+                return (
+                  <div 
+                    key={`black-${key.note}-${key.octave}-${index}`}
+                    className={`piano-key black ${isPianoKeyActive(key.note) ? 'active' : ''}`}
+                    style={{ left: `${prevWhiteKeyIndex * 7.14 + 5}%` }}
+                    onClick={() => handleKeyClick(key.note)}
+                  >
+                    <span className="key-label">{key.note}</span>
+                  </div>
+                );
+              })
+            }
           </div>
         ) : (
           <div className="guitar-fretboard">
@@ -163,6 +403,11 @@ function ChordVisualizer() {
 
       <div className="chord-info">
         <h3>{activeChord} Chord</h3>
+        <div className="chord-badge-container">
+          {chordNotes[activeChord]?.map((note, index) => (
+            <span key={index} className="chord-note-badge">{note}</span>
+          ))}
+        </div>
         <p>Notes: {chordNotes[activeChord]?.join(', ')}</p>
       </div>
     </div>

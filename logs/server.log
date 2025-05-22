@@ -4,3 +4,23 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Python service returned an error: YouTube download failed. Please check URL or try a different video.
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Python service returned an error: YouTube download failed. Please check URL or try a different video.
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:08:45.326Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:08:45.327Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:08:45.337Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:08:45.337Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:10:08.656Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:10:08.656Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T12:10:08.663Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T12:10:08.663Z] Admin admin retrieved 2 users
