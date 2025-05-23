@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FaYoutube, FaMusic, FaFileDownload, FaPlay, FaPause, FaRedo } from 'react-icons/fa';
 import ChordDisplay from '../components/ChordDisplay';
 import ControlPanel from '../components/ControlPanel';
-import YoutubePlayer from '../components/YoutubePlayer';
+import SimpleYoutubePlayer from '../components/SimpleYoutubePlayer';
 import './style/Analyze.css';
 
 function Analyze() {
@@ -726,12 +726,33 @@ function Analyze() {
                         {/* YouTube Player (shown when analyzing YouTube videos) */}
                         {showYoutubePlayer && youtubeVideoId && (
                             <div className="youtube-player-wrapper">
-                                <YoutubePlayer
+                                <SimpleYoutubePlayer
                                     videoId={youtubeVideoId}
-                                    chords={chords}
-                                    songKey={transposedKey || songKey}
-                                    tempo={tempo}
+                                    onTimeUpdate={(time) => {
+                                        setCurrentTime(time);
+                                        // Update current chord index
+                                        if (chords && chords.length > 0) {
+                                            const index = chords.findIndex((chord, i) => {
+                                                const nextChordTime = chords[i + 1] ? chords[i + 1].time : Infinity;
+                                                return time >= chord.time && time < nextChordTime;
+                                            });
+                                            if (index >= 0) {
+                                                setCurrentChordIndex(index);
+                                            }
+                                        }
+                                    }}
                                 />
+                                {/* Chord display separate from YouTube player now */}
+                                <div className="chord-display-container mt-3">
+                                    <ChordDisplay 
+                                        chords={chords} 
+                                        currentTime={currentTime}
+                                        currentChordIndex={currentChordIndex}
+                                        songKey={transposedKey || songKey}
+                                        tempo={tempo}
+                                        duration={duration}
+                                    />
+                                </div>
                             </div>
                         )}
                         
