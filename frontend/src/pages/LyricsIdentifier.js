@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Nav, Button, Form, InputGroup, Dropdown, ProgressBar, Spinner } from 'react-bootstrap';
 import { FaYoutube, FaMusic, FaFileUpload, FaPlay, FaPause, FaRedo, FaLanguage, FaGlobe, FaTimes } from 'react-icons/fa';
-import LyricsYoutubePlayer from '../components/LyricsYoutubePlayer';
+import SimpleYoutubePlayer from '../components/SimpleYoutubePlayer';
 import './style/LyricsIdentifier.css';
 
 function LyricsIdentifier() {
@@ -509,9 +509,8 @@ function LyricsIdentifier() {
                                 {/* YouTube Player */}
                                 {activeTab === "youtube" && showYoutubePlayer && youtubeVideoId && (
                                     <div className="mt-4">
-                                        <LyricsYoutubePlayer 
+                                        <SimpleYoutubePlayer 
                                             videoId={youtubeVideoId} 
-                                            height="360" 
                                         />
                                     </div>
                                 )}
