@@ -508,10 +508,27 @@ function LyricsIdentifier() {
                                 
                                 {/* YouTube Player */}
                                 {activeTab === "youtube" && showYoutubePlayer && youtubeVideoId && (
-                                    <div className="mt-4">
+                                    <div className="mt-4 lyrics-youtube-container">
                                         <SimpleYoutubePlayer 
-                                            videoId={youtubeVideoId} 
+                                            videoId={youtubeVideoId}
+                                            onTimeUpdate={(time) => {
+                                                setCurrentTime(time);
+                                                // Update current lyric index if lyrics are available
+                                                if (lyrics && lyrics.length > 0) {
+                                                    const index = lyrics.findIndex((lyric, i) => {
+                                                        if (!lyric.startTime || !lyric.endTime) return false;
+                                                        return time >= lyric.startTime && time < lyric.endTime;
+                                                    });
+                                                    if (index >= 0 && index !== currentLyricIndex) {
+                                                        setCurrentLyricIndex(index);
+                                                    }
+                                                }
+                                            }}
                                         />
+                                        <div className="player-status-bar d-flex align-items-center justify-content-between mt-2">
+                                            <span className="video-title">{fileName || 'YouTube Video'}</span>
+                                            <span className="badge bg-success">Video Loaded</span>
+                                        </div>
                                     </div>
                                 )}
                                 

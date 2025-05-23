@@ -1,5 +1,6 @@
 // Simple YouTube Player for testing
 import React, { useEffect, useRef } from 'react';
+import './style/SimpleYoutubePlayer.css';
 
 const SimpleYoutubePlayer = ({ videoId, onTimeUpdate }) => {
   const playerRef = useRef(null);
