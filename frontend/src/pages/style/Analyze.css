@@ -3,6 +3,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* YouTube embed container */
+.youtube-embed-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #000;
+}
+
+.youtube-embed-container iframe {
+    border-radius: 8px;
+    display: block;
+}
+
 /* Hero section styling */
 .hero-section {
     position: relative;

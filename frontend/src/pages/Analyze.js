@@ -4,7 +4,6 @@ import axios from 'axios';
 import { FaYoutube, FaMusic, FaFileDownload, FaPlay, FaPause, FaRedo } from 'react-icons/fa';
 import ChordDisplay from '../components/ChordDisplay';
 import ControlPanel from '../components/ControlPanel';
-import SimpleYoutubePlayer from '../components/SimpleYoutubePlayer';
 import './style/Analyze.css';
 
 function Analyze() {
@@ -726,22 +725,17 @@ function Analyze() {
                         {/* YouTube Player (shown when analyzing YouTube videos) */}
                         {showYoutubePlayer && youtubeVideoId && (
                             <div className="youtube-player-wrapper">
-                                <SimpleYoutubePlayer
-                                    videoId={youtubeVideoId}
-                                    onTimeUpdate={(time) => {
-                                        setCurrentTime(time);
-                                        // Update current chord index
-                                        if (chords && chords.length > 0) {
-                                            const index = chords.findIndex((chord, i) => {
-                                                const nextChordTime = chords[i + 1] ? chords[i + 1].time : Infinity;
-                                                return time >= chord.time && time < nextChordTime;
-                                            });
-                                            if (index >= 0) {
-                                                setCurrentChordIndex(index);
-                                            }
-                                        }
-                                    }}
-                                />
+                                <div className="youtube-embed-container">
+                                    <iframe 
+                                        src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                                        title="YouTube video player"
+                                        width="100%" 
+                                        height="360"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen>
+                                    </iframe>
+                                </div>
                                 {/* Chord display separate from YouTube player now */}
                                 <div className="chord-display-container mt-3">
                                     <ChordDisplay 

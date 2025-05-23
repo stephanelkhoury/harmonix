@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Nav, Button, Form, InputGroup, Dropdown, ProgressBar, Spinner } from 'react-bootstrap';
 import { FaYoutube, FaMusic, FaFileUpload, FaPlay, FaPause, FaRedo, FaLanguage, FaGlobe, FaTimes } from 'react-icons/fa';
-import SimpleYoutubePlayer from '../components/SimpleYoutubePlayer';
 import './style/LyricsIdentifier.css';
 
 function LyricsIdentifier() {
@@ -509,22 +508,17 @@ function LyricsIdentifier() {
                                 {/* YouTube Player */}
                                 {activeTab === "youtube" && showYoutubePlayer && youtubeVideoId && (
                                     <div className="mt-4 lyrics-youtube-container">
-                                        <SimpleYoutubePlayer 
-                                            videoId={youtubeVideoId}
-                                            onTimeUpdate={(time) => {
-                                                setCurrentTime(time);
-                                                // Update current lyric index if lyrics are available
-                                                if (lyrics && lyrics.length > 0) {
-                                                    const index = lyrics.findIndex((lyric, i) => {
-                                                        if (!lyric.startTime || !lyric.endTime) return false;
-                                                        return time >= lyric.startTime && time < lyric.endTime;
-                                                    });
-                                                    if (index >= 0 && index !== currentLyricIndex) {
-                                                        setCurrentLyricIndex(index);
-                                                    }
-                                                }
-                                            }}
-                                        />
+                                        <div className="youtube-embed-container">
+                                            <iframe 
+                                                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                                                title="YouTube video player"
+                                                width="100%" 
+                                                height="360"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen>
+                                            </iframe>
+                                        </div>
                                         <div className="player-status-bar d-flex align-items-center justify-content-between mt-2">
                                             <span className="video-title">{fileName || 'YouTube Video'}</span>
                                             <span className="badge bg-success">Video Loaded</span>
