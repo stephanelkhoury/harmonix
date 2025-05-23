@@ -20,6 +20,25 @@ const determineServerUrl = () => {
 
 const SERVER_URL = determineServerUrl();
 
+// Initialize axios with default settings
+axios.defaults.baseURL = SERVER_URL;
+
+// Helper function to set authorization header
+function setAuthHeader(token) {
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
+}
+
+// Helper function to get browser and device information
+function getBrowserInfo() {
+  const userAgent = window.navigator.userAgent;
+  const platform = window.navigator.platform;
+  return `${platform} - ${userAgent}`;
+}
+
 export const authUtils = {
   // Initialize auth from localStorage
   initializeAuth: () => {
@@ -37,11 +56,6 @@ export const authUtils = {
   // Login user and store token
   login: async (username, password) => {
     try {
-      // Set baseURL if it hasn't been set
-      if (!axios.defaults.baseURL) {
-        axios.defaults.baseURL = SERVER_URL;
-      }
-      
       const response = await axios.post(`/login`, { username, password });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
@@ -106,7 +120,8 @@ export const authUtils = {
   logout: () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    delete axios.defaults.headers.common['Authorization'];
+    localStorage.removeItem('sessionId');
+    setAuthHeader(null);
     return true;
   },
   
@@ -244,39 +259,6 @@ export const authUtils = {
   }
 };
 
-// Helper function to set authorization header
-function setAuthHeader(token) {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-}
-
-// Helper function to get browser and device information
-function getBrowserInfo() {
-  const ua = navigator.userAgent;
-  let deviceInfo = 'Unknown Device';
-  
-  // Detect browser
-  let browser;
-  if (ua.includes('Edge') || ua.includes('Edg')) browser = 'Edge';
-  else if (ua.includes('Chrome')) browser = 'Chrome';
-  else if (ua.includes('Firefox')) browser = 'Firefox';
-  else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
-  else if (ua.includes('MSIE') || ua.includes('Trident/')) browser = 'Internet Explorer';
-  else browser = 'Unknown Browser';
-  
-  // Detect OS
-  let os;
-  if (ua.includes('Windows')) os = 'Windows';
-  else if (ua.includes('Mac OS')) os = 'macOS';
-  else if (ua.includes('Linux')) os = 'Linux';
-  else if (ua.includes('Android')) os = 'Android';
-  else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
-  else os = 'Unknown OS';
-  
-  deviceInfo = `${browser} on ${os}`;
-  
-  return deviceInfo;
-}
-
 // Create axios interceptor to handle token expiration
 axios.interceptors.response.use(
   (response) => response,
@@ -321,5 +303,8 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Call initializeAuth on module load
+authUtils.initializeAuth();
 
 export default authUtils;

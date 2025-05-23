@@ -1,0 +1,143 @@
+/* Enhanced attachment styling for Messages component */
+.message-attachment {
+  margin-top: 24px;
+  padding: 18px;
+  background-color: #f0f7ff;
+  border-radius: 10px;
+  border: 1px dashed #0288d1;
+  box-shadow: 0 2px 6px rgba(2, 136, 209, 0.1);
+  transition: all 0.2s ease;
+}
+
+.message-attachment:hover {
+  box-shadow: 0 4px 10px rgba(2, 136, 209, 0.15);
+  border-color: #0288d1;
+}
+
+.message-attachment h4 {
+  margin-top: 0;
+  color: #0288d1;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.message-attachment h4::before {
+  content: '📎';
+  margin-right: 10px;
+  font-size: 1.3rem;
+}
+
+.attachment-file-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.attachment-icon {
+  margin-right: 12px;
+  font-size: 1.8rem;
+  color: #0288d1;
+}
+
+.attachment-details {
+  flex: 1;
+}
+
+.attachment-filename {
+  font-weight: 500;
+  margin-bottom: 3px;
+  word-break: break-all;
+}
+
+.attachment-size {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.attachment-preview {
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.attachment-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.attachment-preview audio {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.attachment-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background-color: #0288d1;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(2, 136, 209, 0.3);
+}
+
+.attachment-download::before {
+  content: '⬇️';
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.attachment-download:hover {
+  background-color: #0277bd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(2, 136, 209, 0.4);
+}
+
+.attachment-download:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(2, 136, 209, 0.4);
+}
+
+/* File type specific icons */
+.attachment-icon-image::before {
+  content: '🖼️';
+}
+
+.attachment-icon-audio::before {
+  content: '🎵';
+}
+
+.attachment-icon-pdf::before {
+  content: '📄';
+}
+
+.attachment-icon-default::before {
+  content: '📎';
+}
+
+/* Responsive adjustments for attachments */
+@media (max-width: 768px) {
+  .attachment-download {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}

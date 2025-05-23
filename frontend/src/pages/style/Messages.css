@@ -1,0 +1,442 @@
+/* Messages.css */
+.messages-container {
+  padding: 40px 0;
+  min-height: 80vh;
+  background-color: #f8f9fa;
+}
+
+.messages-header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.messages-header h1 {
+  margin-bottom: 10px;
+  color: #3a3a3a;
+}
+
+.messages-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.messages-loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.messages-error {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid #dc3545;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.messages-error h3 {
+  color: #dc3545;
+  margin-bottom: 10px;
+}
+
+.no-messages {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.message-header h3 {
+  margin: 0;
+  color: #0B1C30;
+  font-size: 1.2rem;
+}
+
+.message-date {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.message-info {
+  margin-bottom: 15px;
+}
+
+.message-preview {
+  color: #6c757d;
+  margin: 10px 0;
+}
+
+.view-message-btn {
+  background-color: #0DA1C0;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-message-btn:hover {
+  background-color: #0B1C30;
+}
+
+.message-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.message-modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(50px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.message-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #0DA1C0, #074863);
+  color: white;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle shine effect to header */
+.message-modal-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -150%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.message-modal-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.close-modal:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.message-modal-body {
+  padding: 25px;
+}
+
+.message-details {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.message-content {
+  white-space: pre-wrap;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+  max-height: 300px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Add a subtle fade effect at the bottom if content is long */
+.message-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.message-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.message-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.message-content::-webkit-scrollbar-thumb {
+  background: #0DA1C0;
+  border-radius: 4px;
+}
+
+.message-content::-webkit-scrollbar-thumb:hover {
+  background: #0B1C30;
+}
+
+.message-details p {
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+}
+
+.message-details p strong {
+  color: #333;
+  font-weight: 600;
+  min-width: 80px;
+  margin-right: 10px;
+  opacity: 0.8;
+}
+
+/* Highlight email value with a blue background like in the screenshot */
+.message-details p:nth-child(2) {
+  align-items: center;
+}
+
+/* Hide the actual email text since we'll display it in a styled box */
+.message-details p:nth-child(2) span {
+  display: none;
+}
+
+/* Add the styled email box after the label */
+.message-details p:nth-child(2)::after {
+  content: attr(data-email);
+  background-color: #e1f5fe;
+  color: #0288d1;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 10px;
+  box-shadow: 0 1px 2px rgba(2, 136, 209, 0.1);
+}
+
+/* Style the date value with a blue color like in the screenshot */
+.message-details p:nth-child(4) {
+  color: #0288d1;
+  font-weight: 500;
+}
+
+.message-details p:nth-child(4)::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.message-attachment {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f9ff;
+  border-radius: 8px;
+  border: 1px dashed #0DA1C0;
+}
+
+.message-attachment h4 {
+  margin-top: 0;
+  color: #0DA1C0;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.message-attachment h4::before {
+  content: '📎';
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.attachment-preview {
+  margin-top: 10px;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.attachment-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.attachment-preview audio {
+  width: 100%;
+}
+
+.attachment-download {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #0DA1C0;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.attachment-download:hover {
+  background-color: #0B1C30;
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .messages-container {
+    padding: 20px 0;
+  }
+  
+  .message-modal-content {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .message-card {
+    padding: 15px;
+  }
+  
+  .message-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .message-modal-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-modal-header {
+    padding: 15px;
+  }
+  
+  .message-modal-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .message-modal-body {
+    padding: 15px;
+  }
+  
+  .message-details p {
+    font-size: 0.9rem;
+  }
+}

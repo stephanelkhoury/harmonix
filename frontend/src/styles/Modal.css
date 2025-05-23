@@ -1,0 +1,175 @@
+/* Modal styling */
+.modal-dialog {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-backdrop {
+  background: rgba(11, 28, 48, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(11, 28, 48, 0.95), rgba(13, 76, 107, 0.95));
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background: rgba(11, 28, 48, 0.5);
+  border-bottom: 1px solid rgba(59, 125, 173, 0.3);
+  padding: 1.5rem;
+}
+
+.modal-header .modal-title {
+  color: #0FA2DC;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header .btn-close {
+  background: none;
+  color: white;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.modal-header .btn-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.modal-header .btn-close::before,
+.modal-header .btn-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: white;
+  transform-origin: center;
+}
+
+.modal-header .btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-header .btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  background: rgba(11, 28, 48, 0.5);
+  border-top: 1px solid rgba(59, 125, 173, 0.3);
+  padding: 1.5rem;
+}
+
+.modal-footer .btn {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-footer .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+.modal-footer .btn:hover::before {
+  left: 100%;
+}
+
+.modal-footer .btn-primary {
+  background: linear-gradient(135deg, #0FA2DC, #0D8BBF);
+  border: none;
+  box-shadow: 0 4px 15px rgba(13, 161, 192, 0.3);
+}
+
+.modal-footer .btn-primary:hover {
+  background: linear-gradient(135deg, #0D8BBF, #0B749F);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(13, 161, 192, 0.4);
+}
+
+.modal-footer .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.modal-footer .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  
+  .modal-header {
+    padding: 1rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .modal-footer {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+  }
+}
+
+/* Apply custom cursor to all clickable elements */
+a, button, .btn, [role="button"], 
+.dropdown-toggle, .navbar-toggler,
+.modal-header .btn-close {
+  cursor: pointer !important;
+}

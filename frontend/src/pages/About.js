@@ -4,11 +4,13 @@ import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaRegHandshake, FaFacebookF
 import './style/About.css';
 import '../components/style/HomePage.css';
 import ScrollAnimation from '../components/ScrollAnimation';
+import OpacityFixer from '../components/OpacityFixer';
 
 const About = () => {
     return (
         <div className="about-page">
             <ScrollAnimation />
+            <OpacityFixer />
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <Container>

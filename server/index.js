@@ -72,6 +72,40 @@ const users = [
 ];
 const userActivity = [];
 
+// Rate limiting setup
+const loginAttempts = new Map();
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_TIME = 15 * 60 * 1000; // 15 minutes in milliseconds
+
+function checkRateLimit(username, ip) {
+  const key = `${username}:${ip}`;
+  const now = Date.now();
+  const userAttempts = loginAttempts.get(key) || { count: 0, firstAttempt: now, lastAttempt: now };
+  
+  // Reset attempts if lockout period has passed
+  if (now - userAttempts.firstAttempt > LOCKOUT_TIME) {
+    loginAttempts.set(key, { count: 1, firstAttempt: now, lastAttempt: now });
+    return { allowed: true };
+  }
+  
+  // Increment attempt count
+  userAttempts.count += 1;
+  userAttempts.lastAttempt = now;
+  loginAttempts.set(key, userAttempts);
+  
+  // Check if too many attempts
+  if (userAttempts.count > MAX_ATTEMPTS) {
+    const timeLeft = Math.ceil((LOCKOUT_TIME - (now - userAttempts.firstAttempt)) / 1000 / 60);
+    return {
+      allowed: false,
+      timeLeft,
+      error: `Too many login attempts. Please try again in ${timeLeft} minutes.`
+    };
+  }
+  
+  return { allowed: true };
+}
+
 // TEMPORARY DEBUG LOGIN - REMOVE BEFORE PRODUCTION
 app.post('/debug-login', (req, res) => {
   const { username } = req.body;
@@ -117,13 +151,32 @@ app.post('/debug-login', (req, res) => {
 // Login endpoint
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  
+  // Validate required fields
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required' });
+  }
 
   try {
+    // Check rate limiting
+    const rateLimitResult = checkRateLimit(username, req.ip);
+    if (!rateLimitResult.allowed) {
+      return res.status(429).json({ error: rateLimitResult.error });
+    }
+
     // Find user by username
     const user = users.find(u => u.username === username);
     
     if (!user) {
       return res.status(401).json({ error: 'Invalid username or password' });
+    }
+    
+    // Check rate limit
+    const ip = req.ip;
+    const rateLimit = checkRateLimit(username, ip);
+    
+    if (!rateLimit.allowed) {
+      return res.status(429).json({ error: rateLimit.error });
     }
     
     // Debug info - remove in production
@@ -161,7 +214,7 @@ app.post('/login', async (req, res) => {
     // Track user login activity
     userActivity.push({ username, action: 'login', timestamp: new Date(), ip: req.ip });
 
-    return res.json({ 
+    res.json({ 
       token,
       user: {
         id: user.id,
@@ -289,28 +342,56 @@ function authenticateToken(req, res, next) {
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) {
-      return res.status(401).json({ error: 'Access denied. No token provided.' });
+      return res.status(401).json({
+        error: 'Access denied',
+        code: 'no_token',
+        message: 'No authentication token provided. Please log in.'
+      });
     }
 
     jwt.verify(token, SECRET_KEY, { issuer: 'harmonix-app' }, (err, decoded) => {
       if (err) {
         console.error('Token verification error:', err.name);
         
-        if (err.name === 'TokenExpiredError') {
-          return res.status(401).json({ error: 'Token expired', code: 'token_expired' });
+        switch (err.name) {
+          case 'TokenExpiredError':
+            return res.status(401).json({
+              error: 'Your session has expired',
+              code: 'token_expired',
+              message: 'Please log in again to continue.'
+            });
+          case 'JsonWebTokenError':
+            return res.status(403).json({
+              error: 'Invalid authentication token',
+              code: 'invalid_token',
+              message: 'Your session appears to be corrupted. Please log in again.'
+            });
+          case 'NotBeforeError':
+            return res.status(403).json({
+              error: 'Token not yet valid',
+              code: 'token_not_active',
+              message: 'Authentication token is not yet active.'
+            });
+          default:
+            return res.status(403).json({
+              error: 'Token verification failed',
+              code: 'token_invalid',
+              message: 'Unable to verify your session. Please log in again.'
+            });
         }
-        
-        return res.status(403).json({ error: 'Invalid token', code: 'invalid_token' });
       }
       
       // Find the user to ensure they still exist in our system
       const user = users.find(u => u.id === parseInt(decoded.id));
       if (!user) {
-        return res.status(403).json({ error: 'User no longer exists', code: 'user_not_found' });
+        return res.status(403).json({
+          error: 'User not found',
+          code: 'user_not_found',
+          message: 'Your account no longer exists. Please contact support.'
+        });
       }
       
-      // Add user info to request - IMPORTANT: Use the complete user data from our system
-      // instead of just the decoded token to ensure we have the correct isAdmin status
+      // Add user info to request
       req.user = {
         ...decoded,
         isAdmin: user.isAdmin || false,
@@ -322,7 +403,11 @@ function authenticateToken(req, res, next) {
     });
   } catch (error) {
     console.error('Authentication error:', error);
-    return res.status(500).json({ error: 'Authentication failed due to server error' });
+    return res.status(500).json({
+      error: 'Authentication failed',
+      code: 'auth_error',
+      message: 'An unexpected error occurred during authentication.'
+    });
   }
 }
 
@@ -814,6 +899,85 @@ app.post('/api/analyze-youtube', async (req, res) => {
         details: error.message || 'Unknown error'
       });
     }
+  }
+});
+
+// In-memory storage for contact messages
+const messages = [];
+
+// Message submission endpoint with file upload support
+app.post('/api/messages', upload.single('file'), async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+    
+    // Validate required fields
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: 'Name, email, and message are required' });
+    }
+    
+    // Validate email format
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+    
+    // Handle file upload if present
+    let attachment = null;
+    if (req.file) {
+      // For security, only allow specific file types
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf', 'audio/mpeg', 'audio/wav'];
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      
+      if (!allowedTypes.includes(req.file.mimetype)) {
+        return res.status(400).json({ error: 'Invalid file type. Allowed types: JPEG, PNG, GIF, PDF, MP3, WAV' });
+      }
+      
+      if (req.file.size > maxSize) {
+        return res.status(400).json({ error: 'File size exceeds 5MB limit' });
+      }
+      
+      // Store file info
+      attachment = {
+        filename: req.file.originalname,
+        mimetype: req.file.mimetype,
+        size: req.file.size,
+        buffer: req.file.buffer.toString('base64') // Convert buffer to Base64 for storage
+      };
+    }
+    
+    // Create new message with attachment if present
+    const newMessage = {
+      _id: Date.now().toString(),
+      name, 
+      email, 
+      subject: subject || 'General', 
+      message,
+      createdAt: new Date(),
+      attachment: attachment
+    };
+    
+    // Add to messages array
+    messages.push(newMessage);
+    console.log(`New message received from ${name} (${email}): ${subject}${attachment ? ' with attachment' : ''}`);
+    
+    res.status(201).json({ message: 'Message sent successfully' });
+  } catch (err) {
+    console.error('Error saving message:', err);
+    res.status(500).json({ error: 'Error saving your message' });
+  }
+});
+
+// Admin message retrieval endpoint
+app.get('/api/admin/messages', authenticateToken, checkAdmin, (req, res) => {
+  try {
+    // Get all messages, sorted by newest first
+    const sortedMessages = [...messages].sort((a, b) => 
+      new Date(b.createdAt) - new Date(a.createdAt)
+    );
+    
+    res.status(200).json(sortedMessages);
+  } catch (err) {
+    console.error('Error retrieving messages:', err);
+    res.status(500).json({ error: 'Error retrieving messages' });
   }
 });
 

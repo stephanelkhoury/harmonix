@@ -62,3 +62,43 @@
   background-color: var(--secondary-color);
   transform: scale(1.02);
 }
+
+/* Global cursor styles */
+body {
+    cursor: default;
+}
+
+/* Custom cursor for interactive elements */
+a, button, .btn, [role="button"], 
+.nav-link, .dropdown-toggle, .navbar-toggler,
+.modal-header .btn-close, .accordion-button,
+.form-control, .custom-control, input[type="radio"],
+input[type="checkbox"], select, .nav-tabs .nav-link,
+.page-link, .info-item, .social-links a,
+.cta-button, .send-button {
+    cursor: pointer !important;
+}
+
+/* Custom cursor for text inputs */
+input[type="text"], input[type="email"],
+input[type="password"], input[type="search"],
+input[type="tel"], input[type="url"],
+textarea {
+    cursor: text !important;
+}
+
+/* Custom cursor for disabled elements */
+.disabled, [disabled], .btn:disabled,
+button:disabled, input:disabled {
+    cursor: not-allowed !important;
+}
+
+/* Custom cursor for draggable elements */
+[draggable="true"] {
+    cursor: move !important;
+}
+
+/* Custom cursor for resizable elements */
+.resizable {
+    cursor: se-resize !important;
+}

@@ -82,7 +82,10 @@
 
 @media (min-width: 768px) {
   .modal-content {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 30px;
+
+    
   }
 }
 

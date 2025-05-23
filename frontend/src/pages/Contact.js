@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import './style/Contact.css';
+import './style/FileUpload.css';
 // Import hero image
 import contactHeroImg from '../assets/images/contact-us-herp.png';
 // Import necessary icons
@@ -151,7 +153,7 @@ const Contact = () => {
   };
   
   // Handle form submission with animation
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Validate form
@@ -163,9 +165,33 @@ const Contact = () => {
       // Create additional music notes at form submission
       createMusicNotes(8);
       
-      // Simulate form submission with a timeout
-      setTimeout(() => {
-        setIsSubmitting(false);
+      try {
+        const baseURL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+        
+        // Create FormData to handle file uploads
+        const formDataToSend = new FormData();
+        formDataToSend.append('name', formData.name.trim());
+        formDataToSend.append('email', formData.email.trim());
+        formDataToSend.append('subject', formData.subject);
+        formDataToSend.append('message', formData.message.trim());
+        
+        // Add file if available
+        if (formData.file) {
+          formDataToSend.append('file', formData.file);
+        }
+        
+        const response = await axios({
+          method: 'post',
+          url: '/api/messages',
+          baseURL,
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          data: formDataToSend
+        });
+
+        const data = response.data;
+
         setSubmitSuccess(true);
         
         // Reset form after successful submission
@@ -188,7 +214,17 @@ const Contact = () => {
         setTimeout(() => {
           setSubmitSuccess(false);
         }, 5000);
-      }, 1500);
+
+      } catch (error) {
+        console.error('Error sending message:', error);
+        setFormErrors({
+          ...formErrors,
+          submit: error.message || 'Failed to send message. Please try again.'
+        });
+        shakeForm(); // Add shake animation to form on error
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       setFormErrors(errors);
       shakeForm(); // Add shake animation to form on error
@@ -545,6 +581,7 @@ const Contact = () => {
                 <>
                   <h2>Send a Message</h2>
                   <form id="contact-form" ref={formRef} onSubmit={handleSubmit} noValidate>
+                    {formErrors.submit && <div className="error-message submit-error">{formErrors.submit}</div>}
                     <div className="form-group">
                       <label htmlFor="name">Full Name *</label>
                       <input 
@@ -622,8 +659,14 @@ const Contact = () => {
                         name="file"
                         onChange={handleFileChange}
                         className="form-control"
+                        accept=".jpg,.jpeg,.png,.gif,.pdf,.mp3,.wav"
                       />
-                      <p className="file-help">Max size: 5MB</p>
+                      {formData.file && (
+                        <div className="selected-file">
+                          Selected: {formData.file.name} ({Math.round(formData.file.size / 1024)} KB)
+                        </div>
+                      )}
+                      <p className="file-help">Accepted formats: Images, PDF, MP3, WAV (Max size: 5MB)</p>
                     </div>
 
                     <button 

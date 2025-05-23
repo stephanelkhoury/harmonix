@@ -4,53 +4,48 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Python service returned an error: YouTube download failed. Please check URL or try a different video.
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Python service returned an error: YouTube download failed. Please check URL or try a different video.
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: TokenExpiredError
+Token verification error: TokenExpiredError
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:08:45.326Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:08:45.327Z] Admin admin retrieved 2 users
+[2025-05-22T18:43:54.035Z] Admin access by: admin (id: 2), path: /api/admin/messages
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:08:45.337Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:08:45.337Z] Admin admin retrieved 2 users
+[2025-05-22T18:43:54.044Z] Admin access by: admin (id: 2), path: /api/admin/messages
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:10:08.656Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:10:08.656Z] Admin admin retrieved 2 users
+[2025-05-22T18:43:59.597Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T18:43:59.598Z] Admin admin retrieved 2 users
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:10:08.663Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:10:08.663Z] Admin admin retrieved 2 users
+[2025-05-22T18:43:59.604Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T18:43:59.604Z] Admin admin retrieved 2 users
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:19:51.846Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:19:51.850Z] Admin admin retrieved 2 users
+[2025-05-22T18:44:00.095Z] Admin access by: admin (id: 2), path: /api/admin/messages
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-22T12:19:51.853Z] Admin access by: admin (id: 2), path: /api/admin/users
-[2025-05-22T12:19:51.853Z] Admin admin retrieved 2 users
-Login attempt for user: stephanelkhoury
-Password from request: 1812000
-Stored password (first few chars): $2b$10$7AT...
-Password validation result: false
-Failed login attempt for user: stephanelkhoury
-Login attempt for user: stephanelkhoury
-Password from request: S@1234
-Stored password (first few chars): $2b$10$7AT...
+[2025-05-22T18:44:00.097Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T18:44:02.546Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T18:44:02.546Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-22T18:44:02.549Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-22T18:44:02.549Z] Admin admin retrieved 2 users
+Sending request to Python service at: http://127.0.0.1:8000
+Sending request to Python service at: http://127.0.0.1:8000
+Sending request to Python service at: http://127.0.0.1:8000
+Token verification error: TokenExpiredError
+Token verification error: TokenExpiredError
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T08:31:57.280Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T08:31:57.282Z] Admin access by: admin (id: 2), path: /api/admin/messages
+New message received from hi (hi@JI.HI): General with attachment
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T08:33:10.164Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T08:33:10.173Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Login attempt for user: admin
+Password from request: Admin@123
+Stored password (first few chars): $2b$10$O2H...
 Password validation result: true
-Login attempt for user: stephanelkhoury
-Password from request: 1812000
-Stored password (first few chars): $2b$10$7AT...
-Password validation result: false
-Failed login attempt for user: stephanelkhoury
-Login attempt for user: stephanelkhoury
-Password from request: S@1234
-Stored password (first few chars): $2b$10$7AT...
-Password validation result: true
-Authenticated user: stephanelkhoury (id: 1), isAdmin: true
-[2025-05-22T12:23:57.726Z] Admin access by: stephanelkhoury (id: 1), path: /api/admin/users
-[2025-05-22T12:23:57.727Z] Admin stephanelkhoury retrieved 2 users
-Authenticated user: stephanelkhoury (id: 1), isAdmin: true
-[2025-05-22T12:23:57.730Z] Admin access by: stephanelkhoury (id: 1), path: /api/admin/users
-[2025-05-22T12:23:57.730Z] Admin stephanelkhoury retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T10:36:14.262Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T10:36:14.268Z] Admin access by: admin (id: 2), path: /api/admin/messages

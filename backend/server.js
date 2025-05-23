@@ -55,7 +55,16 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
 }, { timestamps: true });
 
+const messageSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    subject: { type: String, default: 'General' },
+    message: { type: String, required: true },
+    attachment: { type: String }, // File path/URL if implemented
+}, { timestamps: true });
+
 const User = mongoose.model('User', userSchema);
+const Message = mongoose.model('Message', messageSchema);
 
 // Endpoint for audio file upload
 app.post('/upload', upload.single('audio'), (req, res) => {
@@ -157,6 +166,44 @@ app.get('/api/admin/users', authenticateToken, isAdmin, async (req, res) => {
 // Dashboard route to verify authentication
 app.get('/dashboard', authenticateToken, (req, res) => {
     res.status(200).send({ message: 'Welcome to the admin dashboard!' });
+});
+
+// Message submission endpoint
+app.post('/api/messages', async (req, res) => {
+    try {
+        const { name, email, subject, message } = req.body;
+        
+        // Validate required fields
+        if (!name || !email || !message) {
+            return res.status(400).send({ error: 'Name, email, and message are required' });
+        }
+        
+        // Validate email format
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return res.status(400).send({ error: 'Invalid email format' });
+        }
+        
+        // Create and save new message
+        const newMessage = new Message({ name, email, subject, message });
+        await newMessage.save();
+        
+        res.status(201).send({ message: 'Message sent successfully' });
+    } catch (err) {
+        console.error('Error saving message:', err);
+        res.status(500).send({ error: 'Error saving your message' });
+    }
+});
+
+// Admin message retrieval endpoint
+app.get('/api/admin/messages', authenticateToken, isAdmin, async (req, res) => {
+    try {
+        // Get all messages, sorted by newest first
+        const messages = await Message.find().sort({ createdAt: -1 });
+        res.status(200).send(messages);
+    } catch (err) {
+        console.error('Error retrieving messages:', err);
+        res.status(500).send({ error: 'Error retrieving messages' });
+    }
 });
 
 // WebSocket connection for real-time audio processing

@@ -8,126 +8,112 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-logo img {
-  max-width: 150px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 20px;
-  cursor: pointer;
-}
-
-.burger-menu .line {
-  width: 25px;
-  height: 3px;
-  background-color: white; /* Changed to white */
-  transition: all 0.3s ease;
-}
-
-.burger-menu .line.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger-menu .line.open:nth-child(2) {
-  opacity: 0;
-}
-
-.burger-menu .line.open:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li {
-  font-size: 1rem;
-}
-
-.navbar-links a {
-  color: #0fa2dc; /* Text Light */
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar-links a:hover {
-  color: #0DA1C0; /* Primary */
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-}
-
-.social-icons a {
-  color: #0fa2dc; /* Text Light */
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #0DA1C0; /* Primary */
-}
-
-.navbar-account {
+/* Musician Tools and About Dropdowns */
+.dropdown {
   position: relative;
 }
 
-.navbar-account .account-icon {
-  color: #0fa2dc; /* Text Light */
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.navbar-account .account-icon:hover {
-  color: #0DA1C0; /* Primary */
-}
-
-.account-logo {
-  cursor: pointer;
-}
-
-.account-dropdown, .account-dropdown-reactbs {
+.dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
+  display: none;
   background: rgba(11, 38, 68, 0.9);
   border: 1px solid rgba(59, 125, 173, 0.3);
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
   backdrop-filter: blur(10px);
-  min-width: 180px;
+  animation: dropdownFade 0.3s ease-in-out;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  z-index: 1000;
 }
 
-.account-dropdown a, .account-dropdown-reactbs a {
+/* Show dropdown when parent has show class */
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: white !important;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease;
+  display: block;
+  width: 100%;
   text-decoration: none;
-  color: white;
-  padding: 10px 15px;
-  transition: all 0.3s;
-  border-radius: 4px;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
 }
 
-.account-dropdown a:hover, .account-dropdown-reactbs a:hover {
+.dropdown-item:hover {
   background: rgba(13, 161, 192, 0.2);
-  color: #0FA2DC;
+  color: #0FA2DC !important;
+}
+
+/* Animation for dropdown menu */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  /* Enable hover behavior only on desktop */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown:hover .nav-link {
+    color: #0FA2DC !important;
+  }
 }
 
 /* Mobile styles */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    width: auto !important;
+    border: none !important;
+    padding: 0.25rem;
+  }
+
+  .navbar-custom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+  }
+
+  /* Reset hover behavior on mobile */
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  /* Show dropdown only when the show class is present */
+  .dropdown.show .dropdown-menu {
+    display: block;
+    position: static;
+    float: none;
+    border: none;
+    box-shadow: none;
+    background: rgba(11, 38, 68, 0.5);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Navbar Custom Styles */
 .navbar-custom {
   background: rgba(11, 28, 48, 0.8) !important;
   backdrop-filter: blur(10px);
@@ -150,59 +136,75 @@
   font-weight: bold;
 }
 
-/* Style for the navbar toggle button */
-.navbar-toggler {
-  width: auto !important;
-  border: none !important;
-  padding: 0.25rem;
+/* Account and Social Icons */
+.navbar-account {
+  position: relative;
 }
 
-/* Make sure the logo and toggle button are on the same line */
-.navbar-custom .container {
+.navbar-account .account-icon {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* Change burger icon color to white */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+.navbar-account.is-authenticated .account-icon {
+  color: #0fa2dc;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row; /* Change to row to keep items on same line */
-    align-items: center;
-  }
+.navbar-account .account-icon:hover {
+  color: #0DA1C0;
+  transform: scale(1.1);
+  text-decoration: none;
+}
 
-  .burger-menu {
-    display: flex;
-  }
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
 
-  .navbar-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #0B1C30; /* Dark Base */
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+.social-icons a {
+  color: #0fa2dc;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
 
-  .navbar-links.open {
-    display: flex;
-  }
+.social-icons a:hover {
+  color: #0DA1C0;
+}
 
-  .social-icons {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  
-  /* Ensure navbar-brand and toggler are on same line */
-  .navbar-brand, .navbar-toggler {
-    display: inline-flex;
-    align-items: center;
-  }
+/* Account Dropdown */
+.account-dropdown-reactbs {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(11, 38, 68, 0.9);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+  animation: dropdownFade 0.3s ease-in-out;
+}
+
+.account-dropdown-reactbs a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  transition: all 0.3s;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.account-dropdown-reactbs a:hover {
+  background: rgba(13, 161, 192, 0.2);
+  color: #0FA2DC;
 }

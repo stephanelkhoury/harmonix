@@ -120,9 +120,23 @@
   border-radius: 8px;
   font-weight: bold;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .cta-button:hover {
   background: rgb(60, 157, 253); /* Secondary */
   color: #ffffff; /* Text Light */
+  cursor: pointer;
+}
+
+/* Custom cursor styles for FAQ page interactive elements */
+.accordion-button,
+.faq-item,
+.faq-search input {
+  cursor: pointer;
+}
+
+.faq-search input:hover,
+.faq-search input:focus {
+  cursor: text;
 }

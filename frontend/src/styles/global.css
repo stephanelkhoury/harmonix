@@ -1,0 +1,13 @@
+/* Global styles for Harmonix */
+* {
+  cursor: url('../assets/images/cursor.png'), auto !important;
+}
+
+*:hover {
+  cursor: url('../assets/images/cursor-hover.png'), pointer !important;
+}
+
+/* Add smooth scrolling to all elements */
+html {
+  scroll-behavior: smooth;
+}

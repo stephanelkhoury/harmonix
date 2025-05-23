@@ -3,10 +3,14 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { FaMusic, FaLightbulb, FaChartLine, FaUsers, FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 import './style/About.css';
 import '../components/style/HomePage.css';
+import ScrollAnimation from '../components/ScrollAnimation';
+import OpacityFixer from '../components/OpacityFixer';
 
 const NewAbout = () => {
     return (
         <div className="about-page">
+            <ScrollAnimation />
+            <OpacityFixer />
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <Container>

@@ -999,8 +999,8 @@
 }
 
 .fade-in-element {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -1016,8 +1016,8 @@
 }
 
 .about-page h2 {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -1027,14 +1027,13 @@
 }
 
 .mission-box, .vision-image, .story-image, .service-card, .value-card, .timeline-item, .testimonial-card {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition-delay: 0.2s;
 }
 
 .mission-box.visible, .vision-image.visible, .story-image.visible, .service-card.visible, .value-card.visible, .timeline-item.visible, .testimonial-card.visible {
-    opacity: 1;
     transform: translateY(0);
 }
 

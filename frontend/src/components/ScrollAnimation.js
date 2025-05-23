@@ -88,10 +88,18 @@ const ScrollAnimation = () => {
 
     // Add initial loading animation
     const addInitialLoadingAnimation = () => {
-      // Hide all animated elements initially
-      document.querySelectorAll('.mission-box, .vision-image, .story-image, .service-card, .value-card, .timeline-item, .testimonial-card')
+      // Remove any inline opacity styles that might have been added
+      document.querySelectorAll('.mission-box, .vision-image, .story-image, .service-card, .value-card, .timeline-item, .testimonial-card, .testimonial-card')
         .forEach(element => {
-          element.style.opacity = '0';
+          // Remove opacity from the element itself
+          element.style.removeProperty('opacity');
+          
+          // Also check nested elements for inline opacity:0
+          element.querySelectorAll('*').forEach(childElement => {
+            if (childElement.style.opacity === '0') {
+              childElement.style.removeProperty('opacity');
+            }
+          });
         });
       
       // Show the elements that are visible on initial load with a small delay

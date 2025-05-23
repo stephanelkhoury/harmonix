@@ -1004,6 +1004,43 @@ button:hover,
   cursor: pointer;
 }
 
+/* Custom cursor styles for contact page specific elements */
+.contact-form-wrapper .form-group input:hover,
+.contact-form-wrapper .form-group textarea:hover,
+.contact-form-wrapper .form-group select:hover {
+    cursor: text;
+}
+
+.social-links a,
+.info-item,
+.cta-button,
+.send-button {
+    cursor: pointer;
+}
+
+.send-button:disabled {
+    cursor: not-allowed;
+}
+
+/* File upload specific cursor */
+.file-upload input::file-selector-button {
+    cursor: pointer;
+}
+
+/* Custom cursor animations */
+.custom-cursor {
+    pointer-events: none;
+}
+
+@media (any-hover: hover) {
+    .info-item:hover,
+    .social-links a:hover,
+    .cta-button:hover,
+    .send-button:hover {
+        cursor: pointer;
+    }
+}
+
 /* Responsive improvements */
 @media (max-width: 768px) {
   .contact-hero-section h1 {
@@ -1090,4 +1127,24 @@ button:hover,
   .map-container {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+}
+
+/* Error message styling */
+.error-message {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.submit-error {
+  background-color: rgba(255, 58, 105, 0.1);
+  border: 1px solid var(--error-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--error-color);
+  animation: fadeIn 0.3s ease;
 }
