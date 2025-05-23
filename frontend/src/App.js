@@ -4,11 +4,14 @@ import { authUtils } from './utils/authUtils';
 import { preloadPageResources } from './utils/transitionUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/custom.css'; /* Custom styles to override Bootstrap */
+import './styles/Modal.css'; /* Modal styling */
 import HomePage from './components/HomePage';
 import AudioProcessingPage from './components/AudioProcessingPage';
 import Analyze from './pages/Analyze';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Messages from './pages/Messages';
+import LyricsIdentifier from './pages/LyricsIdentifier';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './pages/About';
@@ -35,55 +38,47 @@ const AppContent = () => {
     
     // Handle route changes by showing loader briefly
     const handleRouteChange = useCallback((newPath) => {
-        // Only show loader when navigating to heavy content pages
-        const heavyPages = ['/about', '/dashboard', '/analyze', '/process', '/tuner'];
-        const isHeavyPage = heavyPages.some(page => newPath.includes(page));
+        // Show loader for all page transitions
+        setNavigating(true);
         
-        if (isHeavyPage) {
-            // Show loader
-            setNavigating(true);
+        // Process optimization: Preload route content
+        const preloadContent = () => {
+            // Save current scroll position
+            const scrollPosition = window.scrollY;
             
-            // Process optimization: Preload route content
-            const preloadContent = () => {
-                // Save current scroll position
-                const scrollPosition = window.scrollY;
-                
-                // Force browser to start loading content for the new route
-                window.scrollTo(0, 0);
-                
-                // Activate any lazy-loaded elements in viewport
-                const lazyLoadTrigger = new Event('scroll');
-                window.dispatchEvent(lazyLoadTrigger);
-                
-                // Restore scroll position if navigating to the same page with a hash
-                if (newPath.includes('#')) {
-                    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
-                }
-                
-                // Preload page-specific resources
-                preloadPageResources(newPath).then(() => {
-                    // Hide loader after resources are loaded or timeout
-                    setTimeout(() => {
-                        setNavigating(false);
-                    }, 400); // Shorter delay since resources are preloaded
-                });
-            };
+            // Force browser to start loading content for the new route
+            window.scrollTo(0, 0);
             
-            // Request idle callback for preloading, 
-            // with setTimeout fallback for older browsers
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(preloadContent);
-            } else {
-                setTimeout(preloadContent, 10);
+            // Activate any lazy-loaded elements in viewport
+            const lazyLoadTrigger = new Event('scroll');
+            window.dispatchEvent(lazyLoadTrigger);
+            
+            // Restore scroll position if navigating to the same page with a hash
+            if (newPath.includes('#')) {
+                setTimeout(() => window.scrollTo(0, scrollPosition), 0);
             }
             
-            // Fallback - hide loader after a max time if something goes wrong
-            const backupTimer = setTimeout(() => {
-                setNavigating(false);
-            }, 1500);
-            
-            return () => clearTimeout(backupTimer);
+            // Preload page-specific resources
+            preloadPageResources(newPath).then(() => {
+                // Hide loader after resources are loaded
+                setTimeout(() => {
+                    setNavigating(false);
+                }, 300); // Shorter transition for better UX
+            });
+        };
+        
+        // Request idle callback for preloading, 
+        // with setTimeout fallback for older browsers
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(preloadContent);
+        } else {
+            setTimeout(preloadContent, 10);
         }
+        
+        // Fallback - hide loader after a max time if something goes wrong
+        setTimeout(() => {
+            setNavigating(false);
+        }, 2000);
     }, []);
     
     useEffect(() => {
@@ -137,13 +132,15 @@ const AppContent = () => {
                     <Route path="/analyze" element={isAuthenticated ? <Analyze /> : <Navigate to="/login" />} />
                     <Route path="/login" element={!isAuthenticated ? <Login setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
                     <Route path="/signup" element={!isAuthenticated ? <Signup setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
-                    <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+                    <Route path="/dashboard" element={isAuthenticated && authUtils.isAdmin() ? <Dashboard /> : <Navigate to="/" />} />
+                    <Route path="/messages" element={isAuthenticated && authUtils.isAdmin() ? <Messages /> : <Navigate to="/" />} />
                     <Route path="/account" element={isAuthenticated ? <Account /> : <Navigate to="/login" />} />
                     <Route path="/account/security" element={isAuthenticated ? <AccountSecurity /> : <Navigate to="/login" />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/tuner" element={isAuthenticated ? <TunerPage /> : <Navigate to="/login" />} />
+                    <Route path="/lyrics-identifier" element={isAuthenticated ? <LyricsIdentifier /> : <Navigate to="/login" />} />
                     {/* Legal Pages - Public Access */}
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<Terms />} />

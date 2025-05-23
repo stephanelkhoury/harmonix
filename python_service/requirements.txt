@@ -4,3 +4,8 @@ librosa==0.8.1
 numpy>=1.22.0
 python-multipart==0.0.5
 yt-dlp
+requests>=2.28.0
+langdetect>=1.0.9
+SpeechRecognition>=3.8.1
+youtube-dl>=2021.12.17
+pydantic>=1.8.2

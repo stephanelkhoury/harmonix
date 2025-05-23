@@ -11,7 +11,38 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
   const [showAccount, setShowAccount] = useState(false);
   const [showExpiryModal, setShowExpiryModal] = useState(false);
   const [expiryTime, setExpiryTime] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const navigate = useNavigate();
+  const isAdmin = authUtils.isAdmin();
+
+  // Handle window resize
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleDropdownClick = (dropdownName, e) => {
+    if (isMobile) {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+    }
+  };
+
+  const handleDropdownHover = (dropdownName) => {
+    if (!isMobile) {
+      setActiveDropdown(dropdownName);
+    }
+  };
+
+  const handleDropdownLeave = () => {
+    if (!isMobile) {
+      setActiveDropdown(null);
+    }
+  };
 
   const handleLogout = () => {
     // Use authentication utility to handle logout
@@ -52,12 +83,81 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
           <Navbar.Collapse id="basic-navbar-nav">
             {isAuthenticated && (
               <Nav className="me-auto">
-                <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-                <Nav.Link as={Link} to="/analyze">Chord Analyzer</Nav.Link>
-                <Nav.Link as={Link} to="/tuner">Instrument Tuner</Nav.Link>
-                <Nav.Link as={Link} to="/about">About</Nav.Link>
+                {/* Home link for all users */}
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                
+                {/* Dashboard link only for admin users */}
+                {isAdmin && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
+                {isAdmin && <Nav.Link as={Link} to="/messages">Messages</Nav.Link>}
+                
+                {/* Musician Tools Dropdown */}
+                <Nav.Item 
+                  className={`dropdown ${activeDropdown === 'musician' ? 'show' : ''}`}
+                  onMouseEnter={() => handleDropdownHover('musician')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <Nav.Link 
+                    className="dropdown-toggle" 
+                    onClick={(e) => handleDropdownClick('musician', e)}
+                  >
+                    Musician Tools
+                  </Nav.Link>
+                  <div className={`dropdown-menu ${activeDropdown === 'musician' ? 'show' : ''}`}>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/analyze" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Chord Analyzer
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/tuner" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Instrument Tuner
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/lyrics-identifier" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Lyrics Identifier
+                    </Link>
+                  </div>
+                </Nav.Item>
+                
+                {/* About Dropdown */}
+                <Nav.Item 
+                  className={`dropdown ${activeDropdown === 'about' ? 'show' : ''}`}
+                  onMouseEnter={() => handleDropdownHover('about')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <Nav.Link 
+                    className="dropdown-toggle" 
+                    onClick={(e) => handleDropdownClick('about', e)}
+                  >
+                    About
+                  </Nav.Link>
+                  <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/about" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      About Us
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/faq" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      FAQ
+                    </Link>
+                  </div>
+                </Nav.Item>
+                
                 <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
-                <Nav.Link as={Link} to="/faq">FAQ</Nav.Link>
               </Nav>
             )}
             <div className="d-flex align-items-center ms-auto">
@@ -66,7 +166,7 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                   <SessionTimer onExpiringSoon={handleTokenExpiringSoon} />
                 </div>
               )}
-              <div className="navbar-account position-relative me-3">
+              <div className={`navbar-account position-relative me-3${isAuthenticated ? ' is-authenticated' : ''}`}>
                 <a href="#" className="account-icon" onClick={(e) => {e.preventDefault(); setShowAccount(!showAccount);}}>
                   <FaUserCircle />
                 </a>
@@ -87,9 +187,13 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                 )}
               </div>
               <div className="social-icons">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaFacebook /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaInstagram /></a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <svg viewBox="0 0 24 24" width="1em" height="1em" className="x-icon">
+                    <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </Navbar.Collapse>

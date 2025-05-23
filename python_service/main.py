@@ -1,6 +1,7 @@
-from fastapi import FastAPI, File, UploadFile, Request
+from fastapi import FastAPI, File, UploadFile, Request, Form, Body
 from fastapi.middleware.cors import CORSMiddleware
-from typing import List
+from pydantic import BaseModel
+from typing import List, Optional, Dict, Any, Union
 import uvicorn
 import librosa
 import numpy as np
@@ -9,6 +10,11 @@ import os
 import subprocess
 import json
 import datetime
+import requests
+from langdetect import detect
+import re
+import youtube_dl
+import speech_recognition as sr
 
 app = FastAPI()
 
@@ -350,6 +356,312 @@ if __name__ == "__main__":
     print(f"Starting Python service on port 8000...")
     print(f"Analysis results will be saved to: {song_chords_dir}")
     
+# Define Pydantic models for request validation
+class YoutubeRequest(BaseModel):
+    youtubeUrl: str
+    language: str = "auto"
+
+class LyricsResponse(BaseModel):
+    lyrics: List[Dict[str, Any]]
+    detectedLanguage: Optional[str] = None
+    title: Optional[str] = None
+    duration: Optional[float] = None
+    timestamp: str
+
+@app.post("/api/analyze-lyrics")
+async def analyze_lyrics(
+    request: Request,
+    file: Optional[UploadFile] = File(None),
+    youtubeUrl: Optional[str] = Form(None),
+    language: Optional[str] = Form(None)
+):
+    """
+    Analyze lyrics from YouTube URL or uploaded audio file
+    Supports English, Arabic, and French languages with auto-detection
+    """
+    try:
+        # Check if request might be JSON (YouTube link case)
+        content_type = request.headers.get('content-type', '')
+        if 'application/json' in content_type:
+            body = await request.json()
+            youtubeUrl = body.get('youtubeUrl')
+            language = body.get('language', 'auto')
+        else:
+            # Form already parsed the data as parameters
+            language = language or 'auto'
+        
+        # Handle YouTube URL
+        if youtubeUrl:
+            return await process_youtube_lyrics(youtubeUrl, language)
+        
+        # Handle file upload
+        elif file:
+            return await process_audio_file_lyrics(file, language)
+        
+        else:
+            return {"error": "No YouTube URL or audio file provided"}
+    
+    except Exception as e:
+        print(f"Error in analyze_lyrics: {str(e)}")
+        return {"error": f"Failed to analyze lyrics: {str(e)}"}
+
+async def process_youtube_lyrics(youtube_url: str, language: str = "auto"):
+    """Process YouTube URL to extract lyrics"""
+    # Extract video metadata
+    video_info = {}
+    try:
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'quiet': True,
+            'no_warnings': True,
+            'extract_flat': True
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            video_info = ydl.extract_info(youtube_url, download=False)
+            
+        video_title = video_info.get('title', 'Unknown YouTube Video')
+        video_id = video_info.get('id', '')
+        
+        # Download audio for speech recognition
+        audio_path = download_youtube_audio(youtube_url)
+        
+        # Extract lyrics using speech recognition
+        lyrics = extract_lyrics_from_audio(audio_path, language)
+        
+        # Clean up the temporary file
+        if os.path.exists(audio_path):
+            os.remove(audio_path)
+        
+        # Save results
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        results = {
+            "lyrics": lyrics,
+            "title": video_title,
+            "youtube_url": youtube_url,
+            "video_id": video_id,
+            "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
+            "duration": video_info.get('duration'),
+            "timestamp": str(datetime.datetime.now())
+        }
+        
+        # Save to file
+        json_filename = f"{timestamp}_lyrics_youtube_{video_id}.json"
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(script_dir)
+        lyrics_dir = os.path.join(project_root, "LyricsData")
+        os.makedirs(lyrics_dir, exist_ok=True)
+        
+        json_path = os.path.join(lyrics_dir, json_filename)
+        with open(json_path, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        return results
+    
+    except Exception as e:
+        print(f"Error processing YouTube lyrics: {str(e)}")
+        return {"error": f"Failed to process YouTube lyrics: {str(e)}"}
+
+async def process_audio_file_lyrics(file: UploadFile, language: str = "auto"):
+    """Process uploaded audio file to extract lyrics"""
+    try:
+        # Verify we have a proper file
+        if not file or not file.filename:
+            return {"error": "Invalid file upload"}
+        
+        # Save uploaded file temporarily
+        file_ext = os.path.splitext(file.filename)[1].lower()
+        if not file_ext:
+            file_ext = '.mp3'  # Default extension if none provided
+        
+        # Create temp file with proper extension
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=file_ext)
+        temp_file_path = temp_file.name
+        temp_file.close()
+        
+        # Write content to the temp file
+        file_content = await file.read()
+        with open(temp_file_path, "wb") as f:
+            f.write(file_content)
+        
+        # Reset file position in case we need to read again
+        await file.seek(0)
+        
+        # Extract lyrics using speech recognition
+        lyrics = extract_lyrics_from_audio(temp_file_path, language)
+        
+        # Get audio duration using librosa
+        try:
+            y, sr = librosa.load(temp_file_path, sr=None)
+            duration = librosa.get_duration(y=y, sr=sr)
+        except Exception as audio_err:
+            print(f"Error getting audio duration: {str(audio_err)}")
+            duration = None
+        
+        # Clean up
+        try:
+            os.unlink(temp_file_path)
+        except Exception as cleanup_err:
+            print(f"Error cleaning up temp file: {str(cleanup_err)}")
+        
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Save results to file
+        try:
+            results = {
+                "lyrics": lyrics,
+                "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
+                "title": file.filename,
+                "duration": duration,
+                "timestamp": str(datetime.datetime.now())
+            }
+            
+            # Save to file
+            json_filename = f"{timestamp}_lyrics_upload_{file.filename}.json"
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            project_root = os.path.dirname(script_dir)
+            lyrics_dir = os.path.join(project_root, "LyricsData")
+            os.makedirs(lyrics_dir, exist_ok=True)
+            
+            json_path = os.path.join(lyrics_dir, json_filename)
+            with open(json_path, 'w') as f:
+                json.dump(results, f, indent=2)
+        except Exception as save_err:
+            print(f"Error saving lyrics data: {str(save_err)}")
+        
+        return {
+            "lyrics": lyrics,
+            "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
+            "title": file.filename,
+            "duration": duration,
+            "timestamp": str(datetime.datetime.now())
+        }
+    
+    except Exception as e:
+        print(f"Error processing audio file lyrics: {str(e)}")
+        return {"error": f"Failed to process audio file lyrics: {str(e)}"}
+
+def download_youtube_audio(youtube_url: str) -> str:
+    """Download audio from YouTube URL and return file path"""
+    temp_dir = tempfile.mkdtemp()
+    output_path = os.path.join(temp_dir, "audio.wav")
+    
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'wav',
+            'preferredquality': '192',
+        }],
+        'outtmpl': os.path.splitext(output_path)[0],
+        'quiet': True,
+        'no_warnings': True
+    }
+    
+    try:
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([youtube_url])
+        return output_path
+    except Exception as e:
+        print(f"Error downloading YouTube audio: {str(e)}")
+        raise e
+
+def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto") -> List[Dict]:
+    """
+    Extract lyrics from audio file using speech recognition
+    Returns a list of dictionaries with text, startTime, endTime, and language
+    """
+    # Initialize speech recognizer
+    recognizer = sr.Recognizer()
+    
+    # Map language codes
+    language_map = {
+        "english": "en-US",
+        "french": "fr-FR",
+        "arabic": "ar-SA",
+        "auto": None  # Will be determined later
+    }
+    
+    # Set language for speech recognition
+    language_code = language_map.get(preferred_language.lower())
+    
+    # Load audio with librosa to get duration
+    y, sr = librosa.load(audio_path, sr=None)
+    duration = librosa.get_duration(y=y, sr=sr)
+    
+    # Process audio in chunks for better results
+    chunk_duration = 10  # seconds per chunk
+    lyrics = []
+    
+    try:
+        with sr.AudioFile(audio_path) as source:
+            # Adjust for environmental noise
+            recognizer.adjust_for_ambient_noise(source)
+            
+            # Process audio in chunks
+            for i in range(0, int(duration), chunk_duration):
+                start_time = i
+                end_time = min(i + chunk_duration, duration)
+                
+                # Set the audio position
+                audio_data = recognizer.record(source, duration=chunk_duration, offset=start_time)
+                
+                try:
+                    # Detect language if auto is selected
+                    if preferred_language.lower() == "auto":
+                        # Try English first (most common)
+                        try:
+                            text = recognizer.recognize_google(audio_data, language="en-US")
+                            detected_lang = "english"
+                        except:
+                            # If English fails, try other languages
+                            for lang, code in language_map.items():
+                                if lang != "auto" and lang != "english" and code:
+                                    try:
+                                        text = recognizer.recognize_google(audio_data, language=code)
+                                        detected_lang = lang
+                                        break
+                                    except:
+                                        continue
+                            else:
+                                # If all languages fail, skip this segment
+                                continue
+                    else:
+                        # Use the specified language
+                        text = recognizer.recognize_google(audio_data, language=language_code)
+                        detected_lang = preferred_language.lower()
+                    
+                    # Add to lyrics if text was recognized
+                    if text:
+                        lyrics.append({
+                            "text": text,
+                            "startTime": start_time,
+                            "endTime": end_time,
+                            "language": detected_lang
+                        })
+                
+                except sr.UnknownValueError:
+                    # Speech not recognizable, just skip this chunk
+                    pass
+                except sr.RequestError as e:
+                    print(f"Could not request results; {e}")
+                    # Try to continue with next chunk
+    
+    except Exception as e:
+        print(f"Error extracting lyrics: {str(e)}")
+        # Return an error message as lyrics
+        return [{"text": f"Error extracting lyrics: {str(e)}", "startTime": 0, "endTime": duration, "language": "english"}]
+    
+    # If no lyrics were detected, return a message
+    if not lyrics:
+        return [{"text": "No lyrics detected in this audio.", "startTime": 0, "endTime": duration, "language": "english"}]
+    
+    # Ensure all lyrics have a language property
+    for lyric in lyrics:
+        if not lyric.get("language"):
+            lyric["language"] = "english"  # default to English
+    
+    return lyrics
+
     # Start the server with debug mode enabled
     try:
         uvicorn.run(app, host="0.0.0.0", port=8000, log_level="debug")
