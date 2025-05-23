@@ -1,0 +1,183 @@
+.musician-tools-page {
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.musician-tools-page h1 {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 15px rgba(52, 152, 219, 0.3);
+}
+
+.musician-tools-page .lead {
+  color: #a0b3c6;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-link {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.tool-link:hover {
+  transform: translateY(-10px);
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+  box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tool-image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.tool-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.tool-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.tool-image-container:hover .tool-image-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.tool-image-container:hover .overlay-image {
+  transform: scale(1);
+}
+
+.close-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.close-overlay:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tool-card .card-body {
+  padding: 2rem;
+}
+
+.tool-card .card-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(52, 152, 219, 0.2);
+}
+
+.tool-card .card-text {
+  color: #a0b3c6;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Adjust tap tempo styles when inside tool card */
+.tool-card .tap-tempo {
+  box-shadow: none;
+  margin: -1rem;
+}
+
+.tool-card .tap-tempo .card-body {
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .musician-tools-page {
+    padding: 2rem 0;
+  }
+
+  .tool-card {
+    margin-bottom: 1rem;
+  }
+
+  .tool-icon {
+    font-size: 2rem;
+    height: 3rem;
+  }
+}

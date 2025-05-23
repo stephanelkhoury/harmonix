@@ -4,3 +4,16 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T15:22:10.384Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T15:22:10.388Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T15:22:17.088Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-23T15:22:17.091Z] Admin admin retrieved 2 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-23T15:22:17.106Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-23T15:22:17.106Z] Admin admin retrieved 2 users
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Python service returned an error: Failed to process audio: [Errno 2] No such file or directory: '/Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250523_185517_youtube_https://youtu.be/VkH3aMIWntw?si=hnFqRclEvIP8kwu5.json'

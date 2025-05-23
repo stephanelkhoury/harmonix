@@ -1,8 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { Container, Row, Col, Card, Nav, Button, Form, InputGroup, Dropdown, ProgressBar, Spinner } from 'react-bootstrap';
-import { FaYoutube, FaMusic, FaFileUpload, FaPlay, FaPause, FaRedo, FaLanguage, FaGlobe, FaTimes } from 'react-icons/fa';
+import React, { useState, useRef, useEffect } from 'react';
+import {
+    Container,
+    Row,
+    Col,
+    Card,
+    Button,
+    Form,
+    InputGroup,
+    Nav,
+    Dropdown,
+    Spinner
+} from 'react-bootstrap';
+import {
+    FaYoutube,
+    FaFileUpload,
+    FaMusic,
+    FaLanguage,
+    FaGlobe
+} from 'react-icons/fa';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/LyricsIdentifier.css';
+import axios from 'axios';
 
 function LyricsIdentifier() {
     const [lyrics, setLyrics] = useState([]);
@@ -329,291 +347,189 @@ function LyricsIdentifier() {
 
     // Convert Lyrics array to displayable format
     const renderLyrics = () => {
-        if (!lyrics || !lyrics.length) return null;
-        
-        const detectedLang = autoDetectedLanguage || selectedLanguage;
-        const rtlClass = isRTL(detectedLang) ? "rtl-text" : "";
-        
+        if (!lyrics || lyrics.length === 0) {
+            return (
+                <div className="no-lyrics">
+                    {loading ? (
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    ) : (
+                        <p>No lyrics available. Upload an audio file or enter a YouTube URL to get started.</p>
+                    )}
+                </div>
+            );
+        }
+
         return (
-            <div className={`lyrics-display ${rtlClass}`} ref={lyricsDisplayRef}>
-                {lyrics.map((line, index) => {
-                    // Each line might be an object with text and timing info, or just a string
-                    const text = typeof line === 'object' ? line.text : line;
-                    const isActive = index === currentLyricIndex;
-                    return (
-                        <div 
-                            key={index} 
-                            className={isActive ? "active-line" : ""}
-                        >
-                            {text}
-                        </div>
-                    );
-                })}
+            <div 
+                className={`lyrics-container ${isRTL(autoDetectedLanguage || selectedLanguage) ? 'rtl' : 'ltr'}`}
+                ref={lyricsDisplayRef}
+            >
+                {lyrics.map((lyric, index) => (
+                    <div 
+                        key={index}
+                        className={`lyric-line ${currentLyricIndex === index ? 'active' : ''}`}
+                        onClick={() => {
+                            if (audioRef.current) {
+                                audioRef.current.currentTime = lyric.startTime;
+                            }
+                        }}
+                    >
+                        <span className="timestamp">{formatTime(lyric.startTime)}</span>
+                        <span className="text">{lyric.text}</span>
+                    </div>
+                ))}
             </div>
         );
     };
 
     return (
-        <div className="lyrics-identifier">
-            <Container>
-                <Row className="justify-content-center">
-                    <Col md={10}>
-                        <h2 className="text-center mb-4">Lyrics Identifier</h2>
-                        <p className="text-center text-muted mb-5">Extract and display lyrics from YouTube videos or audio files with our AI-powered lyrics identifier.</p>
-                        
-                        {/* Tab Selector */}
-                        <Nav className="tab-selector justify-content-center" variant="pills">
-                            <Nav.Item>
-                                <Nav.Link 
-                                    active={activeTab === "youtube"} 
-                                    onClick={() => handleTabChange("youtube")}
-                                >
-                                    <FaYoutube className="me-2" /> YouTube URL
-                                </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link 
-                                    active={activeTab === "upload"} 
-                                    onClick={() => handleTabChange("upload")}
-                                >
-                                    <FaMusic className="me-2" /> Upload Audio
-                                </Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                        
-                        {/* Language Selector */}
-                        <Row className="mb-4">
-                            <Col md={4} className="mx-auto">
-                                <div className="language-selector">
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="light">
-                                            <FaLanguage className="me-2" /> {getLanguageDisplayName(selectedLanguage)}
-                                        </Dropdown.Toggle>
-
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item 
-                                                active={selectedLanguage === "auto"}
-                                                onClick={() => handleLanguageChange("auto")}
-                                            >
-                                                <FaGlobe className="me-2" /> Auto Detect
-                                            </Dropdown.Item>
-                                            <Dropdown.Item 
-                                                active={selectedLanguage === "english"}
-                                                onClick={() => handleLanguageChange("english")}
-                                            >
-                                                🇺🇸 English
-                                            </Dropdown.Item>
-                                            <Dropdown.Item 
-                                                active={selectedLanguage === "arabic"}
-                                                onClick={() => handleLanguageChange("arabic")}
-                                            >
-                                                🇸🇦 العربية (Arabic)
-                                            </Dropdown.Item>
-                                            <Dropdown.Item 
-                                                active={selectedLanguage === "french"}
-                                                onClick={() => handleLanguageChange("french")}
-                                            >
-                                                🇫🇷 Français (French)
-                                            </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                            </Col>
-                        </Row>
-                        
-                        <Card>
-                            <Card.Header>
-                                {activeTab === "youtube" ? "Analyze Lyrics from YouTube" : "Upload Audio File"}
-                            </Card.Header>
-                            <Card.Body>
-                                {/* YouTube URL Input */}
-                                {activeTab === "youtube" && (
-                                    <div className="youtube-input-wrapper">
-                                        <InputGroup>
-                                            <InputGroup.Prepend>
-                                                <InputGroup.Text id="youtube-addon">
-                                                    <FaYoutube />
-                                                </InputGroup.Text>
-                                            </InputGroup.Prepend>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ)"
-                                                value={youtubeUrl}
-                                                onChange={handleYoutubeUrlChange}
-                                                aria-label="YouTube URL"
-                                                aria-describedby="youtube-addon"
-                                            />
-                                            <Button 
-                                                variant="primary" 
-                                                className="btn-analyze"
-                                                onClick={analyzeLyricsFromYoutube}
-                                                disabled={loading || !youtubeUrl}
-                                            >
-                                                {loading ? <Spinner animation="border" size="sm" /> : "Analyze Lyrics"}
-                                            </Button>
-                                        </InputGroup>
-                                    </div>
-                                )}
-                                
-                                {/* File Upload Input */}
-                                {activeTab === "upload" && (
-                                    <div 
-                                        className="file-upload-area"
-                                        ref={dropZoneRef}
-                                        onDragOver={handleDragOver}
-                                        onDragLeave={handleDragLeave}
-                                        onDrop={handleDrop}
+        <Container className="lyrics-identifier-container">
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Nav variant="tabs" className="mb-3">
+                                <Nav.Item>
+                                    <Nav.Link 
+                                        active={activeTab === "youtube"}
+                                        onClick={() => handleTabChange("youtube")}
                                     >
-                                        <FaFileUpload className="upload-icon" />
-                                        <h5>Drag & Drop your audio file here</h5>
-                                        <p>or</p>
+                                        <FaYoutube /> YouTube
+                                    </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link 
+                                        active={activeTab === "upload"}
+                                        onClick={() => handleTabChange("upload")}
+                                    >
+                                        <FaFileUpload /> Upload File
+                                    </Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+
+                            {error && (
+                                <div className="alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
+
+                            {activeTab === "youtube" ? (
+                                <div className="youtube-section">
+                                    <InputGroup className="mb-3">
+                                        <Form.Control
+                                            placeholder="Enter YouTube URL"
+                                            value={youtubeUrl}
+                                            onChange={handleYoutubeUrlChange}
+                                        />
+                                        <Button 
+                                            variant="primary"
+                                            onClick={analyzeLyricsFromYoutube}
+                                            disabled={loading || !youtubeUrl}
+                                        >
+                                            {loading ? (
+                                                <Spinner animation="border" size="sm" />
+                                            ) : (
+                                                "Analyze"
+                                            )}
+                                        </Button>
+                                    </InputGroup>
+
+                                    {showYoutubePlayer && youtubeVideoId && (
+                                        <div className="youtube-embed-container mb-3">
+                                            <iframe
+                                                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                                                title="YouTube video player"
+                                                width="100%"
+                                                height="360"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            ></iframe>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div 
+                                    className="upload-section"
+                                    ref={dropZoneRef}
+                                    onDragOver={handleDragOver}
+                                    onDragLeave={handleDragLeave}
+                                    onDrop={handleDrop}
+                                >
+                                    <div className="upload-zone">
+                                        <FaMusic className="upload-icon" />
+                                        <p>Drag & drop an audio file here or click to select</p>
+                                        <input
+                                            type="file"
+                                            ref={fileInputRef}
+                                            onChange={handleFileChange}
+                                            accept="audio/*"
+                                            style={{ display: 'none' }}
+                                        />
                                         <Button 
                                             variant="outline-primary"
                                             onClick={() => fileInputRef.current?.click()}
                                             disabled={loading}
                                         >
-                                            Browse Files
+                                            Select File
                                         </Button>
-                                        <p className="mt-3 mb-0">
-                                            <small className="file-types">MP3, WAV, M4A formats supported</small>
-                                        </p>
-                                        <input 
-                                            type="file"
-                                            ref={fileInputRef}
-                                            accept=".mp3,.wav,.m4a"
-                                            onChange={handleFileChange}
-                                            style={{ display: 'none' }}
-                                        />
                                     </div>
-                                )}
-                                
-                                {/* Error Display */}
-                                {error && (
-                                    <div className="error-container">
-                                        <FaTimes className="error-icon" />
-                                        <h4>Oops!</h4>
-                                        <p>{error}</p>
-                                    </div>
-                                )}
-                                
-                                {/* Loading State */}
-                                {loading && (
-                                    <div className="loading-container">
-                                        <Spinner animation="border" role="status" />
-                                        <h4>Analyzing Lyrics...</h4>
-                                        <p>This may take a few moments as our AI processes the audio.</p>
-                                    </div>
-                                )}
-                                
-                                {/* YouTube Player */}
-                                {activeTab === "youtube" && showYoutubePlayer && youtubeVideoId && (
-                                    <div className="mt-4 lyrics-youtube-container">
-                                        <div className="youtube-embed-container">
-                                            <iframe 
-                                                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-                                                title="YouTube video player"
-                                                width="100%" 
-                                                height="360"
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen>
-                                            </iframe>
+
+                                    {fileName && (
+                                        <div className="file-info">
+                                            <strong>Selected file:</strong> {fileName}
                                         </div>
-                                        <div className="player-status-bar d-flex align-items-center justify-content-between mt-2">
-                                            <span className="video-title">{fileName || 'YouTube Video'}</span>
-                                            <span className="badge bg-success">Video Loaded</span>
-                                        </div>
+                                    )}
+
+                                    {uploadedFile && (
+                                        <audio
+                                            ref={audioRef}
+                                            controls
+                                            className="audio-player"
+                                        >
+                                            <source 
+                                                src={URL.createObjectURL(uploadedFile)}
+                                                type={uploadedFile.type}
+                                            />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    )}
+                                </div>
+                            )}
+
+                            <div className="language-selector">
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="outline-secondary">
+                                        <FaLanguage /> {getLanguageDisplayName(selectedLanguage)}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        {["auto", "english", "arabic", "french"].map(lang => (
+                                            <Dropdown.Item
+                                                key={lang}
+                                                onClick={() => handleLanguageChange(lang)}
+                                                active={selectedLanguage === lang}
+                                            >
+                                                {getLanguageDisplayName(lang)}
+                                            </Dropdown.Item>
+                                        ))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+
+                                {autoDetectedLanguage && selectedLanguage === "auto" && (
+                                    <div className="detected-language">
+                                        <FaGlobe /> Detected: {getLanguageDisplayName(autoDetectedLanguage)}
                                     </div>
                                 )}
-                                
-                                {/* Audio Player for Uploaded Files */}
-                                {activeTab === "upload" && uploadedFile && (
-                                    <audio 
-                                        ref={audioRef} 
-                                        controls 
-                                        className="d-none"
-                                    >
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                )}
-                                
-                                {/* Lyrics Display */}
-                                {!loading && lyrics && lyrics.length > 0 && (
-                                    <div className="lyrics-display-container">
-                                        <h3>Lyrics</h3>
-                                        <div className="subtitle">
-                                            <FaMusic className="me-2" /> 
-                                            {fileName || "Unknown Song"}
-                                            {autoDetectedLanguage && selectedLanguage === "auto" && (
-                                                <span className="ms-2 badge bg-info">
-                                                    <FaLanguage className="me-1" />
-                                                    {getLanguageDisplayName(autoDetectedLanguage)}
-                                                </span>
-                                            )}
-                                        </div>
-                                        
-                                        {/* Lyrics Content */}
-                                        {renderLyrics()}
-                                        
-                                        {/* Audio Controls for Uploaded Files */}
-                                        {activeTab === "upload" && uploadedFile && (
-                                            <div className="audio-controls">
-                                                <Button 
-                                                    variant="primary" 
-                                                    onClick={togglePlay}
-                                                >
-                                                    {isPlaying ? <FaPause /> : <FaPlay />}
-                                                </Button>
-                                                
-                                                <div className="time-display">
-                                                    {formatTime(currentTime)}
-                                                </div>
-                                                
-                                                <div 
-                                                    className="progress" 
-                                                    style={{ cursor: 'pointer' }}
-                                                    onClick={handleSeek}
-                                                >
-                                                    <div 
-                                                        className="progress-bar" 
-                                                        role="progressbar" 
-                                                        style={{ width: `${(currentTime / duration) * 100}%` }}
-                                                        aria-valuenow={(currentTime / duration) * 100}
-                                                        aria-valuemin="0" 
-                                                        aria-valuemax="100"
-                                                    />
-                                                </div>
-                                                
-                                                <div className="time-display">
-                                                    {formatTime(duration)}
-                                                </div>
-                                                
-                                                <Dropdown>
-                                                    <Dropdown.Toggle variant="outline-secondary" id="playback-speed">
-                                                        {playbackRate}x
-                                                    </Dropdown.Toggle>
-                                                    <Dropdown.Menu>
-                                                        {[0.5, 0.75, 1.0, 1.25, 1.5, 2.0].map(rate => (
-                                                            <Dropdown.Item 
-                                                                key={rate} 
-                                                                onClick={() => setPlaybackRate(rate)}
-                                                                active={playbackRate === rate}
-                                                            >
-                                                                {rate}x
-                                                            </Dropdown.Item>
-                                                        ))}
-                                                    </Dropdown.Menu>
-                                                </Dropdown>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+                            </div>
+
+                            {renderLyrics()}
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Messages from './pages/Messages';
 import LyricsIdentifier from './pages/LyricsIdentifier';
+import MusicianTools from './pages/MusicianTools';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './pages/About';
@@ -27,6 +28,7 @@ import Terms from './pages/Terms';
 import Cookies from './pages/Cookies';
 import Refund from './pages/Refund';
 import TunerPage from './pages/TunerPage';
+import TapTempoPage from './pages/TapTempoPage';
 import PageLoader from './components/PageLoader';
 
 // AppContent component to wrap the app and track route changes
@@ -141,6 +143,8 @@ const AppContent = () => {
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/tuner" element={isAuthenticated ? <TunerPage /> : <Navigate to="/login" />} />
                     <Route path="/lyrics-identifier" element={isAuthenticated ? <LyricsIdentifier /> : <Navigate to="/login" />} />
+                    <Route path="/musician-tools" element={isAuthenticated ? <MusicianTools /> : <Navigate to="/login" />} />
+                    <Route path="/tap-tempo" element={isAuthenticated ? <TapTempoPage /> : <Navigate to="/login" />} />
                     {/* Legal Pages - Public Access */}
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<Terms />} />

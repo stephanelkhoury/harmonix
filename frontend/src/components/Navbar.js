@@ -86,17 +86,47 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                 {/* Home link for all users */}
                 <Nav.Link as={Link} to="/">Home</Nav.Link>
                 
-                {/* Dashboard link only for admin users */}
-                {isAdmin && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
-                {isAdmin && <Nav.Link as={Link} to="/messages">Messages</Nav.Link>}
-                
-                {/* Musician Tools Dropdown */}
+                {/* Admin Dropdown - only for admin users */}
+                {isAdmin && (
+                  <Nav.Item 
+                    className={`dropdown ${activeDropdown === 'admin' ? 'show' : ''}`}
+                    onMouseEnter={() => handleDropdownHover('admin')}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <Nav.Link 
+                      className="dropdown-toggle" 
+                      onClick={(e) => handleDropdownClick('admin', e)}
+                    >
+                      Admin
+                    </Nav.Link>
+                    <div className={`dropdown-menu ${activeDropdown === 'admin' ? 'show' : ''}`}>
+                      <Link 
+                        className="dropdown-item" 
+                        to="/dashboard" 
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Dashboard
+                      </Link>
+                      <Link 
+                        className="dropdown-item" 
+                        to="/messages" 
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Messages
+                      </Link>
+                    </div>
+                  </Nav.Item>
+                )}
+
+                {/* Musician Tools */}
                 <Nav.Item 
                   className={`dropdown ${activeDropdown === 'musician' ? 'show' : ''}`}
                   onMouseEnter={() => handleDropdownHover('musician')}
                   onMouseLeave={handleDropdownLeave}
                 >
                   <Nav.Link 
+                    as={Link}
+                    to="/musician-tools"
                     className="dropdown-toggle" 
                     onClick={(e) => handleDropdownClick('musician', e)}
                   >
@@ -119,10 +149,17 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                     </Link>
                     <Link 
                       className="dropdown-item" 
+                      to="/tap-tempo" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Tap Tempo
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
                       to="/lyrics-identifier" 
                       onClick={() => setActiveDropdown(null)}
                     >
-                      Lyrics Identifier
+                      Lyrics Analyzer
                     </Link>
                   </div>
                 </Nav.Item>

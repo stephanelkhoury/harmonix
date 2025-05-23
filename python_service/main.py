@@ -1,3 +1,5 @@
+import os
+import tempfile
 from fastapi import FastAPI, File, UploadFile, Request, Form, Body
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -5,15 +7,13 @@ from typing import List, Optional, Dict, Any, Union
 import uvicorn
 import librosa
 import numpy as np
-import tempfile
-import os
 import subprocess
 import json
 import datetime
 import requests
 from langdetect import detect
 import re
-import youtube_dl
+import yt_dlp
 import speech_recognition as sr
 
 app = FastAPI()
@@ -26,12 +26,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/health")
-def health_check():
-    """Health check endpoint for monitoring and startup verification"""
-    return {"status": "healthy", "service": "python_service"}
-
-# Tonal_Fragment class from your notebook
+# Tonal_Fragment class for chord analysis
 class Tonal_Fragment(object):
     def __init__(self, waveform, sr, tstart=None, tend=None):
         self.waveform = waveform
@@ -69,11 +64,71 @@ class Tonal_Fragment(object):
                 self.altkey = key
                 self.altbestcorr = corr
 
+def download_youtube_audio(youtube_url: str) -> str:
+    """Download audio from YouTube URL and return path to the downloaded file"""
+    temp_dir = None
+    try:
+        temp_dir = tempfile.mkdtemp()
+        output_template = os.path.join(temp_dir, "%(id)s.%(ext)s")
+        
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'wav',
+                'preferredquality': '192',
+            }],
+            'outtmpl': output_template,
+            'quiet': True,
+            'no_warnings': True,
+            'extract_audio': True,
+            'audioformat': 'wav',
+        }
+        
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            try:
+                info = ydl.extract_info(youtube_url, download=True)
+                if not info:
+                    raise ValueError("Could not extract video information")
+                
+                # Find the downloaded file
+                files = os.listdir(temp_dir)
+                if not files:
+                    raise FileNotFoundError("No audio file was downloaded")
+                
+                # Return the full path to the first file (should be our audio)
+                downloaded_file = os.path.join(temp_dir, files[0])
+                if not os.path.exists(downloaded_file):
+                    raise FileNotFoundError(f"Downloaded file not found at {downloaded_file}")
+                
+                return downloaded_file
+            
+            except yt_dlp.utils.DownloadError as e:
+                print(f"YouTube download error: {str(e)}")
+                raise ValueError(f"Failed to download video: {str(e)}")
+            except Exception as e:
+                print(f"Error during download: {str(e)}")
+                raise
+    except Exception as e:
+        if temp_dir and os.path.exists(temp_dir):
+            try:
+                import shutil
+                shutil.rmtree(temp_dir)
+            except:
+                pass
+        raise ValueError(f"Error downloading YouTube audio: {str(e)}")
+
+@app.get("/health")
+def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "service": "python_service"}
+
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
+    """Analyze uploaded audio file for chords"""
     print(f"Received file: {file.filename}")
-    # Save uploaded file to a temp file
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmp:
+    
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as tmp:
         try:
             content = await file.read()
             print(f"File size: {len(content)} bytes")
@@ -84,21 +139,18 @@ async def analyze(file: UploadFile = File(...)):
             return {"error": f"Failed to process upload: {str(e)}"}
     
     try:
-        # Load and analyze the audio
-        print(f"Starting analysis of file: {file.filename} at path: {tmp_path}")
+        print(f"Starting analysis of file: {file.filename}")
         y, sr = librosa.load(tmp_path)
         y_harmonic, _ = librosa.effects.hpss(y)
         duration = librosa.get_duration(y=y, sr=sr)
         
-        # Detect tempo
+        # Detect tempo and key
         tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-        
-        # Detect overall key
         overall_fragment = Tonal_Fragment(y_harmonic, sr)
         key = overall_fragment.key
         
-        # Detect chords every second instead of every 3 seconds
-        bin_size = 1  # second
+        # Detect chords every second
+        bin_size = 1
         chords = []
         for i in range(0, int(duration)//bin_size):
             tstart = bin_size * i
@@ -109,7 +161,7 @@ async def analyze(file: UploadFile = File(...)):
                 "chord": fragment.key
             })
         
-        # Create a result object with all the information
+        # Create result object
         result = {
             "chords": chords,
             "key": key,
@@ -119,161 +171,60 @@ async def analyze(file: UploadFile = File(...)):
             "timestamp": str(datetime.datetime.now())
         }
         
-        # Save the analysis to a JSON file in the SongChords directory
-        filename_safe = ''.join(c if c.isalnum() else '_' for c in file.filename)
+        # Save analysis results
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename_safe = ''.join(c if c.isalnum() else '_' for c in file.filename)
         json_filename = f"{timestamp}_{filename_safe}.json"
         
-        # Use a relative path from the current script
         script_dir = os.path.dirname(os.path.abspath(__file__))
         project_root = os.path.dirname(script_dir)
         song_chords_dir = os.path.join(project_root, "SongChords")
-        
-        # Ensure directory exists
         os.makedirs(song_chords_dir, exist_ok=True)
         
         json_path = os.path.join(song_chords_dir, json_filename)
-        
-        try:
-            with open(json_path, 'w') as f:
-                json.dump(result, f, indent=2)
-            print(f"Saved chord analysis to {json_path}")
-        except Exception as e:
-            print(f"Error saving chord analysis: {str(e)}")
-            # Return result even if saving fails
+        with open(json_path, 'w') as f:
+            json.dump(result, f, indent=2)
+        print(f"Saved chord analysis to {json_path}")
         
         return result
+    except Exception as e:
+        print(f"Error analyzing audio: {str(e)}")
+        return {"error": f"Failed to analyze audio: {str(e)}"}
     finally:
-        os.remove(tmp_path)
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
 
 @app.post("/analyze-youtube")
 async def analyze_youtube(request: Request):
-    data = await request.json()
-    url = data.get("url")
-    if not url:
-        return {"error": "No YouTube URL provided."}
-    
-    with tempfile.TemporaryDirectory() as tmpdir:
-        audio_path = os.path.join(tmpdir, "audio.mp3")
-        # Download audio using yt-dlp with more detailed error handling
+    """Analyze YouTube video audio for chords"""
+    try:
+        data = await request.json()
+        url = data.get("url")
+        if not url:
+            return {"error": "No YouTube URL provided"}
+        
+        print(f"Attempting to analyze YouTube audio from: {url}")
+        
         try:
-            print(f"Attempting to download YouTube audio from: {url}")
-            print(f"Using temporary path: {audio_path}")
-            
-            # Find the ffmpeg path - try multiple possible locations
-            possible_ffmpeg_paths = [
-                "/opt/homebrew/bin/ffmpeg",  # Homebrew on Apple Silicon
-                "/usr/local/bin/ffmpeg",     # Homebrew on Intel Mac
-                "/usr/bin/ffmpeg"            # Default system location
-            ]
-            
-            # Check if ffmpeg exists in any of these locations
-            ffmpeg_path = None
-            for path in possible_ffmpeg_paths:
-                if os.path.exists(path):
-                    ffmpeg_path = path
-                    print(f"Found ffmpeg at: {ffmpeg_path}")
-                    break
-            
-            # If not found in standard locations, try to find it in PATH
-            if not ffmpeg_path:
-                try:
-                    ffmpeg_path = subprocess.check_output(["which", "ffmpeg"], text=True).strip()
-                    print(f"Found ffmpeg in PATH at: {ffmpeg_path}")
-                except subprocess.CalledProcessError:
-                    print("ffmpeg not found in PATH")
-            
-            if not ffmpeg_path:
-                print("WARNING: ffmpeg not found. YouTube downloads may fail.")
-            
-            # Download the video directly as MP3 using more robust settings
-            cmd = [
-                "yt-dlp", 
-                "-v",                      # Verbose output
-                "-x",                      # Extract audio
-                "--audio-format", "mp3",   # Output format
-                "--audio-quality", "192K", # Set quality to avoid huge files
-                "--no-playlist",           # Don't download playlists
-                "--geo-bypass",            # Try to bypass geo-restrictions
-                "--force-ipv4",            # Force IPv4 to avoid IPv6 issues
-                "--no-check-certificate",  # Skip HTTPS certificate validation
-                "--extract-audio",         # Make sure to extract audio
-                "--prefer-ffmpeg",         # Prefer using ffmpeg for conversion
-                "--progress",              # Show progress
-                "--hls-prefer-native",     # Use native HLS downloader
-                "-o", audio_path           # Output path
-            ]
-            
-            # Add ffmpeg path if found
-            if ffmpeg_path:
-                cmd.extend(["--ffmpeg-location", ffmpeg_path])
-                # Also make sure FFmpeg is in the environment PATH
-                os.environ["PATH"] = f"{os.path.dirname(ffmpeg_path)}:{os.environ.get('PATH', '')}"
-            
-            # Add the URL at the end
-            cmd.append(url)
-            
-            print(f"Running command: {' '.join(cmd)}")
-            result = subprocess.run(
-                cmd, 
-                check=False, 
-                capture_output=True, 
-                text=True
-            )
-            
-            if result.returncode != 0:
-                error_msg = f"YouTube download failed: {result.stderr}"
-                print(error_msg)
-                
-                # Return error instead of placeholder chords for better debugging
-                return {
-                    "error": "YouTube download failed. Please check URL or try a different video.",
-                    "details": error_msg,
-                    "url": url,
-                    "timestamp": str(datetime.datetime.now())
-                }
-            
-            # Verify the file actually exists
+            # Download the audio file
+            audio_path = download_youtube_audio(url)
             if not os.path.exists(audio_path):
-                # Check if yt-dlp created a file with a different extension
-                possible_files = [f for f in os.listdir(tmpdir) if f.endswith(('.mp3', '.m4a', '.webm'))]
-                if possible_files:
-                    # Use the first audio file found
-                    audio_path = os.path.join(tmpdir, possible_files[0])
-                    print(f"Found alternative audio file: {audio_path}")
-                else:
-                    return {
-                        "error": "YouTube download produced no audio file.",
-                        "url": url,
-                        "timestamp": str(datetime.datetime.now())
-                    }
+                return {"error": "Failed to download audio from YouTube"}
             
-            print(f"YouTube download completed successfully to {audio_path}")
-        except Exception as e:
-            error_msg = f"Exception during YouTube download: {str(e)}"
-            print(error_msg)
+            print(f"Successfully downloaded audio to: {audio_path}")
             
-            return {
-                "error": "Exception during YouTube download.",
-                "details": error_msg,
-                "url": url,
-                "timestamp": str(datetime.datetime.now())
-            }
-        # Analyze as before
-        try:
+            # Analyze the audio
             y, sr = librosa.load(audio_path)
             y_harmonic, _ = librosa.effects.hpss(y)
             duration = librosa.get_duration(y=y, sr=sr)
             
-            # Detect tempo
+            # Detect tempo and key
             tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-            
-            # Detect overall key
             overall_fragment = Tonal_Fragment(y_harmonic, sr)
             key = overall_fragment.key
             
-            # Detect chords every second instead of every 3 seconds
-            bin_size = 1  # second
+            # Detect chords every second
+            bin_size = 1
             chords = []
             for i in range(0, int(duration)//bin_size):
                 tstart = bin_size * i
@@ -284,7 +235,7 @@ async def analyze_youtube(request: Request):
                     "chord": fragment.key
                 })
             
-            # Create a result object with all the information
+            # Create result object
             result = {
                 "chords": chords,
                 "key": key,
@@ -294,79 +245,38 @@ async def analyze_youtube(request: Request):
                 "timestamp": str(datetime.datetime.now())
             }
             
-            # Extract YouTube video ID from URL
+            # Save analysis results
             video_id = url.split("v=")[-1].split("&")[0]
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             json_filename = f"{timestamp}_youtube_{video_id}.json"
             
-            # Use a relative path from the current script
             script_dir = os.path.dirname(os.path.abspath(__file__))
             project_root = os.path.dirname(script_dir)
             song_chords_dir = os.path.join(project_root, "SongChords")
-            
-            # Ensure directory exists
             os.makedirs(song_chords_dir, exist_ok=True)
             
             json_path = os.path.join(song_chords_dir, json_filename)
-            
-            try:
-                with open(json_path, 'w') as f:
-                    json.dump(result, f, indent=2)
-                print(f"Saved YouTube chord analysis to {json_path}")
-            except Exception as e:
-                print(f"Error saving YouTube chord analysis: {str(e)}")
-            
+            with open(json_path, 'w') as f:
+                json.dump(result, f, indent=2)
             print(f"Saved YouTube chord analysis to {json_path}")
             
             return result
+            
         except Exception as e:
-            return {"error": f"Failed to analyze audio: {str(e)}"}
-
-if __name__ == "__main__":
-    # Check for required libraries
-    try:
-        import librosa
-        print("✅ librosa is installed")
-    except ImportError:
-        print("❌ librosa is not installed. Run: pip install librosa")
+            print(f"Error in audio processing: {str(e)}")
+            return {"error": f"Failed to process audio: {str(e)}"}
+        finally:
+            # Clean up temporary files
+            if 'audio_path' in locals() and os.path.exists(audio_path):
+                try:
+                    os.remove(audio_path)
+                    os.rmdir(os.path.dirname(audio_path))
+                except:
+                    pass
     
-    try:
-        import numpy
-        print("✅ numpy is installed")
-    except ImportError:
-        print("❌ numpy is not installed. Run: pip install numpy")
-    
-    # Check if SongChords directory exists and create it if needed
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(script_dir)
-    song_chords_dir = os.path.join(project_root, "SongChords")
-    
-    if not os.path.exists(song_chords_dir):
-        print(f"Creating SongChords directory at {song_chords_dir}")
-        os.makedirs(song_chords_dir, exist_ok=True)
-    else:
-        print(f"SongChords directory exists at {song_chords_dir}")
-    
-    # Check if uploads directory exists
-    uploads_dir = os.path.join(project_root, "uploads")
-    if not os.path.exists(uploads_dir):
-        print(f"Creating uploads directory at {uploads_dir}")
-        os.makedirs(uploads_dir, exist_ok=True)
-    
-    print(f"Starting Python service on port 8000...")
-    print(f"Analysis results will be saved to: {song_chords_dir}")
-    
-# Define Pydantic models for request validation
-class YoutubeRequest(BaseModel):
-    youtubeUrl: str
-    language: str = "auto"
-
-class LyricsResponse(BaseModel):
-    lyrics: List[Dict[str, Any]]
-    detectedLanguage: Optional[str] = None
-    title: Optional[str] = None
-    duration: Optional[float] = None
-    timestamp: str
+    except Exception as e:
+        print(f"Error in analyze_youtube: {str(e)}")
+        return {"error": f"Failed to analyze YouTube video: {str(e)}"}
 
 @app.post("/api/analyze-lyrics")
 async def analyze_lyrics(
@@ -375,29 +285,22 @@ async def analyze_lyrics(
     youtubeUrl: Optional[str] = Form(None),
     language: Optional[str] = Form(None)
 ):
-    """
-    Analyze lyrics from YouTube URL or uploaded audio file
-    Supports English, Arabic, and French languages with auto-detection
-    """
+    """Analyze lyrics from YouTube URL or uploaded audio file"""
     try:
-        # Check if request might be JSON (YouTube link case)
+        # Parse request
         content_type = request.headers.get('content-type', '')
         if 'application/json' in content_type:
             body = await request.json()
             youtubeUrl = body.get('youtubeUrl')
             language = body.get('language', 'auto')
         else:
-            # Form already parsed the data as parameters
             language = language or 'auto'
         
-        # Handle YouTube URL
+        # Process based on input type
         if youtubeUrl:
             return await process_youtube_lyrics(youtubeUrl, language)
-        
-        # Handle file upload
         elif file:
             return await process_audio_file_lyrics(file, language)
-        
         else:
             return {"error": "No YouTube URL or audio file provided"}
     
@@ -406,46 +309,36 @@ async def analyze_lyrics(
         return {"error": f"Failed to analyze lyrics: {str(e)}"}
 
 async def process_youtube_lyrics(youtube_url: str, language: str = "auto"):
-    """Process YouTube URL to extract lyrics"""
-    # Extract video metadata
-    video_info = {}
+    """Process YouTube URL for lyrics extraction"""
     try:
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            'quiet': True,
-            'no_warnings': True,
-            'extract_flat': True
-        }
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        # Download audio
+        audio_path = download_youtube_audio(youtube_url)
+        
+        # Extract lyrics
+        lyrics = extract_lyrics_from_audio(audio_path, language)
+        
+        # Get video info
+        with yt_dlp.YoutubeDL({'quiet': True}) as ydl:
             video_info = ydl.extract_info(youtube_url, download=False)
-            
+        
         video_title = video_info.get('title', 'Unknown YouTube Video')
         video_id = video_info.get('id', '')
         
-        # Download audio for speech recognition
-        audio_path = download_youtube_audio(youtube_url)
-        
-        # Extract lyrics using speech recognition
-        lyrics = extract_lyrics_from_audio(audio_path, language)
-        
-        # Clean up the temporary file
-        if os.path.exists(audio_path):
-            os.remove(audio_path)
-        
-        # Save results
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        # Create results
         results = {
             "lyrics": lyrics,
             "title": video_title,
             "youtube_url": youtube_url,
             "video_id": video_id,
-            "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
+            "detectedLanguage": lyrics[0].get("language") if lyrics else None,
             "duration": video_info.get('duration'),
             "timestamp": str(datetime.datetime.now())
         }
         
-        # Save to file
+        # Save results
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         json_filename = f"{timestamp}_lyrics_youtube_{video_id}.json"
+        
         script_dir = os.path.dirname(os.path.abspath(__file__))
         project_root = os.path.dirname(script_dir)
         lyrics_dir = os.path.join(project_root, "LyricsData")
@@ -460,211 +353,216 @@ async def process_youtube_lyrics(youtube_url: str, language: str = "auto"):
     except Exception as e:
         print(f"Error processing YouTube lyrics: {str(e)}")
         return {"error": f"Failed to process YouTube lyrics: {str(e)}"}
+    finally:
+        if 'audio_path' in locals() and os.path.exists(audio_path):
+            try:
+                os.remove(audio_path)
+                os.rmdir(os.path.dirname(audio_path))
+            except:
+                pass
 
 async def process_audio_file_lyrics(file: UploadFile, language: str = "auto"):
-    """Process uploaded audio file to extract lyrics"""
+    """Process uploaded audio file for lyrics extraction"""
+    temp_file = None
     try:
-        # Verify we have a proper file
         if not file or not file.filename:
             return {"error": "Invalid file upload"}
         
-        # Save uploaded file temporarily
-        file_ext = os.path.splitext(file.filename)[1].lower()
-        if not file_ext:
-            file_ext = '.mp3'  # Default extension if none provided
-        
-        # Create temp file with proper extension
+        # Save uploaded file
+        file_ext = os.path.splitext(file.filename)[1].lower() or '.wav'
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=file_ext)
-        temp_file_path = temp_file.name
+        temp_path = temp_file.name
         temp_file.close()
         
-        # Write content to the temp file
-        file_content = await file.read()
-        with open(temp_file_path, "wb") as f:
-            f.write(file_content)
+        content = await file.read()
+        with open(temp_path, "wb") as f:
+            f.write(content)
         
-        # Reset file position in case we need to read again
-        await file.seek(0)
+        # Extract lyrics
+        lyrics = extract_lyrics_from_audio(temp_path, language)
         
-        # Extract lyrics using speech recognition
-        lyrics = extract_lyrics_from_audio(temp_file_path, language)
-        
-        # Get audio duration using librosa
+        # Get duration
         try:
-            y, sr = librosa.load(temp_file_path, sr=None)
+            y, sr = librosa.load(temp_path)
             duration = librosa.get_duration(y=y, sr=sr)
-        except Exception as audio_err:
-            print(f"Error getting audio duration: {str(audio_err)}")
+        except Exception as e:
+            print(f"Error getting duration: {e}")
             duration = None
         
-        # Clean up
-        try:
-            os.unlink(temp_file_path)
-        except Exception as cleanup_err:
-            print(f"Error cleaning up temp file: {str(cleanup_err)}")
-        
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        
-        # Save results to file
-        try:
-            results = {
-                "lyrics": lyrics,
-                "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
-                "title": file.filename,
-                "duration": duration,
-                "timestamp": str(datetime.datetime.now())
-            }
-            
-            # Save to file
-            json_filename = f"{timestamp}_lyrics_upload_{file.filename}.json"
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(script_dir)
-            lyrics_dir = os.path.join(project_root, "LyricsData")
-            os.makedirs(lyrics_dir, exist_ok=True)
-            
-            json_path = os.path.join(lyrics_dir, json_filename)
-            with open(json_path, 'w') as f:
-                json.dump(results, f, indent=2)
-        except Exception as save_err:
-            print(f"Error saving lyrics data: {str(save_err)}")
-        
-        return {
+        # Create results
+        results = {
             "lyrics": lyrics,
-            "detectedLanguage": lyrics[0].get("language") if lyrics and isinstance(lyrics[0], dict) else None,
+            "detectedLanguage": lyrics[0].get("language") if lyrics else None,
             "title": file.filename,
             "duration": duration,
             "timestamp": str(datetime.datetime.now())
         }
+        
+        # Save results
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename_safe = ''.join(c if c.isalnum() else '_' for c in file.filename)
+        json_filename = f"{timestamp}_lyrics_{filename_safe}.json"
+        
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(script_dir)
+        lyrics_dir = os.path.join(project_root, "LyricsData")
+        os.makedirs(lyrics_dir, exist_ok=True)
+        
+        json_path = os.path.join(lyrics_dir, json_filename)
+        with open(json_path, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        return results
     
     except Exception as e:
         print(f"Error processing audio file lyrics: {str(e)}")
         return {"error": f"Failed to process audio file lyrics: {str(e)}"}
-
-def download_youtube_audio(youtube_url: str) -> str:
-    """Download audio from YouTube URL and return file path"""
-    temp_dir = tempfile.mkdtemp()
-    output_path = os.path.join(temp_dir, "audio.wav")
-    
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'wav',
-            'preferredquality': '192',
-        }],
-        'outtmpl': os.path.splitext(output_path)[0],
-        'quiet': True,
-        'no_warnings': True
-    }
-    
-    try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([youtube_url])
-        return output_path
-    except Exception as e:
-        print(f"Error downloading YouTube audio: {str(e)}")
-        raise e
+    finally:
+        if temp_file and os.path.exists(temp_file.name):
+            try:
+                os.remove(temp_file.name)
+            except:
+                pass
 
 def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto") -> List[Dict]:
-    """
-    Extract lyrics from audio file using speech recognition
-    Returns a list of dictionaries with text, startTime, endTime, and language
-    """
-    # Initialize speech recognizer
+    """Extract lyrics from audio file"""
     recognizer = sr.Recognizer()
     
-    # Map language codes
     language_map = {
         "english": "en-US",
         "french": "fr-FR",
+        "spanish": "es-ES",
+        "german": "de-DE",
+        "italian": "it-IT",
+        "portuguese": "pt-PT",
+        "russian": "ru-RU",
+        "japanese": "ja-JP",
+        "korean": "ko-KR",
+        "chinese": "zh-CN",
         "arabic": "ar-SA",
-        "auto": None  # Will be determined later
+        "auto": None
     }
     
-    # Set language for speech recognition
     language_code = language_map.get(preferred_language.lower())
     
-    # Load audio with librosa to get duration
-    y, sr = librosa.load(audio_path, sr=None)
-    duration = librosa.get_duration(y=y, sr=sr)
+    try:
+        y, sr = librosa.load(audio_path)
+        duration = librosa.get_duration(y=y, sr=sr)
+    except Exception as e:
+        print(f"Error loading audio file: {str(e)}")
+        return [{"text": f"Error loading audio file: {str(e)}", 
+                "startTime": 0, 
+                "endTime": 0, 
+                "language": "english"}]
     
-    # Process audio in chunks for better results
-    chunk_duration = 10  # seconds per chunk
+    chunk_duration = 10  # seconds
     lyrics = []
+    errors = []
     
     try:
         with sr.AudioFile(audio_path) as source:
-            # Adjust for environmental noise
-            recognizer.adjust_for_ambient_noise(source)
+            try:
+                recognizer.adjust_for_ambient_noise(source)
+            except Exception as e:
+                print(f"Warning: Could not adjust for ambient noise: {str(e)}")
             
-            # Process audio in chunks
             for i in range(0, int(duration), chunk_duration):
                 start_time = i
                 end_time = min(i + chunk_duration, duration)
                 
-                # Set the audio position
-                audio_data = recognizer.record(source, duration=chunk_duration, offset=start_time)
-                
                 try:
-                    # Detect language if auto is selected
+                    audio = recognizer.record(source, duration=chunk_duration, offset=start_time)
+                    
+                    # Handle language detection
                     if preferred_language.lower() == "auto":
-                        # Try English first (most common)
-                        try:
-                            text = recognizer.recognize_google(audio_data, language="en-US")
-                            detected_lang = "english"
-                        except:
-                            # If English fails, try other languages
+                        # Try the most common languages first
+                        detected_lang = None
+                        text = None
+                        
+                        for lang in ["english", "spanish", "french", "german"]:
+                            try:
+                                lang_code = language_map[lang]
+                                text = recognizer.recognize_google(audio, language=lang_code)
+                                detected_lang = lang
+                                break
+                            except sr.UnknownValueError:
+                                continue
+                            except:
+                                continue
+                        
+                        if not text:
+                            # Try other languages
                             for lang, code in language_map.items():
-                                if lang != "auto" and lang != "english" and code:
+                                if lang not in ["auto", "english", "spanish", "french", "german"] and code:
                                     try:
-                                        text = recognizer.recognize_google(audio_data, language=code)
+                                        text = recognizer.recognize_google(audio, language=code)
                                         detected_lang = lang
                                         break
                                     except:
                                         continue
-                            else:
-                                # If all languages fail, skip this segment
-                                continue
                     else:
-                        # Use the specified language
-                        text = recognizer.recognize_google(audio_data, language=language_code)
+                        text = recognizer.recognize_google(audio, language=language_code)
                         detected_lang = preferred_language.lower()
                     
-                    # Add to lyrics if text was recognized
                     if text:
                         lyrics.append({
                             "text": text,
                             "startTime": start_time,
                             "endTime": end_time,
-                            "language": detected_lang
+                            "language": detected_lang or "unknown"
                         })
-                
+                    
                 except sr.UnknownValueError:
-                    # Speech not recognizable, just skip this chunk
-                    pass
+                    # No speech detected in this segment
+                    continue
                 except sr.RequestError as e:
-                    print(f"Could not request results; {e}")
-                    # Try to continue with next chunk
+                    error_msg = f"API request error at {start_time}-{end_time}s: {str(e)}"
+                    print(error_msg)
+                    errors.append(error_msg)
+                except Exception as e:
+                    error_msg = f"Error processing segment {start_time}-{end_time}s: {str(e)}"
+                    print(error_msg)
+                    errors.append(error_msg)
     
     except Exception as e:
-        print(f"Error extracting lyrics: {str(e)}")
-        # Return an error message as lyrics
-        return [{"text": f"Error extracting lyrics: {str(e)}", "startTime": 0, "endTime": duration, "language": "english"}]
+        error_msg = f"Error extracting lyrics: {str(e)}"
+        print(error_msg)
+        return [{"text": error_msg,
+                "startTime": 0,
+                "endTime": duration,
+                "language": "english",
+                "errors": errors}]
     
-    # If no lyrics were detected, return a message
     if not lyrics:
-        return [{"text": "No lyrics detected in this audio.", "startTime": 0, "endTime": duration, "language": "english"}]
+        return [{"text": "No lyrics detected in this audio.",
+                "startTime": 0,
+                "endTime": duration,
+                "language": "english",
+                "errors": errors}]
     
-    # Ensure all lyrics have a language property
-    for lyric in lyrics:
-        if not lyric.get("language"):
-            lyric["language"] = "english"  # default to English
+    # Add any errors to the response
+    if errors:
+        lyrics.append({
+            "text": "Some segments had errors during processing",
+            "startTime": duration,
+            "endTime": duration,
+            "language": "english",
+            "errors": errors
+        })
     
     return lyrics
 
-    # Start the server with debug mode enabled
-    try:
-        uvicorn.run(app, host="0.0.0.0", port=8000, log_level="debug")
-    except Exception as e:
-        print(f"Error starting server: {str(e)}")
-        print("If the port is already in use, try: lsof -i :8000 and kill the process")
+if __name__ == "__main__":
+    # Ensure directories exist
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    
+    for dir_name in ["SongChords", "LyricsData", "uploads"]:
+        dir_path = os.path.join(project_root, dir_name)
+        if not os.path.exists(dir_path):
+            print(f"Creating {dir_name} directory")
+            os.makedirs(dir_path, exist_ok=True)
+    
+    # Start server
+    print("Starting Python service on port 8000...")
+    uvicorn.run(app, host="0.0.0.0", port=8000)
