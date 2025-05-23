@@ -2,168 +2,21 @@
 > harmonix-frontend@0.1.0 start
 > react-scripts start
 
-(node:42709) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:37955) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:42709) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:37955) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Compiled successfully!
 
 You can now view harmonix-frontend in the browser.
 
-  http://localhost:3000
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.0.104:3000
 
 Note that the development build is not optimized.
 To create a production build, use npm run build.
 
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-[eslint] 
-src/components/OpacityFixer.js
-Syntax error: Unexpected token (22:64) (22:64)
-ERROR in ./src/components/OpacityFixer.js
-Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/OpacityFixer.js: Unexpected token (22:64)
-
-  20 |       // Target all elements with the specified selectors
-  21 |       selectors.forEach(selector => {
-> 22 |         document.querySelectorAll(selector).forEach(element => {
-     |                                                                 ^
-    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
-    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
-    at FlowParserMixin.unexpected (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6633:16)
-    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11358:16)
-    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
-    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
-    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
-    at FlowParserMixin.parseExpressionBase (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10698:23)
-    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:39
-    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12329:16)
-    at FlowParserMixin.parseExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10694:17)
-    at FlowParserMixin.parseStatementContent (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12771:23)
-    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12644:17)
-    at FlowParserMixin.parseStatementLike (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2922:24)
-    at FlowParserMixin.parseStatementListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12624:17)
-    at FlowParserMixin.parseBlockOrModuleBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13192:61)
-    at FlowParserMixin.parseBlockBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13185:10)
-    at FlowParserMixin.parseBlock (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:13173:10)
-    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12018:24)
-    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
-    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
-    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
-    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
-    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11354:25)
-    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
-    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
-    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
-    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
-    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
-    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
-    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
-    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
-    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
-    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
-    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
-    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
-    at FlowParserMixin.parseExprListItem (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12093:18)
-    at FlowParserMixin.parseCallExpressionArguments (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11163:22)
-    at FlowParserMixin.parseCoverCallAndAsyncArrowHead (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11097:29)
-    at FlowParserMixin.parseSubscript (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11031:19)
-    at FlowParserMixin.parseSubscript (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3656:18)
-    at FlowParserMixin.parseSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11005:19)
-    at FlowParserMixin.parseSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3622:18)
-    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10996:17)
-
-ERROR in [eslint] 
-src/components/OpacityFixer.js
-  Line 22:64:  Parsing error: Unexpected token (22:64)
-
-webpack compiled with 2 errors
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
 webpack compiled successfully
 Compiling...
 Compiled successfully!

@@ -42,13 +42,11 @@
 }
 
 .faq-tabs {
-  position: sticky;
   top: 0;
-  background: #3B7DAD; /* Secondary */
   display: flex;
   justify-content: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 3rem;
   z-index: 1000;
 }
 
@@ -81,7 +79,7 @@
   background: none;
   border: none;
   font-size: 1.2rem;
-  padding: 1rem 0;
+  padding: 1rem;
   width: 100%;
   text-align: left;
   cursor: pointer;
