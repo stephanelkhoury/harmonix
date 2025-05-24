@@ -1,0 +1,15 @@
+{
+  "lyrics": [
+    {
+      "text": "Error extracting lyrics: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format",
+      "startTime": 0,
+      "endTime": 122.09356009070295,
+      "language": "english",
+      "errors": []
+    }
+  ],
+  "detectedLanguage": "english",
+  "title": "test_audio.mp3",
+  "duration": 122.09356009070295,
+  "timestamp": "2025-05-25 02:41:53.088261"
+}

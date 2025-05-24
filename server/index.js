@@ -902,6 +902,100 @@ app.post('/api/analyze-youtube', async (req, res) => {
   }
 });
 
+// Lyrics analysis endpoint for YouTube URLs and file uploads
+app.post('/api/analyze-lyrics', upload.single('file'), async (req, res) => {
+  console.log('Received lyrics analysis request:', { body: req.body, hasFile: !!req.file });
+  
+  const { youtubeUrl, language } = req.body;
+  const file = req.file;
+  
+  // Check if we have either a YouTube URL or a file
+  if (!youtubeUrl && !file) {
+    return res.status(400).json({ error: 'No YouTube URL or audio file provided.' });
+  }
+  
+  try {
+    // Use explicit IP address to avoid IPv6 issues
+    const pythonServiceUrl = 'http://127.0.0.1:8000';
+    console.log(`Sending lyrics analysis request to Python service at: ${pythonServiceUrl}`);
+    
+    // First check if Python service is running
+    try {
+      const healthCheck = await axios.get(`${pythonServiceUrl}/health`, { timeout: 2000 });
+      console.log(`Python service health check: ${JSON.stringify(healthCheck.data)}`);
+    } catch (healthError) {
+      console.error('Python service health check failed:', healthError.message);
+      return res.status(503).json({ 
+        error: 'Python analysis service is not available.',
+        details: 'The lyrics analysis service is currently unavailable. Please check if the Python service is running.'
+      });
+    }
+    
+    let response;
+    
+    if (file) {
+      // Handle file upload
+      const FormData = require('form-data');
+      const formData = new FormData();
+      
+      // Add the file to the form data
+      formData.append('file', file.buffer, {
+        filename: file.originalname,
+        contentType: file.mimetype
+      });
+      
+      // Add language parameter
+      formData.append('language', language || 'auto');
+      
+      response = await axios.post(`${pythonServiceUrl}/api/analyze-lyrics`, formData, {
+        timeout: 180000, // 3 minute timeout
+        headers: {
+          ...formData.getHeaders()
+        }
+      });
+    } else {
+      // Handle YouTube URL
+      response = await axios.post(`${pythonServiceUrl}/api/analyze-lyrics`, { 
+        youtubeUrl, 
+        language: language || 'auto' 
+      }, { 
+        timeout: 180000, // 3 minute timeout
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Check if response contains an error
+    if (response.data && response.data.error) {
+      console.error('Python service returned an error:', response.data.error);
+      return res.status(400).json(response.data);
+    }
+    
+    console.log('Lyrics analysis completed successfully');
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error analyzing lyrics from YouTube:', error.message);
+    // Check specific error types for better error messages
+    if (error.code === 'ECONNREFUSED') {
+      res.status(503).json({ 
+        error: 'Python service connection refused.',
+        details: 'Could not connect to the lyrics analysis service. Please ensure the Python service is running.'
+      });
+    } else if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      res.status(error.response.status).json({
+        error: 'Python service error',
+        details: error.response.data || 'Unknown error from Python service'
+      });
+    } else {
+      res.status(500).json({ 
+        error: 'Failed to analyze lyrics from YouTube.', 
+        details: error.message || 'Unknown error'
+      });
+    }
+  }
+});
+
 // In-memory storage for contact messages
 const messages = [];
 

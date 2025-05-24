@@ -277,26 +277,14 @@ function Analyze() {
         
         // Handle various YouTube URL formats
         const regExps = [
-            // Standard watch URLs: https://www.youtube.com/watch?v=VIDEO_ID
-            /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/,
-            
-            // Short URLs: https://youtu.be/VIDEO_ID
-            /^.*youtu\.be\/([^#&?]*).*/,
-            
-            // Embed URLs: https://www.youtube.com/embed/VIDEO_ID
-            /^.*youtube\.com\/embed\/([^#&?]*).*/,
-            
-            // Share URLs with timestamps: https://youtu.be/VIDEO_ID?t=123
-            /^.*youtu\.be\/([^?]*)(\?t=\d+)?$/,
-            
-            // YouTube Shorts: https://youtube.com/shorts/VIDEO_ID
-            /^.*youtube\.com\/shorts\/([^#&?]*).*/
+            /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i,
+            /(?:youtube\.com\/|youtu\.be\/)([^"&?\/\s]{11})/i
         ];
         
         for (const regExp of regExps) {
             const match = trimmedUrl.match(regExp);
-            if (match && (match[1]?.length === 11 || match[2]?.length === 11)) {
-                const videoId = match[1] || match[2];
+            if (match && match[1]) {
+                const videoId = match[1];
                 console.log("Successfully extracted YouTube ID:", videoId);
                 return videoId;
             }

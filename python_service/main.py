@@ -26,6 +26,32 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def extract_youtube_id(url):
+    """Extract YouTube video ID from various URL formats"""
+    import re
+    
+    if not url:
+        return None
+        
+    url = url.strip()
+    
+    # YouTube URL patterns
+    patterns = [
+        r'(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})',
+        r'(?:youtube\.com\/|youtu\.be\/)([^"&?\/\s]{11})'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, url, re.IGNORECASE)
+        if match:
+            return match.group(1)
+    
+    # Fallback: if the input is exactly 11 characters, it might be a direct video ID
+    if len(url) == 11:
+        return url
+    
+    return None
+
 # Tonal_Fragment class for chord analysis
 class Tonal_Fragment(object):
     def __init__(self, waveform, sr, tstart=None, tend=None):
@@ -51,8 +77,8 @@ class Tonal_Fragment(object):
         self.maj_key_corrs = []
         for i in range(12):
             key_test = [self.keyfreqs.get(pitches[(i + m)%12]) for m in range(12)]
-            self.maj_key_corrs.append(round(np.corrcoef(maj_profile, key_test)[1,0], 3))
-            self.min_key_corrs.append(round(np.corrcoef(min_profile, key_test)[1,0], 3))
+            self.maj_key_corrs.append(round(float(np.corrcoef(maj_profile, key_test)[1,0]), 3))
+            self.min_key_corrs.append(round(float(np.corrcoef(min_profile, key_test)[1,0]), 3))
         self.key_dict = {**{keys[i]: self.maj_key_corrs[i] for i in range(12)},
                          **{keys[i+12]: self.min_key_corrs[i] for i in range(12)}}
         self.key = max(self.key_dict, key=self.key_dict.get)
@@ -83,6 +109,9 @@ def download_youtube_audio(youtube_url: str) -> str:
             'no_warnings': True,
             'extract_audio': True,
             'audioformat': 'wav',
+            'socket_timeout': 60,  # 60 second timeout for socket operations
+            'retries': 3,          # Retry up to 3 times
+            'fragment_retries': 3, # Retry fragments up to 3 times
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -205,8 +234,16 @@ async def analyze_youtube(request: Request):
         
         print(f"Attempting to analyze YouTube audio from: {url}")
         
+        # Extract and validate YouTube ID first
+        video_id = extract_youtube_id(url)
+        if not video_id:
+            return {"error": "Invalid YouTube URL format"}
+        
+        print(f"Extracted video ID: {video_id}")
+        
         try:
-            # Download the audio file
+            # Download the audio file with timeout handling
+            print("Starting YouTube audio download...")
             audio_path = download_youtube_audio(url)
             if not os.path.exists(audio_path):
                 return {"error": "Failed to download audio from YouTube"}
@@ -214,19 +251,28 @@ async def analyze_youtube(request: Request):
             print(f"Successfully downloaded audio to: {audio_path}")
             
             # Analyze the audio
+            print("Starting audio analysis...")
             y, sr = librosa.load(audio_path)
             y_harmonic, _ = librosa.effects.hpss(y)
-            duration = librosa.get_duration(y=y, sr=sr)
+            duration = float(librosa.get_duration(y=y, sr=sr))  # Convert to Python float
+            
+            print(f"Audio loaded successfully. Duration: {duration:.2f} seconds")
             
             # Detect tempo and key
             tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
+            tempo = float(tempo[0]) if hasattr(tempo, '__len__') and len(tempo) > 0 else float(tempo)  # Handle array or scalar
             overall_fragment = Tonal_Fragment(y_harmonic, sr)
             key = overall_fragment.key
+            
+            print(f"Detected key: {key}, tempo: {tempo:.2f}")
             
             # Detect chords every second
             bin_size = 1
             chords = []
-            for i in range(0, int(duration)//bin_size):
+            chord_count = int(duration)//bin_size
+            print(f"Analyzing {chord_count} chord segments...")
+            
+            for i in range(0, chord_count):
                 tstart = bin_size * i
                 tend = bin_size * (i+1)
                 fragment = Tonal_Fragment(y_harmonic, sr, tstart=tstart, tend=tend)
@@ -234,6 +280,8 @@ async def analyze_youtube(request: Request):
                     "time": tstart,
                     "chord": fragment.key
                 })
+            
+            print(f"Analysis complete. Found {len(chords)} chords.")
             
             # Create result object
             result = {
@@ -246,7 +294,7 @@ async def analyze_youtube(request: Request):
             }
             
             # Save analysis results
-            video_id = url.split("v=")[-1].split("&")[0]
+            video_id = extract_youtube_id(url)
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             json_filename = f"{timestamp}_youtube_{video_id}.json"
             
@@ -445,9 +493,17 @@ def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto")
     
     language_code = language_map.get(preferred_language.lower())
     
+    # Convert audio to WAV format for speech recognition
+    temp_wav_path = None
     try:
-        y, sr = librosa.load(audio_path)
-        duration = librosa.get_duration(y=y, sr=sr)
+        y, sample_rate = librosa.load(audio_path)
+        duration = librosa.get_duration(y=y, sr=sample_rate)
+        
+        # Create a temporary WAV file for speech recognition
+        temp_wav_path = tempfile.NamedTemporaryFile(delete=False, suffix='.wav').name
+        import soundfile as sf
+        sf.write(temp_wav_path, y, sample_rate)
+        
     except Exception as e:
         print(f"Error loading audio file: {str(e)}")
         return [{"text": f"Error loading audio file: {str(e)}", 
@@ -460,7 +516,7 @@ def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto")
     errors = []
     
     try:
-        with sr.AudioFile(audio_path) as source:
+        with sr.AudioFile(temp_wav_path) as source:
             try:
                 recognizer.adjust_for_ambient_noise(source)
             except Exception as e:
@@ -532,6 +588,13 @@ def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto")
                 "endTime": duration,
                 "language": "english",
                 "errors": errors}]
+    finally:
+        # Clean up temporary WAV file
+        if temp_wav_path and os.path.exists(temp_wav_path):
+            try:
+                os.remove(temp_wav_path)
+            except:
+                pass
     
     if not lyrics:
         return [{"text": "No lyrics detected in this audio.",
@@ -563,6 +626,6 @@ if __name__ == "__main__":
             print(f"Creating {dir_name} directory")
             os.makedirs(dir_path, exist_ok=True)
     
-    # Start server
+    # Start servers
     print("Starting Python service on port 8000...")
     uvicorn.run(app, host="0.0.0.0", port=8000)

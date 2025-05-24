@@ -1,0 +1,873 @@
+{
+  "chords": [
+    {
+      "time": 0,
+      "chord": "F major"
+    },
+    {
+      "time": 1,
+      "chord": "E minor"
+    },
+    {
+      "time": 2,
+      "chord": "E minor"
+    },
+    {
+      "time": 3,
+      "chord": "E minor"
+    },
+    {
+      "time": 4,
+      "chord": "E minor"
+    },
+    {
+      "time": 5,
+      "chord": "E minor"
+    },
+    {
+      "time": 6,
+      "chord": "E minor"
+    },
+    {
+      "time": 7,
+      "chord": "G minor"
+    },
+    {
+      "time": 8,
+      "chord": "A minor"
+    },
+    {
+      "time": 9,
+      "chord": "F major"
+    },
+    {
+      "time": 10,
+      "chord": "F major"
+    },
+    {
+      "time": 11,
+      "chord": "A major"
+    },
+    {
+      "time": 12,
+      "chord": "D minor"
+    },
+    {
+      "time": 13,
+      "chord": "D minor"
+    },
+    {
+      "time": 14,
+      "chord": "D major"
+    },
+    {
+      "time": 15,
+      "chord": "D major"
+    },
+    {
+      "time": 16,
+      "chord": "D minor"
+    },
+    {
+      "time": 17,
+      "chord": "D minor"
+    },
+    {
+      "time": 18,
+      "chord": "D minor"
+    },
+    {
+      "time": 19,
+      "chord": "D minor"
+    },
+    {
+      "time": 20,
+      "chord": "D minor"
+    },
+    {
+      "time": 21,
+      "chord": "F# minor"
+    },
+    {
+      "time": 22,
+      "chord": "G major"
+    },
+    {
+      "time": 23,
+      "chord": "D major"
+    },
+    {
+      "time": 24,
+      "chord": "B minor"
+    },
+    {
+      "time": 25,
+      "chord": "E minor"
+    },
+    {
+      "time": 26,
+      "chord": "E minor"
+    },
+    {
+      "time": 27,
+      "chord": "E minor"
+    },
+    {
+      "time": 28,
+      "chord": "F minor"
+    },
+    {
+      "time": 29,
+      "chord": "G major"
+    },
+    {
+      "time": 30,
+      "chord": "G# major"
+    },
+    {
+      "time": 31,
+      "chord": "D minor"
+    },
+    {
+      "time": 32,
+      "chord": "G major"
+    },
+    {
+      "time": 33,
+      "chord": "G minor"
+    },
+    {
+      "time": 34,
+      "chord": "D minor"
+    },
+    {
+      "time": 35,
+      "chord": "D minor"
+    },
+    {
+      "time": 36,
+      "chord": "E minor"
+    },
+    {
+      "time": 37,
+      "chord": "F minor"
+    },
+    {
+      "time": 38,
+      "chord": "F minor"
+    },
+    {
+      "time": 39,
+      "chord": "F minor"
+    },
+    {
+      "time": 40,
+      "chord": "E minor"
+    },
+    {
+      "time": 41,
+      "chord": "E minor"
+    },
+    {
+      "time": 42,
+      "chord": "E minor"
+    },
+    {
+      "time": 43,
+      "chord": "F minor"
+    },
+    {
+      "time": 44,
+      "chord": "F minor"
+    },
+    {
+      "time": 45,
+      "chord": "G# minor"
+    },
+    {
+      "time": 46,
+      "chord": "D minor"
+    },
+    {
+      "time": 47,
+      "chord": "F minor"
+    },
+    {
+      "time": 48,
+      "chord": "G# minor"
+    },
+    {
+      "time": 49,
+      "chord": "D minor"
+    },
+    {
+      "time": 50,
+      "chord": "D minor"
+    },
+    {
+      "time": 51,
+      "chord": "E minor"
+    },
+    {
+      "time": 52,
+      "chord": "F minor"
+    },
+    {
+      "time": 53,
+      "chord": "F major"
+    },
+    {
+      "time": 54,
+      "chord": "F minor"
+    },
+    {
+      "time": 55,
+      "chord": "F minor"
+    },
+    {
+      "time": 56,
+      "chord": "C major"
+    },
+    {
+      "time": 57,
+      "chord": "A minor"
+    },
+    {
+      "time": 58,
+      "chord": "A minor"
+    },
+    {
+      "time": 59,
+      "chord": "A minor"
+    },
+    {
+      "time": 60,
+      "chord": "F major"
+    },
+    {
+      "time": 61,
+      "chord": "C major"
+    },
+    {
+      "time": 62,
+      "chord": "G major"
+    },
+    {
+      "time": 63,
+      "chord": "C major"
+    },
+    {
+      "time": 64,
+      "chord": "A minor"
+    },
+    {
+      "time": 65,
+      "chord": "A minor"
+    },
+    {
+      "time": 66,
+      "chord": "D major"
+    },
+    {
+      "time": 67,
+      "chord": "A minor"
+    },
+    {
+      "time": 68,
+      "chord": "G major"
+    },
+    {
+      "time": 69,
+      "chord": "D minor"
+    },
+    {
+      "time": 70,
+      "chord": "D# minor"
+    },
+    {
+      "time": 71,
+      "chord": "E minor"
+    },
+    {
+      "time": 72,
+      "chord": "F major"
+    },
+    {
+      "time": 73,
+      "chord": "A minor"
+    },
+    {
+      "time": 74,
+      "chord": "F minor"
+    },
+    {
+      "time": 75,
+      "chord": "F major"
+    },
+    {
+      "time": 76,
+      "chord": "C major"
+    },
+    {
+      "time": 77,
+      "chord": "G major"
+    },
+    {
+      "time": 78,
+      "chord": "C major"
+    },
+    {
+      "time": 79,
+      "chord": "G major"
+    },
+    {
+      "time": 80,
+      "chord": "A minor"
+    },
+    {
+      "time": 81,
+      "chord": "D minor"
+    },
+    {
+      "time": 82,
+      "chord": "A minor"
+    },
+    {
+      "time": 83,
+      "chord": "G minor"
+    },
+    {
+      "time": 84,
+      "chord": "C major"
+    },
+    {
+      "time": 85,
+      "chord": "C minor"
+    },
+    {
+      "time": 86,
+      "chord": "E minor"
+    },
+    {
+      "time": 87,
+      "chord": "E minor"
+    },
+    {
+      "time": 88,
+      "chord": "E minor"
+    },
+    {
+      "time": 89,
+      "chord": "E minor"
+    },
+    {
+      "time": 90,
+      "chord": "F minor"
+    },
+    {
+      "time": 91,
+      "chord": "G minor"
+    },
+    {
+      "time": 92,
+      "chord": "D minor"
+    },
+    {
+      "time": 93,
+      "chord": "D minor"
+    },
+    {
+      "time": 94,
+      "chord": "E minor"
+    },
+    {
+      "time": 95,
+      "chord": "E minor"
+    },
+    {
+      "time": 96,
+      "chord": "F minor"
+    },
+    {
+      "time": 97,
+      "chord": "F minor"
+    },
+    {
+      "time": 98,
+      "chord": "D minor"
+    },
+    {
+      "time": 99,
+      "chord": "D minor"
+    },
+    {
+      "time": 100,
+      "chord": "A minor"
+    },
+    {
+      "time": 101,
+      "chord": "A minor"
+    },
+    {
+      "time": 102,
+      "chord": "A minor"
+    },
+    {
+      "time": 103,
+      "chord": "D minor"
+    },
+    {
+      "time": 104,
+      "chord": "C major"
+    },
+    {
+      "time": 105,
+      "chord": "G major"
+    },
+    {
+      "time": 106,
+      "chord": "E minor"
+    },
+    {
+      "time": 107,
+      "chord": "F minor"
+    },
+    {
+      "time": 108,
+      "chord": "F minor"
+    },
+    {
+      "time": 109,
+      "chord": "D minor"
+    },
+    {
+      "time": 110,
+      "chord": "D minor"
+    },
+    {
+      "time": 111,
+      "chord": "E minor"
+    },
+    {
+      "time": 112,
+      "chord": "E minor"
+    },
+    {
+      "time": 113,
+      "chord": "E major"
+    },
+    {
+      "time": 114,
+      "chord": "E minor"
+    },
+    {
+      "time": 115,
+      "chord": "F minor"
+    },
+    {
+      "time": 116,
+      "chord": "G major"
+    },
+    {
+      "time": 117,
+      "chord": "D minor"
+    },
+    {
+      "time": 118,
+      "chord": "D# major"
+    },
+    {
+      "time": 119,
+      "chord": "G major"
+    },
+    {
+      "time": 120,
+      "chord": "D minor"
+    },
+    {
+      "time": 121,
+      "chord": "D minor"
+    },
+    {
+      "time": 122,
+      "chord": "E minor"
+    },
+    {
+      "time": 123,
+      "chord": "F minor"
+    },
+    {
+      "time": 124,
+      "chord": "F minor"
+    },
+    {
+      "time": 125,
+      "chord": "F minor"
+    },
+    {
+      "time": 126,
+      "chord": "E minor"
+    },
+    {
+      "time": 127,
+      "chord": "E minor"
+    },
+    {
+      "time": 128,
+      "chord": "E minor"
+    },
+    {
+      "time": 129,
+      "chord": "F minor"
+    },
+    {
+      "time": 130,
+      "chord": "F minor"
+    },
+    {
+      "time": 131,
+      "chord": "G minor"
+    },
+    {
+      "time": 132,
+      "chord": "D minor"
+    },
+    {
+      "time": 133,
+      "chord": "D minor"
+    },
+    {
+      "time": 134,
+      "chord": "G minor"
+    },
+    {
+      "time": 135,
+      "chord": "D major"
+    },
+    {
+      "time": 136,
+      "chord": "D minor"
+    },
+    {
+      "time": 137,
+      "chord": "E minor"
+    },
+    {
+      "time": 138,
+      "chord": "F minor"
+    },
+    {
+      "time": 139,
+      "chord": "F minor"
+    },
+    {
+      "time": 140,
+      "chord": "F minor"
+    },
+    {
+      "time": 141,
+      "chord": "F minor"
+    },
+    {
+      "time": 142,
+      "chord": "E minor"
+    },
+    {
+      "time": 143,
+      "chord": "A minor"
+    },
+    {
+      "time": 144,
+      "chord": "A minor"
+    },
+    {
+      "time": 145,
+      "chord": "A minor"
+    },
+    {
+      "time": 146,
+      "chord": "C major"
+    },
+    {
+      "time": 147,
+      "chord": "C major"
+    },
+    {
+      "time": 148,
+      "chord": "G major"
+    },
+    {
+      "time": 149,
+      "chord": "C major"
+    },
+    {
+      "time": 150,
+      "chord": "C major"
+    },
+    {
+      "time": 151,
+      "chord": "A minor"
+    },
+    {
+      "time": 152,
+      "chord": "D major"
+    },
+    {
+      "time": 153,
+      "chord": "A minor"
+    },
+    {
+      "time": 154,
+      "chord": "G# major"
+    },
+    {
+      "time": 155,
+      "chord": "D minor"
+    },
+    {
+      "time": 156,
+      "chord": "D# minor"
+    },
+    {
+      "time": 157,
+      "chord": "E minor"
+    },
+    {
+      "time": 158,
+      "chord": "C major"
+    },
+    {
+      "time": 159,
+      "chord": "A minor"
+    },
+    {
+      "time": 160,
+      "chord": "F major"
+    },
+    {
+      "time": 161,
+      "chord": "F minor"
+    },
+    {
+      "time": 162,
+      "chord": "C major"
+    },
+    {
+      "time": 163,
+      "chord": "G major"
+    },
+    {
+      "time": 164,
+      "chord": "C major"
+    },
+    {
+      "time": 165,
+      "chord": "C major"
+    },
+    {
+      "time": 166,
+      "chord": "A minor"
+    },
+    {
+      "time": 167,
+      "chord": "G minor"
+    },
+    {
+      "time": 168,
+      "chord": "A major"
+    },
+    {
+      "time": 169,
+      "chord": "G major"
+    },
+    {
+      "time": 170,
+      "chord": "F minor"
+    },
+    {
+      "time": 171,
+      "chord": "C# minor"
+    },
+    {
+      "time": 172,
+      "chord": "F minor"
+    },
+    {
+      "time": 173,
+      "chord": "C major"
+    },
+    {
+      "time": 174,
+      "chord": "E minor"
+    },
+    {
+      "time": 175,
+      "chord": "E minor"
+    },
+    {
+      "time": 176,
+      "chord": "F major"
+    },
+    {
+      "time": 177,
+      "chord": "G minor"
+    },
+    {
+      "time": 178,
+      "chord": "D minor"
+    },
+    {
+      "time": 179,
+      "chord": "D minor"
+    },
+    {
+      "time": 180,
+      "chord": "E major"
+    },
+    {
+      "time": 181,
+      "chord": "E major"
+    },
+    {
+      "time": 182,
+      "chord": "F major"
+    },
+    {
+      "time": 183,
+      "chord": "G major"
+    },
+    {
+      "time": 184,
+      "chord": "F major"
+    },
+    {
+      "time": 185,
+      "chord": "D minor"
+    },
+    {
+      "time": 186,
+      "chord": "A minor"
+    },
+    {
+      "time": 187,
+      "chord": "A minor"
+    },
+    {
+      "time": 188,
+      "chord": "A minor"
+    },
+    {
+      "time": 189,
+      "chord": "F major"
+    },
+    {
+      "time": 190,
+      "chord": "C major"
+    },
+    {
+      "time": 191,
+      "chord": "G major"
+    },
+    {
+      "time": 192,
+      "chord": "E minor"
+    },
+    {
+      "time": 193,
+      "chord": "C major"
+    },
+    {
+      "time": 194,
+      "chord": "F minor"
+    },
+    {
+      "time": 195,
+      "chord": "D minor"
+    },
+    {
+      "time": 196,
+      "chord": "F major"
+    },
+    {
+      "time": 197,
+      "chord": "E minor"
+    },
+    {
+      "time": 198,
+      "chord": "E minor"
+    },
+    {
+      "time": 199,
+      "chord": "E minor"
+    },
+    {
+      "time": 200,
+      "chord": "F minor"
+    },
+    {
+      "time": 201,
+      "chord": "F minor"
+    },
+    {
+      "time": 202,
+      "chord": "G minor"
+    },
+    {
+      "time": 203,
+      "chord": "D minor"
+    },
+    {
+      "time": 204,
+      "chord": "D major"
+    },
+    {
+      "time": 205,
+      "chord": "G minor"
+    },
+    {
+      "time": 206,
+      "chord": "D minor"
+    },
+    {
+      "time": 207,
+      "chord": "D minor"
+    },
+    {
+      "time": 208,
+      "chord": "E minor"
+    },
+    {
+      "time": 209,
+      "chord": "F minor"
+    },
+    {
+      "time": 210,
+      "chord": "F minor"
+    },
+    {
+      "time": 211,
+      "chord": "F minor"
+    },
+    {
+      "time": 212,
+      "chord": "E minor"
+    },
+    {
+      "time": 213,
+      "chord": "E minor"
+    },
+    {
+      "time": 214,
+      "chord": "E minor"
+    },
+    {
+      "time": 215,
+      "chord": "E minor"
+    }
+  ],
+  "key": "C major",
+  "tempo": 78.3,
+  "duration": 216.57,
+  "youtube_url": "https://youtu.be/VkH3aMIWntw?si=Xf-iJykYGGaF7wRH",
+  "timestamp": "2025-05-24 04:35:06.314545"
+}
