@@ -996,6 +996,65 @@ app.post('/api/analyze-lyrics', upload.single('file'), async (req, res) => {
   }
 });
 
+// Intelligence analysis endpoint for enhanced analysis of existing chord data
+app.post('/api/analyze-intelligence', async (req, res) => {
+  console.log('Received intelligence analysis request:', req.body);
+  
+  try {
+    // Use explicit IP address to avoid IPv6 issues
+    const pythonServiceUrl = 'http://127.0.0.1:8000';
+    console.log(`Sending intelligence analysis request to Python service at: ${pythonServiceUrl}`);
+    
+    // First check if Python service is running
+    try {
+      const healthCheck = await axios.get(`${pythonServiceUrl}/health`, { timeout: 2000 });
+      console.log(`Python service health check: ${JSON.stringify(healthCheck.data)}`);
+    } catch (healthError) {
+      console.error('Python service health check failed:', healthError.message);
+      return res.status(503).json({ 
+        error: 'Python analysis service is not available.',
+        details: 'The intelligence analysis service is currently unavailable. Please check if the Python service is running.'
+      });
+    }
+    
+    // Send the intelligence analysis request
+    const response = await axios.post(`${pythonServiceUrl}/analyze-intelligence`, req.body, {
+      timeout: 60000, // 1 minute timeout for intelligence analysis
+      headers: { 'Content-Type': 'application/json' }
+    });
+    
+    // Check if response contains an error
+    if (response.data && response.data.error) {
+      console.error('Python service returned an error:', response.data.error);
+      return res.status(400).json(response.data);
+    }
+    
+    console.log('Intelligence analysis completed successfully');
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error in intelligence analysis:', error.message);
+    // Check specific error types for better error messages
+    if (error.code === 'ECONNREFUSED') {
+      res.status(503).json({ 
+        error: 'Python service connection refused.',
+        details: 'Could not connect to the intelligence analysis service. Please ensure the Python service is running.'
+      });
+    } else if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      res.status(error.response.status).json({
+        error: 'Python service error',
+        details: error.response.data || 'Unknown error from Python service'
+      });
+    } else {
+      res.status(500).json({ 
+        error: 'Failed to perform intelligence analysis.', 
+        details: error.message || 'Unknown error'
+      });
+    }
+  }
+});
+
 // In-memory storage for contact messages
 const messages = [];
 

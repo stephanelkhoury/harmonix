@@ -658,6 +658,349 @@
   font-style: italic;
 }
 
+/* Intelligence Analysis Styles */
+.intelligence-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.intelligence-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.intelligence-analysis {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid #e0e8f0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.intelligence-analysis h3 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.intelligence-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #667eea;
+}
+
+.intelligence-section h4 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.analysis-subsection {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.analysis-subsection strong {
+    color: #2d3748;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.roman-numerals {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    color: #4a5568;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #cbd5e0;
+}
+
+.mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.mood-tag {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #744210;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #f6ad55;
+}
+
+.complexity-bar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.complexity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #48bb78 0%, #ed8936 50%, #e53e3e 100%);
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.complexity-bar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.song-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.section-item {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-name {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 0.25rem;
+}
+
+.section-time {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.score-display {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.practice-suggestions {
+    display: grid;
+    gap: 1rem;
+}
+
+.practice-category {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+}
+
+.practice-category strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.practice-category ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.practice-category li {
+    margin-bottom: 0.25rem;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* Intelligent Suggestions Styles */
+.intelligent-suggestions {
+    margin: 1rem 0;
+    position: relative;
+}
+
+.suggestions-toggle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.suggestions-toggle:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.suggestions-toggle:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.suggestions-panel {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.suggestions-panel h4 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.current-chord-analysis,
+.next-chord-predictions,
+.practice-tips,
+.mood-indicator {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.current-chord-analysis h5 {
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chord-substitutions strong,
+.next-chord-predictions strong,
+.practice-tips strong,
+.mood-indicator strong {
+    color: #4a5568;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.substitution-list,
+.prediction-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.substitution-chord,
+.predicted-chord {
+    background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+    color: #234e52;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid #81e6d9;
+    display: inline-block;
+}
+
+.substitution-reason {
+    font-size: 0.75rem;
+    color: #718096;
+    margin-left: 0.25rem;
+}
+
+.practice-tips p {
+    margin: 0.5rem 0 0 0;
+    color: #4a5568;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.mood-tags-small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.mood-tag-small {
+    background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+    color: #92400e;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid #fbbf24;
+}
+
+/* Responsive adjustments for intelligence analysis */
+@media (max-width: 768px) {
+    .intelligence-analysis {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .intelligence-btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+    
+    .song-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .mood-tags {
+        justify-content: center;
+    }
+}
+
 /* Media queries */
 @media (max-width: 768px) {
     .analyze-tabs {

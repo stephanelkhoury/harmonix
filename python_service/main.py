@@ -15,6 +15,7 @@ from langdetect import detect
 import re
 import yt_dlp
 import speech_recognition as sr
+from music_intelligence import MusicIntelligenceEngine
 
 app = FastAPI()
 
@@ -25,6 +26,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Initialize Music Intelligence Engine
+music_intelligence = MusicIntelligenceEngine()
 
 def extract_youtube_id(url):
     """Extract YouTube video ID from various URL formats"""
@@ -190,6 +194,34 @@ async def analyze(file: UploadFile = File(...)):
                 "chord": fragment.key
             })
         
+        # Apply Music Intelligence Analysis
+        print("Applying intelligent music analysis...")
+        try:
+            progression_analysis = music_intelligence.analyze_progression_intelligence(chords, key)
+            structural_analysis = music_intelligence.analyze_song_structure(chords, duration)
+            practice_suggestions = music_intelligence.generate_practice_suggestions(chords, key, tempo)
+            
+            intelligence_data = {
+                "progression_analysis": {
+                    "function_analysis": progression_analysis.function_analysis,
+                    "key_modulations": progression_analysis.key_modulations,
+                    "common_patterns": progression_analysis.common_patterns,
+                    "complexity_score": progression_analysis.complexity_score,
+                    "suggested_substitutions": progression_analysis.suggested_substitutions,
+                    "mood_indicators": progression_analysis.mood_indicators
+                },
+                "structural_analysis": {
+                    "sections": structural_analysis.sections,
+                    "repetition_score": structural_analysis.repetition_score,
+                    "development_arc": structural_analysis.development_arc,
+                    "climax_points": structural_analysis.climax_points
+                },
+                "practice_suggestions": practice_suggestions
+            }
+        except Exception as e:
+            print(f"Intelligence analysis failed: {e}")
+            intelligence_data = {"error": f"Intelligence analysis failed: {str(e)}"}
+        
         # Create result object
         result = {
             "chords": chords,
@@ -197,7 +229,8 @@ async def analyze(file: UploadFile = File(...)):
             "tempo": round(tempo, 2),
             "duration": round(duration, 2),
             "filename": file.filename,
-            "timestamp": str(datetime.datetime.now())
+            "timestamp": str(datetime.datetime.now()),
+            "intelligence": intelligence_data
         }
         
         # Save analysis results
@@ -283,6 +316,34 @@ async def analyze_youtube(request: Request):
             
             print(f"Analysis complete. Found {len(chords)} chords.")
             
+            # Apply Music Intelligence Analysis
+            print("Applying intelligent music analysis...")
+            try:
+                progression_analysis = music_intelligence.analyze_progression_intelligence(chords, key)
+                structural_analysis = music_intelligence.analyze_song_structure(chords, duration)
+                practice_suggestions = music_intelligence.generate_practice_suggestions(chords, key, tempo)
+                
+                intelligence_data = {
+                    "progression_analysis": {
+                        "function_analysis": progression_analysis.function_analysis,
+                        "key_modulations": progression_analysis.key_modulations,
+                        "common_patterns": progression_analysis.common_patterns,
+                        "complexity_score": progression_analysis.complexity_score,
+                        "suggested_substitutions": progression_analysis.suggested_substitutions,
+                        "mood_indicators": progression_analysis.mood_indicators
+                    },
+                    "structural_analysis": {
+                        "sections": structural_analysis.sections,
+                        "repetition_score": structural_analysis.repetition_score,
+                        "development_arc": structural_analysis.development_arc,
+                        "climax_points": structural_analysis.climax_points
+                    },
+                    "practice_suggestions": practice_suggestions
+                }
+            except Exception as e:
+                print(f"Intelligence analysis failed: {e}")
+                intelligence_data = {"error": f"Intelligence analysis failed: {str(e)}"}
+            
             # Create result object
             result = {
                 "chords": chords,
@@ -290,7 +351,8 @@ async def analyze_youtube(request: Request):
                 "tempo": round(tempo, 2),
                 "duration": round(duration, 2),
                 "youtube_url": url,
-                "timestamp": str(datetime.datetime.now())
+                "timestamp": str(datetime.datetime.now()),
+                "intelligence": intelligence_data
             }
             
             # Save analysis results
@@ -614,6 +676,66 @@ def extract_lyrics_from_audio(audio_path: str, preferred_language: str = "auto")
         })
     
     return lyrics
+
+@app.post("/analyze-intelligence")
+async def analyze_intelligence(request: Request):
+    """Enhanced intelligent analysis of existing chord data"""
+    try:
+        data = await request.json()
+        chords = data.get("chords", [])
+        key = data.get("key", "")
+        tempo = data.get("tempo", 120)
+        duration = data.get("duration", 0)
+        
+        if not chords or not key:
+            return {"error": "Missing required chord data or key information"}
+        
+        print(f"Performing intelligent analysis on {len(chords)} chords in key {key}")
+        
+        try:
+            # Apply comprehensive intelligent analysis
+            progression_analysis = music_intelligence.analyze_progression_intelligence(chords, key)
+            structural_analysis = music_intelligence.analyze_song_structure(chords, duration)
+            practice_suggestions = music_intelligence.generate_practice_suggestions(chords, key, tempo)
+            
+            # Get advanced insights
+            harmonic_insights = music_intelligence._analyze_harmonic_rhythm(chords)
+            mood_analysis = music_intelligence._analyze_mood_progression(chords, key)
+            difficulty_assessment = music_intelligence._assess_difficulty(chords, tempo)
+            
+            result = {
+                "progression_analysis": {
+                    "function_analysis": progression_analysis.function_analysis,
+                    "key_modulations": progression_analysis.key_modulations,
+                    "common_patterns": progression_analysis.common_patterns,
+                    "complexity_score": progression_analysis.complexity_score,
+                    "suggested_substitutions": progression_analysis.suggested_substitutions,
+                    "mood_indicators": progression_analysis.mood_indicators
+                },
+                "structural_analysis": {
+                    "sections": structural_analysis.sections,
+                    "repetition_score": structural_analysis.repetition_score,
+                    "development_arc": structural_analysis.development_arc,
+                    "climax_points": structural_analysis.climax_points
+                },
+                "practice_suggestions": practice_suggestions,
+                "advanced_insights": {
+                    "harmonic_rhythm": harmonic_insights,
+                    "mood_progression": mood_analysis,
+                    "difficulty_assessment": difficulty_assessment
+                },
+                "timestamp": str(datetime.datetime.now())
+            }
+            
+            return result
+            
+        except Exception as e:
+            print(f"Intelligence analysis error: {str(e)}")
+            return {"error": f"Intelligence analysis failed: {str(e)}"}
+            
+    except Exception as e:
+        print(f"Error in analyze_intelligence: {str(e)}")
+        return {"error": f"Failed to perform intelligent analysis: {str(e)}"}
 
 if __name__ == "__main__":
     # Ensure directories exist

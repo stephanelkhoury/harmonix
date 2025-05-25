@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaYoutube, FaMusic, FaFileDownload, FaPlay, FaPause, FaRedo } from 'react-icons/fa';
 import ChordDisplay from '../components/ChordDisplay';
 import ControlPanel from '../components/ControlPanel';
+import IntelligentSuggestions from '../components/IntelligentSuggestions';
 import './style/Analyze.css';
 
 function Analyze() {
@@ -29,6 +30,8 @@ function Analyze() {
     const [showYoutubePlayer, setShowYoutubePlayer] = useState(false);
     const [playbackRate, setPlaybackRate] = useState(1.0);
     const [displayMode, setDisplayMode] = useState('timeline'); // 'timeline' or 'chordify'
+    const [intelligenceData, setIntelligenceData] = useState(null);
+    const [showIntelligence, setShowIntelligence] = useState(false);
     const audioRef = useRef(null);
     const fileInputRef = useRef(null);
     const dropZoneRef = useRef(null);
@@ -61,6 +64,11 @@ function Analyze() {
                     }
                     if (response.data.tempo) setTempo(response.data.tempo);
                     if (response.data.filename) setFileName(response.data.filename);
+                    
+                    // Store intelligence data if available
+                    if (response.data.intelligence) {
+                        setIntelligenceData(response.data.intelligence);
+                    }
                     
                     // Create downloadable JSON
                     const jsonData = JSON.stringify(response.data, null, 2);
@@ -363,6 +371,11 @@ function Analyze() {
                     setFileName("YouTube: " + youtubeUrl);
                 }
                 
+                // Store intelligence data if available
+                if (response.data.intelligence) {
+                    setIntelligenceData(response.data.intelligence);
+                }
+                
                 // Enable YouTube player
                 setShowYoutubePlayer(true);
                 
@@ -619,11 +632,133 @@ function Analyze() {
                                         <FaFileDownload /> Download JSON
                                     </a>
                                 )}
+                                {intelligenceData && !intelligenceData.error && (
+                                    <button 
+                                        onClick={() => setShowIntelligence(!showIntelligence)}
+                                        className="intelligence-btn"
+                                    >
+                                        🧠 {showIntelligence ? 'Hide' : 'Show'} AI Analysis
+                                    </button>
+                                )}
                             </div>
                             <div className="info-note">
                                 <span className="storage-note">Analysis saved to SongChords folder</span>
                             </div>
                         </div>
+                        
+                        {/* Intelligence Analysis Section */}
+                        {showIntelligence && intelligenceData && !intelligenceData.error && (
+                            <div className="intelligence-analysis">
+                                <h3>🧠 AI Music Analysis</h3>
+                                
+                                {/* Progression Analysis */}
+                                {intelligenceData.progression_analysis && (
+                                    <div className="intelligence-section">
+                                        <h4>🎼 Chord Progression Analysis</h4>
+                                        
+                                        {intelligenceData.progression_analysis.common_patterns && 
+                                         intelligenceData.progression_analysis.common_patterns.length > 0 && (
+                                            <div className="analysis-subsection">
+                                                <strong>Detected Patterns:</strong>
+                                                <ul>
+                                                    {intelligenceData.progression_analysis.common_patterns.map((pattern, idx) => (
+                                                        <li key={idx}>{pattern}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+                                        
+                                        {intelligenceData.progression_analysis.function_analysis && 
+                                         intelligenceData.progression_analysis.function_analysis.length > 0 && (
+                                            <div className="analysis-subsection">
+                                                <strong>Roman Numeral Analysis:</strong>
+                                                <div className="roman-numerals">
+                                                    {intelligenceData.progression_analysis.function_analysis.slice(0, 20).join(' - ')}
+                                                    {intelligenceData.progression_analysis.function_analysis.length > 20 && '...'}
+                                                </div>
+                                            </div>
+                                        )}
+                                        
+                                        {intelligenceData.progression_analysis.mood_indicators && 
+                                         intelligenceData.progression_analysis.mood_indicators.length > 0 && (
+                                            <div className="analysis-subsection">
+                                                <strong>Mood Indicators:</strong>
+                                                <div className="mood-tags">
+                                                    {intelligenceData.progression_analysis.mood_indicators.map((mood, idx) => (
+                                                        <span key={idx} className="mood-tag">{mood}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                        
+                                        {typeof intelligenceData.progression_analysis.complexity_score === 'number' && (
+                                            <div className="analysis-subsection">
+                                                <strong>Complexity Score:</strong>
+                                                <div className="complexity-bar">
+                                                    <div 
+                                                        className="complexity-fill" 
+                                                        style={{ width: `${intelligenceData.progression_analysis.complexity_score * 100}%` }}
+                                                    ></div>
+                                                    <span>{(intelligenceData.progression_analysis.complexity_score * 100).toFixed(0)}%</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                                
+                                {/* Structural Analysis */}
+                                {intelligenceData.structural_analysis && (
+                                    <div className="intelligence-section">
+                                        <h4>🏗️ Song Structure Analysis</h4>
+                                        
+                                        {intelligenceData.structural_analysis.sections && 
+                                         intelligenceData.structural_analysis.sections.length > 0 && (
+                                            <div className="analysis-subsection">
+                                                <strong>Detected Sections:</strong>
+                                                <div className="song-sections">
+                                                    {intelligenceData.structural_analysis.sections.map((section, idx) => (
+                                                        <div key={idx} className="section-item">
+                                                            <span className="section-name">{section.name}</span>
+                                                            <span className="section-time">
+                                                                {section.start_time}s - {section.end_time}s
+                                                            </span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                        
+                                        {typeof intelligenceData.structural_analysis.repetition_score === 'number' && (
+                                            <div className="analysis-subsection">
+                                                <strong>Repetition Score:</strong>
+                                                <div className="score-display">
+                                                    {(intelligenceData.structural_analysis.repetition_score * 100).toFixed(0)}% repetitive
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                                
+                                {/* Practice Suggestions */}
+                                {intelligenceData.practice_suggestions && (
+                                    <div className="intelligence-section">
+                                        <h4>🎯 Practice Suggestions</h4>
+                                        <div className="practice-suggestions">
+                                            {Object.entries(intelligenceData.practice_suggestions).map(([key, suggestions]) => (
+                                                <div key={key} className="practice-category">
+                                                    <strong>{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</strong>
+                                                    <ul>
+                                                        {Array.isArray(suggestions) ? suggestions.map((suggestion, idx) => (
+                                                            <li key={idx}>{suggestion}</li>
+                                                        )) : <li>{suggestions}</li>}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                         
                         {/* Transposition Controls */}
                         <div className="transposition-controls">
@@ -797,6 +932,16 @@ function Analyze() {
                                 <p className="no-chords-message">No chords detected yet.</p>
                             )}
                         </div>
+                        
+                        {/* Intelligent Suggestions */}
+                        {chords.length > 0 && songKey && (
+                            <IntelligentSuggestions 
+                                chords={chords}
+                                currentChordIndex={currentChordIndex}
+                                songKey={transposedKey || songKey}
+                                tempo={tempo}
+                            />
+                        )}
                     </div>
                 )}
             </div>

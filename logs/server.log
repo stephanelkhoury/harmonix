@@ -7,23 +7,8 @@ Server is running on port 5001
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: timeout of 2000ms exceeded
 Python service health check failed: timeout of 2000ms exceeded
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: connect ECONNREFUSED 127.0.0.1:8000
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: connect ECONNREFUSED 127.0.0.1:8000
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: connect ECONNREFUSED 127.0.0.1:8000
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: connect ECONNREFUSED 127.0.0.1:8000
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Python service returned an error: Failed to process audio: unsupported format string passed to numpy.ndarray.__format__
-Token verification error: JsonWebTokenError
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}

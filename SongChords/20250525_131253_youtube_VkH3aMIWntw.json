@@ -1,0 +1,1717 @@
+{
+  "chords": [
+    {
+      "time": 0,
+      "chord": "F major"
+    },
+    {
+      "time": 1,
+      "chord": "E minor"
+    },
+    {
+      "time": 2,
+      "chord": "E minor"
+    },
+    {
+      "time": 3,
+      "chord": "E minor"
+    },
+    {
+      "time": 4,
+      "chord": "E minor"
+    },
+    {
+      "time": 5,
+      "chord": "E minor"
+    },
+    {
+      "time": 6,
+      "chord": "E minor"
+    },
+    {
+      "time": 7,
+      "chord": "G minor"
+    },
+    {
+      "time": 8,
+      "chord": "A minor"
+    },
+    {
+      "time": 9,
+      "chord": "F major"
+    },
+    {
+      "time": 10,
+      "chord": "F major"
+    },
+    {
+      "time": 11,
+      "chord": "A major"
+    },
+    {
+      "time": 12,
+      "chord": "D minor"
+    },
+    {
+      "time": 13,
+      "chord": "D minor"
+    },
+    {
+      "time": 14,
+      "chord": "D major"
+    },
+    {
+      "time": 15,
+      "chord": "D major"
+    },
+    {
+      "time": 16,
+      "chord": "D minor"
+    },
+    {
+      "time": 17,
+      "chord": "D minor"
+    },
+    {
+      "time": 18,
+      "chord": "D minor"
+    },
+    {
+      "time": 19,
+      "chord": "D minor"
+    },
+    {
+      "time": 20,
+      "chord": "D minor"
+    },
+    {
+      "time": 21,
+      "chord": "F# minor"
+    },
+    {
+      "time": 22,
+      "chord": "G major"
+    },
+    {
+      "time": 23,
+      "chord": "D major"
+    },
+    {
+      "time": 24,
+      "chord": "B minor"
+    },
+    {
+      "time": 25,
+      "chord": "E minor"
+    },
+    {
+      "time": 26,
+      "chord": "E minor"
+    },
+    {
+      "time": 27,
+      "chord": "E minor"
+    },
+    {
+      "time": 28,
+      "chord": "F minor"
+    },
+    {
+      "time": 29,
+      "chord": "G major"
+    },
+    {
+      "time": 30,
+      "chord": "G# major"
+    },
+    {
+      "time": 31,
+      "chord": "D minor"
+    },
+    {
+      "time": 32,
+      "chord": "G major"
+    },
+    {
+      "time": 33,
+      "chord": "G minor"
+    },
+    {
+      "time": 34,
+      "chord": "D minor"
+    },
+    {
+      "time": 35,
+      "chord": "D minor"
+    },
+    {
+      "time": 36,
+      "chord": "E minor"
+    },
+    {
+      "time": 37,
+      "chord": "F minor"
+    },
+    {
+      "time": 38,
+      "chord": "F minor"
+    },
+    {
+      "time": 39,
+      "chord": "F minor"
+    },
+    {
+      "time": 40,
+      "chord": "E minor"
+    },
+    {
+      "time": 41,
+      "chord": "E minor"
+    },
+    {
+      "time": 42,
+      "chord": "E minor"
+    },
+    {
+      "time": 43,
+      "chord": "F minor"
+    },
+    {
+      "time": 44,
+      "chord": "F minor"
+    },
+    {
+      "time": 45,
+      "chord": "G# minor"
+    },
+    {
+      "time": 46,
+      "chord": "D minor"
+    },
+    {
+      "time": 47,
+      "chord": "F minor"
+    },
+    {
+      "time": 48,
+      "chord": "G# minor"
+    },
+    {
+      "time": 49,
+      "chord": "D minor"
+    },
+    {
+      "time": 50,
+      "chord": "D minor"
+    },
+    {
+      "time": 51,
+      "chord": "E minor"
+    },
+    {
+      "time": 52,
+      "chord": "F minor"
+    },
+    {
+      "time": 53,
+      "chord": "F major"
+    },
+    {
+      "time": 54,
+      "chord": "F minor"
+    },
+    {
+      "time": 55,
+      "chord": "F minor"
+    },
+    {
+      "time": 56,
+      "chord": "C major"
+    },
+    {
+      "time": 57,
+      "chord": "A minor"
+    },
+    {
+      "time": 58,
+      "chord": "A minor"
+    },
+    {
+      "time": 59,
+      "chord": "A minor"
+    },
+    {
+      "time": 60,
+      "chord": "F major"
+    },
+    {
+      "time": 61,
+      "chord": "C major"
+    },
+    {
+      "time": 62,
+      "chord": "G major"
+    },
+    {
+      "time": 63,
+      "chord": "C major"
+    },
+    {
+      "time": 64,
+      "chord": "A minor"
+    },
+    {
+      "time": 65,
+      "chord": "A minor"
+    },
+    {
+      "time": 66,
+      "chord": "D major"
+    },
+    {
+      "time": 67,
+      "chord": "A minor"
+    },
+    {
+      "time": 68,
+      "chord": "G major"
+    },
+    {
+      "time": 69,
+      "chord": "D minor"
+    },
+    {
+      "time": 70,
+      "chord": "D# minor"
+    },
+    {
+      "time": 71,
+      "chord": "E minor"
+    },
+    {
+      "time": 72,
+      "chord": "F major"
+    },
+    {
+      "time": 73,
+      "chord": "A minor"
+    },
+    {
+      "time": 74,
+      "chord": "F minor"
+    },
+    {
+      "time": 75,
+      "chord": "F major"
+    },
+    {
+      "time": 76,
+      "chord": "C major"
+    },
+    {
+      "time": 77,
+      "chord": "G major"
+    },
+    {
+      "time": 78,
+      "chord": "C major"
+    },
+    {
+      "time": 79,
+      "chord": "G major"
+    },
+    {
+      "time": 80,
+      "chord": "A minor"
+    },
+    {
+      "time": 81,
+      "chord": "D minor"
+    },
+    {
+      "time": 82,
+      "chord": "A minor"
+    },
+    {
+      "time": 83,
+      "chord": "G minor"
+    },
+    {
+      "time": 84,
+      "chord": "C major"
+    },
+    {
+      "time": 85,
+      "chord": "C minor"
+    },
+    {
+      "time": 86,
+      "chord": "E minor"
+    },
+    {
+      "time": 87,
+      "chord": "E minor"
+    },
+    {
+      "time": 88,
+      "chord": "E minor"
+    },
+    {
+      "time": 89,
+      "chord": "E minor"
+    },
+    {
+      "time": 90,
+      "chord": "F minor"
+    },
+    {
+      "time": 91,
+      "chord": "G minor"
+    },
+    {
+      "time": 92,
+      "chord": "D minor"
+    },
+    {
+      "time": 93,
+      "chord": "D minor"
+    },
+    {
+      "time": 94,
+      "chord": "E minor"
+    },
+    {
+      "time": 95,
+      "chord": "E minor"
+    },
+    {
+      "time": 96,
+      "chord": "F minor"
+    },
+    {
+      "time": 97,
+      "chord": "F minor"
+    },
+    {
+      "time": 98,
+      "chord": "D minor"
+    },
+    {
+      "time": 99,
+      "chord": "D minor"
+    },
+    {
+      "time": 100,
+      "chord": "A minor"
+    },
+    {
+      "time": 101,
+      "chord": "A minor"
+    },
+    {
+      "time": 102,
+      "chord": "A minor"
+    },
+    {
+      "time": 103,
+      "chord": "D minor"
+    },
+    {
+      "time": 104,
+      "chord": "C major"
+    },
+    {
+      "time": 105,
+      "chord": "G major"
+    },
+    {
+      "time": 106,
+      "chord": "E minor"
+    },
+    {
+      "time": 107,
+      "chord": "F minor"
+    },
+    {
+      "time": 108,
+      "chord": "F minor"
+    },
+    {
+      "time": 109,
+      "chord": "D minor"
+    },
+    {
+      "time": 110,
+      "chord": "D minor"
+    },
+    {
+      "time": 111,
+      "chord": "E minor"
+    },
+    {
+      "time": 112,
+      "chord": "E minor"
+    },
+    {
+      "time": 113,
+      "chord": "E major"
+    },
+    {
+      "time": 114,
+      "chord": "E minor"
+    },
+    {
+      "time": 115,
+      "chord": "F minor"
+    },
+    {
+      "time": 116,
+      "chord": "G major"
+    },
+    {
+      "time": 117,
+      "chord": "D minor"
+    },
+    {
+      "time": 118,
+      "chord": "D# major"
+    },
+    {
+      "time": 119,
+      "chord": "G major"
+    },
+    {
+      "time": 120,
+      "chord": "D minor"
+    },
+    {
+      "time": 121,
+      "chord": "D minor"
+    },
+    {
+      "time": 122,
+      "chord": "E minor"
+    },
+    {
+      "time": 123,
+      "chord": "F minor"
+    },
+    {
+      "time": 124,
+      "chord": "F minor"
+    },
+    {
+      "time": 125,
+      "chord": "F minor"
+    },
+    {
+      "time": 126,
+      "chord": "E minor"
+    },
+    {
+      "time": 127,
+      "chord": "E minor"
+    },
+    {
+      "time": 128,
+      "chord": "E minor"
+    },
+    {
+      "time": 129,
+      "chord": "F minor"
+    },
+    {
+      "time": 130,
+      "chord": "F minor"
+    },
+    {
+      "time": 131,
+      "chord": "G minor"
+    },
+    {
+      "time": 132,
+      "chord": "D minor"
+    },
+    {
+      "time": 133,
+      "chord": "D minor"
+    },
+    {
+      "time": 134,
+      "chord": "G minor"
+    },
+    {
+      "time": 135,
+      "chord": "D major"
+    },
+    {
+      "time": 136,
+      "chord": "D minor"
+    },
+    {
+      "time": 137,
+      "chord": "E minor"
+    },
+    {
+      "time": 138,
+      "chord": "F minor"
+    },
+    {
+      "time": 139,
+      "chord": "F minor"
+    },
+    {
+      "time": 140,
+      "chord": "F minor"
+    },
+    {
+      "time": 141,
+      "chord": "F minor"
+    },
+    {
+      "time": 142,
+      "chord": "E minor"
+    },
+    {
+      "time": 143,
+      "chord": "A minor"
+    },
+    {
+      "time": 144,
+      "chord": "A minor"
+    },
+    {
+      "time": 145,
+      "chord": "A minor"
+    },
+    {
+      "time": 146,
+      "chord": "C major"
+    },
+    {
+      "time": 147,
+      "chord": "C major"
+    },
+    {
+      "time": 148,
+      "chord": "G major"
+    },
+    {
+      "time": 149,
+      "chord": "C major"
+    },
+    {
+      "time": 150,
+      "chord": "C major"
+    },
+    {
+      "time": 151,
+      "chord": "A minor"
+    },
+    {
+      "time": 152,
+      "chord": "D major"
+    },
+    {
+      "time": 153,
+      "chord": "A minor"
+    },
+    {
+      "time": 154,
+      "chord": "G# major"
+    },
+    {
+      "time": 155,
+      "chord": "D minor"
+    },
+    {
+      "time": 156,
+      "chord": "D# minor"
+    },
+    {
+      "time": 157,
+      "chord": "E minor"
+    },
+    {
+      "time": 158,
+      "chord": "C major"
+    },
+    {
+      "time": 159,
+      "chord": "A minor"
+    },
+    {
+      "time": 160,
+      "chord": "F major"
+    },
+    {
+      "time": 161,
+      "chord": "F minor"
+    },
+    {
+      "time": 162,
+      "chord": "C major"
+    },
+    {
+      "time": 163,
+      "chord": "G major"
+    },
+    {
+      "time": 164,
+      "chord": "C major"
+    },
+    {
+      "time": 165,
+      "chord": "C major"
+    },
+    {
+      "time": 166,
+      "chord": "A minor"
+    },
+    {
+      "time": 167,
+      "chord": "G minor"
+    },
+    {
+      "time": 168,
+      "chord": "A major"
+    },
+    {
+      "time": 169,
+      "chord": "G major"
+    },
+    {
+      "time": 170,
+      "chord": "F minor"
+    },
+    {
+      "time": 171,
+      "chord": "C# minor"
+    },
+    {
+      "time": 172,
+      "chord": "F minor"
+    },
+    {
+      "time": 173,
+      "chord": "C major"
+    },
+    {
+      "time": 174,
+      "chord": "E minor"
+    },
+    {
+      "time": 175,
+      "chord": "E minor"
+    },
+    {
+      "time": 176,
+      "chord": "F major"
+    },
+    {
+      "time": 177,
+      "chord": "G minor"
+    },
+    {
+      "time": 178,
+      "chord": "D minor"
+    },
+    {
+      "time": 179,
+      "chord": "D minor"
+    },
+    {
+      "time": 180,
+      "chord": "E major"
+    },
+    {
+      "time": 181,
+      "chord": "E major"
+    },
+    {
+      "time": 182,
+      "chord": "F major"
+    },
+    {
+      "time": 183,
+      "chord": "G major"
+    },
+    {
+      "time": 184,
+      "chord": "F major"
+    },
+    {
+      "time": 185,
+      "chord": "D minor"
+    },
+    {
+      "time": 186,
+      "chord": "A minor"
+    },
+    {
+      "time": 187,
+      "chord": "A minor"
+    },
+    {
+      "time": 188,
+      "chord": "A minor"
+    },
+    {
+      "time": 189,
+      "chord": "F major"
+    },
+    {
+      "time": 190,
+      "chord": "C major"
+    },
+    {
+      "time": 191,
+      "chord": "G major"
+    },
+    {
+      "time": 192,
+      "chord": "E minor"
+    },
+    {
+      "time": 193,
+      "chord": "C major"
+    },
+    {
+      "time": 194,
+      "chord": "F minor"
+    },
+    {
+      "time": 195,
+      "chord": "D minor"
+    },
+    {
+      "time": 196,
+      "chord": "F major"
+    },
+    {
+      "time": 197,
+      "chord": "E minor"
+    },
+    {
+      "time": 198,
+      "chord": "E minor"
+    },
+    {
+      "time": 199,
+      "chord": "E minor"
+    },
+    {
+      "time": 200,
+      "chord": "F minor"
+    },
+    {
+      "time": 201,
+      "chord": "F minor"
+    },
+    {
+      "time": 202,
+      "chord": "G minor"
+    },
+    {
+      "time": 203,
+      "chord": "D minor"
+    },
+    {
+      "time": 204,
+      "chord": "D major"
+    },
+    {
+      "time": 205,
+      "chord": "G minor"
+    },
+    {
+      "time": 206,
+      "chord": "D minor"
+    },
+    {
+      "time": 207,
+      "chord": "D minor"
+    },
+    {
+      "time": 208,
+      "chord": "E minor"
+    },
+    {
+      "time": 209,
+      "chord": "F minor"
+    },
+    {
+      "time": 210,
+      "chord": "F minor"
+    },
+    {
+      "time": 211,
+      "chord": "F minor"
+    },
+    {
+      "time": 212,
+      "chord": "E minor"
+    },
+    {
+      "time": 213,
+      "chord": "E minor"
+    },
+    {
+      "time": 214,
+      "chord": "E minor"
+    },
+    {
+      "time": 215,
+      "chord": "E minor"
+    }
+  ],
+  "key": "C major",
+  "tempo": 78.3,
+  "duration": 216.57,
+  "youtube_url": "https://www.youtube.com/watch?v=VkH3aMIWntw",
+  "timestamp": "2025-05-25 13:12:53.439688",
+  "intelligence": {
+    "progression_analysis": {
+      "function_analysis": [
+        "VI",
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "v",
+        "i",
+        "i",
+        "VI",
+        "VI",
+        "I",
+        "iii",
+        "iii",
+        "III",
+        "III",
+        "iii",
+        "iii",
+        "iii",
+        "iii",
+        "iii",
+        "vii\u00b0",
+        "I",
+        "III",
+        "i",
+        "v",
+        "v",
+        "v",
+        "vi",
+        "I",
+        "I",
+        "iii",
+        "I",
+        "i",
+        "iii",
+        "iii",
+        "v",
+        "vi",
+        "vi",
+        "vi",
+        "v",
+        "v",
+        "v",
+        "vi",
+        "vi",
+        "i",
+        "iii",
+        "vi",
+        "i",
+        "iii",
+        "iii",
+        "v",
+        "vi",
+        "VI",
+        "vi",
+        "vi",
+        "I",
+        "i",
+        "i",
+        "i",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "i",
+        "i",
+        "III",
+        "i",
+        "I",
+        "iii",
+        "iv",
+        "v",
+        "VI",
+        "i",
+        "vi",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "i",
+        "iii",
+        "i",
+        "i",
+        "I",
+        "i",
+        "v",
+        "v",
+        "v",
+        "v",
+        "vi",
+        "i",
+        "iii",
+        "iii",
+        "v",
+        "v",
+        "vi",
+        "vi",
+        "iii",
+        "iii",
+        "i",
+        "i",
+        "i",
+        "iii",
+        "I",
+        "I",
+        "v",
+        "vi",
+        "vi",
+        "iii",
+        "iii",
+        "v",
+        "v",
+        "V",
+        "v",
+        "vi",
+        "I",
+        "iii",
+        "IV",
+        "I",
+        "iii",
+        "iii",
+        "v",
+        "vi",
+        "vi",
+        "vi",
+        "v",
+        "v",
+        "v",
+        "vi",
+        "vi",
+        "i",
+        "iii",
+        "iii",
+        "i",
+        "III",
+        "iii",
+        "v",
+        "vi",
+        "vi",
+        "vi",
+        "vi",
+        "v",
+        "i",
+        "i",
+        "i",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "i",
+        "III",
+        "i",
+        "I",
+        "iii",
+        "iv",
+        "v",
+        "I",
+        "i",
+        "VI",
+        "vi",
+        "I",
+        "I",
+        "I",
+        "I",
+        "i",
+        "i",
+        "I",
+        "I",
+        "vi",
+        "ii",
+        "vi",
+        "I",
+        "v",
+        "v",
+        "VI",
+        "i",
+        "iii",
+        "iii",
+        "V",
+        "V",
+        "VI",
+        "I",
+        "VI",
+        "iii",
+        "i",
+        "i",
+        "i",
+        "VI",
+        "I",
+        "I",
+        "v",
+        "I",
+        "vi",
+        "iii",
+        "VI",
+        "v",
+        "v",
+        "v",
+        "vi",
+        "vi",
+        "i",
+        "iii",
+        "III",
+        "i",
+        "iii",
+        "iii",
+        "v",
+        "vi",
+        "vi",
+        "vi",
+        "v",
+        "v",
+        "v",
+        "v"
+      ],
+      "key_modulations": [],
+      "common_patterns": [
+        "Sequential Progression"
+      ],
+      "complexity_score": 0.043209876543209874,
+      "suggested_substitutions": [
+        {
+          "original_chord": "A major",
+          "position": 11,
+          "time": 11,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "G major",
+          "position": 22,
+          "time": 22,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "F minor",
+          "position": 28,
+          "time": 28,
+          "suggestions": [
+            "I (relative major)",
+            "IV (plagal relation)"
+          ]
+        },
+        {
+          "original_chord": "G major",
+          "position": 29,
+          "time": 29,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "G# major",
+          "position": 30,
+          "time": 30,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "G major",
+          "position": 32,
+          "time": 32,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "F minor",
+          "position": 37,
+          "time": 37,
+          "suggestions": [
+            "I (relative major)",
+            "IV (plagal relation)"
+          ]
+        },
+        {
+          "original_chord": "F minor",
+          "position": 38,
+          "time": 38,
+          "suggestions": [
+            "I (relative major)",
+            "IV (plagal relation)"
+          ]
+        },
+        {
+          "original_chord": "F minor",
+          "position": 39,
+          "time": 39,
+          "suggestions": [
+            "I (relative major)",
+            "IV (plagal relation)"
+          ]
+        },
+        {
+          "original_chord": "F minor",
+          "position": 43,
+          "time": 43,
+          "suggestions": [
+            "I (relative major)",
+            "IV (plagal relation)"
+          ]
+        }
+      ],
+      "mood_indicators": [
+        "nostalgic",
+        "sad",
+        "dreamy"
+      ]
+    },
+    "structural_analysis": {
+      "sections": [
+        {
+          "name": "Intro/Verse",
+          "start": 0,
+          "end": 7,
+          "start_time": 0,
+          "end_time": 7
+        },
+        {
+          "name": "Verse",
+          "start": 8,
+          "end": 15,
+          "start_time": 8,
+          "end_time": 15
+        },
+        {
+          "name": "Verse",
+          "start": 16,
+          "end": 23,
+          "start_time": 16,
+          "end_time": 23
+        },
+        {
+          "name": "Verse",
+          "start": 24,
+          "end": 31,
+          "start_time": 24,
+          "end_time": 31
+        },
+        {
+          "name": "Verse",
+          "start": 32,
+          "end": 39,
+          "start_time": 32,
+          "end_time": 39
+        },
+        {
+          "name": "Verse",
+          "start": 40,
+          "end": 47,
+          "start_time": 40,
+          "end_time": 47
+        },
+        {
+          "name": "Verse",
+          "start": 48,
+          "end": 55,
+          "start_time": 48,
+          "end_time": 55
+        },
+        {
+          "name": "Verse",
+          "start": 56,
+          "end": 63,
+          "start_time": 56,
+          "end_time": 63
+        },
+        {
+          "name": "Verse",
+          "start": 64,
+          "end": 71,
+          "start_time": 64,
+          "end_time": 71
+        },
+        {
+          "name": "Verse",
+          "start": 72,
+          "end": 79,
+          "start_time": 72,
+          "end_time": 79
+        },
+        {
+          "name": "Verse",
+          "start": 80,
+          "end": 87,
+          "start_time": 80,
+          "end_time": 87
+        },
+        {
+          "name": "Verse",
+          "start": 88,
+          "end": 95,
+          "start_time": 88,
+          "end_time": 95
+        },
+        {
+          "name": "Verse",
+          "start": 96,
+          "end": 103,
+          "start_time": 96,
+          "end_time": 103
+        },
+        {
+          "name": "Verse",
+          "start": 104,
+          "end": 111,
+          "start_time": 104,
+          "end_time": 111
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 112,
+          "end": 119,
+          "start_time": 112,
+          "end_time": 119
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 120,
+          "end": 127,
+          "start_time": 120,
+          "end_time": 127
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 128,
+          "end": 135,
+          "start_time": 128,
+          "end_time": 135
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 136,
+          "end": 143,
+          "start_time": 136,
+          "end_time": 143
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 144,
+          "end": 151,
+          "start_time": 144,
+          "end_time": 151
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 152,
+          "end": 159,
+          "start_time": 152,
+          "end_time": 159
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 160,
+          "end": 167,
+          "start_time": 160,
+          "end_time": 167
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 168,
+          "end": 175,
+          "start_time": 168,
+          "end_time": 175
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 176,
+          "end": 183,
+          "start_time": 176,
+          "end_time": 183
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 184,
+          "end": 191,
+          "start_time": 184,
+          "end_time": 191
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 192,
+          "end": 199,
+          "start_time": 192,
+          "end_time": 199
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 200,
+          "end": 207,
+          "start_time": 200,
+          "end_time": 207
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 208,
+          "end": 215,
+          "start_time": 208,
+          "end_time": 215
+        }
+      ],
+      "repetition_score": 0.3862928348909657,
+      "development_arc": [
+        "Resolving/Simplifying"
+      ],
+      "climax_points": [
+        72
+      ]
+    },
+    "practice_suggestions": {
+      "difficulty_level": {
+        "overall_difficulty": "easy",
+        "difficulty_score": 1,
+        "difficulty_factors": [
+          "Moderate chord changes"
+        ],
+        "tempo_factor": 78.30255681818181,
+        "chord_complexity": 0.0,
+        "harmonic_rhythm": "moderate"
+      },
+      "recommended_techniques": [
+        "Break song into smaller sections",
+        "Identify repeating patterns",
+        "Practice strumming patterns separately",
+        "Use backing tracks for timing"
+      ],
+      "practice_sections": [
+        {
+          "name": "Rapid changes (measure 3)",
+          "start_time": 8,
+          "end_time": 11,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 6)",
+          "start_time": 20,
+          "end_time": 23,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 8)",
+          "start_time": 28,
+          "end_time": 31,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 9)",
+          "start_time": 32,
+          "end_time": 35,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 12)",
+          "start_time": 44,
+          "end_time": 47,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 13)",
+          "start_time": 48,
+          "end_time": 51,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 16)",
+          "start_time": 60,
+          "end_time": 63,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 18)",
+          "start_time": 68,
+          "end_time": 71,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 19)",
+          "start_time": 72,
+          "end_time": 75,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 21)",
+          "start_time": 80,
+          "end_time": 83,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 22)",
+          "start_time": 84,
+          "end_time": 87,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 23)",
+          "start_time": 88,
+          "end_time": 91,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 27)",
+          "start_time": 104,
+          "end_time": 107,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 28)",
+          "start_time": 108,
+          "end_time": 111,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 29)",
+          "start_time": 112,
+          "end_time": 115,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 30)",
+          "start_time": 116,
+          "end_time": 119,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 31)",
+          "start_time": 120,
+          "end_time": 123,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 33)",
+          "start_time": 128,
+          "end_time": 131,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 34)",
+          "start_time": 132,
+          "end_time": 135,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 35)",
+          "start_time": 136,
+          "end_time": 139,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 36)",
+          "start_time": 140,
+          "end_time": 143,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 38)",
+          "start_time": 148,
+          "end_time": 151,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 39)",
+          "start_time": 152,
+          "end_time": 155,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 40)",
+          "start_time": 156,
+          "end_time": 159,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 41)",
+          "start_time": 160,
+          "end_time": 163,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 42)",
+          "start_time": 164,
+          "end_time": 167,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 43)",
+          "start_time": 168,
+          "end_time": 171,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 44)",
+          "start_time": 172,
+          "end_time": 175,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 45)",
+          "start_time": 176,
+          "end_time": 179,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 46)",
+          "start_time": 180,
+          "end_time": 183,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 47)",
+          "start_time": 184,
+          "end_time": 187,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 48)",
+          "start_time": 188,
+          "end_time": 191,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 49)",
+          "start_time": 192,
+          "end_time": 195,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 51)",
+          "start_time": 200,
+          "end_time": 203,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 52)",
+          "start_time": 204,
+          "end_time": 207,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        }
+      ],
+      "chord_transitions": [
+        {
+          "from_chord": "F major",
+          "to_chord": "E minor",
+          "time": 0,
+          "factors": [
+            "Root change",
+            "Major to minor"
+          ]
+        },
+        {
+          "from_chord": "E minor",
+          "to_chord": "G minor",
+          "time": 6,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "G minor",
+          "to_chord": "A minor",
+          "time": 7,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "A minor",
+          "to_chord": "F major",
+          "time": 8,
+          "factors": [
+            "Root change",
+            "Minor to major"
+          ]
+        },
+        {
+          "from_chord": "F major",
+          "to_chord": "A major",
+          "time": 10,
+          "factors": [
+            "Root change"
+          ]
+        }
+      ],
+      "tempo_recommendations": {
+        "original_tempo": 78.30255681818181,
+        "practice_tempo": 60,
+        "target_tempo": 86.1328125,
+        "tempo_progression": [
+          46.981534090909086,
+          62.64204545454545,
+          78.30255681818181,
+          86.1328125
+        ]
+      }
+    }
+  }
+}

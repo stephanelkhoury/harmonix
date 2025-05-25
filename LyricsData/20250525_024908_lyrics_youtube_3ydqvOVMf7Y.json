@@ -1,0 +1,28 @@
+{
+  "lyrics": [
+    {
+      "text": "\u0645\u0627\u0633\u0646\u062c\u0631",
+      "startTime": 0,
+      "endTime": 10,
+      "language": "arabic"
+    },
+    {
+      "text": "\u0645\u0627\u062c\u0646 \u0645\u0627\u0631\u0643\u0648",
+      "startTime": 10,
+      "endTime": 20,
+      "language": "arabic"
+    },
+    {
+      "text": "\u0633\u0646\u0627\u0628 \u0634\u0627\u062a",
+      "startTime": 20,
+      "endTime": 30,
+      "language": "arabic"
+    }
+  ],
+  "title": "3 Minutes: Interview with Meghan Markle",
+  "youtube_url": "https://www.youtube.com/watch?v=3ydqvOVMf7Y",
+  "video_id": "3ydqvOVMf7Y",
+  "detectedLanguage": "arabic",
+  "duration": 171,
+  "timestamp": "2025-05-25 02:49:08.583057"
+}
