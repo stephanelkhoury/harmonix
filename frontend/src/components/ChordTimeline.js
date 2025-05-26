@@ -16,10 +16,50 @@ const ChordTimeline = ({ chords, currentTime, duration, currentChordIndex, onCho
   const timeWindowStart = currentTime;
   const timeWindowEnd = Math.min(currentTime + 30, duration);
   
+  // Group consecutive identical chords
+  const groupConsecutiveChords = (chordList) => {
+    if (!chordList || chordList.length === 0) return [];
+    
+    const grouped = [];
+    let currentGroup = {
+      chord: chordList[0].chord,
+      startTime: chordList[0].time,
+      endTime: chordList[0].time,
+      originalIndex: 0
+    };
+    
+    for (let i = 1; i < chordList.length; i++) {
+      const currentChord = chordList[i];
+      const prevChord = chordList[i - 1];
+      
+      // If same chord and consecutive time (within 2 seconds gap)
+      if (currentChord.chord === currentGroup.chord && 
+          currentChord.time - prevChord.time <= 2) {
+        currentGroup.endTime = currentChord.time;
+      } else {
+        // Finalize current group and start new one
+        grouped.push(currentGroup);
+        currentGroup = {
+          chord: currentChord.chord,
+          startTime: currentChord.time,
+          endTime: currentChord.time,
+          originalIndex: i
+        };
+      }
+    }
+    
+    // Add the last group
+    grouped.push(currentGroup);
+    return grouped;
+  };
+
   // Filter chords that fall within the visible time window
-  const visibleChords = chords.filter(
+  const windowChords = chords.filter(
     chord => chord.time >= timeWindowStart && chord.time <= timeWindowEnd
   );
+  
+  // Group consecutive identical chords
+  const groupedChords = groupConsecutiveChords(windowChords);
   
   // Function to calculate position along the timeline
   const getPositionPercentage = (time) => {
@@ -75,17 +115,20 @@ const ChordTimeline = ({ chords, currentTime, duration, currentChordIndex, onCho
           style={{ left: '0%' }} // Always at the left representing current time
         ></div>
         
-        {/* Render the visible chords on the timeline */}
-        {visibleChords.map((chord, index) => {
-          // Find the actual index in the full chords array
-          const chordIndex = chords.findIndex(c => c === chord);
+        {/* Render the grouped chords on the timeline */}
+        {groupedChords.map((chordGroup, index) => {
+          // Find the actual index in the full chords array for the start of this group
+          const chordIndex = chords.findIndex(c => c.time === chordGroup.startTime && c.chord === chordGroup.chord);
+          const isActive = currentTime >= chordGroup.startTime && currentTime <= chordGroup.endTime + 1;
+          const groupWidth = Math.max(5, getPositionPercentage(chordGroup.endTime + 1) - getPositionPercentage(chordGroup.startTime));
+          
           return (
             <div
-              key={`timeline-chord-${index}`}
-              className={`timeline-chord ${chord === chords[currentChordIndex] ? 'active' : ''}`}
+              key={`timeline-chord-group-${index}`}
+              className={`timeline-chord ${isActive ? 'active' : ''}`}
               style={{ 
-                left: `${getPositionPercentage(chord.time)}%`,
-                width: `${Math.max(5, getPositionPercentage(chord.time + 2) - getPositionPercentage(chord.time))}%` // Ensure minimum width
+                left: `${getPositionPercentage(chordGroup.startTime)}%`,
+                width: `${groupWidth}%`
               }}
               onClick={(e) => {
                 try {
@@ -95,7 +138,7 @@ const ChordTimeline = ({ chords, currentTime, duration, currentChordIndex, onCho
                 } catch (error) {
                   console.warn("Error handling chord click:", error);
                   // Fallback to just showing the chord time
-                  alert(`Chord: ${chord.chord} at time ${formatTime(chord.time)}`);
+                  alert(`Chord: ${chordGroup.chord} at time ${formatTime(chordGroup.startTime)}`);
                 }
               }}
               onContextMenu={(e) => {
@@ -107,10 +150,15 @@ const ChordTimeline = ({ chords, currentTime, duration, currentChordIndex, onCho
                   console.warn("Error handling chord context menu:", error);
                 }
               }}
-              title={getTooltipText(chord)}
+              title={`${chordGroup.chord} from ${formatTime(chordGroup.startTime)} to ${formatTime(chordGroup.endTime)}. Click to jump to this chord.`}
             >
-              <div className="timeline-chord-name">{chord.chord.split(' ')[0]}</div>
-              <div className="timeline-chord-time">{formatTime(chord.time)}</div>
+              <div className="timeline-chord-name">{chordGroup.chord.split(' ')[0]}</div>
+              <div className="timeline-chord-time">
+                {chordGroup.startTime === chordGroup.endTime 
+                  ? formatTime(chordGroup.startTime)
+                  : `${formatTime(chordGroup.startTime)} - ${formatTime(chordGroup.endTime)}`
+                }
+              </div>
             </div>
           );
         })}

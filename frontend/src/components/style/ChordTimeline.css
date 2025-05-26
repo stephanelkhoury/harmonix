@@ -81,6 +81,11 @@
 .timeline-chord-time {
   font-size: 0.7rem;
   color: #999999;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .timeline-markers {
@@ -252,4 +257,38 @@
 
 .timeline-help:hover .help-text {
   display: block;
+}
+
+/* Timeline chord time range styles for grouped chords */
+.timeline-chord-time {
+  font-size: 0.7rem;
+  color: #999999;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* For wider chord groups, allow more space for time range display */
+.timeline-chord[style*="width: 1"] .timeline-chord-time,
+.timeline-chord[style*="width: 2"] .timeline-chord-time,
+.timeline-chord[style*="width: 3"] .timeline-chord-time {
+  font-size: 0.65rem;
+}
+
+/* For very wide chord groups (long durations), use larger text */
+.timeline-chord[style*="width: 4"] .timeline-chord-time,
+.timeline-chord[style*="width: 5"] .timeline-chord-time,
+.timeline-chord[style*="width: 6"] .timeline-chord-time,
+.timeline-chord[style*="width: 7"] .timeline-chord-time,
+.timeline-chord[style*="width: 8"] .timeline-chord-time,
+.timeline-chord[style*="width: 9"] .timeline-chord-time {
+  font-size: 0.7rem;
+}
+
+/* Active state improvements for grouped chords */
+.timeline-chord.active .timeline-chord-time {
+  color: #ffffff;
+  font-weight: 500;
 }

@@ -135,35 +135,90 @@ function ChordDisplay({ chords = [], currentIndex = -1, transpositionValue = 0, 
         return false;
     };
     
-    // Function to filter out duplicate consecutive chords (for Chordify mode)
-    const getUniqueChordsForDisplay = () => {
-        if (!chords || chords.length === 0) return [];
+    // Helper function to format time display (MM:SS)
+    const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    };
+
+    // Function to group consecutive identical chords with time ranges
+    const groupConsecutiveChords = (chordList) => {
+        if (!chordList || chordList.length === 0) return [];
         
-        // In timeline mode, show all chords
-        if (displayMode === 'timeline') return chords;
+        const grouped = [];
+        let currentGroup = null;
         
-        // In Chordify mode, filter out consecutive duplicates
-        const uniqueChords = [];
-        let lastChordValue = null;
-        
-        chords.forEach(chord => {
+        chordList.forEach((chord, index) => {
             const isChordObject = typeof chord !== 'string';
             const chordValue = isChordObject ? chord.chord : chord;
+            const chordTime = isChordObject ? chord.time : null;
             
-            // If this chord is different from the last one, add it
-            if (chordValue !== lastChordValue) {
-                uniqueChords.push(chord);
-                lastChordValue = chordValue;
-            } else if (isChordObject && currentIndex !== -1) {
-                // Update the last chord if this is the current chord
-                const lastIdx = uniqueChords.length - 1;
-                if (uniqueChords[lastIdx] && chord === chords[currentIndex]) {
-                    uniqueChords[lastIdx] = chord;
-                }
+            if (!currentGroup) {
+                // Start first group
+                currentGroup = {
+                    chord: chordValue,
+                    startTime: chordTime,
+                    endTime: chordTime,
+                    originalIndex: index,
+                    count: 1
+                };
+            } else if (currentGroup.chord === chordValue && 
+                       chordTime !== null && 
+                       currentGroup.endTime !== null && 
+                       chordTime - currentGroup.endTime <= 2) {
+                // Same chord within 2-second gap - extend the group
+                currentGroup.endTime = chordTime;
+                currentGroup.count++;
+            } else {
+                // Different chord or gap too large - finalize current group and start new one
+                grouped.push(currentGroup);
+                currentGroup = {
+                    chord: chordValue,
+                    startTime: chordTime,
+                    endTime: chordTime,
+                    originalIndex: index,
+                    count: 1
+                };
             }
         });
         
-        return uniqueChords;
+        // Add the last group
+        if (currentGroup) {
+            grouped.push(currentGroup);
+        }
+        
+        return grouped;
+    };
+
+    // Function to get chords for display with consolidation option
+    const getUniqueChordsForDisplay = () => {
+        if (!chords || chords.length === 0) return [];
+        
+        // Group consecutive identical chords
+        const groupedChords = groupConsecutiveChords(chords);
+        
+        // Convert grouped chords back to display format
+        return groupedChords.map(group => {
+            if (group.count === 1) {
+                // Single chord - return original format
+                const originalChord = chords[group.originalIndex];
+                return originalChord;
+            } else {
+                // Multiple consecutive chords - return consolidated format
+                return {
+                    chord: group.chord,
+                    time: group.startTime,
+                    endTime: group.endTime,
+                    timeRange: group.startTime === group.endTime 
+                        ? formatTime(group.startTime)
+                        : `${formatTime(group.startTime)} - ${formatTime(group.endTime)}`,
+                    isGrouped: true,
+                    count: group.count,
+                    originalIndex: group.originalIndex
+                };
+            }
+        });
     };
     
     // Get chords to display based on the current mode
@@ -215,12 +270,22 @@ function ChordDisplay({ chords = [], currentIndex = -1, transpositionValue = 0, 
 
                     return (
                         <div 
-                            className={`chord-card ${isCurrentChord ? 'active-chord' : ''}`} 
+                            className={`chord-card ${isCurrentChord ? 'active-chord' : ''} ${chord.isGrouped ? 'grouped-chord' : ''}`} 
                             key={idx}
-                            title={transpositionValue !== 0 ? `Original: ${chordValue}` : ''}
+                            title={chord.isGrouped 
+                                ? `${chord.count} consecutive ${chordValue} chords from ${chord.timeRange}${transpositionValue !== 0 ? ` (Original: ${chordValue})` : ''}`
+                                : (transpositionValue !== 0 ? `Original: ${chordValue}` : '')
+                            }
                         >
                             <span className="chord-label">{displayChord}</span>
-                            {chordTime && <span className="chord-time">{chordTime.toFixed(1)}s</span>}
+                            {chord.isGrouped ? (
+                                <span className="chord-time">{chord.timeRange}</span>
+                            ) : chordTime ? (
+                                <span className="chord-time">{chordTime.toFixed(1)}s</span>
+                            ) : null}
+                            {chord.isGrouped && (
+                                <span className="chord-count">×{chord.count}</span>
+                            )}
                             {transpositionValue !== 0 && (
                                 <span className="transposed-indicator">↑</span>
                             )}

@@ -8,6 +8,7 @@ import './styles/Modal.css'; /* Modal styling */
 import HomePage from './components/HomePage';
 import AudioProcessingPage from './components/AudioProcessingPage';
 import Analyze from './pages/Analyze';
+import ChordsDictionary from './pages/ChordsDictionary';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Messages from './pages/Messages';
@@ -145,6 +146,7 @@ const AppContent = () => {
                     <Route path="/lyrics-identifier" element={isAuthenticated ? <LyricsIdentifier /> : <Navigate to="/login" />} />
                     <Route path="/musician-tools" element={isAuthenticated ? <MusicianTools /> : <Navigate to="/login" />} />
                     <Route path="/tap-tempo" element={isAuthenticated ? <TapTempoPage /> : <Navigate to="/login" />} />
+                    <Route path="/chords-dictionary" element={isAuthenticated ? <ChordsDictionary /> : <Navigate to="/login" />} />
                     {/* Legal Pages - Public Access */}
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<Terms />} />

@@ -4,11 +4,39 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check failed: timeout of 2000ms exceeded
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: JsonWebTokenError
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: TokenExpiredError
+Token verification error: TokenExpiredError
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-25T21:08:47.809Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-25T21:08:47.811Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-25T21:09:07.426Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-25T21:09:07.429Z] Admin access by: admin (id: 2), path: /api/admin/messages
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
+Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Python service health check: {"status":"healthy","service":"python_service"}
+Token verification error: JsonWebTokenError
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}

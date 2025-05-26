@@ -96,6 +96,29 @@ function MusicianTools() {
             </Card>
           </Link>
 
+          {/* Chords Dictionary Tool */}
+          <Link to="/chords-dictionary" className="tool-link">
+            <Card className="tool-card h-100">
+              <div className="tool-image-container">
+                <img 
+                  src={require('../assets/images/musiciantools/ChordsDictionary.jpg')}
+                  alt="Chords Dictionary" 
+                  className="tool-image"
+                  onClick={(e) => handleImageClick(e, require('../assets/images/musiciantools/ChordsDictionary.jpg'))}
+                />
+              </div>
+              <Card.Body className="text-center">
+                <div className="tool-icon">
+                  <FaMusic />
+                </div>
+                <Card.Title>Chords Dictionary</Card.Title>
+                <Card.Text>
+                  Interactive dictionary of piano chords with visual and audio reference
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Link>
+
           {/* Lyrics Analyzer Tool */}
           <Link to="/lyrics-identifier" className="tool-link">
             <Card className="tool-card h-100">

@@ -16,6 +16,7 @@ import re
 import yt_dlp
 import speech_recognition as sr
 from music_intelligence import MusicIntelligenceEngine
+from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment, ChordProgressionAnalyzer
 
 app = FastAPI()
 
@@ -27,8 +28,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize Music Intelligence Engine
+# Initialize Music Intelligence Engine and Enhanced Chord Detector
 music_intelligence = MusicIntelligenceEngine()
+enhanced_chord_detector = EnhancedChordDetector()
+progression_analyzer = ChordProgressionAnalyzer()
 
 def extract_youtube_id(url):
     """Extract YouTube video ID from various URL formats"""
@@ -172,27 +175,59 @@ async def analyze(file: UploadFile = File(...)):
             return {"error": f"Failed to process upload: {str(e)}"}
     
     try:
-        print(f"Starting analysis of file: {file.filename}")
+        print(f"Starting enhanced analysis of file: {file.filename}")
         y, sr = librosa.load(tmp_path)
         y_harmonic, _ = librosa.effects.hpss(y)
         duration = librosa.get_duration(y=y, sr=sr)
         
-        # Detect tempo and key
-        tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-        overall_fragment = Tonal_Fragment(y_harmonic, sr)
-        key = overall_fragment.key
+        # Enhanced key detection
+        print("Detecting key with enhanced algorithm...")
+        key, key_confidence = enhanced_chord_detector.detect_key_enhanced(y_harmonic, sr)
+        print(f"Detected key: {key} (confidence: {key_confidence:.3f})")
         
-        # Detect chords every second
+        # Detect tempo
+        tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
+        
+        # Enhanced chord detection with two methods
+        print("Running enhanced chord detection...")
+        
+        # Method 1: Enhanced continuous detection
+        enhanced_chords = enhanced_chord_detector.detect_chords_enhanced(y_harmonic, sr)
+        
+        # Method 2: Improved segmented detection (1-second bins)
+        print("Running segmented chord analysis...")
         bin_size = 1
-        chords = []
+        segmented_chords = []
         for i in range(0, int(duration)//bin_size):
             tstart = bin_size * i
             tend = bin_size * (i+1)
-            fragment = Tonal_Fragment(y_harmonic, sr, tstart=tstart, tend=tend)
-            chords.append({
+            fragment = ImprovedTonalFragment(
+                y_harmonic, sr, 
+                tstart=tstart, tend=tend, 
+                enhanced_detector=enhanced_chord_detector
+            )
+            segmented_chords.append({
                 "time": tstart,
-                "chord": fragment.key
+                "chord": fragment.key,
+                "confidence": getattr(fragment, 'confidence', 0.0)
             })
+        
+        # Combine both methods for best results
+        print("Combining detection methods...")
+        chords = enhanced_chords if len(enhanced_chords) > 0 else segmented_chords
+        
+        # Add confidence scores to segmented chords if using that method
+        if chords == segmented_chords:
+            for chord in chords:
+                if 'confidence' not in chord:
+                    chord['confidence'] = 0.5  # Default confidence
+        
+        print(f"Detected {len(chords)} chord segments")
+        
+        # Apply progression analysis for error correction
+        print("Applying progression analysis and error correction...")
+        chords = progression_analyzer.analyze_and_correct_progression(chords, key)
+        print("Progression analysis complete")
         
         # Apply Music Intelligence Analysis
         print("Applying intelligent music analysis...")
@@ -283,38 +318,66 @@ async def analyze_youtube(request: Request):
             
             print(f"Successfully downloaded audio to: {audio_path}")
             
-            # Analyze the audio
-            print("Starting audio analysis...")
+            # Analyze the audio with enhanced detection
+            print("Starting enhanced audio analysis...")
             y, sr = librosa.load(audio_path)
             y_harmonic, _ = librosa.effects.hpss(y)
             duration = float(librosa.get_duration(y=y, sr=sr))  # Convert to Python float
             
             print(f"Audio loaded successfully. Duration: {duration:.2f} seconds")
             
-            # Detect tempo and key
+            # Enhanced key detection
+            print("Detecting key with enhanced algorithm...")
+            key, key_confidence = enhanced_chord_detector.detect_key_enhanced(y_harmonic, sr)
+            print(f"Detected key: {key} (confidence: {key_confidence:.3f})")
+            
+            # Detect tempo
             tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
             tempo = float(tempo[0]) if hasattr(tempo, '__len__') and len(tempo) > 0 else float(tempo)  # Handle array or scalar
-            overall_fragment = Tonal_Fragment(y_harmonic, sr)
-            key = overall_fragment.key
             
-            print(f"Detected key: {key}, tempo: {tempo:.2f}")
+            print(f"Detected tempo: {tempo:.2f}")
             
-            # Detect chords every second
+            # Enhanced chord detection
+            print("Running enhanced chord detection...")
+            
+            # Method 1: Enhanced continuous detection
+            enhanced_chords = enhanced_chord_detector.detect_chords_enhanced(y_harmonic, sr)
+            
+            # Method 2: Improved segmented detection for comparison
+            print("Running segmented chord analysis...")
             bin_size = 1
-            chords = []
+            segmented_chords = []
             chord_count = int(duration)//bin_size
-            print(f"Analyzing {chord_count} chord segments...")
             
             for i in range(0, chord_count):
                 tstart = bin_size * i
                 tend = bin_size * (i+1)
-                fragment = Tonal_Fragment(y_harmonic, sr, tstart=tstart, tend=tend)
-                chords.append({
+                fragment = ImprovedTonalFragment(
+                    y_harmonic, sr, 
+                    tstart=tstart, tend=tend, 
+                    enhanced_detector=enhanced_chord_detector
+                )
+                segmented_chords.append({
                     "time": tstart,
-                    "chord": fragment.key
+                    "chord": fragment.key,
+                    "confidence": getattr(fragment, 'confidence', 0.0)
                 })
             
-            print(f"Analysis complete. Found {len(chords)} chords.")
+            # Use enhanced method if available, fallback to segmented
+            chords = enhanced_chords if len(enhanced_chords) > 0 else segmented_chords
+            
+            # Add confidence scores if using segmented method
+            if chords == segmented_chords:
+                for chord in chords:
+                    if 'confidence' not in chord:
+                        chord['confidence'] = 0.5
+            
+            print(f"Analysis complete. Found {len(chords)} chord segments.")
+            
+            # Apply progression analysis for error correction
+            print("Applying progression analysis and error correction...")
+            chords = progression_analyzer.analyze_and_correct_progression(chords, key)
+            print("Progression analysis complete")
             
             # Apply Music Intelligence Analysis
             print("Applying intelligent music analysis...")

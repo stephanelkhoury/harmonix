@@ -161,6 +161,13 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                     >
                       Lyrics Analyzer
                     </Link>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/chords-dictionary" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Chords Dictionary
+                    </Link>
                   </div>
                 </Nav.Item>
                 

@@ -1,0 +1,254 @@
+.chords-dictionary-page {
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.chords-dictionary-page h1 {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 15px rgba(52, 152, 219, 0.3);
+}
+
+.chords-dictionary-page .lead {
+  color: #a0b3c6;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chord-types-sidebar {
+  background: rgba(11, 28, 48, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(59, 125, 173, 0.3);
+}
+
+.chord-types-sidebar h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.chord-type-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chord-type-button {
+  background: rgba(11, 38, 68, 0.8);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  border-radius: 8px;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.chord-type-button:hover {
+  background: rgba(15, 162, 220, 0.1);
+  border-color: rgba(15, 162, 220, 0.3);
+  transform: translateX(5px);
+}
+
+.chord-type-button.active {
+  background: linear-gradient(90deg, rgba(15, 162, 220, 0.2) 0%, rgba(59, 125, 173, 0.2) 100%);
+  border-color: rgba(15, 162, 220, 0.5);
+  transform: translateX(5px);
+}
+
+.chord-content {
+  height: 100%;
+}
+
+.chord-info-card {
+  background: rgba(11, 28, 48, 0.7);
+  border-radius: 15px;
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  height: 100%;
+}
+
+.chord-info-card .card-body {
+  padding: 2rem;
+}
+
+.chord-type-info {
+  margin-bottom: 2rem;
+}
+
+.chord-type-info h2 {
+  color: #0FA2DC;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.chord-type-info p {
+  color: #a0b3c6;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.chord-visualizer-wrapper {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(11, 38, 68, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(59, 125, 173, 0.2);
+}
+
+.play-chord-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 1rem auto;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0DA1C0 0%, #3B7DAD 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 161, 192, 0.3);
+}
+
+.play-chord-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 161, 192, 0.4);
+  background: linear-gradient(135deg, #0FA2DC 0%, #4B8DBD 100%);
+}
+
+.play-chord-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(13, 161, 192, 0.3);
+}
+
+.play-chord-button svg {
+  font-size: 1.1em;
+}
+
+.chord-examples {
+  margin-top: 3rem;
+}
+
+.chord-examples h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.example-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.example-button {
+  background: rgba(11, 38, 68, 0.8);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  border-radius: 8px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.example-button:hover {
+  background: rgba(15, 162, 220, 0.1);
+  border-color: rgba(15, 162, 220, 0.3);
+  transform: translateY(-2px);
+}
+
+.example-button.active {
+  background: linear-gradient(135deg, #0DA1C0 0%, #3B7DAD 100%);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Live Piano Section */
+.live-piano-section {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(59, 125, 173, 0.2);
+}
+
+.live-piano-section .live-piano-container {
+  background: rgba(11, 28, 48, 0.6);
+  border: 1px solid rgba(59, 125, 173, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.live-piano-section .piano-instructions h4 {
+  color: #ffffff;
+}
+
+.live-piano-section .piano-instructions p {
+  color: #a0b3c6;
+}
+
+.live-piano-section .playing-notes {
+  background: rgba(52, 152, 219, 0.2);
+  border-color: rgba(52, 152, 219, 0.5);
+  color: #5dbef8;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .chord-types-sidebar {
+    margin-bottom: 2rem;
+  }
+
+  .chord-type-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chord-type-button {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .chords-dictionary-page h1 {
+    font-size: 2.5rem;
+  }
+
+  .chord-type-button {
+    flex: 1 1 100%;
+  }
+
+  .chord-info-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .chord-type-info h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .chord-types-sidebar {
+    margin-bottom: 2rem;
+  }
+  
+  .chord-info-card {
+    margin-bottom: 2rem;
+  }
+}

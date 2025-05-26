@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style/ChordVisualizer.css';
 
-function ChordVisualizer() {
-  const [activeChord, setActiveChord] = useState('C');
-  const [activeNote, setActiveNote] = useState('C');
-  const [activeChordType, setActiveChordType] = useState('');
+function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C' }) {
+  const [activeChord, setActiveChord] = useState(defaultChord);
+  const [activeNote, setActiveNote] = useState(defaultChord);
+  const [activeChordType, setActiveChordType] = useState(chordType);
   const [visualizerType, setVisualizerType] = useState('keyboard'); // 'keyboard' or 'fretboard'
   
   // Piano keyboard note mapping - 2 octaves
@@ -221,28 +221,39 @@ const chordNotes = {
     return chordNotes[activeChord] && chordNotes[activeChord].includes(note);
   };
   
-  // Handle note and chord type changes
+  // Add useEffect to handle chord type prop changes
+  useEffect(() => {
+    setActiveChordType(chordType);
+    if (chordType !== activeChordType) {
+      const newChord = activeNote + chordType;
+      setActiveChord(newChord);
+      if (onChordChange) onChordChange(newChord);
+    }
+  }, [chordType, activeNote, activeChordType, onChordChange]);
+
+  // Update existing handlers
   const handleNoteChange = (note) => {
     setActiveNote(note);
     const newChord = note + activeChordType;
     if (chordNotes[newChord]) {
       setActiveChord(newChord);
+      if (onChordChange) onChordChange(newChord);
     }
   };
   
-  const handleChordTypeChange = (chordType) => {
-    setActiveChordType(chordType);
-    const newChord = activeNote + chordType;
+  const handleChordTypeChange = (type) => {
+    setActiveChordType(type);
+    const newChord = activeNote + type;
     if (chordNotes[newChord]) {
       setActiveChord(newChord);
+      if (onChordChange) onChordChange(newChord);
     }
   };
-  
-  // Handle clicking on piano keys
+
   const handleKeyClick = (note) => {
-    // We only handle white keys for simplicity
     handleNoteChange(note);
-    setActiveChordType(''); // Set to major chord when clicking on keys
+    setActiveChordType('');
+    if (onChordChange) onChordChange(note);
   };
   
   // Check if a guitar fret position is active for the current chord
