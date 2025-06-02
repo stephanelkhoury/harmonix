@@ -496,3 +496,49 @@ WARNING: [youtube] Unable to download API page: <urllib3.connection.HTTPSConnect
 ERROR: [youtube] gPUjA7fZ3tw: Failed to extract any player response; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
 Error processing YouTube lyrics: ERROR: [youtube] gPUjA7fZ3tw: Failed to extract any player response; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
 INFO:     127.0.0.1:53340 - "POST /api/analyze-lyrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61385 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61428 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61488 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61528 - "GET /health HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 61562) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection closed
+INFO:     ('127.0.0.1', 61564) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+Received file: 3endak bahriya.MP3
+File size: 4303904 bytes
+Starting enhanced analysis of file: 3endak bahriya.MP3
+Detecting key with improved algorithm...
+Detected key: G minor (confidence: 0.468)
+Running improved chord detection...
+Detected 1010 chord segments
+Applying progression analysis and error correction...
+Progression analysis complete
+Applying intelligent music analysis...
+Saved chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250603_022843_3endak_bahriya_MP3.json
+INFO:     127.0.0.1:61576 - "POST /analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61578 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61609 - "GET /health HTTP/1.1" 200 OK
+[download]   0.0% of    3.28MiB at  Unknown B/s ETA UnknownAttempting to analyze YouTube audio from: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Extracted video ID: dQw4w9WgXcQ
+Starting YouTube audio download...
+[download]   0.1% of    3.28MiB at  Unknown B/s ETA Unknown[download]   0.2% of    3.28MiB at    6.60MiB/s ETA 00:00  [download]   0.4% of    3.28MiB at   11.09MiB/s ETA 00:00[download]   0.9% of    3.28MiB at    4.65MiB/s ETA 00:00[download]   1.9% of    3.28MiB at    1.28MiB/s ETA 00:02[download]   3.8% of    3.28MiB at    1.95MiB/s ETA 00:01[download]   7.6% of    3.28MiB at    2.44MiB/s ETA 00:01[download]  15.2% of    3.28MiB at    2.96MiB/s ETA 00:00[download]  30.5% of    3.28MiB at    3.05MiB/s ETA 00:00[download]  61.0% of    3.28MiB at    3.78MiB/s ETA 00:00[download] 100.0% of    3.28MiB at    4.18MiB/s ETA 00:00[download] 100% of    3.28MiB in 00:00:00 at 3.81MiB/s                                                         /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=1024 is too small for input signal of length=690
+  warnings.warn(
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=1024 is too small for input signal of length=345
+  warnings.warn(
+Successfully downloaded audio to: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp23ryox_g/dQw4w9WgXcQ.wav
+Starting enhanced audio analysis...
+Audio loaded successfully. Duration: 212.04 seconds
+Detecting key with enhanced algorithm...
+Detected key: G# major (confidence: 0.719)
+Detected tempo: 112.35
+Running enhanced chord detection...
+Running segmented chord analysis...
+Analysis complete. Found 1142 chord segments.
+Applying progression analysis and error correction...
+Progression analysis complete
+Applying intelligent music analysis...
+Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250603_022947_youtube_dQw4w9WgXcQ.json
+INFO:     127.0.0.1:61609 - "POST /analyze-youtube HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 61618) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open

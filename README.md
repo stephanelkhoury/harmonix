@@ -12,40 +12,42 @@ A web application that analyzes MP3 files to detect musical chords and keys usin
 
 ## Running Locally
 
-### Option 1: Using the Fixed Startup Script (Recommended)
+### Option 1: Using the Management Scripts (Recommended)
 
-We've created an updated startup script that ensures all services run on the correct ports:
+Use the organized management scripts for reliable startup:
 
 ```bash
-# Make the script executable (only needed once)
-chmod +x scripts/start_harmonix_fixed.sh
+# Standard startup
+./scripts/management/start_harmonix.sh
 
-# Run the application with fixed port configuration
-./scripts/start_harmonix_fixed.sh
+# Or use the fixed version
+./scripts/management/start_harmonix_fixed.sh
 ```
 
-This script properly configures the following services:
+These scripts properly configure the following services:
 - Authentication Server: Port 5001
 - Backend Server: Port 5002 
 - Frontend: Port 3000
 - Python Service: Port 8000 (if available)
 
-### Option 2: Using the Split Terminal Launcher (for Development)
+### Option 2: Using Setup Scripts for Development
 
-For development, the split terminal launcher creates separate terminal windows for each service, making debugging and monitoring easier:
+For development, use the organized setup scripts:
 
 ```bash
-# Make the script executable (only needed once)
-chmod +x start_harmonix_split_terminals.sh
+# Multi-terminal development setup
+./scripts/setup/start-scripts/start_harmonix_split_terminals.sh
 
-# Run Harmonix with each service in a separate, named terminal
-./start_harmonix_split_terminals.sh
+# macOS optimized startup
+./scripts/setup/macos-specific/start_harmonix_macos.sh
+
+# Local development
+./scripts/setup/start-scripts/start_local.sh
 ```
 
-This script:
-1. Creates separate, named terminal windows for each service:
+The split terminal script creates separate, named terminal windows for each service:
    - Python Service (port 8000)
-   - Server (port 4000)
+   - Server (port 4000)  
    - Backend (port 5001)
    - Frontend (port 3000)
    - Frontend Alt (port 3001)
@@ -283,3 +285,41 @@ harmonix/
 ├── server/          # Node.js file upload server
 └── tests/           # Test scripts and integration tests
 ```
+
+## Project Organization
+
+Harmonix follows an organized directory structure for maintainability and clarity:
+
+```
+harmonix/
+├── README.md                 # This file
+├── PROJECT_STRUCTURE.md      # Detailed structure documentation
+├── admin/                    # Admin panel and authentication
+├── backend/                  # Node.js backend server
+├── config/                   # Configuration files and templates
+├── docs/                     # Comprehensive documentation
+├── frontend/                 # React frontend application
+├── python_service/           # Audio processing and ML models
+├── samples/                  # Demo files and examples
+├── scripts/                  # Organized automation scripts
+│   ├── management/           # Start/stop and process management
+│   ├── setup/               # Installation and configuration
+│   ├── testing/             # Test execution scripts
+│   └── utils/               # Development utilities
+├── tests/                    # Organized test files
+│   ├── html/                # Browser-based tests
+│   ├── js/                  # JavaScript unit tests
+│   └── integration/         # End-to-end tests
+└── uploads/                  # User uploaded files
+```
+
+For detailed information about the project structure, see `PROJECT_STRUCTURE.md`.
+
+### Quick Navigation
+
+- **Getting Started**: See setup instructions below
+- **Documentation**: Check the `docs/` directory
+- **API Reference**: `docs/API_DOCUMENTATION.md`
+- **Troubleshooting**: `docs/TROUBLESHOOTING.md`
+- **Testing**: `tests/README.md`
+- **Scripts**: `scripts/README.md`
