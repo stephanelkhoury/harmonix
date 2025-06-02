@@ -1,398 +1,498 @@
 INFO:     Will watch for changes in these directories: ['/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [88275] using statreload
-INFO:     Started server process [88282]
+INFO:     Started reloader process [45365] using statreload
+INFO:     Started server process [45369]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     127.0.0.1:60793 - "GET /health HTTP/1.1" 200 OK
-[download] 100.0% of ~   1.00KiB at    959.59B/s ETA Unknown (frag 0/19)Attempting to analyze YouTube audio from: https://www.youtube.com/watch?v=pz-UQfM1HSM
-Extracted video ID: pz-UQfM1HSM
+INFO:     127.0.0.1:63588 - "GET /health HTTP/1.1" 200 OK
+[download]   0.1% of    1.10MiB at   76.37KiB/s ETA 00:14Attempting to analyze YouTube audio from: https://youtu.be/R07NwwB5tJc?si=4qUTkMpq201bV1Ht
+Extracted video ID: R07NwwB5tJc
 Starting YouTube audio download...
-[download]  15.8% of ~  19.00KiB at    959.59B/s ETA Unknown (frag 0/19)[download]  12.3% of ~  57.00KiB at    959.59B/s ETA Unknown (frag 0/19)[download]  11.3% of ~ 133.00KiB at    959.59B/s ETA Unknown (frag 0/19)[download]  10.9% of ~ 285.00KiB at    959.59B/s ETA Unknown (frag 0/19)[download]  10.7% of ~ 589.00KiB at    959.59B/s ETA Unknown (frag 0/19)[download]   6.8% of ~   1.17MiB at   65.30KiB/s ETA Unknown (frag 0/19)[download]   2.6% of ~   3.02MiB at   65.30KiB/s ETA Unknown (frag 1/19)[download]  10.7% of ~ 773.80KiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  10.8% of ~ 783.30KiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  11.0% of ~ 802.30KiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  11.5% of ~ 840.30KiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  12.3% of ~ 916.30KiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  13.5% of ~   1.04MiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]  11.7% of ~   1.34MiB at   81.94KiB/s ETA Unknown (frag 1/19)[download]   7.0% of ~   2.23MiB at   81.94KiB/s ETA Unknown (frag 2/19)[download]  15.9% of ~1019.89KiB at  107.47KiB/s ETA Unknown (frag 2/19)[download]  16.0% of ~   1.00MiB at  107.47KiB/s ETA Unknown (frag 2/19)[download]  16.2% of ~   1.01MiB at  124.25KiB/s ETA 00:05 (frag 2/19)  [download]  16.5% of ~   1.04MiB at  124.25KiB/s ETA 00:05 (frag 2/19)[download]  17.2% of ~   1.09MiB at  124.25KiB/s ETA 00:05 (frag 2/19)[download]  18.4% of ~   1.19MiB at  124.25KiB/s ETA 00:05 (frag 2/19)[download]  17.0% of ~   1.39MiB at  124.25KiB/s ETA 00:05 (frag 2/19)[download]  11.9% of ~   1.98MiB at  124.25KiB/s ETA 00:05 (frag 3/19)[download]  21.1% of ~   1.12MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  21.2% of ~   1.12MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  21.4% of ~   1.13MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  21.7% of ~   1.15MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  22.4% of ~   1.19MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  23.5% of ~   1.26MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  22.2% of ~   1.41MiB at  141.42KiB/s ETA 00:05 (frag 3/19)[download]  16.9% of ~   1.86MiB at  141.42KiB/s ETA 00:05 (frag 4/19)[download]  26.4% of ~   1.19MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  26.5% of ~   1.19MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  26.6% of ~   1.20MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  27.0% of ~   1.22MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  27.6% of ~   1.25MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  28.7% of ~   1.31MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  27.5% of ~   1.42MiB at  156.43KiB/s ETA 00:05 (frag 4/19)[download]  22.0% of ~   1.78MiB at  156.43KiB/s ETA 00:05 (frag 5/19)[download]  31.7% of ~   1.24MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  31.7% of ~   1.24MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  31.9% of ~   1.25MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  32.2% of ~   1.26MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  32.8% of ~   1.28MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  33.9% of ~   1.33MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  32.7% of ~   1.43MiB at  169.96KiB/s ETA 00:05 (frag 5/19)[download]  27.1% of ~   1.73MiB at  169.96KiB/s ETA 00:05 (frag 6/19)[download]  36.9% of ~   1.27MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  37.0% of ~   1.28MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  37.1% of ~   1.28MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  37.4% of ~   1.29MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  38.0% of ~   1.31MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  39.1% of ~   1.36MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  38.0% of ~   1.44MiB at  182.71KiB/s ETA 00:05 (frag 6/19)[download]  32.3% of ~   1.69MiB at  182.71KiB/s ETA 00:05 (frag 7/19)[download]  42.2% of ~   1.30MiB at  193.83KiB/s ETA 00:04 (frag 7/19)[download]  42.3% of ~   1.30MiB at  193.83KiB/s ETA 00:04 (frag 7/19)[download]  42.4% of ~   1.31MiB at  193.83KiB/s ETA 00:04 (frag 7/19)[download]  42.7% of ~   1.31MiB at  193.83KiB/s ETA 00:04 (frag 7/19)[download]  43.3% of ~   1.33MiB at  193.83KiB/s ETA 00:04 (frag 7/19)[download]  44.4% of ~   1.37MiB at  206.42KiB/s ETA 00:04 (frag 7/19)[download]  43.2% of ~   1.44MiB at  206.42KiB/s ETA 00:04 (frag 7/19)[download]  37.4% of ~   1.67MiB at  206.42KiB/s ETA 00:04 (frag 8/19)[download]  47.4% of ~   1.32MiB at  209.66KiB/s ETA 00:04 (frag 8/19)[download]  47.5% of ~   1.32MiB at  209.66KiB/s ETA 00:04 (frag 8/19)[download]  47.7% of ~   1.33MiB at  218.14KiB/s ETA 00:04 (frag 8/19)[download]  48.0% of ~   1.33MiB at  218.14KiB/s ETA 00:04 (frag 8/19)[download]  48.5% of ~   1.35MiB at  218.14KiB/s ETA 00:04 (frag 8/19)[download]  49.6% of ~   1.38MiB at  218.14KiB/s ETA 00:04 (frag 8/19)[download]  48.5% of ~   1.45MiB at  218.14KiB/s ETA 00:04 (frag 8/19)[download]  42.6% of ~   1.65MiB at  218.14KiB/s ETA 00:04 (frag 9/19)[download]  52.7% of ~   1.33MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  52.8% of ~   1.34MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  52.9% of ~   1.34MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  53.2% of ~   1.35MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  53.8% of ~   1.36MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  54.9% of ~   1.39MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  53.8% of ~   1.45MiB at  219.22KiB/s ETA 00:04 (frag 9/19)[download]  47.8% of ~   1.63MiB at  219.22KiB/s ETA 00:04 (frag 10/19)[download]  58.0% of ~   1.35MiB at  219.61KiB/s ETA 00:04 (frag 10/19)[download]  58.0% of ~   1.35MiB at  219.61KiB/s ETA 00:04 (frag 10/19)[download]  58.2% of ~   1.35MiB at  219.61KiB/s ETA 00:04 (frag 10/19)[download]  58.5% of ~   1.36MiB at  219.61KiB/s ETA 00:04 (frag 10/19)[download]  59.0% of ~   1.37MiB at  219.61KiB/s ETA 00:04 (frag 10/19)[download]  60.1% of ~   1.40MiB at  224.16KiB/s ETA 00:03 (frag 10/19)[download]  59.0% of ~   1.45MiB at  224.16KiB/s ETA 00:03 (frag 10/19)[download]  53.1% of ~   1.62MiB at  224.16KiB/s ETA 00:03 (frag 11/19)[download]  63.2% of ~   1.36MiB at  222.61KiB/s ETA 00:03 (frag 11/19)[download]  63.3% of ~   1.36MiB at  222.61KiB/s ETA 00:03 (frag 11/19)[download]  63.4% of ~   1.36MiB at  220.32KiB/s ETA 00:03 (frag 11/19)[download]  63.7% of ~   1.37MiB at  220.32KiB/s ETA 00:03 (frag 11/19)[download]  64.3% of ~   1.38MiB at  220.32KiB/s ETA 00:03 (frag 11/19)[download]  65.4% of ~   1.41MiB at  222.19KiB/s ETA 00:03 (frag 11/19)[download]  64.3% of ~   1.46MiB at  222.19KiB/s ETA 00:03 (frag 11/19)[download]  58.3% of ~   1.61MiB at  222.19KiB/s ETA 00:03 (frag 12/19)[download]  68.5% of ~   1.37MiB at  219.91KiB/s ETA 00:03 (frag 12/19)[download]  68.6% of ~   1.37MiB at  219.91KiB/s ETA 00:03 (frag 12/19)[download]  68.7% of ~   1.37MiB at  219.91KiB/s ETA 00:03 (frag 12/19)[download]  69.0% of ~   1.38MiB at  219.91KiB/s ETA 00:03 (frag 12/19)[download]  69.5% of ~   1.39MiB at  219.91KiB/s ETA 00:03 (frag 12/19)[download]  70.6% of ~   1.41MiB at  221.74KiB/s ETA 00:03 (frag 12/19)[download]  69.5% of ~   1.46MiB at  221.74KiB/s ETA 00:03 (frag 12/19)[download]  63.6% of ~   1.60MiB at  221.74KiB/s ETA 00:03 (frag 13/19)[download]  73.8% of ~   1.38MiB at  216.44KiB/s ETA 00:03 (frag 13/19)[download]  73.8% of ~   1.38MiB at  216.44KiB/s ETA 00:03 (frag 13/19)[download]  74.0% of ~   1.38MiB at  216.44KiB/s ETA 00:03 (frag 13/19)[download]  74.2% of ~   1.39MiB at  216.44KiB/s ETA 00:03 (frag 13/19)[download]  74.8% of ~   1.40MiB at  216.44KiB/s ETA 00:03 (frag 13/19)[download]  75.9% of ~   1.42MiB at  215.13KiB/s ETA 00:02 (frag 13/19)[download]  74.8% of ~   1.46MiB at  211.80KiB/s ETA 00:02 (frag 13/19)[download]  68.8% of ~   1.59MiB at  211.80KiB/s ETA 00:02 (frag 14/19)[download]  79.0% of ~   1.38MiB at  201.38KiB/s ETA 00:02 (frag 14/19)[download]  79.1% of ~   1.38MiB at  201.38KiB/s ETA 00:02 (frag 14/19)[download]  79.2% of ~   1.39MiB at  201.38KiB/s ETA 00:02 (frag 14/19)[download]  79.5% of ~   1.39MiB at  201.38KiB/s ETA 00:02 (frag 14/19)[download]  80.1% of ~   1.40MiB at  201.38KiB/s ETA 00:02 (frag 14/19)[download]  81.1% of ~   1.42MiB at  199.66KiB/s ETA 00:02 (frag 14/19)[download]  80.1% of ~   1.46MiB at  199.19KiB/s ETA 00:02 (frag 14/19)[download]  74.0% of ~   1.58MiB at  199.19KiB/s ETA 00:02 (frag 15/19)[download]  84.3% of ~   1.39MiB at  195.00KiB/s ETA 00:02 (frag 15/19)[download]  84.4% of ~   1.39MiB at  195.00KiB/s ETA 00:02 (frag 15/19)[download]  84.5% of ~   1.39MiB at  195.00KiB/s ETA 00:02 (frag 15/19)[download]  84.8% of ~   1.40MiB at  193.97KiB/s ETA 00:02 (frag 15/19)[download]  85.3% of ~   1.41MiB at  193.88KiB/s ETA 00:02 (frag 15/19)[download]  86.4% of ~   1.43MiB at  193.88KiB/s ETA 00:02 (frag 15/19)[download]  85.3% of ~   1.46MiB at  197.73KiB/s ETA 00:01 (frag 15/19)[download]  79.3% of ~   1.57MiB at  197.73KiB/s ETA 00:01 (frag 16/19)[download]  89.5% of ~   1.39MiB at  191.36KiB/s ETA 00:01 (frag 16/19)[download]  89.6% of ~   1.40MiB at  191.36KiB/s ETA 00:01 (frag 16/19)[download]  89.8% of ~   1.40MiB at  191.36KiB/s ETA 00:01 (frag 16/19)[download]  90.0% of ~   1.40MiB at  191.36KiB/s ETA 00:01 (frag 16/19)[download]  90.6% of ~   1.41MiB at  188.48KiB/s ETA 00:01 (frag 16/19)[download]  91.7% of ~   1.43MiB at  188.48KiB/s ETA 00:01 (frag 16/19)[download]  90.6% of ~   1.46MiB at  190.63KiB/s ETA 00:01 (frag 16/19)[download]  84.5% of ~   1.57MiB at  190.63KiB/s ETA 00:01 (frag 17/19)[download]  94.8% of ~   1.40MiB at  183.27KiB/s ETA 00:01 (frag 17/19)[download]  94.9% of ~   1.40MiB at  183.27KiB/s ETA 00:01 (frag 17/19)[download]  95.0% of ~   1.40MiB at  183.27KiB/s ETA 00:01 (frag 17/19)[download]  95.3% of ~   1.41MiB at  183.27KiB/s ETA 00:01 (frag 17/19)[download]  95.8% of ~   1.41MiB at  183.27KiB/s ETA 00:01 (frag 17/19)[download]  96.9% of ~   1.43MiB at  186.76KiB/s ETA 00:01 (frag 17/19)[download]  95.8% of ~   1.46MiB at  186.76KiB/s ETA 00:01 (frag 17/19)[download]  89.8% of ~   1.56MiB at  186.76KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.40MiB at  186.91KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.41MiB at  186.91KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.41MiB at  186.91KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.42MiB at  186.91KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.43MiB at  186.91KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.46MiB at  187.96KiB/s ETA 00:01 (frag 18/19)[download] 100.0% of ~   1.49MiB at  187.96KiB/s ETA 00:01 (frag 18/19)[download]  94.3% of ~   1.58MiB at  187.96KiB/s ETA 00:01 (frag 19/19)[download] 100% of    1.49MiB in 00:00:07 at 206.88KiB/s                                                                       /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/pitch.py:153: UserWarning: Trying to estimate tuning from empty frequency set.
+[download]   0.3% of    1.10MiB at  222.47KiB/s ETA 00:05[download]   0.6% of    1.10MiB at  513.01KiB/s ETA 00:02[download]   1.3% of    1.10MiB at    1.06MiB/s ETA 00:01[download]   2.8% of    1.10MiB at  148.09KiB/s ETA 00:07[download]   5.6% of    1.10MiB at  299.69KiB/s ETA 00:03[download]  11.3% of    1.10MiB at  473.44KiB/s ETA 00:02[download]  22.7% of    1.10MiB at  540.89KiB/s ETA 00:01[download]  45.6% of    1.10MiB at  686.39KiB/s ETA 00:00[download]  91.2% of    1.10MiB at  722.81KiB/s ETA 00:00[download] 100.0% of    1.10MiB at  721.73KiB/s ETA 00:00[download] 100% of    1.10MiB in 00:00:01 at 572.45KiB/s                                                         /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/pitch.py:153: UserWarning: Trying to estimate tuning from empty frequency set.
   warnings.warn("Trying to estimate tuning from empty frequency set.")
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=512 is too small for input signal of length=345
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=1024 is too small for input signal of length=690
   warnings.warn(
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=1024 is too small for input signal of length=345
+  warnings.warn(
+/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py:226: RuntimeWarning: invalid value encountered in true_divide
+  avg_chroma = avg_chroma / np.sum(avg_chroma)
 /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2829: RuntimeWarning: invalid value encountered in true_divide
   c /= stddev[:, None]
 /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2830: RuntimeWarning: invalid value encountered in true_divide
   c /= stddev[None, :]
-Successfully downloaded audio to: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmpqtsy483_/pz-UQfM1HSM.wav
-Starting audio analysis...
-Audio loaded successfully. Duration: 95.97 seconds
-Detected key: C major, tempo: 152.00
-Analyzing 95 chord segments...
-Analysis complete. Found 95 chords.
+Successfully downloaded audio to: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmpjf35r2y5/R07NwwB5tJc.wav
+Starting enhanced audio analysis...
+Audio loaded successfully. Duration: 65.32 seconds
+Detecting key with enhanced algorithm...
+Detected key: C major (confidence: 0.833)
+Detected tempo: 28.40
+Running enhanced chord detection...
+Running segmented chord analysis...
+Analysis complete. Found 352 chord segments.
+Applying progression analysis and error correction...
+Progression analysis complete
 Applying intelligent music analysis...
-Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250525_233220_youtube_pz-UQfM1HSM.json
-INFO:     127.0.0.1:60794 - "POST /analyze-youtube HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61794 - "GET /health HTTP/1.1" 200 OK
-[download] 100.0% of ~   1.00KiB at      0.00B/s ETA Unknown (frag 0/19)Attempting to analyze YouTube audio from: https://www.youtube.com/watch?v=pz-UQfM1HSM
-Extracted video ID: pz-UQfM1HSM
-Starting YouTube audio download...
-[download]  15.8% of ~  19.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  12.3% of ~  57.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  11.3% of ~ 133.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  10.9% of ~ 285.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  10.7% of ~ 589.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]   6.8% of ~   1.17MiB at      0.00B/s ETA Unknown (frag 0/19)[download]   2.6% of ~   3.02MiB at      0.00B/s ETA Unknown (frag 1/19)[download]  10.7% of ~ 773.80KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  10.8% of ~ 783.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.0% of ~ 802.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.5% of ~ 840.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  12.3% of ~ 916.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  13.5% of ~   1.04MiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.7% of ~   1.34MiB at      0.00B/s ETA Unknown (frag 1/19)[download]   7.0% of ~   2.23MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  15.9% of ~1019.89KiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  16.0% of ~   1.00MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  16.2% of ~   1.01MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  16.5% of ~   1.04MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  17.2% of ~   1.09MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  18.4% of ~   1.19MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  17.0% of ~   1.39MiB at  958.56KiB/s ETA Unknown (frag 2/19)[download]  11.9% of ~   1.98MiB at  958.56KiB/s ETA Unknown (frag 3/19)[download]  21.1% of ~   1.12MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  21.2% of ~   1.12MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  21.4% of ~   1.13MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  21.7% of ~   1.15MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  22.4% of ~   1.19MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  23.5% of ~   1.26MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  22.2% of ~   1.41MiB at    1.31MiB/s ETA Unknown (frag 3/19)[download]  16.9% of ~   1.86MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  26.4% of ~   1.19MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  26.5% of ~   1.19MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  26.6% of ~   1.20MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  27.0% of ~   1.22MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  27.6% of ~   1.25MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  28.7% of ~   1.31MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  27.5% of ~   1.42MiB at    1.31MiB/s ETA Unknown (frag 4/19)[download]  22.0% of ~   1.78MiB at    1.31MiB/s ETA Unknown (frag 5/19)[download]  31.7% of ~   1.24MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  31.7% of ~   1.24MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  31.9% of ~   1.25MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  32.2% of ~   1.26MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  32.8% of ~   1.28MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  33.9% of ~   1.33MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  32.7% of ~   1.43MiB at    1.57MiB/s ETA Unknown (frag 5/19)[download]  27.1% of ~   1.73MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  36.9% of ~   1.27MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  37.0% of ~   1.28MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  37.1% of ~   1.28MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  37.4% of ~   1.29MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  38.0% of ~   1.31MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  39.1% of ~   1.36MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  38.0% of ~   1.44MiB at    1.57MiB/s ETA Unknown (frag 6/19)[download]  32.3% of ~   1.69MiB at    1.57MiB/s ETA Unknown (frag 7/19)[download]  42.2% of ~   1.30MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.3% of ~   1.30MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.4% of ~   1.31MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.7% of ~   1.31MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  43.3% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  44.4% of ~   1.37MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  43.2% of ~   1.44MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  37.4% of ~   1.67MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.4% of ~   1.32MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.5% of ~   1.32MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.7% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.0% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.5% of ~   1.35MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  49.6% of ~   1.38MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.5% of ~   1.45MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  42.6% of ~   1.65MiB at    1.78MiB/s ETA Unknown (frag 9/19)[download]  52.7% of ~   1.33MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  52.8% of ~   1.34MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  52.9% of ~   1.34MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.2% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.8% of ~   1.36MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  54.9% of ~   1.39MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.8% of ~   1.45MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  47.8% of ~   1.63MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.0% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.0% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.2% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.5% of ~   1.36MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  59.0% of ~   1.37MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  60.1% of ~   1.40MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  59.0% of ~   1.45MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  53.1% of ~   1.62MiB at    1.93MiB/s ETA Unknown (frag 11/19)[download]  63.2% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.3% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.4% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.7% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  64.3% of ~   1.38MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  65.4% of ~   1.41MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  64.3% of ~   1.46MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  58.3% of ~   1.61MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.5% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.6% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.7% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.0% of ~   1.38MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.5% of ~   1.39MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  70.6% of ~   1.41MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.5% of ~   1.46MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  63.6% of ~   1.60MiB at    2.03MiB/s ETA Unknown (frag 13/19)[download]  73.8% of ~   1.38MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  73.8% of ~   1.38MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  74.0% of ~   1.38MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  74.2% of ~   1.39MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  74.8% of ~   1.40MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  75.9% of ~   1.42MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  74.8% of ~   1.46MiB at    2.11MiB/s ETA Unknown (frag 13/19)[download]  68.8% of ~   1.59MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  79.0% of ~   1.38MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  79.1% of ~   1.38MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  79.2% of ~   1.39MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  79.5% of ~   1.39MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  80.1% of ~   1.40MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  81.1% of ~   1.42MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  80.1% of ~   1.46MiB at    2.11MiB/s ETA Unknown (frag 14/19)[download]  74.0% of ~   1.58MiB at    2.11MiB/s ETA Unknown (frag 15/19)[download]  84.3% of ~   1.39MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  84.4% of ~   1.39MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  84.5% of ~   1.39MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  84.8% of ~   1.40MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  85.3% of ~   1.41MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  86.4% of ~   1.43MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  85.3% of ~   1.46MiB at    2.17MiB/s ETA Unknown (frag 15/19)[download]  79.3% of ~   1.57MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  89.5% of ~   1.39MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  89.6% of ~   1.40MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  89.8% of ~   1.40MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  90.0% of ~   1.40MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  90.6% of ~   1.41MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  91.7% of ~   1.43MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  90.6% of ~   1.46MiB at    2.17MiB/s ETA Unknown (frag 16/19)[download]  84.5% of ~   1.57MiB at    2.17MiB/s ETA Unknown (frag 17/19)[download]  94.8% of ~   1.40MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  94.9% of ~   1.40MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  95.0% of ~   1.40MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  95.3% of ~   1.41MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  95.8% of ~   1.41MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  96.9% of ~   1.43MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  95.8% of ~   1.46MiB at    2.21MiB/s ETA Unknown (frag 17/19)[download]  89.8% of ~   1.56MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.40MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.41MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.41MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.42MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.43MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.46MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.49MiB at    2.21MiB/s ETA Unknown (frag 18/19)[download]  94.3% of ~   1.58MiB at    2.21MiB/s ETA Unknown (frag 19/19)[download] 100% of    1.49MiB in 00:00:00 at 2.40MiB/s                                                                         /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/pitch.py:153: UserWarning: Trying to estimate tuning from empty frequency set.
-  warnings.warn("Trying to estimate tuning from empty frequency set.")
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=512 is too small for input signal of length=345
-  warnings.warn(
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2829: RuntimeWarning: invalid value encountered in true_divide
-  c /= stddev[:, None]
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2830: RuntimeWarning: invalid value encountered in true_divide
-  c /= stddev[None, :]
-Successfully downloaded audio to: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmp5dhcfgfr/pz-UQfM1HSM.wav
-Starting audio analysis...
-Audio loaded successfully. Duration: 95.97 seconds
-Detected key: C major, tempo: 152.00
-Analyzing 95 chord segments...
-Analysis complete. Found 95 chords.
-Applying intelligent music analysis...
-Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250525_233558_youtube_pz-UQfM1HSM.json
-INFO:     127.0.0.1:61795 - "POST /analyze-youtube HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64230 - "GET /health HTTP/1.1" 200 OK
-[download] 100.0% of ~   1.00KiB at      0.00B/s ETA Unknown (frag 0/19)Attempting to analyze YouTube audio from: https://www.youtube.com/watch?v=pz-UQfM1HSM
-Extracted video ID: pz-UQfM1HSM
-Starting YouTube audio download...
-[download]  15.8% of ~  19.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  12.3% of ~  57.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  11.3% of ~ 133.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  10.9% of ~ 285.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]  10.7% of ~ 589.00KiB at      0.00B/s ETA Unknown (frag 0/19)[download]   6.8% of ~   1.17MiB at      0.00B/s ETA Unknown (frag 0/19)[download]   2.6% of ~   3.02MiB at      0.00B/s ETA Unknown (frag 1/19)[download]  10.7% of ~ 773.80KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  10.8% of ~ 783.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.0% of ~ 802.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.5% of ~ 840.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  12.3% of ~ 916.30KiB at      0.00B/s ETA Unknown (frag 1/19)[download]  13.5% of ~   1.04MiB at      0.00B/s ETA Unknown (frag 1/19)[download]  11.7% of ~   1.34MiB at  942.71KiB/s ETA Unknown (frag 1/19)[download]   7.0% of ~   2.23MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  15.9% of ~1019.89KiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  16.0% of ~   1.00MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  16.2% of ~   1.01MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  16.5% of ~   1.04MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  17.2% of ~   1.09MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  18.4% of ~   1.19MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  17.0% of ~   1.39MiB at  942.71KiB/s ETA Unknown (frag 2/19)[download]  11.9% of ~   1.98MiB at  942.71KiB/s ETA Unknown (frag 3/19)[download]  21.1% of ~   1.12MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  21.2% of ~   1.12MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  21.4% of ~   1.13MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  21.7% of ~   1.15MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  22.4% of ~   1.19MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  23.5% of ~   1.26MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  22.2% of ~   1.41MiB at    1.30MiB/s ETA Unknown (frag 3/19)[download]  16.9% of ~   1.86MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  26.4% of ~   1.19MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  26.5% of ~   1.19MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  26.6% of ~   1.20MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  27.0% of ~   1.22MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  27.6% of ~   1.25MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  28.7% of ~   1.31MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  27.5% of ~   1.42MiB at    1.30MiB/s ETA Unknown (frag 4/19)[download]  22.0% of ~   1.78MiB at    1.30MiB/s ETA Unknown (frag 5/19)[download]  31.7% of ~   1.24MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  31.7% of ~   1.24MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  31.9% of ~   1.25MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  32.2% of ~   1.26MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  32.8% of ~   1.28MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  33.9% of ~   1.33MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  32.7% of ~   1.43MiB at    1.58MiB/s ETA Unknown (frag 5/19)[download]  27.1% of ~   1.73MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  36.9% of ~   1.27MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  37.0% of ~   1.28MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  37.1% of ~   1.28MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  37.4% of ~   1.29MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  38.0% of ~   1.31MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  39.1% of ~   1.36MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  38.0% of ~   1.44MiB at    1.58MiB/s ETA Unknown (frag 6/19)[download]  32.3% of ~   1.69MiB at    1.58MiB/s ETA Unknown (frag 7/19)[download]  42.2% of ~   1.30MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.3% of ~   1.30MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.4% of ~   1.31MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  42.7% of ~   1.31MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  43.3% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  44.4% of ~   1.37MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  43.2% of ~   1.44MiB at    1.78MiB/s ETA Unknown (frag 7/19)[download]  37.4% of ~   1.67MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.4% of ~   1.32MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.5% of ~   1.32MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  47.7% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.0% of ~   1.33MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.5% of ~   1.35MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  49.6% of ~   1.38MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  48.5% of ~   1.45MiB at    1.78MiB/s ETA Unknown (frag 8/19)[download]  42.6% of ~   1.65MiB at    1.78MiB/s ETA Unknown (frag 9/19)[download]  52.7% of ~   1.33MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  52.8% of ~   1.34MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  52.9% of ~   1.34MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.2% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.8% of ~   1.36MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  54.9% of ~   1.39MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  53.8% of ~   1.45MiB at    1.93MiB/s ETA Unknown (frag 9/19)[download]  47.8% of ~   1.63MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.0% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.0% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.2% of ~   1.35MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  58.5% of ~   1.36MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  59.0% of ~   1.37MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  60.1% of ~   1.40MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  59.0% of ~   1.45MiB at    1.93MiB/s ETA Unknown (frag 10/19)[download]  53.1% of ~   1.62MiB at    1.93MiB/s ETA Unknown (frag 11/19)[download]  63.2% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.3% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.4% of ~   1.36MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  63.7% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  64.3% of ~   1.38MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  65.4% of ~   1.41MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  64.3% of ~   1.46MiB at    2.03MiB/s ETA Unknown (frag 11/19)[download]  58.3% of ~   1.61MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.5% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.6% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  68.7% of ~   1.37MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.0% of ~   1.38MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.5% of ~   1.39MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  70.6% of ~   1.41MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  69.5% of ~   1.46MiB at    2.03MiB/s ETA Unknown (frag 12/19)[download]  63.6% of ~   1.60MiB at    2.03MiB/s ETA Unknown (frag 13/19)[download]  73.8% of ~   1.38MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  73.8% of ~   1.38MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  74.0% of ~   1.38MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  74.2% of ~   1.39MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  74.8% of ~   1.40MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  75.9% of ~   1.42MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  74.8% of ~   1.46MiB at    2.10MiB/s ETA Unknown (frag 13/19)[download]  68.8% of ~   1.59MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  79.0% of ~   1.38MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  79.1% of ~   1.38MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  79.2% of ~   1.39MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  79.5% of ~   1.39MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  80.1% of ~   1.40MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  81.1% of ~   1.42MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  80.1% of ~   1.46MiB at    2.10MiB/s ETA Unknown (frag 14/19)[download]  74.0% of ~   1.58MiB at    2.10MiB/s ETA Unknown (frag 15/19)[download]  84.3% of ~   1.39MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  84.4% of ~   1.39MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  84.5% of ~   1.39MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  84.8% of ~   1.40MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  85.3% of ~   1.41MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  86.4% of ~   1.43MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  85.3% of ~   1.46MiB at    2.16MiB/s ETA Unknown (frag 15/19)[download]  79.3% of ~   1.57MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  89.5% of ~   1.39MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  89.6% of ~   1.40MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  89.8% of ~   1.40MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  90.0% of ~   1.40MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  90.6% of ~   1.41MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  91.7% of ~   1.43MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  90.6% of ~   1.46MiB at    2.16MiB/s ETA Unknown (frag 16/19)[download]  84.5% of ~   1.57MiB at    2.16MiB/s ETA Unknown (frag 17/19)[download]  94.8% of ~   1.40MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  94.9% of ~   1.40MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  95.0% of ~   1.40MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  95.3% of ~   1.41MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  95.8% of ~   1.41MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  96.9% of ~   1.43MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  95.8% of ~   1.46MiB at    2.19MiB/s ETA Unknown (frag 17/19)[download]  89.8% of ~   1.56MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.40MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.41MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.41MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.42MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.43MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.46MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download] 100.0% of ~   1.49MiB at    2.19MiB/s ETA Unknown (frag 18/19)[download]  94.3% of ~   1.58MiB at    2.19MiB/s ETA Unknown (frag 19/19)[download] 100% of    1.49MiB in 00:00:00 at 2.39MiB/s                                                                         /Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/pitch.py:153: UserWarning: Trying to estimate tuning from empty frequency set.
-  warnings.warn("Trying to estimate tuning from empty frequency set.")
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=512 is too small for input signal of length=345
-  warnings.warn(
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2829: RuntimeWarning: invalid value encountered in true_divide
-  c /= stddev[:, None]
-/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/numpy/lib/function_base.py:2830: RuntimeWarning: invalid value encountered in true_divide
-  c /= stddev[None, :]
-Successfully downloaded audio to: /var/folders/jd/q_xk2v8960v87vw1gsm0xy4h0000gq/T/tmpg_u2oyco/pz-UQfM1HSM.wav
-Starting audio analysis...
-Audio loaded successfully. Duration: 95.97 seconds
-Detected key: C major, tempo: 152.00
-Analyzing 95 chord segments...
-Analysis complete. Found 95 chords.
-Applying intelligent music analysis...
-Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250525_234519_youtube_pz-UQfM1HSM.json
-INFO:     127.0.0.1:64231 - "POST /analyze-youtube HTTP/1.1" 200 OK
+Saved YouTube chord analysis to /Users/stephanelkhoury/Documents/GitHub/harmonix/SongChords/20250531_182055_youtube_R07NwwB5tJc.json
+INFO:     127.0.0.1:63588 - "POST /analyze-youtube HTTP/1.1" 200 OK
 WARNING:  StatReload detected file change in 'main.py'. Reloading...
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [88282]
-Process SpawnProcess-2:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 24, in import_from_string
-    raise exc from None
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 19, in <module>
-    from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment
-ImportError: cannot import name 'EnhancedChordDetector' from 'enhanced_chord_detection' (/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py)
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-3:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 24, in import_from_string
-    raise exc from None
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 19, in <module>
-    from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment
-ImportError: cannot import name 'EnhancedChordDetector' from 'enhanced_chord_detection' (/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py)
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-4:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 24, in import_from_string
-    raise exc from None
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 19, in <module>
-    from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment
-ImportError: cannot import name 'EnhancedChordDetector' from 'enhanced_chord_detection' (/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py)
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-5:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 24, in import_from_string
-    raise exc from None
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 19, in <module>
-    from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment
-ImportError: cannot import name 'EnhancedChordDetector' from 'enhanced_chord_detection' (/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py)
-WARNING:  StatReload detected file change in 'enhanced_chord_detection.py'. Reloading...
-Process SpawnProcess-6:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 33, in <module>
-    enhanced_chord_detector = EnhancedChordDetector()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 18, in __init__
-    self.chord_templates = self._create_enhanced_chord_templates()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 53, in _create_enhanced_chord_templates
-    note = self.note_names[i]
-AttributeError: 'EnhancedChordDetector' object has no attribute 'note_names'
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-7:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 33, in <module>
-    enhanced_chord_detector = EnhancedChordDetector()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 18, in __init__
-    self.chord_templates = self._create_enhanced_chord_templates()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 53, in _create_enhanced_chord_templates
-    note = self.note_names[i]
-AttributeError: 'EnhancedChordDetector' object has no attribute 'note_names'
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-8:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 33, in <module>
-    enhanced_chord_detector = EnhancedChordDetector()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 18, in __init__
-    self.chord_templates = self._create_enhanced_chord_templates()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 53, in _create_enhanced_chord_templates
-    note = self.note_names[i]
-AttributeError: 'EnhancedChordDetector' object has no attribute 'note_names'
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-9:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 33, in <module>
-    enhanced_chord_detector = EnhancedChordDetector()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 18, in __init__
-    self.chord_templates = self._create_enhanced_chord_templates()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 53, in _create_enhanced_chord_templates
-    note = self.note_names[i]
-AttributeError: 'EnhancedChordDetector' object has no attribute 'note_names'
-WARNING:  StatReload detected file change in 'main.py'. Reloading...
-Process SpawnProcess-10:
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
-    self.run()
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/subprocess.py", line 76, in subprocess_started
-    target(sockets=sockets)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 68, in run
-    return asyncio.run(self.serve(sockets=sockets))
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/runners.py", line 44, in run
-    return loop.run_until_complete(main)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
-    return future.result()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/server.py", line 76, in serve
-    config.load()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/config.py", line 448, in load
-    self.loaded_app = import_from_string(self.app)
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/uvicorn/importer.py", line 21, in import_from_string
-    module = importlib.import_module(module_str)
-  File "/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/importlib/__init__.py", line 126, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
-  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./main.py", line 33, in <module>
-    enhanced_chord_detector = EnhancedChordDetector()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 18, in __init__
-    self.chord_templates = self._create_enhanced_chord_templates()
-  File "/Users/stephanelkhoury/Documents/GitHub/harmonix/python_service/./enhanced_chord_detection.py", line 53, in _create_enhanced_chord_templates
-    note = self.note_names[i]
-AttributeError: 'EnhancedChordDetector' object has no attribute 'note_names'
-WARNING:  StatReload detected file change in 'enhanced_chord_detection.py'. Reloading...
-INFO:     Started server process [12801]
+INFO:     Finished server process [45369]
+INFO:     Started server process [61680]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [12801]
-INFO:     Stopping reloader process [88275]
+INFO:     Finished server process [61680]
+INFO:     Started server process [61796]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61796]
+INFO:     Started server process [62754]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'improved_chord_detection.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [62754]
+INFO:     Started server process [62805]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64374 - "GET /api/capo-settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64694 - "GET /api/capo-settings HTTP/1.1" 200 OK
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=2048 is too small for input signal of length=0
+  warnings.warn(
+Error in real-time chord detection: can't extend empty axis 0 using modes other than 'constant' or 'empty'
+INFO:     127.0.0.1:64712 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64720 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64728 - "GET /api/capo-settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65023 - "GET /api/health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65030 - "GET /api/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65047 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65053 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65061 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65072 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65189 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65191 - "POST /api/set-capo HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d72890>: Format not recognised.
+INFO:     127.0.0.1:65193 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73150>: Format not recognised.
+INFO:     127.0.0.1:65195 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d732e0>: Format not recognised.
+INFO:     127.0.0.1:65197 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73420>: Format not recognised.
+INFO:     127.0.0.1:65199 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73510>: Format not recognised.
+INFO:     127.0.0.1:65201 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use 'pip install uvicorn[standard]', or install 'websockets' or 'wsproto' manually.
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d736a0>: Format not recognised.
+INFO:     127.0.0.1:65205 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d648b0>: Format not recognised.
+INFO:     127.0.0.1:65207 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73420>: Format not recognised.
+INFO:     127.0.0.1:65209 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73150>: Format not recognised.
+INFO:     127.0.0.1:65211 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d72cf0>: Format not recognised.
+INFO:     127.0.0.1:65213 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d71fd0>: Format not recognised.
+INFO:     127.0.0.1:65215 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d72fc0>: Format not recognised.
+INFO:     127.0.0.1:65217 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d726b0>: Format not recognised.
+INFO:     127.0.0.1:65219 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d72660>: Format not recognised.
+INFO:     127.0.0.1:65221 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73920>: Format not recognised.
+INFO:     127.0.0.1:65223 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73a60>: Format not recognised.
+INFO:     127.0.0.1:65225 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73ba0>: Format not recognised.
+INFO:     127.0.0.1:65227 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73ce0>: Format not recognised.
+INFO:     127.0.0.1:65229 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73e20>: Format not recognised.
+INFO:     127.0.0.1:65231 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73880>: Format not recognised.
+INFO:     127.0.0.1:65233 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d722a0>: Format not recognised.
+INFO:     127.0.0.1:65235 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d729d0>: Format not recognised.
+INFO:     127.0.0.1:65237 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d732e0>: Format not recognised.
+INFO:     127.0.0.1:65239 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d736a0>: Format not recognised.
+INFO:     127.0.0.1:65241 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73ab0>: Format not recognised.
+INFO:     127.0.0.1:65243 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65290 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65292 - "POST /api/set-capo HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73510>: Format not recognised.
+INFO:     127.0.0.1:65294 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73fb0>: Format not recognised.
+INFO:     127.0.0.1:65296 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8130>: Format not recognised.
+INFO:     127.0.0.1:65298 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8270>: Format not recognised.
+INFO:     127.0.0.1:65300 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73dd0>: Format not recognised.
+INFO:     127.0.0.1:65302 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use 'pip install uvicorn[standard]', or install 'websockets' or 'wsproto' manually.
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d731a0>: Format not recognised.
+INFO:     127.0.0.1:65306 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73ec0>: Format not recognised.
+INFO:     127.0.0.1:65308 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d722a0>: Format not recognised.
+INFO:     127.0.0.1:65310 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73740>: Format not recognised.
+INFO:     127.0.0.1:65312 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73920>: Format not recognised.
+INFO:     127.0.0.1:65314 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8310>: Format not recognised.
+INFO:     127.0.0.1:65316 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db82c0>: Format not recognised.
+INFO:     127.0.0.1:65318 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db83b0>: Format not recognised.
+INFO:     127.0.0.1:65320 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db84f0>: Format not recognised.
+INFO:     127.0.0.1:65322 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8630>: Format not recognised.
+INFO:     127.0.0.1:65324 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73e70>: Format not recognised.
+INFO:     127.0.0.1:65326 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d722a0>: Format not recognised.
+INFO:     127.0.0.1:65328 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73880>: Format not recognised.
+INFO:     127.0.0.1:65330 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168d73f10>: Format not recognised.
+INFO:     127.0.0.1:65332 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db84a0>: Format not recognised.
+INFO:     127.0.0.1:65334 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8590>: Format not recognised.
+INFO:     127.0.0.1:65336 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db83b0>: Format not recognised.
+INFO:     127.0.0.1:65338 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8310>: Format not recognised.
+INFO:     127.0.0.1:65340 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8810>: Format not recognised.
+INFO:     127.0.0.1:65342 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: Error opening <_io.BytesIO object at 0x168db8950>: Format not recognised.
+INFO:     127.0.0.1:65344 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [62805]
+INFO:     Started server process [91559]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65392 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65394 - "POST /api/set-capo HTTP/1.1" 200 OK
+/Users/stephanelkhoury/Documents/GitHub/harmonix/.venv/lib/python3.10/site-packages/librosa/core/spectrum.py:222: UserWarning: n_fft=512 is too small for input signal of length=345
+  warnings.warn(
+INFO:     127.0.0.1:65396 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65398 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65400 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65402 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65404 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 65406) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:65408 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65410 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65412 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65414 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65416 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65418 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65420 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65422 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65424 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65426 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65428 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65430 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65432 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65434 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65436 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65438 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65440 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65442 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65444 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65446 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+WARNING:  StatReload detected file change in 'optimized_realtime_detection.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [91559]
+INFO:     Started server process [97469]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [97469]
+INFO:     Started server process [98434]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98434]
+INFO:     Started server process [98504]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98504]
+INFO:     Started server process [98632]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98632]
+INFO:     Started server process [98738]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [98738]
+INFO:     Started server process [99093]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:49287 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49289 - "POST /api/set-capo HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49291 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49293 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49295 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49297 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49299 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 49301) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49304 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49306 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49308 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49310 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49312 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49314 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49316 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49318 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49320 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49322 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49324 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49326 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49328 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49330 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49332 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49334 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49336 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49338 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49340 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+Error in real-time chord detection: 'OptimizedRealTimeChordDetector' object has no attribute 'detect_chord_realtime'
+INFO:     127.0.0.1:49342 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99093]
+INFO:     Started server process [869]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'optimized_realtime_detection.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [869]
+INFO:     Started server process [2164]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'optimized_realtime_detection.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2164]
+INFO:     Started server process [5429]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'optimized_realtime_detection.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5429]
+INFO:     Started server process [5722]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5722]
+INFO:     Started server process [8011]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:49491 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49494 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49496 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49498 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49500 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49502 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49504 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 49506) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:49508 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49510 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49512 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49514 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49518 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49521 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49523 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49525 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49527 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49529 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49531 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49534 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49536 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49538 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49540 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49542 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49544 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49546 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49548 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49716 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49718 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49720 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49722 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49724 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49726 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49728 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49730 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49732 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49735 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 50345) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 50470) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     ('127.0.0.1', 51142) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 51144) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:51441 - "GET /health HTTP/1.1" 200 OK
+[download]   0.0% of    4.16MiB at    8.36KiB/s ETA 08:29[download]   0.1% of    4.16MiB at   24.94KiB/s ETA 02:50[download]   0.2% of    4.16MiB at   58.12KiB/s ETA 01:13[download]   0.4% of    4.16MiB at  124.40KiB/s ETA 00:34[download]   0.7% of    4.16MiB at  256.80KiB/s ETA 00:16[download]   1.5% of    4.16MiB at  391.78KiB/s ETA 00:10[download]   3.0% of    4.16MiB at  534.64KiB/s ETA 00:07[download]   6.0% of    4.16MiB at  557.09KiB/s ETA 00:07[download]  12.0% of    4.16MiB at  635.47KiB/s ETA 00:05[download]  24.0% of    4.16MiB at  524.01KiB/s ETA 00:06[download]  34.5% of    4.16MiB at  402.76KiB/s ETA 00:06[download]  40.7% of    4.16MiB at  341.25KiB/s ETA 00:07[download]  45.0% of    4.16MiB at  306.38KiB/s ETA 00:07[download]  48.7% of    4.16MiB at  285.96KiB/s ETA 00:07[download]  52.3% of    4.16MiB at  284.12KiB/s ETA 00:07[download]  58.5% of    4.16MiB at  284.42KiB/s ETA 00:06[download]  65.2% of    4.16MiB at  241.45KiB/s ETA 00:06[download]  68.6% of    4.16MiB at  211.75KiB/s ETA 00:06[download]  70.3% of    4.16MiB at  196.18KiB/s ETA 00:06[download]  71.4% of    4.16MiB at  193.45KiB/s ETA 00:06[download]  73.7% of    4.16MiB at  188.17KiB/s ETA 00:05[download]  76.1% of    4.16MiB at  184.75KiB/s ETA 00:05[download]  78.9% of    4.16MiB at  181.65KiB/s ETA 00:04[download]  81.8% of    4.16MiB at  177.21KiB/s ETA 00:04[download]  84.4% of    4.16MiB at  168.81KiB/s ETA 00:03[download]  85.9% of    4.16MiB at  164.21KiB/s ETA 00:03[download]  87.5% of    4.16MiB at  162.00KiB/s ETA 00:03[download]  89.6% of    4.16MiB at  161.58KiB/s ETA 00:02[download]  93.1% of    4.16MiB at  160.62KiB/s ETA 00:01[download]  96.3% of    4.16MiB at  158.85KiB/s ETA 00:00[download]  99.2% of    4.16MiB at  154.18KiB/s ETA 00:00[download] 100.0% of    4.16MiB at  154.13KiB/s ETA 00:00[download] 100% of    4.16MiB in 00:00:27 at 152.80KiB/s                                                         INFO:     127.0.0.1:51441 - "POST /api/analyze-lyrics HTTP/1.1" 200 OK
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8011]
+INFO:     Started server process [22896]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51972 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52010 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52012 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52014 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52016 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52018 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52020 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52022 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52024 - "POST /api/set-capo HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52026 - "POST /api/real-time-chord HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52028 - "POST /api/set-capo HTTP/1.1" 200 OK
+WARNING:  StatReload detected file change in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22896]
+INFO:     Started server process [26362]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:52120 - "GET /health HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 52868) - "WebSocket /ws/realtime-chord-detection" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 52913) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 52960) - "WebSocket /api/ws/real-time-chords" [accepted]
+INFO:     connection open
+INFO:     connection closed
+WebSocket received message type: test
+WebSocket received message type: audio_chunk
+Processing audio chunk: 58800 bytes base64
+Detected chord: F# sus4 (confidence: 0.332)
+INFO:     127.0.0.1:53340 - "GET /health HTTP/1.1" 200 OK
+[download]   0.0% of    4.16MiB at  525.47KiB/s ETA 00:08[download]   0.1% of    4.16MiB at    1.31MiB/s ETA 00:03[download]   0.2% of    4.16MiB at    2.86MiB/s ETA 00:01[download]   0.4% of    4.16MiB at    5.57MiB/s ETA 00:00[download]   0.7% of    4.16MiB at    3.43MiB/s ETA 00:01[download]   1.5% of    4.16MiB at    4.35MiB/s ETA 00:00[download]   3.0% of    4.16MiB at    1.98MiB/s ETA 00:02[download]   6.0% of    4.16MiB at 1012.83KiB/s ETA 00:03[download]  12.0% of    4.16MiB at    1.53MiB/s ETA 00:02[download]  24.0% of    4.16MiB at    1.59MiB/s ETA 00:01[download]  48.1% of    4.16MiB at    1.76MiB/s ETA 00:01[download]  95.4% of    4.16MiB at    2.96MiB/s ETA 00:00[download] 100.0% of    4.16MiB at    1.99MiB/s ETA 00:00[download] 100% of    4.16MiB in 00:00:03 at 1.34MiB/s                                                         WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x170a6e9e0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fbe9c30>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc60e80>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download webpage: <urllib3.connection.HTTPSConnection object at 0x16fc04c10>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fc04c10>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)")). Giving up after 3 retries
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc628c0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fbe8520>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc06d40>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download webpage: <urllib3.connection.HTTPSConnection object at 0x16fbe93c0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fbe93c0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)")). Giving up after 3 retries
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc608e0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc055d0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc07850>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download webpage: <urllib3.connection.HTTPSConnection object at 0x16fc61240>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fc61240>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)")). Giving up after 3 retries
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc07250>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x170a6e800>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc050f0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x16fc06560>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fc06560>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)"))
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc04730>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc07af0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fbd26b0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x16fc06920>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fc06920>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)"))
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fbd2860>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (1/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc05a80>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (2/3)...
+WARNING: [youtube] <urllib3.connection.HTTPSConnection object at 0x16fc045e0>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known). Retrying (3/3)...
+WARNING: [youtube] Unable to download API page: <urllib3.connection.HTTPSConnection object at 0x16fbd2170>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known) (caused by TransportError("<urllib3.connection.HTTPSConnection object at 0x16fbd2170>: Failed to resolve 'www.youtube.com' ([Errno 8] nodename nor servname provided, or not known)"))
+ERROR: [youtube] gPUjA7fZ3tw: Failed to extract any player response; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Error processing YouTube lyrics: ERROR: [youtube] gPUjA7fZ3tw: Failed to extract any player response; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+INFO:     127.0.0.1:53340 - "POST /api/analyze-lyrics HTTP/1.1" 200 OK

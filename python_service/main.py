@@ -17,6 +17,8 @@ import yt_dlp
 import speech_recognition as sr
 from music_intelligence import MusicIntelligenceEngine
 from enhanced_chord_detection import EnhancedChordDetector, ImprovedTonalFragment, ChordProgressionAnalyzer
+from improved_chord_detection import ImprovedChordDetector
+from optimized_realtime_detection import OptimizedRealTimeChordDetector
 
 app = FastAPI()
 
@@ -31,6 +33,8 @@ app.add_middleware(
 # Initialize Music Intelligence Engine and Enhanced Chord Detector
 music_intelligence = MusicIntelligenceEngine()
 enhanced_chord_detector = EnhancedChordDetector()
+improved_chord_detector = ImprovedChordDetector()  # New improved detector
+optimized_realtime_detector = OptimizedRealTimeChordDetector()  # Optimized for real-time
 progression_analyzer = ChordProgressionAnalyzer()
 
 def extract_youtube_id(url):
@@ -181,46 +185,30 @@ async def analyze(file: UploadFile = File(...)):
         duration = librosa.get_duration(y=y, sr=sr)
         
         # Enhanced key detection
-        print("Detecting key with enhanced algorithm...")
-        key, key_confidence = enhanced_chord_detector.detect_key_enhanced(y_harmonic, sr)
+        print("Detecting key with improved algorithm...")
+        key, key_confidence = improved_chord_detector.detect_key_improved(y_harmonic, sr)
         print(f"Detected key: {key} (confidence: {key_confidence:.3f})")
         
         # Detect tempo
         tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
         
-        # Enhanced chord detection with two methods
-        print("Running enhanced chord detection...")
+        # Enhanced chord detection with improved method
+        print("Running improved chord detection...")
         
-        # Method 1: Enhanced continuous detection
-        enhanced_chords = enhanced_chord_detector.detect_chords_enhanced(y_harmonic, sr)
+        # Use the improved detector to fix major/minor conflicts
+        improved_chords = improved_chord_detector.detect_chords_improved(y_harmonic, sr)
         
-        # Method 2: Improved segmented detection (1-second bins)
-        print("Running segmented chord analysis...")
-        bin_size = 1
-        segmented_chords = []
-        for i in range(0, int(duration)//bin_size):
-            tstart = bin_size * i
-            tend = bin_size * (i+1)
-            fragment = ImprovedTonalFragment(
-                y_harmonic, sr, 
-                tstart=tstart, tend=tend, 
-                enhanced_detector=enhanced_chord_detector
-            )
-            segmented_chords.append({
-                "time": tstart,
-                "chord": fragment.key,
-                "confidence": getattr(fragment, 'confidence', 0.0)
-            })
+        # Fallback to enhanced method if improved fails
+        if len(improved_chords) == 0:
+            print("Falling back to enhanced detection...")
+            improved_chords = enhanced_chord_detector.detect_chords_enhanced(y_harmonic, sr)
         
-        # Combine both methods for best results
-        print("Combining detection methods...")
-        chords = enhanced_chords if len(enhanced_chords) > 0 else segmented_chords
-        
-        # Add confidence scores to segmented chords if using that method
-        if chords == segmented_chords:
-            for chord in chords:
-                if 'confidence' not in chord:
-                    chord['confidence'] = 0.5  # Default confidence
+        # Use improved detection as primary method
+        chords = improved_chords
+        # Ensure all chords have confidence scores
+        for chord in chords:
+            if 'confidence' not in chord:
+                chord['confidence'] = 0.5  # Default confidence
         
         print(f"Detected {len(chords)} chord segments")
         
@@ -800,17 +788,215 @@ async def analyze_intelligence(request: Request):
         print(f"Error in analyze_intelligence: {str(e)}")
         return {"error": f"Failed to perform intelligent analysis: {str(e)}"}
 
-if __name__ == "__main__":
-    # Ensure directories exist
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(script_dir)
+# Real-time chord detection models
+class AudioChunk(BaseModel):
+    audio_data: str  # Base64 encoded audio data
+    sample_rate: int = 44100
+    chunk_duration: float = 0.5  # Duration in seconds
+
+class RealTimeChordResponse(BaseModel):
+    chord: str
+    confidence: float
+    timestamp: float
+    key: Optional[str] = None
+    capo_position: Optional[int] = None
+
+class CapoSettings(BaseModel):
+    capo_position: int = 0  # 0-12 frets
+    tuning: str = "standard"  # standard, drop_d, etc.
+
+# Global capo settings
+current_capo_settings = CapoSettings()
+
+@app.post("/api/real-time-chord")
+async def detect_real_time_chord(audio_chunk: AudioChunk) -> RealTimeChordResponse:
+    """Detect chord from real-time audio chunk for Capo-like functionality"""
+    try:
+        import base64
+        import io
+        
+        # Decode base64 audio data
+        audio_bytes = base64.b64decode(audio_chunk.audio_data)
+        
+        # Convert raw PCM int16 data to float32
+        y = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32) / 32767.0
+        sr = audio_chunk.sample_rate
+        
+        # Ensure we have audio data
+        if len(y) == 0:
+            return RealTimeChordResponse(
+                chord="N",
+                confidence=0.0,
+                timestamp=datetime.datetime.now().timestamp(),
+                capo_position=current_capo_settings.capo_position
+            )
+        
+        # Apply harmonic-percussive separation for cleaner detection
+        y_harmonic, _ = librosa.effects.hpss(y, margin=(1.0, 5.0))
+        
+        # Skip if very low energy
+        if np.sum(y_harmonic) < 0.001:
+            return RealTimeChordResponse(
+                chord="N",
+                confidence=0.0,
+                timestamp=datetime.datetime.now().timestamp(),
+                capo_position=current_capo_settings.capo_position
+            )
+        
+        # Use optimized real-time detection
+        chord, confidence = optimized_realtime_detector.detect_chord_fast(y_harmonic, sr)
+        
+        # Apply capo transposition if set
+        if current_capo_settings.capo_position > 0 and chord != "N":
+            chord = transpose_chord_for_capo(chord, current_capo_settings.capo_position)
+        
+        return RealTimeChordResponse(
+            chord=chord,
+            confidence=confidence,
+            timestamp=datetime.datetime.now().timestamp(),
+            capo_position=current_capo_settings.capo_position
+        )
+        
+    except Exception as e:
+        print(f"Error in real-time chord detection: {str(e)}")
+        return RealTimeChordResponse(
+            chord="N",
+            confidence=0.0,
+            timestamp=datetime.datetime.now().timestamp()
+        )
+
+@app.post("/api/set-capo")
+async def set_capo_position(settings: CapoSettings):
+    """Set capo position for chord transposition"""
+    global current_capo_settings
+    current_capo_settings = settings
+    return {"status": "success", "capo_position": settings.capo_position}
+
+@app.get("/api/capo-settings")
+async def get_capo_settings():
+    """Get current capo settings"""
+    return current_capo_settings
+
+def transpose_chord_for_capo(chord: str, capo_position: int) -> str:
+    """Transpose chord based on capo position"""
+    if chord == "N" or capo_position == 0:
+        return chord
     
-    for dir_name in ["SongChords", "LyricsData", "uploads"]:
-        dir_path = os.path.join(project_root, dir_name)
-        if not os.path.exists(dir_path):
-            print(f"Creating {dir_name} directory")
-            os.makedirs(dir_path, exist_ok=True)
-    
-    # Start servers
-    print("Starting Python service on port 8000...")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    try:
+        # Extract root note and chord type
+        parts = chord.split()
+        if len(parts) < 2:
+            return chord
+            
+        root = parts[0]
+        chord_type = " ".join(parts[1:])
+        
+        # Find root in chromatic scale
+        notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+        
+        if root in notes:
+            # Transpose down by capo position (what guitarist sees vs actual pitch)
+            root_index = notes.index(root)
+            new_root_index = (root_index - capo_position) % 12
+            new_root = notes[new_root_index]
+            return f"{new_root} {chord_type}"
+        
+        return chord
+    except:
+        return chord
+
+@app.post("/api/analyze-audio-stream")
+async def analyze_audio_stream(file: UploadFile = File(...)):
+    """Analyze longer audio stream with improved chord detection"""
+    try:
+        # Save uploaded file temporarily
+        contents = await file.read()
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_file:
+            tmp_file.write(contents)
+            tmp_path = tmp_file.name
+
+        # Load and process audio
+        y, sr = librosa.load(tmp_path)
+        y_harmonic, _ = librosa.effects.hpss(y)
+        duration = librosa.get_duration(y=y, sr=sr)
+        
+        # Use improved chord detection
+        chords = improved_chord_detector.detect_chords_improved(y_harmonic, sr)
+        
+        # Detect key
+        key, key_confidence = improved_chord_detector.detect_key_improved(y_harmonic, sr)
+        
+        # Clean up
+        os.unlink(tmp_path)
+        
+        return {
+            "chords": chords,
+            "key": key,
+            "key_confidence": key_confidence,
+            "duration": duration,
+            "analysis_method": "improved_detection"
+        }
+        
+    except Exception as e:
+        print(f"Error in stream analysis: {str(e)}")
+        return {"error": str(e)}
+
+# WebSocket support for real-time streaming
+from fastapi import WebSocket, WebSocketDisconnect
+import asyncio
+
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: List[WebSocket] = []
+
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        self.active_connections.remove(websocket)
+
+    async def send_chord_update(self, chord_data: dict):
+        for connection in self.active_connections:
+            try:
+                await connection.send_json(chord_data)
+            except:
+                # Connection is probably closed
+                pass
+
+manager = ConnectionManager()
+
+@app.websocket("/api/ws/real-time-chords")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+    try:
+        while True:
+            # Wait for audio data from client
+            data = await websocket.receive_json()
+            print(f"WebSocket received message type: {data.get('type')}")  # Debug log
+            
+            if data.get("type") == "audio_chunk":
+                # Process audio chunk
+                audio_chunk = AudioChunk(**data["data"])
+                print(f"Processing audio chunk: {len(audio_chunk.audio_data)} bytes base64")  # Debug log
+                chord_response = await detect_real_time_chord(audio_chunk)
+                print(f"Detected chord: {chord_response.chord} (confidence: {chord_response.confidence:.3f})")  # Debug log
+                
+                # Send back chord detection
+                await websocket.send_json({
+                    "type": "chord_update",
+                    "data": chord_response.dict()
+                })
+                
+            elif data.get("type") == "capo_change":
+                # Update capo settings
+                settings = CapoSettings(**data["data"])
+                await set_capo_position(settings)
+                
+                await websocket.send_json({
+                    "type": "capo_updated",
+                    "data": settings.dict()
+                })
+                
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)

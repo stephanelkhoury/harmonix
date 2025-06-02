@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Test</title>
+</head>
+<body>
+    <h1>Quick Audio Test</h1>
+    <button id="testAudio">Test Audio Capture</button>
+    <div id="output"></div>
+    
+    <script>
+        document.getElementById('testAudio').addEventListener('click', async () => {
+            const output = document.getElementById('output');
+            
+            try {
+                // Get microphone access
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                output.innerHTML += '<p>✅ Microphone access granted</p>';
+                
+                // Create audio context
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                output.innerHTML += '<p>✅ AudioContext created</p>';
+                
+                // Create source
+                const source = audioContext.createMediaStreamSource(stream);
+                const processor = audioContext.createScriptProcessor(4096, 1, 1);
+                
+                let sampleCount = 0;
+                processor.onaudioprocess = (event) => {
+                    const inputData = event.inputBuffer.getChannelData(0);
+                    const rms = Math.sqrt(inputData.reduce((sum, sample) => sum + sample * sample, 0) / inputData.length);
+                    
+                    if (sampleCount % 10 === 0) { // Log every 10th chunk
+                        output.innerHTML += `<p>Audio level: ${(rms * 100).toFixed(2)}%</p>`;
+                    }
+                    sampleCount++;
+                };
+                
+                source.connect(processor);
+                processor.connect(audioContext.destination);
+                
+                output.innerHTML += '<p>✅ Audio processing started - make some noise!</p>';
+                
+                // Stop after 10 seconds
+                setTimeout(() => {
+                    processor.disconnect();
+                    source.disconnect();
+                    stream.getTracks().forEach(track => track.stop());
+                    output.innerHTML += '<p>🛑 Audio test completed</p>';
+                }, 10000);
+                
+            } catch (error) {
+                output.innerHTML += `<p>❌ Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

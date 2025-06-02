@@ -272,23 +272,55 @@
   font-size: 0.7rem;
 }
 
-/* Guitar Fretboard */
+/* Modern Advanced Guitar Fretboard */
 .guitar-fretboard {
   position: relative;
   width: 100%;
-  height: 180px;
-  background: linear-gradient(180deg, #4B3621 0%, #2C1E13 100%);
-  border-radius: 8px;
+  height: 220px;
+  background: linear-gradient(180deg, 
+    #8B4513 0%, 
+    #654321 15%, 
+    #4A2F1A 35%, 
+    #3D2512 60%, 
+    #2C1A0F 85%, 
+    #1A0F08 100%
+  );
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  border: 2px solid #654321;
+  transition: all 0.3s ease;
+}
+
+.guitar-fretboard:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .fret-markers {
   display: flex;
-  height: 20px;
-  background: #2C1E13;
-  border-bottom: 2px solid #888;
+  height: 24px;
+  background: linear-gradient(180deg, #3D2512 0%, #2C1A0F 100%);
+  border-bottom: 3px solid #8B7355;
+  position: relative;
+}
+
+.fret-markers::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .fret-marker {
@@ -296,37 +328,92 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #AAA;
+  color: #D4AF37;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.fret-marker:first-child {
+  background: linear-gradient(180deg, #8B7355 0%, #6B5B47 100%);
+  color: #2C1A0F;
+  font-weight: 800;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
   font-size: 0.8rem;
+}
+
+.fret-marker:not(:first-child):hover {
+  color: #FFD700;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
 }
 
 .guitar-string {
   display: flex;
-  height: 26px;
+  height: 32px;
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(139, 115, 85, 0.3);
+  transition: all 0.3s ease;
+}
+
+.guitar-string:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .guitar-string:before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 25px;
   right: 0;
   top: 50%;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  height: var(--string-thickness, 2px);
+  background: linear-gradient(90deg, 
+    rgba(192, 192, 192, 0.8), 
+    rgba(255, 255, 255, 0.9), 
+    rgba(192, 192, 192, 0.8)
+  );
   z-index: 1;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 -1px 1px rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  animation: stringShimmer 3s ease-in-out infinite alternate;
 }
 
+@keyframes stringShimmer {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Different string thicknesses for realism */
+.guitar-string:nth-child(2):before { --string-thickness: 1.5px; } /* High E */
+.guitar-string:nth-child(3):before { --string-thickness: 2px; }   /* B */
+.guitar-string:nth-child(4):before { --string-thickness: 2.5px; } /* G */
+.guitar-string:nth-child(5):before { --string-thickness: 3px; }   /* D */
+.guitar-string:nth-child(6):before { --string-thickness: 3.5px; } /* A */
+.guitar-string:nth-child(7):before { --string-thickness: 4px; }   /* Low E */
+
 .string-name {
-  width: 25px;
+  width: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #2C1E13;
-  color: #CCC;
-  font-weight: bold;
-  border-right: 2px solid #888;
+  background: linear-gradient(45deg, #3D2512 0%, #2C1A0F 100%);
+  color: #D4AF37;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-right: 3px solid #8B7355;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.string-name:hover {
+  color: #FFD700;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
 }
 
 .guitar-fret {
@@ -334,23 +421,105 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 2px solid #888;
+  border-right: 3px solid #8B7355;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guitar-fret:hover {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.guitar-fret:nth-child(3), .guitar-fret:nth-child(5), .guitar-fret:nth-child(7), .guitar-fret:nth-child(9), .guitar-fret:nth-child(12) {
   position: relative;
 }
 
+.guitar-fret:nth-child(3)::after, .guitar-fret:nth-child(5)::after, .guitar-fret:nth-child(7)::after, .guitar-fret:nth-child(9)::after {
+  content: '●';
+  position: absolute;
+  top: -12px;
+  color: #8B7355;
+  font-size: 8px;
+  opacity: 0.6;
+}
+
+.guitar-fret:nth-child(12)::after {
+  content: '●●';
+  position: absolute;
+  top: -12px;
+  color: #8B7355;
+  font-size: 6px;
+  opacity: 0.6;
+  letter-spacing: 2px;
+}
+
 .fret-dot {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0DA1C0 0%, #3B7DAD 100%);
+  background: linear-gradient(135deg, 
+    #FF6B6B 0%, 
+    #FF8E53 25%, 
+    #FF6B9D 50%, 
+    #C44569 75%, 
+    #8B2635 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(15, 162, 220, 0.8);
-  z-index: 2;
+  box-shadow: 
+    0 4px 12px rgba(255, 107, 107, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: fretDotPulse 2s ease-in-out infinite;
+  transform: scale(0);
+  animation-delay: var(--dot-delay, 0s);
+  z-index: 3;
+}
+
+@keyframes fretDotPulse {
+  0% { 
+    transform: scale(0);
+    opacity: 0;
+  }
+  10% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+    box-shadow: 
+      0 6px 16px rgba(255, 107, 107, 0.6),
+      inset 0 2px 4px rgba(255, 255, 255, 0.4),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fret-dot:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 
+    0 6px 20px rgba(255, 107, 107, 0.7),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+  animation-play-state: paused;
+}
+
+.guitar-fret.active .fret-dot {
+  --dot-delay: calc(var(--string-index, 0) * 0.1s);
 }
 
 .chord-info {
@@ -415,99 +584,250 @@
   box-shadow: 0 4px 8px rgba(13, 161, 192, 0.4);
 }
 
-/* Improved responsive styles */
+/* Enhanced Fretboard Interactive Features */
+.fretboard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #2C1A0F 0%, #1A0F08 100%);
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid #8B7355;
+}
+
+.control-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(59, 125, 173, 0.2);
+  border: 1px solid rgba(59, 125, 173, 0.4);
+  color: #D4AF37;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.control-button:hover {
+  background: rgba(59, 125, 173, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-button.active {
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  color: #2C1A0F;
+  border-color: #FFD700;
+}
+
+.finger-icon {
+  font-size: 1rem;
+}
+
+.chord-suggestions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.suggestions-label {
+  color: #D4AF37;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.suggestion-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.suggestion-button {
+  padding: 6px 10px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #D4AF37;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.suggestion-button:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #D4AF37;
+  transform: scale(1.05);
+}
+
+/* Smooth chord transition effects */
+.guitar-fretboard.transitioning {
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: all 0.15s ease-in-out;
+}
+
+.guitar-fretboard.transitioning .fret-dot {
+  animation-play-state: paused;
+  opacity: 0.5;
+}
+
+/* Enhanced fret interaction */
+.guitar-fret {
+  position: relative;
+  overflow: visible;
+}
+
+.guitar-fret.playing {
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  animation: fretPulse 0.5s ease-out;
+}
+
+@keyframes fretPulse {
+  0% {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, transparent 70%);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    transform: scale(1);
+  }
+}
+
+/* Note indicators that appear on hover */
+.note-indicator {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #D4AF37;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.guitar-fret:hover .note-indicator {
+  opacity: 1;
+}
+
+/* Enhanced fret dots with finger numbers */
+.fret-dot {
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.fret-dot:empty::before {
+  content: '●';
+  font-size: 1.2rem;
+}
+
+/* Fretboard info section */
+.fretboard-info {
+  background: linear-gradient(135deg, #2C1A0F 0%, #1A0F08 100%);
+  padding: 12px 16px;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid rgba(139, 115, 85, 0.3);
+}
+
+.playing-technique {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.technique-label {
+  color: #D4AF37;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.technique-tips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tip {
+  color: rgba(212, 175, 55, 0.8);
+  font-size: 0.75rem;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 4px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Responsive enhancements for mobile */
 @media (max-width: 768px) {
-  .chord-visualizer {
-    padding: 20px 15px;
-  }
-  
-  .visualizer-display {
-    height: 170px;
-  }
-  
-  .chord-selector {
-    gap: 10px;
-  }
-  
-  .chord-dropdowns {
-    gap: 10px;
+  .fretboard-controls {
     flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
   }
   
-  .dropdown-container {
+  .chord-suggestions {
     width: 100%;
     justify-content: space-between;
   }
   
-  .chord-dropdown {
-    flex: 1;
-    max-width: 200px;
+  .suggestion-buttons {
+    flex-wrap: wrap;
   }
   
-  .piano-keyboard {
-    height: 150px;
+  .fretboard-info {
+    padding: 8px 12px;
   }
   
-  .piano-key.white {
-    height: 130px;
+  .playing-technique {
+    flex-direction: column;
+    gap: 6px;
   }
   
-  .piano-key.black {
-    height: 85px;
+  .technique-tips {
+    justify-content: space-between;
+  }
+  
+  .note-indicator {
+    bottom: -16px;
+    font-size: 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  .visualizer-tabs {
-    gap: 8px;
+  .control-button {
+    padding: 6px 8px;
+    font-size: 0.75rem;
   }
   
-  .visualizer-tab {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+  .suggestion-button {
+    padding: 4px 6px;
+    font-size: 0.7rem;
   }
   
-  .tab-icon {
-    width: 18px;
-    height: 18px;
+  .fret-dot {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
   }
   
-  .chord-selector {
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .chord-button {
-    padding: 6px 10px;
-    font-size: 0.9rem;
-  }
-  
-  .visualizer-display {
-    height: 150px;
-  }
-  
-  .chord-quick-select {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .piano-key.white {
-    height: 120px;
-  }
-  
-  .piano-key.black {
-    height: 75px;
-  }
-  
-  .key-label {
-    font-size: 0.6rem;
-  }
-  
-  .chord-info h3 {
-    font-size: 1.2rem;
-  }
-  
-  .chord-info p {
-    font-size: 0.9rem;
+  .tip {
+    font-size: 0.65rem;
+    padding: 3px 6px;
   }
 }

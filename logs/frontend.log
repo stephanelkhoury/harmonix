@@ -2,9 +2,9 @@
 > harmonix-frontend@0.1.0 start
 > react-scripts start
 
-(node:88411) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:45532) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:88411) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:45532) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Compiled successfully!
@@ -31,8 +31,76 @@ Compiling...
 Compiled successfully!
 webpack compiled successfully
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Failed to compile.
+
+[eslint] 
+src/components/GuitarFretboard.js
+Syntax error: Unterminated JSX contents. (64:47) (64:47)
+ERROR in ./src/components/GuitarFretboard.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/components/GuitarFretboard.js: Unterminated JSX contents. (64:47)
+
+  62 |           <div key={stringIndex} className="guitar-string" data-string={string}>
+  63 |             {/* String line */}
+> 64 |             <div className="string-line"></div>
+     |                                                ^
+  65 |             
+    at constructor (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:360:19)
+    at FlowParserMixin.raise (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6613:19)
+    at FlowParserMixin.jsxReadToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4454:20)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4780:12)
+    at FlowParserMixin.getTokenFromCode (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3201:13)
+    at FlowParserMixin.nextToken (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5796:10)
+    at FlowParserMixin.next (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5706:10)
+    at FlowParserMixin.eat (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:5710:12)
+    at FlowParserMixin.expect (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6913:15)
+    at FlowParserMixin.jsxParseClosingElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4686:10)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4701:37)
+    at FlowParserMixin.jsxParseElementAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4704:32)
+    at FlowParserMixin.jsxParseElement (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4755:17)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4765:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:39
+    at FlowParserMixin.tryParse (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:6922:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3504:18)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:39
+    at FlowParserMixin.allowInAnd (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12334:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10714:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11591:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10957:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10810:61)
+    at FlowParserMixin.parseExprOps (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10815:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10792:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10745:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3555:18)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:12011:24)
+    at /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:63
+    at FlowParserMixin.forwardNoArrowParamsConversionAt (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3072:16)
+    at FlowParserMixin.parseFunctionBody (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:2896:12)
+    at FlowParserMixin.parseArrowExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11993:10)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11603:12)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:3597:18)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:11242:23)
+    at FlowParserMixin.parseExprAtom (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:4770:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10992:23)
+    at FlowParserMixin.parseUpdate (/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/node_modules/@babel/parser/lib/index.js:10977:21)
+
+ERROR in [eslint] 
+src/components/GuitarFretboard.js
+  Line 64:47:  Parsing error: Unterminated JSX contents. (64:47)
+
+webpack compiled with 2 errors
 Compiling...
 Compiled successfully!
 webpack compiled successfully
@@ -46,65 +114,87 @@ Compiling...
 Compiled successfully!
 webpack compiled successfully
 Compiling...
-Compiled successfully!
-webpack compiled successfully
+Failed to compile.
+
+Syntax error: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block (16:1)
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+ERROR in ./src/pages/style/CapoDemo.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/CapoDemo.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(16:1) /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block
+
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Syntax error: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block (16:1)
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+ERROR in ./src/pages/style/CapoDemo.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/CapoDemo.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(16:1) /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block
+
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Syntax error: /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block (16:1)
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+ERROR in ./src/pages/style/CapoDemo.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/style/CapoDemo.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(16:1) /Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages/style/CapoDemo.css Unclosed block
+
+  14 | }
+  15 | 
+> 16 | .demo-header h1 {
+     | ^
+  17 |   font-size: 3.5rem;
+  18 |   font-weight: 700;
+
+webpack compiled with 1 error
 Compiling...
 Compiled successfully!
 webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
+Failed to compile.
+
+Module not found: Error: Can't resolve './style/CapoDemo.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+ERROR in ./src/pages/CapoDemo.js 7:0-30
+Module not found: Error: Can't resolve './style/CapoDemo.css' in '/Users/stephanelkhoury/Documents/GitHub/harmonix/frontend/src/pages'
+
+webpack compiled with 1 error
 Compiling...
 Compiled successfully!
 webpack compiled successfully

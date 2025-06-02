@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Chord Display Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .auth-section {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .chord-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status.success { background: #d4edda; color: #155724; }
+        .status.error { background: #f8d7da; color: #721c24; }
+        .status.info { background: #d1ecf1; color: #0c5460; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .chord-display {
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .fret-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2px;
+            margin: 10px 0;
+        }
+        .string-label {
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            background: #e0e0e0;
+        }
+        .fret-position {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2px;
+            background: white;
+        }
+        .fret-position.fingered {
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+        }
+        #testResults {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guitar Chord Display Test</h1>
+        
+        <div class="auth-section">
+            <h3>Authentication</h3>
+            <button onclick="authenticate()">Login as Admin</button>
+            <button onclick="testChordAPI()">Test Chord API</button>
+            <div id="authStatus"></div>
+        </div>
+
+        <div class="chord-test">
+            <h3>Test Guitar Chord Display</h3>
+            <p>This will test the guitar chord visualization with the fixes we implemented.</p>
+            
+            <button onclick="testCMajorChord()">Test C Major Chord</button>
+            <button onclick="testGMajorChord()">Test G Major Chord</button>
+            <button onclick="testDMajorChord()">Test D Major Chord</button>
+            <button onclick="testAMinorChord()">Test A Minor Chord</button>
+            
+            <div id="chordDisplay"></div>
+        </div>
+
+        <div id="testResults"></div>
+    </div>
+
+    <script>
+        let authToken = null;
+        const BASE_URL = 'http://localhost:5001'; // Auth server
+        const FRONTEND_URL = 'http://localhost:3000';
+
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('authStatus');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        function showResults(message) {
+            const resultsDiv = document.getElementById('testResults');
+            resultsDiv.innerHTML += `<div class="status info">${new Date().toLocaleTimeString()}: ${message}</div>`;
+        }
+
+        async function authenticate() {
+            try {
+                showStatus('Attempting to authenticate...', 'info');
+                
+                const response = await fetch(`${BASE_URL}/api/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: 'admin',
+                        password: 'Admin@123'
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok && data.token) {
+                    authToken = data.token;
+                    showStatus(`Authentication successful! Token: ${authToken.substring(0, 20)}...`, 'success');
+                    showResults('Authentication successful');
+                } else {
+                    showStatus(`Authentication failed: ${data.error || 'Unknown error'}`, 'error');
+                    showResults(`Authentication failed: ${data.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                showStatus(`Authentication error: ${error.message}`, 'error');
+                showResults(`Authentication error: ${error.message}`);
+            }
+        }
+
+        async function testChordAPI() {
+            if (!authToken) {
+                showStatus('Please authenticate first', 'error');
+                return;
+            }
+
+            try {
+                showResults('Testing chord API access...');
+                
+                // Test access to frontend with auth token
+                const response = await fetch(`${FRONTEND_URL}/chords-dictionary`, {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                showResults(`Chord API test - Status: ${response.status}`);
+                
+                if (response.ok) {
+                    showResults('Chord API accessible');
+                } else {
+                    showResults(`Chord API access issue: ${response.status}`);
+                }
+            } catch (error) {
+                showResults(`Chord API test error: ${error.message}`);
+            }
+        }
+
+        function renderGuitarChord(chordName, fingering) {
+            const chordDisplay = document.getElementById('chordDisplay');
+            
+            // Guitar strings (high E to low E) - this matches our fix
+            const guitarStrings = ['E', 'B', 'G', 'D', 'A', 'E'];
+            
+            let html = `<div class="chord-display">
+                <h4>${chordName} Chord</h4>
+                <p>String order (high to low): ${guitarStrings.join(' - ')}</p>
+                <div class="fret-grid">`;
+            
+            // String labels
+            guitarStrings.forEach((string, index) => {
+                html += `<div class="string-label">String ${index + 1}<br>${string}</div>`;
+            });
+            
+            // Fret positions for this chord
+            fingering.forEach((fret, stringIndex) => {
+                const isPressed = fret > 0;
+                const displayFret = fret === 0 ? 'O' : (fret === -1 ? 'X' : fret);
+                html += `<div class="fret-position ${isPressed ? 'fingered' : ''}">${displayFret}</div>`;
+            });
+            
+            html += `</div>
+                <p><strong>Fingering:</strong> ${fingering.map((f, i) => `String ${i+1}: ${f === -1 ? 'X (muted)' : f === 0 ? 'Open' : `Fret ${f}`}`).join(', ')}</p>
+            </div>`;
+            
+            chordDisplay.innerHTML = html;
+            showResults(`Rendered ${chordName} chord with fingering: [${fingering.join(', ')}]`);
+        }
+
+        function testCMajorChord() {
+            // C Major: String 1(E)=0, String 2(B)=1, String 3(G)=0, String 4(D)=2, String 5(A)=3, String 6(E)=X
+            const cMajorFingering = [0, 1, 0, 2, 3, -1];
+            renderGuitarChord('C Major', cMajorFingering);
+        }
+
+        function testGMajorChord() {
+            // G Major: String 1(E)=3, String 2(B)=0, String 3(G)=0, String 4(D)=0, String 5(A)=2, String 6(E)=3
+            const gMajorFingering = [3, 0, 0, 0, 2, 3];
+            renderGuitarChord('G Major', gMajorFingering);
+        }
+
+        function testDMajorChord() {
+            // D Major: String 1(E)=2, String 2(B)=3, String 3(G)=2, String 4(D)=0, String 5(A)=X, String 6(E)=X
+            const dMajorFingering = [2, 3, 2, 0, -1, -1];
+            renderGuitarChord('D Major', dMajorFingering);
+        }
+
+        function testAMinorChord() {
+            // A Minor: String 1(E)=0, String 2(B)=1, String 3(G)=2, String 4(D)=2, String 5(A)=0, String 6(E)=X
+            const aMinorFingering = [0, 1, 2, 2, 0, -1];
+            renderGuitarChord('A Minor', aMinorFingering);
+        }
+
+        // Initialize
+        showResults('Guitar Chord Display Test initialized');
+        showResults('Click "Login as Admin" to authenticate, then test chord displays');
+    </script>
+</body>
+</html>

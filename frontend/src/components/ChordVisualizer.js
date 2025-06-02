@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './style/ChordVisualizer.css';
 
 function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C' }) {
@@ -6,6 +6,10 @@ function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C' }) 
   const [activeNote, setActiveNote] = useState(defaultChord);
   const [activeChordType, setActiveChordType] = useState(chordType);
   const [visualizerType, setVisualizerType] = useState('keyboard'); // 'keyboard' or 'fretboard'
+  const [showFingerNumbers, setShowFingerNumbers] = useState(true);
+  const [playingNote, setPlayingNote] = useState(null);
+  const [chordTransition, setChordTransition] = useState(false);
+  const audioContextRef = useRef(null);
   
   // Piano keyboard note mapping - 2 octaves
   const pianoKeys = [
@@ -39,13 +43,14 @@ function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C' }) 
   ];
 
   // Guitar fretboard note mapping (6 strings, 5 frets)
+  // Ordered from string 1 (high E) to string 6 (low E)
   const guitarStrings = [
-    { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] },
-    { name: 'A', notes: ['A', 'A#', 'B', 'C', 'C#'] },
-    { name: 'D', notes: ['D', 'D#', 'E', 'F', 'F#'] },
-    { name: 'G', notes: ['G', 'G#', 'A', 'A#', 'B'] },
-    { name: 'B', notes: ['B', 'C', 'C#', 'D', 'D#'] },
-    { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }
+    { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }, // String 1 (high E)
+    { name: 'B', notes: ['B', 'C', 'C#', 'D', 'D#'] }, // String 2 (B)
+    { name: 'G', notes: ['G', 'G#', 'A', 'A#', 'B'] }, // String 3 (G)
+    { name: 'D', notes: ['D', 'D#', 'E', 'F', 'F#'] }, // String 4 (D)
+    { name: 'A', notes: ['A', 'A#', 'B', 'C', 'C#'] }, // String 5 (A)
+    { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }  // String 6 (low E)
   ];
   
   // Chord note mappings
@@ -184,18 +189,68 @@ const chordNotes = {
 };
 
 
-  // Guitar chord fingering positions [string, fret]
+  // Enhanced guitar chord fingering positions [string, fret, finger]
   const chordFingerings = {
-    'C': [[5, 3], [4, 2], [3, 0], [2, 1], [1, 0]],
-    'G': [[6, 3], [5, 2], [4, 0], [3, 0], [2, 0], [1, 3]],
-    'D': [[4, 0], [3, 2], [2, 3], [1, 2]],
-    'A': [[5, 0], [4, 2], [3, 2], [2, 2], [1, 0]],
-    'E': [[6, 0], [5, 2], [4, 2], [3, 1], [2, 0], [1, 0]],
-    'F': [[6, 1], [5, 3], [4, 3], [3, 2], [2, 1], [1, 1]],
-    'Am': [[5, 0], [4, 2], [3, 2], [2, 1], [1, 0]],
-    'Dm': [[4, 0], [3, 2], [2, 3], [1, 1]],
-    'Em': [[6, 0], [5, 2], [4, 2], [3, 0], [2, 0], [1, 0]],
-    'G7': [[6, 3], [5, 2], [4, 0], [3, 0], [2, 0], [1, 1]],
+    'C': [[5, 3, 3], [4, 2, 2], [3, 0, 0], [2, 1, 1], [1, 0, 0]],
+    'G': [[6, 3, 4], [5, 2, 1], [4, 0, 0], [3, 0, 0], [2, 0, 0], [1, 3, 3]],
+    'D': [[4, 0, 0], [3, 2, 1], [2, 3, 3], [1, 2, 2]],
+    'A': [[5, 0, 0], [4, 2, 2], [3, 2, 1], [2, 2, 3], [1, 0, 0]],
+    'E': [[6, 0, 0], [5, 2, 2], [4, 2, 1], [3, 1, 3], [2, 0, 0], [1, 0, 0]],
+    'F': [[6, 1, 1], [5, 3, 4], [4, 3, 3], [3, 2, 2], [2, 1, 1], [1, 1, 1]],
+    'Am': [[5, 0, 0], [4, 2, 2], [3, 2, 1], [2, 1, 3], [1, 0, 0]],
+    'Dm': [[4, 0, 0], [3, 2, 1], [2, 3, 3], [1, 1, 2]],
+    'Em': [[6, 0, 0], [5, 2, 2], [4, 2, 3], [3, 0, 0], [2, 0, 0], [1, 0, 0]],
+    'G7': [[6, 3, 3], [5, 2, 2], [4, 0, 0], [3, 0, 0], [2, 0, 0], [1, 1, 1]],
+    'C7': [[5, 3, 3], [4, 2, 2], [3, 3, 4], [2, 1, 1], [1, 0, 0]],
+    'D7': [[4, 0, 0], [3, 2, 2], [2, 1, 1], [1, 2, 3]],
+    'A7': [[5, 0, 0], [4, 2, 2], [3, 0, 0], [2, 2, 3], [1, 0, 0]],
+    'E7': [[6, 0, 0], [5, 2, 2], [4, 0, 0], [3, 1, 1], [2, 0, 0], [1, 0, 0]],
+  };
+
+  // Chord progression suggestions
+  const chordProgressions = {
+    'C': ['F', 'G', 'Am', 'Dm'],
+    'G': ['C', 'D', 'Em', 'Am'],
+    'D': ['G', 'A', 'Bm', 'Em'],
+    'A': ['D', 'E', 'F#m', 'Bm'],
+    'E': ['A', 'B', 'C#m', 'F#m'],
+    'F': ['Bb', 'C', 'Dm', 'Gm'],
+    'Am': ['C', 'F', 'G', 'Dm'],
+    'Em': ['G', 'C', 'D', 'Am'],
+    'Dm': ['F', 'Bb', 'C', 'Gm'],
+  };
+
+  // Audio synthesis for note playback
+  const initAudioContext = () => {
+    if (!audioContextRef.current) {
+      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    return audioContextRef.current;
+  };
+
+  const playNote = (frequency, duration = 0.5) => {
+    const audioContext = initAudioContext();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+    oscillator.type = 'sine';
+
+    gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+    gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + duration);
+  };
+
+  // Note to frequency mapping
+  const noteFrequencies = {
+    'C': 261.63, 'C#': 277.18, 'D': 293.66, 'D#': 311.13, 'E': 329.63, 'F': 349.23,
+    'F#': 369.99, 'G': 392.00, 'G#': 415.30, 'A': 440.00, 'A#': 466.16, 'B': 493.88
   };
 
   // Get available notes and chord types
@@ -231,29 +286,53 @@ const chordNotes = {
     }
   }, [chordType, activeNote, activeChordType, onChordChange]);
 
-  // Update existing handlers
+  // Update existing handlers with smooth transitions
   const handleNoteChange = (note) => {
-    setActiveNote(note);
-    const newChord = note + activeChordType;
-    if (chordNotes[newChord]) {
-      setActiveChord(newChord);
-      if (onChordChange) onChordChange(newChord);
-    }
+    setChordTransition(true);
+    setTimeout(() => {
+      setActiveNote(note);
+      const newChord = note + activeChordType;
+      if (chordNotes[newChord]) {
+        setActiveChord(newChord);
+        if (onChordChange) onChordChange(newChord);
+      }
+      setChordTransition(false);
+    }, 150);
   };
   
   const handleChordTypeChange = (type) => {
-    setActiveChordType(type);
-    const newChord = activeNote + type;
-    if (chordNotes[newChord]) {
-      setActiveChord(newChord);
-      if (onChordChange) onChordChange(newChord);
-    }
+    setChordTransition(true);
+    setTimeout(() => {
+      setActiveChordType(type);
+      const newChord = activeNote + type;
+      if (chordNotes[newChord]) {
+        setActiveChord(newChord);
+        if (onChordChange) onChordChange(newChord);
+      }
+      setChordTransition(false);
+    }, 150);
   };
 
   const handleKeyClick = (note) => {
     handleNoteChange(note);
     setActiveChordType('');
     if (onChordChange) onChordChange(note);
+    // Play the note
+    if (noteFrequencies[note]) {
+      playNote(noteFrequencies[note]);
+    }
+  };
+  
+  // Enhanced guitar fret interaction
+  const handleFretClick = (string, fret) => {
+    const note = guitarStrings[string].notes[fret];
+    setPlayingNote(`${string}-${fret}`);
+    
+    // Calculate frequency based on string and fret
+    const baseFreq = noteFrequencies[note] || 440;
+    playNote(baseFreq);
+    
+    setTimeout(() => setPlayingNote(null), 500);
   };
   
   // Check if a guitar fret position is active for the current chord
@@ -263,6 +342,23 @@ const chordNotes = {
     return chordFingerings[activeChord].some(
       ([stringNum, fretNum]) => stringNum === string && fretNum === fret
     );
+  };
+
+  // Get finger number for a fret position
+  const getFingerNumber = (string, fret) => {
+    if (!chordFingerings[activeChord]) return null;
+    
+    const fingering = chordFingerings[activeChord].find(
+      ([stringNum, fretNum]) => stringNum === string && fretNum === fret
+    );
+    
+    return fingering ? fingering[2] : null;
+  };
+
+  // Get suggested next chords
+  const getSuggestedChords = () => {
+    const rootNote = activeNote;
+    return chordProgressions[rootNote] || [];
   };
 
   return (
@@ -384,30 +480,80 @@ const chordNotes = {
             }
           </div>
         ) : (
-          <div className="guitar-fretboard">
+          <div className={`guitar-fretboard ${chordTransition ? 'transitioning' : ''}`}>
+            <div className="fretboard-controls">
+              <button 
+                className={`control-button ${showFingerNumbers ? 'active' : ''}`}
+                onClick={() => setShowFingerNumbers(!showFingerNumbers)}
+                title="Toggle finger numbers"
+              >
+                <span className="finger-icon">👆</span>
+                Fingers
+              </button>
+              <div className="chord-suggestions">
+                <span className="suggestions-label">Try next:</span>
+                <div className="suggestion-buttons">
+                  {getSuggestedChords().slice(0, 3).map(chord => (
+                    <button 
+                      key={chord}
+                      className="suggestion-button"
+                      onClick={() => {
+                        handleNoteChange(chord.replace(/[^A-G#]/g, ''));
+                        handleChordTypeChange(chord.replace(/^[A-G#]+/, ''));
+                      }}
+                    >
+                      {chord}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
             <div className="fret-markers">
               {[0, 1, 2, 3, 4].map(fret => (
                 <div key={fret} className="fret-marker">
-                  {fret > 0 ? fret : ''}
+                  {fret > 0 ? fret : 'Open'}
                 </div>
               ))}
             </div>
             
             {guitarStrings.map((string, stringIndex) => (
-              <div key={stringIndex} className="guitar-string">
+              <div key={stringIndex} className="guitar-string" style={{'--string-index': stringIndex}}>
                 <div className="string-name">{string.name}</div>
-                {string.notes.map((note, fretIndex) => (
-                  <div 
-                    key={`${stringIndex}-${fretIndex}`}
-                    className={`guitar-fret ${isGuitarFretActive(stringIndex + 1, fretIndex) ? 'active' : ''}`}
-                  >
-                    {isGuitarFretActive(stringIndex + 1, fretIndex) && (
-                      <div className="fret-dot">{note}</div>
-                    )}
-                  </div>
-                ))}
+                {string.notes.map((note, fretIndex) => {
+                  const isActive = isGuitarFretActive(stringIndex + 1, fretIndex);
+                  const fingerNumber = getFingerNumber(stringIndex + 1, fretIndex);
+                  const isPlaying = playingNote === `${stringIndex}-${fretIndex}`;
+                  
+                  return (
+                    <div 
+                      key={`${stringIndex}-${fretIndex}`}
+                      className={`guitar-fret ${isActive ? 'active' : ''} ${isPlaying ? 'playing' : ''}`}
+                      onClick={() => handleFretClick(stringIndex, fretIndex)}
+                      title={`${note} - String ${stringIndex + 1}, Fret ${fretIndex}`}
+                    >
+                      {isActive && (
+                        <div className="fret-dot" style={{'--dot-delay': `${stringIndex * 0.1}s`}}>
+                          {showFingerNumbers && fingerNumber > 0 ? fingerNumber : ''}
+                        </div>
+                      )}
+                      <div className="note-indicator">{note}</div>
+                    </div>
+                  );
+                })}
               </div>
             ))}
+            
+            <div className="fretboard-info">
+              <div className="playing-technique">
+                <span className="technique-label">Technique Tips:</span>
+                <div className="technique-tips">
+                  <div className="tip">• Keep thumb behind neck</div>
+                  <div className="tip">• Curve fingers to avoid muting</div>
+                  <div className="tip">• Press just behind fret wire</div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

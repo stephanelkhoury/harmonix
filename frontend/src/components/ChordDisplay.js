@@ -26,13 +26,14 @@ function ChordDisplay({ chords = [], currentIndex = -1, transpositionValue = 0, 
     ];
 
     // Guitar fretboard note mapping (6 strings, 5 frets)
+    // Ordered from string 1 (high E) to string 6 (low E)
     const guitarStrings = [
-        { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] },
-        { name: 'A', notes: ['A', 'A#', 'B', 'C', 'C#'] },
-        { name: 'D', notes: ['D', 'D#', 'E', 'F', 'F#'] },
-        { name: 'G', notes: ['G', 'G#', 'A', 'A#', 'B'] },
-        { name: 'B', notes: ['B', 'C', 'C#', 'D', 'D#'] },
-        { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }
+        { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }, // String 1 (high E)
+        { name: 'B', notes: ['B', 'C', 'C#', 'D', 'D#'] }, // String 2 (B)
+        { name: 'G', notes: ['G', 'G#', 'A', 'A#', 'B'] }, // String 3 (G)
+        { name: 'D', notes: ['D', 'D#', 'E', 'F', 'F#'] }, // String 4 (D)
+        { name: 'A', notes: ['A', 'A#', 'B', 'C', 'C#'] }, // String 5 (A)
+        { name: 'E', notes: ['E', 'F', 'F#', 'G', 'G#'] }  // String 6 (low E)
     ];
     
     // Chord note mappings

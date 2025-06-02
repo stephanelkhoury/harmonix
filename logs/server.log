@@ -4,39 +4,93 @@
 
 Python service URL: http://localhost:8000
 Server is running on port 5001
-Token verification error: JsonWebTokenError
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Token verification error: JsonWebTokenError
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Token verification error: JsonWebTokenError
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Token verification error: JsonWebTokenError
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
-Python service health check: {"status":"healthy","service":"python_service"}
-Token verification error: JsonWebTokenError
 Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
 Token verification error: TokenExpiredError
 Token verification error: TokenExpiredError
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-25T21:08:47.809Z] Admin access by: admin (id: 2), path: /api/admin/messages
+[2025-05-31T15:33:50.936Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-31T15:33:50.937Z] Admin admin retrieved 2 users
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-25T21:08:47.811Z] Admin access by: admin (id: 2), path: /api/admin/messages
+[2025-05-31T15:33:50.939Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-31T15:33:50.939Z] Admin admin retrieved 2 users
+Received signup data: {
+  username: 'test',
+  email: 'test@test.test',
+  password: '[REDACTED]',
+  firstName: 'test',
+  lastName: 'test',
+  phone: '000000000',
+  address: '',
+  dateOfBirth: '',
+  gender: 'male',
+  country: 'United Arab Emirates'
+}
+Authenticated user: test (id: 3), isAdmin: false
+Login attempt for user: stephanelkhoury
+Password from request: 1812000
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: false
+Failed login attempt for user: stephanelkhoury
+Login attempt for user: stephanelkhoury
+Password from request: admin@123
+Stored password (first few chars): $2b$10$7AT...
+Password validation result: false
+Failed login attempt for user: stephanelkhoury
+Login attempt for user: admin
+Password from request: admin@123
+Stored password (first few chars): $2b$10$O2H...
+Password validation result: false
+Failed login attempt for user: admin
+Login attempt for user: admin
+Password from request: Admin@123
+Stored password (first few chars): $2b$10$O2H...
+Password validation result: true
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-25T21:09:07.426Z] Admin access by: admin (id: 2), path: /api/admin/messages
 Authenticated user: admin (id: 2), isAdmin: true
-[2025-05-25T21:09:07.429Z] Admin access by: admin (id: 2), path: /api/admin/messages
-Token verification error: JsonWebTokenError
-Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+[2025-05-31T15:36:10.296Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-31T15:36:10.296Z] Admin admin retrieved 3 users
+Authenticated user: admin (id: 2), isAdmin: true
+[2025-05-31T15:36:10.303Z] Admin access by: admin (id: 2), path: /api/admin/users
+[2025-05-31T15:36:10.304Z] Admin admin retrieved 3 users
+Received lyrics analysis request: {
+  body: {
+    youtubeUrl: 'https://youtu.be/gPUjA7fZ3tw?si=2-Ozb3lzpAt2sYPd',
+    language: 'auto'
+  },
+  hasFile: false
+}
+Sending lyrics analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
+Error analyzing lyrics from YouTube: timeout of 180000ms exceeded
 Token verification error: JsonWebTokenError
-Sending YouTube analysis request to Python service at: http://127.0.0.1:8000
+Token verification error: JsonWebTokenError
+Token verification error: JsonWebTokenError
+Received lyrics analysis request: {
+  body: {
+    youtubeUrl: 'https://youtu.be/gPUjA7fZ3tw?si=2-Ozb3lzpAt2sYPd',
+    language: 'auto'
+  },
+  hasFile: false
+}
+Sending lyrics analysis request to Python service at: http://127.0.0.1:8000
 Python service health check: {"status":"healthy","service":"python_service"}
+Received lyrics analysis request: {
+  body: {
+    youtubeUrl: 'https://youtu.be/gPUjA7fZ3tw?si=2-Ozb3lzpAt2sYPd',
+    language: 'english'
+  },
+  hasFile: false
+}
+Sending lyrics analysis request to Python service at: http://127.0.0.1:8000
+Python service health check failed: timeout of 2000ms exceeded
+Received lyrics analysis request: {
+  body: {
+    youtubeUrl: 'https://youtu.be/gPUjA7fZ3tw?si=2-Ozb3lzpAt2sYPd',
+    language: 'english'
+  },
+  hasFile: false
+}
+Sending lyrics analysis request to Python service at: http://127.0.0.1:8000
+Python service health check failed: timeout of 2000ms exceeded
+Python service returned an error: Failed to process YouTube lyrics: ERROR: [youtube] gPUjA7fZ3tw: Failed to extract any player response; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U

@@ -7,6 +7,8 @@ import './styles/custom.css'; /* Custom styles to override Bootstrap */
 import './styles/Modal.css'; /* Modal styling */
 import HomePage from './components/HomePage';
 import AudioProcessingPage from './components/AudioProcessingPage';
+import RealTimeChordDetector from './components/RealTimeChordDetector';
+import CapoDemo from './pages/CapoDemo';
 import Analyze from './pages/Analyze';
 import ChordsDictionary from './pages/ChordsDictionary';
 import Login from './pages/Login';
@@ -133,6 +135,8 @@ const AppContent = () => {
                     <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
                     <Route path="/process" element={isAuthenticated ? <AudioProcessingPage /> : <Navigate to="/login" />} />
                     <Route path="/analyze" element={isAuthenticated ? <Analyze /> : <Navigate to="/login" />} />
+                    <Route path="/real-time-chords" element={isAuthenticated ? <RealTimeChordDetector /> : <Navigate to="/login" />} />
+                    <Route path="/capo-demo" element={<CapoDemo />} />
                     <Route path="/login" element={!isAuthenticated ? <Login setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
                     <Route path="/signup" element={!isAuthenticated ? <Signup setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
                     <Route path="/dashboard" element={isAuthenticated && authUtils.isAdmin() ? <Dashboard /> : <Navigate to="/" />} />

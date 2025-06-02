@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chord Detection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background-color: #155724; border: 1px solid #c3e6cb; }
+        .disconnected { background-color: #721c24; border: 1px solid #f5c6cb; }
+        .error { background-color: #721c24; border: 1px solid #f5c6cb; }
+        .chord-display {
+            font-size: 2em;
+            text-align: center;
+            padding: 40px;
+            background-color: #333;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .start-btn { background-color: #28a745; color: white; }
+        .stop-btn { background-color: #dc3545; color: white; }
+        .logs {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Chord Detection Test</h1>
+        
+        <div id="status" class="status disconnected">
+            Status: Disconnected
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn" class="start-btn">Start Detection</button>
+            <button id="stopBtn" class="stop-btn" disabled>Stop Detection</button>
+        </div>
+        
+        <div class="chord-display" id="chordDisplay">
+            Waiting for audio...
+        </div>
+        
+        <div>
+            <h3>Debug Logs:</h3>
+            <div id="logs" class="logs"></div>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let audioContext = null;
+        let source = null;
+        let processor = null;
+        let stream = null;
+        let isListening = false;
+
+        const statusEl = document.getElementById('status');
+        const chordDisplayEl = document.getElementById('chordDisplay');
+        const logsEl = document.getElementById('logs');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            logsEl.innerHTML += `[${timestamp}] ${message}\n`;
+            logsEl.scrollTop = logsEl.scrollHeight;
+            console.log(message);
+        }
+
+        function updateStatus(status, isConnected) {
+            statusEl.textContent = `Status: ${status}`;
+            statusEl.className = `status ${isConnected ? 'connected' : 'disconnected'}`;
+        }
+
+        function connectWebSocket() {
+            const wsUrl = 'ws://localhost:8000/api/ws/real-time-chords';
+            log(`Connecting to ${wsUrl}`);
+            
+            ws = new WebSocket(wsUrl);
+            
+            ws.onopen = () => {
+                log('WebSocket connected!');
+                updateStatus('Connected', true);
+            };
+            
+            ws.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    log(`Received: ${JSON.stringify(data)}`);
+                    
+                    if (data.type === 'chord_update') {
+                        const chordData = data.data;
+                        chordDisplayEl.textContent = `${chordData.chord} (${(chordData.confidence * 100).toFixed(1)}%)`;
+                        log(`Chord detected: ${chordData.chord} with ${(chordData.confidence * 100).toFixed(1)}% confidence`);
+                    }
+                } catch (e) {
+                    log(`Error parsing message: ${e.message}`);
+                }
+            };
+            
+            ws.onclose = () => {
+                log('WebSocket disconnected');
+                updateStatus('Disconnected', false);
+            };
+            
+            ws.onerror = (error) => {
+                log(`WebSocket error: ${error}`);
+                updateStatus('Error', false);
+            };
+        }
+
+        async function setupAudio() {
+            try {
+                log('Requesting microphone access...');
+                
+                stream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        sampleRate: 44100,
+                        channelCount: 1,
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true
+                    }
+                });
+                
+                log('Microphone access granted');
+                
+                audioContext = new (window.AudioContext || window.webkitAudioContext)({
+                    sampleRate: 44100
+                });
+                
+                source = audioContext.createMediaStreamSource(stream);
+                
+                const bufferSize = 8192;
+                processor = audioContext.createScriptProcessor(bufferSize, 1, 1);
+                
+                let audioBuffer = [];
+                const chunkDuration = 0.5; // 500ms chunks
+                const samplesPerChunk = Math.floor(audioContext.sampleRate * chunkDuration);
+                
+                processor.onaudioprocess = (event) => {
+                    if (!isListening || !ws || ws.readyState !== WebSocket.OPEN) {
+                        return;
+                    }
+                    
+                    const inputData = event.inputBuffer.getChannelData(0);
+                    audioBuffer = audioBuffer.concat(Array.from(inputData));
+                    
+                    if (audioBuffer.length >= samplesPerChunk) {
+                        const chunk = audioBuffer.slice(0, samplesPerChunk);
+                        audioBuffer = audioBuffer.slice(samplesPerChunk);
+                        
+                        // Convert float32 to int16
+                        const int16Array = new Int16Array(chunk.length);
+                        for (let i = 0; i < chunk.length; i++) {
+                            const sample = Math.max(-1, Math.min(1, chunk[i]));
+                            int16Array[i] = sample * 32767;
+                        }
+                        
+                        // Convert to base64
+                        const buffer = int16Array.buffer;
+                        const binary = String.fromCharCode(...new Uint8Array(buffer));
+                        const base64Audio = btoa(binary);
+                        
+                        log(`Sending audio chunk: ${chunk.length} samples, ${base64Audio.length} base64 chars`);
+                        
+                        ws.send(JSON.stringify({
+                            type: 'audio_chunk',
+                            data: {
+                                audio_data: base64Audio,
+                                sample_rate: audioContext.sampleRate,
+                                chunk_duration: chunkDuration
+                            }
+                        }));
+                    }
+                };
+                
+                source.connect(processor);
+                processor.connect(audioContext.destination);
+                
+                log('Audio processing setup complete');
+                return true;
+                
+            } catch (error) {
+                log(`Audio setup error: ${error.message}`);
+                return false;
+            }
+        }
+
+        function cleanupAudio() {
+            if (processor) {
+                processor.disconnect();
+                processor = null;
+            }
+            if (source) {
+                source.disconnect();
+                source = null;
+            }
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            if (audioContext) {
+                audioContext.close();
+                audioContext = null;
+            }
+        }
+
+        startBtn.addEventListener('click', async () => {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                connectWebSocket();
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for connection
+            }
+            
+            const audioSetup = await setupAudio();
+            if (audioSetup) {
+                isListening = true;
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                log('Started listening for audio...');
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            isListening = false;
+            cleanupAudio();
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            chordDisplayEl.textContent = 'Stopped';
+            log('Stopped listening');
+        });
+
+        // Initialize WebSocket connection on page load
+        connectWebSocket();
+    </script>
+</body>
+</html>

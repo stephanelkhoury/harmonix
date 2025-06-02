@@ -135,6 +135,20 @@ function AppNavbar({ isAuthenticated, setIsAuthenticated }) {
                   <div className={`dropdown-menu ${activeDropdown === 'musician' ? 'show' : ''}`}>
                     <Link 
                       className="dropdown-item" 
+                      to="/capo-demo" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      🎸 Capo Demo
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
+                      to="/real-time-chords" 
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Real-Time Chords
+                    </Link>
+                    <Link 
+                      className="dropdown-item" 
                       to="/analyze" 
                       onClick={() => setActiveDropdown(null)}
                     >

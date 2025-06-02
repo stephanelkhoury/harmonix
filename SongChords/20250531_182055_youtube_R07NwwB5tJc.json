@@ -1,0 +1,2623 @@
+{
+  "chords": [
+    {
+      "time": 0.0,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 0.18575963718820862,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 0.37151927437641724,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 0.5572789115646258,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 0.7430385487528345,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 0.9287981859410431,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 1.1145578231292517,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 1.3003174603174603,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 1.486077097505669,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 1.6718367346938776,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 1.8575963718820863,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.043356009070295,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.2291156462585033,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.414875283446712,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.6006349206349206,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.786394557823129,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 2.972154195011338,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 3.1579138321995464,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 3.3436734693877552,
+      "chord": "N",
+      "confidence": 0.0
+    },
+    {
+      "time": 3.5294331065759637,
+      "chord": "C major",
+      "confidence": 0.6489111076670308
+    },
+    {
+      "time": 3.7151927437641725,
+      "chord": "C major",
+      "confidence": 0.6710836049952954
+    },
+    {
+      "time": 3.900952380952381,
+      "chord": "C major",
+      "confidence": 0.5621933628121789
+    },
+    {
+      "time": 4.08671201814059,
+      "chord": "F# major",
+      "confidence": 0.5287663711340596
+    },
+    {
+      "time": 4.272471655328798,
+      "chord": "F# major",
+      "confidence": 0.5981467781105183
+    },
+    {
+      "time": 4.458231292517007,
+      "chord": "F# major",
+      "confidence": 0.5696752637189482
+    },
+    {
+      "time": 4.6439909297052155,
+      "chord": "D major",
+      "confidence": 0.6678615991171237
+    },
+    {
+      "time": 4.829750566893424,
+      "chord": "C# major",
+      "confidence": 0.43598755908066494
+    },
+    {
+      "time": 5.015510204081632,
+      "chord": "C# major",
+      "confidence": 0.46204659604589743
+    },
+    {
+      "time": 5.201269841269841,
+      "chord": "D major",
+      "confidence": 0.4969724739216065
+    },
+    {
+      "time": 5.38702947845805,
+      "chord": "G minor",
+      "confidence": 0.5344106932935201
+    },
+    {
+      "time": 5.572789115646258,
+      "chord": "G minor",
+      "confidence": 0.5786633881513453
+    },
+    {
+      "time": 5.758548752834467,
+      "chord": "G minor",
+      "confidence": 0.5597505560556828
+    },
+    {
+      "time": 5.944308390022676,
+      "chord": "G minor",
+      "confidence": 0.5757665189751349
+    },
+    {
+      "time": 6.130068027210885,
+      "chord": "G minor",
+      "confidence": 0.6014625993978326
+    },
+    {
+      "time": 6.315827664399093,
+      "chord": "G minor",
+      "confidence": 0.5601363465227067
+    },
+    {
+      "time": 6.501587301587302,
+      "chord": "G minor",
+      "confidence": 0.5078584969182518
+    },
+    {
+      "time": 6.6873469387755105,
+      "chord": "G minor",
+      "confidence": 0.5001987844334438
+    },
+    {
+      "time": 6.873106575963718,
+      "chord": "D# major",
+      "confidence": 0.48793056895831466
+    },
+    {
+      "time": 7.058866213151927,
+      "chord": "D# major",
+      "confidence": 0.6207433730997962
+    },
+    {
+      "time": 7.244625850340136,
+      "chord": "A major",
+      "confidence": 0.4310667450307327
+    },
+    {
+      "time": 7.430385487528345,
+      "chord": "A major",
+      "confidence": 0.9165760740299909
+    },
+    {
+      "time": 7.616145124716553,
+      "chord": "A major",
+      "confidence": 0.9326499731467676
+    },
+    {
+      "time": 7.801904761904762,
+      "chord": "A major",
+      "confidence": 0.9352540689224061
+    },
+    {
+      "time": 7.987664399092971,
+      "chord": "A major",
+      "confidence": 0.9377566463758553
+    },
+    {
+      "time": 8.17342403628118,
+      "chord": "A major",
+      "confidence": 0.9144558644802848
+    },
+    {
+      "time": 8.359183673469389,
+      "chord": "A major",
+      "confidence": 0.8880994474057922
+    },
+    {
+      "time": 8.544943310657596,
+      "chord": "A major",
+      "confidence": 0.8685850138693154
+    },
+    {
+      "time": 8.730702947845804,
+      "chord": "A major",
+      "confidence": 0.8729513333026091
+    },
+    {
+      "time": 8.916462585034013,
+      "chord": "A major",
+      "confidence": 0.8773648503171798
+    },
+    {
+      "time": 9.102222222222222,
+      "chord": "A major",
+      "confidence": 0.8820090495569763
+    },
+    {
+      "time": 9.287981859410431,
+      "chord": "A major",
+      "confidence": 0.8740864297650492
+    },
+    {
+      "time": 9.47374149659864,
+      "chord": "F major",
+      "confidence": 0.8719956454602268
+    },
+    {
+      "time": 9.659501133786849,
+      "chord": "F major",
+      "confidence": 0.9035740414127114
+    },
+    {
+      "time": 9.845260770975056,
+      "chord": "F major",
+      "confidence": 0.9334383674193418
+    },
+    {
+      "time": 10.031020408163265,
+      "chord": "F major",
+      "confidence": 0.9390455835708191
+    },
+    {
+      "time": 10.216780045351474,
+      "chord": "F major",
+      "confidence": 0.949924014916474
+    },
+    {
+      "time": 10.402539682539683,
+      "chord": "F major",
+      "confidence": 0.9479331923971586
+    },
+    {
+      "time": 10.588299319727891,
+      "chord": "F major",
+      "confidence": 0.9508198426717357
+    },
+    {
+      "time": 10.7740589569161,
+      "chord": "F major",
+      "confidence": 0.9531814223469656
+    },
+    {
+      "time": 10.95981859410431,
+      "chord": "F major",
+      "confidence": 0.9472415503145499
+    },
+    {
+      "time": 11.145578231292516,
+      "chord": "F major",
+      "confidence": 0.9478499073429285
+    },
+    {
+      "time": 11.331337868480725,
+      "chord": "F major",
+      "confidence": 0.9431261327425836
+    },
+    {
+      "time": 11.517097505668934,
+      "chord": "F major",
+      "confidence": 0.9114919128208757
+    },
+    {
+      "time": 11.702857142857143,
+      "chord": "C major",
+      "confidence": 0.8357135829904876
+    },
+    {
+      "time": 11.888616780045352,
+      "chord": "C major",
+      "confidence": 0.9203651723585848
+    },
+    {
+      "time": 12.07437641723356,
+      "chord": "C major",
+      "confidence": 0.9280914286348245
+    },
+    {
+      "time": 12.26013605442177,
+      "chord": "C major",
+      "confidence": 0.934911279853897
+    },
+    {
+      "time": 12.445895691609977,
+      "chord": "C major",
+      "confidence": 0.9444416440649711
+    },
+    {
+      "time": 12.631655328798185,
+      "chord": "C major",
+      "confidence": 0.9426864163629609
+    },
+    {
+      "time": 12.817414965986394,
+      "chord": "C major",
+      "confidence": 0.9002256232515682
+    },
+    {
+      "time": 13.003174603174603,
+      "chord": "C major",
+      "confidence": 0.8296560949962317
+    },
+    {
+      "time": 13.188934240362812,
+      "chord": "C major",
+      "confidence": 0.832065249701983
+    },
+    {
+      "time": 13.374693877551021,
+      "chord": "C major",
+      "confidence": 0.8749755752933179
+    },
+    {
+      "time": 13.56045351473923,
+      "chord": "C major",
+      "confidence": 0.9499097326996068
+    },
+    {
+      "time": 13.746213151927437,
+      "chord": "C major",
+      "confidence": 0.9624721552387739
+    },
+    {
+      "time": 13.931972789115646,
+      "chord": "C major",
+      "confidence": 0.9495380227038409
+    },
+    {
+      "time": 14.117732426303855,
+      "chord": "G major",
+      "confidence": 0.9035055558493194
+    },
+    {
+      "time": 14.303492063492063,
+      "chord": "G major",
+      "confidence": 0.9160668431275154
+    },
+    {
+      "time": 14.489251700680272,
+      "chord": "G major",
+      "confidence": 0.9303154227855754
+    },
+    {
+      "time": 14.675011337868481,
+      "chord": "G major",
+      "confidence": 0.9327979417839631
+    },
+    {
+      "time": 14.86077097505669,
+      "chord": "G major",
+      "confidence": 0.9334983705880509
+    },
+    {
+      "time": 15.046530612244897,
+      "chord": "G major",
+      "confidence": 0.9352668893873126
+    },
+    {
+      "time": 15.232290249433106,
+      "chord": "G major",
+      "confidence": 0.9491718409951118
+    },
+    {
+      "time": 15.418049886621315,
+      "chord": "G major",
+      "confidence": 0.9497484165266784
+    },
+    {
+      "time": 15.603809523809524,
+      "chord": "G major",
+      "confidence": 0.9520819135434728
+    },
+    {
+      "time": 15.789569160997733,
+      "chord": "G major",
+      "confidence": 0.9476083738147841
+    },
+    {
+      "time": 15.975328798185942,
+      "chord": "G major",
+      "confidence": 0.9455144991432933
+    },
+    {
+      "time": 16.16108843537415,
+      "chord": "G major",
+      "confidence": 0.9426661304792563
+    },
+    {
+      "time": 16.34684807256236,
+      "chord": "G major",
+      "confidence": 0.8872597920889452
+    },
+    {
+      "time": 16.532607709750568,
+      "chord": "A major",
+      "confidence": 0.942576458430989
+    },
+    {
+      "time": 16.718367346938777,
+      "chord": "A major",
+      "confidence": 0.9498622036675424
+    },
+    {
+      "time": 16.904126984126986,
+      "chord": "A major",
+      "confidence": 0.9562844281023348
+    },
+    {
+      "time": 17.08988662131519,
+      "chord": "A major",
+      "confidence": 0.9512933222090816
+    },
+    {
+      "time": 17.2756462585034,
+      "chord": "A major",
+      "confidence": 0.9194845481935212
+    },
+    {
+      "time": 17.46140589569161,
+      "chord": "A major",
+      "confidence": 0.883720072752513
+    },
+    {
+      "time": 17.647165532879818,
+      "chord": "A major",
+      "confidence": 0.8701247845635952
+    },
+    {
+      "time": 17.832925170068027,
+      "chord": "A major",
+      "confidence": 0.8773330156777139
+    },
+    {
+      "time": 18.018684807256236,
+      "chord": "A major",
+      "confidence": 0.8941311816462469
+    },
+    {
+      "time": 18.204444444444444,
+      "chord": "A major",
+      "confidence": 0.8997399839428482
+    },
+    {
+      "time": 18.390204081632653,
+      "chord": "A major",
+      "confidence": 0.8991603739617753
+    },
+    {
+      "time": 18.575963718820862,
+      "chord": "A major",
+      "confidence": 0.9000271793299488
+    },
+    {
+      "time": 18.76172335600907,
+      "chord": "F major",
+      "confidence": 0.9144370263311662
+    },
+    {
+      "time": 18.94748299319728,
+      "chord": "F major",
+      "confidence": 0.9397890452370046
+    },
+    {
+      "time": 19.13324263038549,
+      "chord": "F major",
+      "confidence": 0.9581799266758932
+    },
+    {
+      "time": 19.319002267573698,
+      "chord": "F major",
+      "confidence": 0.9673398913293269
+    },
+    {
+      "time": 19.504761904761907,
+      "chord": "F major",
+      "confidence": 0.963140115903165
+    },
+    {
+      "time": 19.690521541950112,
+      "chord": "F major",
+      "confidence": 0.959835979826855
+    },
+    {
+      "time": 19.87628117913832,
+      "chord": "F major",
+      "confidence": 0.9405615062804479
+    },
+    {
+      "time": 20.06204081632653,
+      "chord": "F major",
+      "confidence": 0.9296030381885512
+    },
+    {
+      "time": 20.24780045351474,
+      "chord": "F major",
+      "confidence": 0.927540409083171
+    },
+    {
+      "time": 20.433560090702947,
+      "chord": "F major",
+      "confidence": 0.9331951692774576
+    },
+    {
+      "time": 20.619319727891156,
+      "chord": "F major",
+      "confidence": 0.9068220946468633
+    },
+    {
+      "time": 20.805079365079365,
+      "chord": "F major",
+      "confidence": 0.8930464196774415
+    },
+    {
+      "time": 20.990839002267574,
+      "chord": "C major",
+      "confidence": 0.8149414592056566
+    },
+    {
+      "time": 21.176598639455783,
+      "chord": "C major",
+      "confidence": 0.9535970863384357
+    },
+    {
+      "time": 21.36235827664399,
+      "chord": "C major",
+      "confidence": 0.9581220045109176
+    },
+    {
+      "time": 21.5481179138322,
+      "chord": "C major",
+      "confidence": 0.9430964872622447
+    },
+    {
+      "time": 21.73387755102041,
+      "chord": "C major",
+      "confidence": 0.9193886141772606
+    },
+    {
+      "time": 21.91963718820862,
+      "chord": "C major",
+      "confidence": 0.9015357599763174
+    },
+    {
+      "time": 22.105396825396827,
+      "chord": "C major",
+      "confidence": 0.8811119696920802
+    },
+    {
+      "time": 22.291156462585032,
+      "chord": "C major",
+      "confidence": 0.8667183665445168
+    },
+    {
+      "time": 22.47691609977324,
+      "chord": "C major",
+      "confidence": 0.8926242613946807
+    },
+    {
+      "time": 22.66267573696145,
+      "chord": "C major",
+      "confidence": 0.9099759646814911
+    },
+    {
+      "time": 22.84843537414966,
+      "chord": "C major",
+      "confidence": 0.9116597770486565
+    },
+    {
+      "time": 23.034195011337868,
+      "chord": "C major",
+      "confidence": 0.9261644628258687
+    },
+    {
+      "time": 23.219954648526077,
+      "chord": "C major",
+      "confidence": 0.8971130348446743
+    },
+    {
+      "time": 23.405714285714286,
+      "chord": "G major",
+      "confidence": 0.9262219652007205
+    },
+    {
+      "time": 23.591473922902495,
+      "chord": "G major",
+      "confidence": 0.9395791439750634
+    },
+    {
+      "time": 23.777233560090703,
+      "chord": "G major",
+      "confidence": 0.9520095799144159
+    },
+    {
+      "time": 23.962993197278912,
+      "chord": "G major",
+      "confidence": 0.9524470216901451
+    },
+    {
+      "time": 24.14875283446712,
+      "chord": "G major",
+      "confidence": 0.9461803563322888
+    },
+    {
+      "time": 24.33451247165533,
+      "chord": "G major",
+      "confidence": 0.9354909679024782
+    },
+    {
+      "time": 24.52027210884354,
+      "chord": "G major",
+      "confidence": 0.9325709483852412
+    },
+    {
+      "time": 24.706031746031748,
+      "chord": "G major",
+      "confidence": 0.9170680080511194
+    },
+    {
+      "time": 24.891791383219953,
+      "chord": "G major",
+      "confidence": 0.9030051326166368
+    },
+    {
+      "time": 25.077551020408162,
+      "chord": "G major",
+      "confidence": 0.8919009431377936
+    },
+    {
+      "time": 25.26331065759637,
+      "chord": "G major",
+      "confidence": 0.8842923575001442
+    },
+    {
+      "time": 25.44907029478458,
+      "chord": "G major",
+      "confidence": 0.8456915623657583
+    },
+    {
+      "time": 25.63482993197279,
+      "chord": "A major",
+      "confidence": 0.9222872212062229
+    },
+    {
+      "time": 25.820589569160997,
+      "chord": "A major",
+      "confidence": 0.9413620500428362
+    },
+    {
+      "time": 26.006349206349206,
+      "chord": "A major",
+      "confidence": 0.942518303413769
+    },
+    {
+      "time": 26.192108843537415,
+      "chord": "A major",
+      "confidence": 0.9438257530280487
+    },
+    {
+      "time": 26.377868480725624,
+      "chord": "A major",
+      "confidence": 0.9414351320790371
+    },
+    {
+      "time": 26.563628117913833,
+      "chord": "A major",
+      "confidence": 0.9258700388942804
+    },
+    {
+      "time": 26.749387755102042,
+      "chord": "A major",
+      "confidence": 0.8947012475693095
+    },
+    {
+      "time": 26.93514739229025,
+      "chord": "A major",
+      "confidence": 0.8292566898523279
+    },
+    {
+      "time": 27.12090702947846,
+      "chord": "A major",
+      "confidence": 0.8394727323629823
+    },
+    {
+      "time": 27.30666666666667,
+      "chord": "A major",
+      "confidence": 0.858654438438806
+    },
+    {
+      "time": 27.492426303854874,
+      "chord": "A major",
+      "confidence": 0.858747638971467
+    },
+    {
+      "time": 27.678185941043083,
+      "chord": "F major",
+      "confidence": 0.8788229631320823
+    },
+    {
+      "time": 27.86394557823129,
+      "chord": "F major",
+      "confidence": 0.9314868309061619
+    },
+    {
+      "time": 28.0497052154195,
+      "chord": "F major",
+      "confidence": 0.9378874886371287
+    },
+    {
+      "time": 28.23546485260771,
+      "chord": "F major",
+      "confidence": 0.9065974094623683
+    },
+    {
+      "time": 28.421224489795918,
+      "chord": "F major",
+      "confidence": 0.8860460723142458
+    },
+    {
+      "time": 28.606984126984127,
+      "chord": "F major",
+      "confidence": 0.873514965933794
+    },
+    {
+      "time": 28.792743764172336,
+      "chord": "F major",
+      "confidence": 0.8630710648774276
+    },
+    {
+      "time": 28.978503401360545,
+      "chord": "F major",
+      "confidence": 0.874474485792092
+    },
+    {
+      "time": 29.164263038548754,
+      "chord": "F major",
+      "confidence": 0.884542267806926
+    },
+    {
+      "time": 29.350022675736962,
+      "chord": "F major",
+      "confidence": 0.9428477570264256
+    },
+    {
+      "time": 29.53578231292517,
+      "chord": "F major",
+      "confidence": 0.9497521615253838
+    },
+    {
+      "time": 29.72154195011338,
+      "chord": "F major",
+      "confidence": 0.9380388823750323
+    },
+    {
+      "time": 29.90730158730159,
+      "chord": "C major",
+      "confidence": 0.9600697327347315
+    },
+    {
+      "time": 30.093061224489794,
+      "chord": "C major",
+      "confidence": 0.9644590908521207
+    },
+    {
+      "time": 30.278820861678003,
+      "chord": "C major",
+      "confidence": 0.9652469373780299
+    },
+    {
+      "time": 30.464580498866212,
+      "chord": "C major",
+      "confidence": 0.9513860612107935
+    },
+    {
+      "time": 30.65034013605442,
+      "chord": "C major",
+      "confidence": 0.9305057447510516
+    },
+    {
+      "time": 30.83609977324263,
+      "chord": "C major",
+      "confidence": 0.9162283828343942
+    },
+    {
+      "time": 31.02185941043084,
+      "chord": "C major",
+      "confidence": 0.8550430982242488
+    },
+    {
+      "time": 31.207619047619048,
+      "chord": "C major",
+      "confidence": 0.8547764099003636
+    },
+    {
+      "time": 31.393378684807256,
+      "chord": "C major",
+      "confidence": 0.9033464696859875
+    },
+    {
+      "time": 31.579138321995465,
+      "chord": "C major",
+      "confidence": 0.9329779646081643
+    },
+    {
+      "time": 31.764897959183674,
+      "chord": "C major",
+      "confidence": 0.9217970244147111
+    },
+    {
+      "time": 31.950657596371883,
+      "chord": "G major",
+      "confidence": 0.7907578502953968
+    },
+    {
+      "time": 32.13641723356009,
+      "chord": "G major",
+      "confidence": 0.9074167706778553
+    },
+    {
+      "time": 32.3221768707483,
+      "chord": "G major",
+      "confidence": 0.9209499033256836
+    },
+    {
+      "time": 32.507936507936506,
+      "chord": "G major",
+      "confidence": 0.9253854831301054
+    },
+    {
+      "time": 32.69369614512472,
+      "chord": "G major",
+      "confidence": 0.9348783864319599
+    },
+    {
+      "time": 32.879455782312924,
+      "chord": "G major",
+      "confidence": 0.9343217409673334
+    },
+    {
+      "time": 33.065215419501136,
+      "chord": "G major",
+      "confidence": 0.9339150399224223
+    },
+    {
+      "time": 33.25097505668934,
+      "chord": "G major",
+      "confidence": 0.9317492756993373
+    },
+    {
+      "time": 33.436734693877554,
+      "chord": "G major",
+      "confidence": 0.9450700644699435
+    },
+    {
+      "time": 33.62249433106576,
+      "chord": "G major",
+      "confidence": 0.9526815936144484
+    },
+    {
+      "time": 33.80825396825397,
+      "chord": "G major",
+      "confidence": 0.942190577713849
+    },
+    {
+      "time": 33.99401360544218,
+      "chord": "G major",
+      "confidence": 0.938486175083229
+    },
+    {
+      "time": 34.17977324263038,
+      "chord": "A major",
+      "confidence": 0.8888799655926396
+    },
+    {
+      "time": 34.365532879818595,
+      "chord": "A major",
+      "confidence": 0.9314095165537724
+    },
+    {
+      "time": 34.5512925170068,
+      "chord": "A major",
+      "confidence": 0.9326604716111133
+    },
+    {
+      "time": 34.73705215419501,
+      "chord": "A major",
+      "confidence": 0.932941990836855
+    },
+    {
+      "time": 34.92281179138322,
+      "chord": "A major",
+      "confidence": 0.9347910834679352
+    },
+    {
+      "time": 35.10857142857143,
+      "chord": "A major",
+      "confidence": 0.929475914777067
+    },
+    {
+      "time": 35.294331065759636,
+      "chord": "A major",
+      "confidence": 0.8986233104260869
+    },
+    {
+      "time": 35.48009070294785,
+      "chord": "A major",
+      "confidence": 0.8428747679474617
+    },
+    {
+      "time": 35.66585034013605,
+      "chord": "A major",
+      "confidence": 0.8372680398575489
+    },
+    {
+      "time": 35.851609977324266,
+      "chord": "A major",
+      "confidence": 0.8294890319573507
+    },
+    {
+      "time": 36.03736961451247,
+      "chord": "A major",
+      "confidence": 0.8286867403055045
+    },
+    {
+      "time": 36.22312925170068,
+      "chord": "F major",
+      "confidence": 0.9290713388136311
+    },
+    {
+      "time": 36.40888888888889,
+      "chord": "F major",
+      "confidence": 0.9502660640249134
+    },
+    {
+      "time": 36.594648526077094,
+      "chord": "F major",
+      "confidence": 0.9532336233351886
+    },
+    {
+      "time": 36.78040816326531,
+      "chord": "F major",
+      "confidence": 0.9597677337351305
+    },
+    {
+      "time": 36.96616780045351,
+      "chord": "F major",
+      "confidence": 0.9230155790762566
+    },
+    {
+      "time": 37.151927437641724,
+      "chord": "F major",
+      "confidence": 0.8741386386260105
+    },
+    {
+      "time": 37.33768707482993,
+      "chord": "F major",
+      "confidence": 0.8688762351675647
+    },
+    {
+      "time": 37.52344671201814,
+      "chord": "F major",
+      "confidence": 0.883215236662751
+    },
+    {
+      "time": 37.70920634920635,
+      "chord": "F major",
+      "confidence": 0.883156737491968
+    },
+    {
+      "time": 37.89496598639456,
+      "chord": "F major",
+      "confidence": 0.8853076659810004
+    },
+    {
+      "time": 38.080725623582765,
+      "chord": "F major",
+      "confidence": 0.9129963517883615
+    },
+    {
+      "time": 38.26648526077098,
+      "chord": "C major",
+      "confidence": 0.8839012097071097
+    },
+    {
+      "time": 38.45224489795918,
+      "chord": "C major",
+      "confidence": 0.9421390546572291
+    },
+    {
+      "time": 38.638004535147395,
+      "chord": "C major",
+      "confidence": 0.9385282448529952
+    },
+    {
+      "time": 38.8237641723356,
+      "chord": "C major",
+      "confidence": 0.9330142721557106
+    },
+    {
+      "time": 39.00952380952381,
+      "chord": "C major",
+      "confidence": 0.9262596309499012
+    },
+    {
+      "time": 39.19528344671202,
+      "chord": "C major",
+      "confidence": 0.923215793281996
+    },
+    {
+      "time": 39.381043083900224,
+      "chord": "C major",
+      "confidence": 0.9008760901939281
+    },
+    {
+      "time": 39.566802721088436,
+      "chord": "C major",
+      "confidence": 0.9001629160204154
+    },
+    {
+      "time": 39.75256235827664,
+      "chord": "C major",
+      "confidence": 0.9445022041341129
+    },
+    {
+      "time": 39.938321995464854,
+      "chord": "C major",
+      "confidence": 0.9693882548903393
+    },
+    {
+      "time": 40.12408163265306,
+      "chord": "C major",
+      "confidence": 0.97000485624743
+    },
+    {
+      "time": 40.30984126984127,
+      "chord": "C major",
+      "confidence": 0.9577271878246092
+    },
+    {
+      "time": 40.49560090702948,
+      "chord": "G major",
+      "confidence": 0.8890788256544198
+    },
+    {
+      "time": 40.68136054421769,
+      "chord": "G major",
+      "confidence": 0.9202240678101918
+    },
+    {
+      "time": 40.867120181405895,
+      "chord": "G major",
+      "confidence": 0.917254013243449
+    },
+    {
+      "time": 41.05287981859411,
+      "chord": "G major",
+      "confidence": 0.8968580615447356
+    },
+    {
+      "time": 41.23863945578231,
+      "chord": "G major",
+      "confidence": 0.8889905147998106
+    },
+    {
+      "time": 41.424399092970525,
+      "chord": "G major",
+      "confidence": 0.8876319808220774
+    },
+    {
+      "time": 41.61015873015873,
+      "chord": "G major",
+      "confidence": 0.9469324201512959
+    },
+    {
+      "time": 41.795918367346935,
+      "chord": "G major",
+      "confidence": 0.9517951951219037
+    },
+    {
+      "time": 41.98167800453515,
+      "chord": "G major",
+      "confidence": 0.9455752651619707
+    },
+    {
+      "time": 42.16743764172335,
+      "chord": "G major",
+      "confidence": 0.9498525283522179
+    },
+    {
+      "time": 42.353197278911566,
+      "chord": "G major",
+      "confidence": 0.9330024733376248
+    },
+    {
+      "time": 42.53895691609977,
+      "chord": "A major",
+      "confidence": 0.936285037695553
+    },
+    {
+      "time": 42.72471655328798,
+      "chord": "A major",
+      "confidence": 0.9572516808707471
+    },
+    {
+      "time": 42.91047619047619,
+      "chord": "A major",
+      "confidence": 0.9465116168767063
+    },
+    {
+      "time": 43.0962358276644,
+      "chord": "A major",
+      "confidence": 0.9180388883078401
+    },
+    {
+      "time": 43.281995464852606,
+      "chord": "A major",
+      "confidence": 0.8500719484070833
+    },
+    {
+      "time": 43.46775510204082,
+      "chord": "A major",
+      "confidence": 0.8223116892714477
+    },
+    {
+      "time": 43.653514739229024,
+      "chord": "A major",
+      "confidence": 0.8261045638253353
+    },
+    {
+      "time": 43.83927437641724,
+      "chord": "A major",
+      "confidence": 0.8617986229849066
+    },
+    {
+      "time": 44.02503401360544,
+      "chord": "A major",
+      "confidence": 0.8654951580529389
+    },
+    {
+      "time": 44.210793650793654,
+      "chord": "A major",
+      "confidence": 0.8337987378334228
+    },
+    {
+      "time": 44.39655328798186,
+      "chord": "A major",
+      "confidence": 0.8186833438228442
+    },
+    {
+      "time": 44.582312925170065,
+      "chord": "F major",
+      "confidence": 0.9559011759095675
+    },
+    {
+      "time": 44.76807256235828,
+      "chord": "F major",
+      "confidence": 0.9689728231239576
+    },
+    {
+      "time": 44.95383219954648,
+      "chord": "F major",
+      "confidence": 0.9450608497226718
+    },
+    {
+      "time": 45.139591836734695,
+      "chord": "F major",
+      "confidence": 0.9425078655379079
+    },
+    {
+      "time": 45.3253514739229,
+      "chord": "F major",
+      "confidence": 0.9389576902016072
+    },
+    {
+      "time": 45.51111111111111,
+      "chord": "F major",
+      "confidence": 0.9014607896843967
+    },
+    {
+      "time": 45.69687074829932,
+      "chord": "F major",
+      "confidence": 0.9012661963564756
+    },
+    {
+      "time": 45.88263038548753,
+      "chord": "F major",
+      "confidence": 0.9083049255211182
+    },
+    {
+      "time": 46.068390022675736,
+      "chord": "F major",
+      "confidence": 0.9402218976802026
+    },
+    {
+      "time": 46.25414965986395,
+      "chord": "F major",
+      "confidence": 0.9588320327092061
+    },
+    {
+      "time": 46.439909297052154,
+      "chord": "F major",
+      "confidence": 0.9584569425210698
+    },
+    {
+      "time": 46.625668934240366,
+      "chord": "F major",
+      "confidence": 0.9223156109774877
+    },
+    {
+      "time": 46.81142857142857,
+      "chord": "C major",
+      "confidence": 0.9606810970278801
+    },
+    {
+      "time": 46.99718820861678,
+      "chord": "C major",
+      "confidence": 0.9579024132292138
+    },
+    {
+      "time": 47.18294784580499,
+      "chord": "C major",
+      "confidence": 0.9336852278869382
+    },
+    {
+      "time": 47.368707482993194,
+      "chord": "C major",
+      "confidence": 0.900431075808122
+    },
+    {
+      "time": 47.55446712018141,
+      "chord": "C major",
+      "confidence": 0.8868958731704815
+    },
+    {
+      "time": 47.74022675736961,
+      "chord": "C major",
+      "confidence": 0.8530002768576492
+    },
+    {
+      "time": 47.925986394557825,
+      "chord": "C major",
+      "confidence": 0.8826581186660221
+    },
+    {
+      "time": 48.11174603174603,
+      "chord": "C major",
+      "confidence": 0.922166556863554
+    },
+    {
+      "time": 48.29750566893424,
+      "chord": "C major",
+      "confidence": 0.9617457363788688
+    },
+    {
+      "time": 48.48326530612245,
+      "chord": "C major",
+      "confidence": 0.9554152056654789
+    },
+    {
+      "time": 48.66902494331066,
+      "chord": "C major",
+      "confidence": 0.9338753863563467
+    },
+    {
+      "time": 48.854784580498865,
+      "chord": "G major",
+      "confidence": 0.9059196021400048
+    },
+    {
+      "time": 49.04054421768708,
+      "chord": "G major",
+      "confidence": 0.9151638015934456
+    },
+    {
+      "time": 49.22630385487528,
+      "chord": "G major",
+      "confidence": 0.8917336684945498
+    },
+    {
+      "time": 49.412063492063496,
+      "chord": "G major",
+      "confidence": 0.8697523151963439
+    },
+    {
+      "time": 49.5978231292517,
+      "chord": "G major",
+      "confidence": 0.8441117296200287
+    },
+    {
+      "time": 49.783582766439906,
+      "chord": "G major",
+      "confidence": 0.8637958542550626
+    },
+    {
+      "time": 49.96934240362812,
+      "chord": "G major",
+      "confidence": 0.8857807343120314
+    },
+    {
+      "time": 50.155102040816324,
+      "chord": "G major",
+      "confidence": 0.9303988330146629
+    },
+    {
+      "time": 50.340861678004536,
+      "chord": "G major",
+      "confidence": 0.937055766093366
+    },
+    {
+      "time": 50.52662131519274,
+      "chord": "G major",
+      "confidence": 0.8904839277912908
+    },
+    {
+      "time": 50.712380952380954,
+      "chord": "G major",
+      "confidence": 0.8853427570943939
+    },
+    {
+      "time": 50.89814058956916,
+      "chord": "D major",
+      "confidence": 0.8972254545995741
+    },
+    {
+      "time": 51.08390022675737,
+      "chord": "A major",
+      "confidence": 0.958209405892903
+    },
+    {
+      "time": 51.26965986394558,
+      "chord": "A major",
+      "confidence": 0.9595949732307942
+    },
+    {
+      "time": 51.45541950113379,
+      "chord": "A major",
+      "confidence": 0.9292312446048296
+    },
+    {
+      "time": 51.641179138321995,
+      "chord": "A major",
+      "confidence": 0.898959503136459
+    },
+    {
+      "time": 51.82693877551021,
+      "chord": "A major",
+      "confidence": 0.8359195890883109
+    },
+    {
+      "time": 52.01269841269841,
+      "chord": "A major",
+      "confidence": 0.802185880129026
+    },
+    {
+      "time": 52.19845804988662,
+      "chord": "A major",
+      "confidence": 0.8320916772842053
+    },
+    {
+      "time": 52.38421768707483,
+      "chord": "A major",
+      "confidence": 0.8384663136257228
+    },
+    {
+      "time": 52.569977324263036,
+      "chord": "A major",
+      "confidence": 0.8238669958752313
+    },
+    {
+      "time": 52.75573696145125,
+      "chord": "A major",
+      "confidence": 0.8230644779180096
+    },
+    {
+      "time": 52.94149659863945,
+      "chord": "F major",
+      "confidence": 0.811289776004144
+    },
+    {
+      "time": 53.127256235827666,
+      "chord": "F major",
+      "confidence": 0.964062834550883
+    },
+    {
+      "time": 53.31301587301587,
+      "chord": "F major",
+      "confidence": 0.9606744468331203
+    },
+    {
+      "time": 53.498775510204084,
+      "chord": "F major",
+      "confidence": 0.9433219569076383
+    },
+    {
+      "time": 53.68453514739229,
+      "chord": "F major",
+      "confidence": 0.9387843191621166
+    },
+    {
+      "time": 53.8702947845805,
+      "chord": "F major",
+      "confidence": 0.8894010879889757
+    },
+    {
+      "time": 54.05605442176871,
+      "chord": "F major",
+      "confidence": 0.8589687993836673
+    },
+    {
+      "time": 54.24181405895692,
+      "chord": "F major",
+      "confidence": 0.8632620084730627
+    },
+    {
+      "time": 54.427573696145124,
+      "chord": "F major",
+      "confidence": 0.9449978722664328
+    },
+    {
+      "time": 54.61333333333334,
+      "chord": "F major",
+      "confidence": 0.9433408032538261
+    },
+    {
+      "time": 54.79909297052154,
+      "chord": "F major",
+      "confidence": 0.9521347374811482
+    },
+    {
+      "time": 54.98485260770975,
+      "chord": "F major",
+      "confidence": 0.941772109447903
+    },
+    {
+      "time": 55.17061224489796,
+      "chord": "C major",
+      "confidence": 0.9644577263213732
+    },
+    {
+      "time": 55.356371882086165,
+      "chord": "C major",
+      "confidence": 0.9685782739458
+    },
+    {
+      "time": 55.54213151927438,
+      "chord": "C major",
+      "confidence": 0.9457222943730328
+    },
+    {
+      "time": 55.72789115646258,
+      "chord": "C major",
+      "confidence": 0.9238658959467689
+    },
+    {
+      "time": 55.913650793650795,
+      "chord": "C major",
+      "confidence": 0.870834776990198
+    },
+    {
+      "time": 56.099410430839,
+      "chord": "C major",
+      "confidence": 0.8257464149791865
+    },
+    {
+      "time": 56.28517006802721,
+      "chord": "C major",
+      "confidence": 0.8220944432932655
+    },
+    {
+      "time": 56.47092970521542,
+      "chord": "C major",
+      "confidence": 0.8449592152816029
+    },
+    {
+      "time": 56.65668934240363,
+      "chord": "C major",
+      "confidence": 0.8993753581673919
+    },
+    {
+      "time": 56.842448979591836,
+      "chord": "C major",
+      "confidence": 0.9379608201311587
+    },
+    {
+      "time": 57.02820861678005,
+      "chord": "C major",
+      "confidence": 0.9081069708076956
+    },
+    {
+      "time": 57.213968253968254,
+      "chord": "G major",
+      "confidence": 0.9139280877489044
+    },
+    {
+      "time": 57.39972789115646,
+      "chord": "G major",
+      "confidence": 0.9453626710362664
+    },
+    {
+      "time": 57.58548752834467,
+      "chord": "G major",
+      "confidence": 0.9257790763027177
+    },
+    {
+      "time": 57.77124716553288,
+      "chord": "G major",
+      "confidence": 0.9230782854626289
+    },
+    {
+      "time": 57.95700680272109,
+      "chord": "G major",
+      "confidence": 0.9290282948347992
+    },
+    {
+      "time": 58.142766439909295,
+      "chord": "G major",
+      "confidence": 0.9341466707552757
+    },
+    {
+      "time": 58.32852607709751,
+      "chord": "G major",
+      "confidence": 0.9377572247652106
+    },
+    {
+      "time": 58.51428571428571,
+      "chord": "G major",
+      "confidence": 0.8996586715919588
+    },
+    {
+      "time": 58.700045351473925,
+      "chord": "G major",
+      "confidence": 0.9075926721418807
+    },
+    {
+      "time": 58.88580498866213,
+      "chord": "G major",
+      "confidence": 0.9140637666078281
+    },
+    {
+      "time": 59.07156462585034,
+      "chord": "G major",
+      "confidence": 0.9075206487684113
+    },
+    {
+      "time": 59.25732426303855,
+      "chord": "G major",
+      "confidence": 0.8897909638808692
+    },
+    {
+      "time": 59.44308390022676,
+      "chord": "G major",
+      "confidence": 0.8428335077211355
+    },
+    {
+      "time": 59.628843537414966,
+      "chord": "A major",
+      "confidence": 0.947073599473298
+    },
+    {
+      "time": 59.81460317460318,
+      "chord": "A major",
+      "confidence": 0.952219231178481
+    },
+    {
+      "time": 60.00036281179138,
+      "chord": "A major",
+      "confidence": 0.946164137177775
+    },
+    {
+      "time": 60.18612244897959,
+      "chord": "A major",
+      "confidence": 0.9421288823552316
+    },
+    {
+      "time": 60.3718820861678,
+      "chord": "A major",
+      "confidence": 0.9083353475819407
+    },
+    {
+      "time": 60.55764172335601,
+      "chord": "A major",
+      "confidence": 0.8868869642785302
+    },
+    {
+      "time": 60.74340136054422,
+      "chord": "A major",
+      "confidence": 0.8817397937084943
+    },
+    {
+      "time": 60.929160997732424,
+      "chord": "A major",
+      "confidence": 0.9075416561181175
+    },
+    {
+      "time": 61.11492063492064,
+      "chord": "A major",
+      "confidence": 0.9077855742814265
+    },
+    {
+      "time": 61.30068027210884,
+      "chord": "A major",
+      "confidence": 0.9069341702574867
+    },
+    {
+      "time": 61.486439909297054,
+      "chord": "A major",
+      "confidence": 0.9114671831865612
+    },
+    {
+      "time": 61.67219954648526,
+      "chord": "A major",
+      "confidence": 0.8966344694318975
+    },
+    {
+      "time": 61.85795918367347,
+      "chord": "A major",
+      "confidence": 0.8868733872448813
+    },
+    {
+      "time": 62.04371882086168,
+      "chord": "A major",
+      "confidence": 0.8622133152859566
+    },
+    {
+      "time": 62.22947845804989,
+      "chord": "A major",
+      "confidence": 0.8414394999646995
+    },
+    {
+      "time": 62.415238095238095,
+      "chord": "A major",
+      "confidence": 0.802755397873298
+    },
+    {
+      "time": 62.6009977324263,
+      "chord": "A major",
+      "confidence": 0.7641014822082012
+    },
+    {
+      "time": 62.78675736961451,
+      "chord": "A major",
+      "confidence": 0.7694346828237953
+    },
+    {
+      "time": 62.97251700680272,
+      "chord": "A major",
+      "confidence": 0.7618229377880508
+    },
+    {
+      "time": 63.15827664399093,
+      "chord": "A major",
+      "confidence": 0.7754043736127645
+    },
+    {
+      "time": 63.344036281179136,
+      "chord": "A major",
+      "confidence": 0.7807862857381362
+    },
+    {
+      "time": 63.52979591836735,
+      "chord": "A major",
+      "confidence": 0.7632152135864056
+    },
+    {
+      "time": 63.715555555555554,
+      "chord": "A major",
+      "confidence": 0.7132057513565285
+    },
+    {
+      "time": 63.901315192743766,
+      "chord": "A major",
+      "confidence": 0.7076595547956561
+    },
+    {
+      "time": 64.08707482993198,
+      "chord": "A major",
+      "confidence": 0.7021507012072263
+    },
+    {
+      "time": 64.27283446712018,
+      "chord": "A major",
+      "confidence": 0.6949806529947722
+    },
+    {
+      "time": 64.45859410430839,
+      "chord": "A major",
+      "confidence": 0.6889930326026719
+    },
+    {
+      "time": 64.6443537414966,
+      "chord": "E major",
+      "confidence": 0.6879710112875399
+    },
+    {
+      "time": 64.83011337868481,
+      "chord": "E major",
+      "confidence": 0.7197105858457362
+    },
+    {
+      "time": 65.01587301587301,
+      "chord": "E major",
+      "confidence": 0.7200566830769243
+    },
+    {
+      "time": 65.20163265306122,
+      "chord": "E major",
+      "confidence": 0.7223204585493123
+    }
+  ],
+  "key": "C major",
+  "tempo": 28.4,
+  "duration": 65.32,
+  "youtube_url": "https://youtu.be/R07NwwB5tJc?si=4qUTkMpq201bV1Ht",
+  "timestamp": "2025-05-31 18:20:55.893352",
+  "intelligence": {
+    "progression_analysis": {
+      "function_analysis": [
+        "I",
+        "I",
+        "I",
+        "VII\u00b0",
+        "VII\u00b0",
+        "VII\u00b0",
+        "III",
+        "II",
+        "II",
+        "III",
+        "i",
+        "i",
+        "i",
+        "i",
+        "i",
+        "i",
+        "i",
+        "i",
+        "IV",
+        "IV",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "III",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "VI",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "V",
+        "V",
+        "V",
+        "V"
+      ],
+      "key_modulations": [],
+      "common_patterns": [
+        "Sequential Progression"
+      ],
+      "complexity_score": 0.017045454545454544,
+      "suggested_substitutions": [
+        {
+          "original_chord": "N",
+          "position": 0,
+          "time": 0.0,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "N",
+          "position": 1,
+          "time": 0.18575963718820862,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "N",
+          "position": 2,
+          "time": 0.37151927437641724,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "N",
+          "position": 18,
+          "time": 3.3436734693877552,
+          "suggestions": [
+            "ii (subdominant substitute)",
+            "IV7 (subdominant 7th)"
+          ]
+        },
+        {
+          "original_chord": "C major",
+          "position": 19,
+          "time": 3.5294331065759637,
+          "suggestions": [
+            "ii (subdominant substitute)",
+            "IV7 (subdominant 7th)"
+          ]
+        },
+        {
+          "original_chord": "C major",
+          "position": 20,
+          "time": 3.7151927437641725,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "C major",
+          "position": 21,
+          "time": 3.900952380952381,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "F# major",
+          "position": 22,
+          "time": 4.08671201814059,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "F# major",
+          "position": 23,
+          "time": 4.272471655328798,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        },
+        {
+          "original_chord": "F# major",
+          "position": 24,
+          "time": 4.458231292517007,
+          "suggestions": [
+            "vi (relative minor)",
+            "iii (mediant substitute)"
+          ]
+        }
+      ],
+      "mood_indicators": [
+        "happy",
+        "powerful",
+        "nostalgic"
+      ]
+    },
+    "structural_analysis": {
+      "sections": [
+        {
+          "name": "Intro/Verse",
+          "start": 0,
+          "end": 7,
+          "start_time": 0.0,
+          "end_time": 1.3003174603174603
+        },
+        {
+          "name": "Verse",
+          "start": 8,
+          "end": 15,
+          "start_time": 1.486077097505669,
+          "end_time": 2.786394557823129
+        },
+        {
+          "name": "Verse",
+          "start": 16,
+          "end": 23,
+          "start_time": 2.972154195011338,
+          "end_time": 4.272471655328798
+        },
+        {
+          "name": "Verse",
+          "start": 24,
+          "end": 31,
+          "start_time": 4.458231292517007,
+          "end_time": 5.758548752834467
+        },
+        {
+          "name": "Verse",
+          "start": 32,
+          "end": 39,
+          "start_time": 5.944308390022676,
+          "end_time": 7.244625850340136
+        },
+        {
+          "name": "Verse",
+          "start": 40,
+          "end": 47,
+          "start_time": 7.430385487528345,
+          "end_time": 8.730702947845804
+        },
+        {
+          "name": "Verse",
+          "start": 48,
+          "end": 55,
+          "start_time": 8.916462585034013,
+          "end_time": 10.216780045351474
+        },
+        {
+          "name": "Verse",
+          "start": 56,
+          "end": 63,
+          "start_time": 10.402539682539683,
+          "end_time": 11.702857142857143
+        },
+        {
+          "name": "Verse",
+          "start": 64,
+          "end": 71,
+          "start_time": 11.888616780045352,
+          "end_time": 13.188934240362812
+        },
+        {
+          "name": "Verse",
+          "start": 72,
+          "end": 79,
+          "start_time": 13.374693877551021,
+          "end_time": 14.675011337868481
+        },
+        {
+          "name": "Verse",
+          "start": 80,
+          "end": 87,
+          "start_time": 14.86077097505669,
+          "end_time": 16.16108843537415
+        },
+        {
+          "name": "Verse",
+          "start": 88,
+          "end": 95,
+          "start_time": 16.34684807256236,
+          "end_time": 17.647165532879818
+        },
+        {
+          "name": "Verse",
+          "start": 96,
+          "end": 103,
+          "start_time": 17.832925170068027,
+          "end_time": 19.13324263038549
+        },
+        {
+          "name": "Verse",
+          "start": 104,
+          "end": 111,
+          "start_time": 19.319002267573698,
+          "end_time": 20.619319727891156
+        },
+        {
+          "name": "Verse",
+          "start": 112,
+          "end": 119,
+          "start_time": 20.805079365079365,
+          "end_time": 22.105396825396827
+        },
+        {
+          "name": "Verse",
+          "start": 120,
+          "end": 127,
+          "start_time": 22.291156462585032,
+          "end_time": 23.591473922902495
+        },
+        {
+          "name": "Verse",
+          "start": 128,
+          "end": 135,
+          "start_time": 23.777233560090703,
+          "end_time": 25.077551020408162
+        },
+        {
+          "name": "Verse",
+          "start": 136,
+          "end": 143,
+          "start_time": 25.26331065759637,
+          "end_time": 26.563628117913833
+        },
+        {
+          "name": "Verse",
+          "start": 144,
+          "end": 151,
+          "start_time": 26.749387755102042,
+          "end_time": 28.0497052154195
+        },
+        {
+          "name": "Verse",
+          "start": 152,
+          "end": 159,
+          "start_time": 28.23546485260771,
+          "end_time": 29.53578231292517
+        },
+        {
+          "name": "Verse",
+          "start": 160,
+          "end": 167,
+          "start_time": 29.72154195011338,
+          "end_time": 31.02185941043084
+        },
+        {
+          "name": "Verse",
+          "start": 168,
+          "end": 175,
+          "start_time": 31.207619047619048,
+          "end_time": 32.507936507936506
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 176,
+          "end": 183,
+          "start_time": 32.69369614512472,
+          "end_time": 33.99401360544218
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 184,
+          "end": 191,
+          "start_time": 34.17977324263038,
+          "end_time": 35.48009070294785
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 192,
+          "end": 199,
+          "start_time": 35.66585034013605,
+          "end_time": 36.96616780045351
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 200,
+          "end": 207,
+          "start_time": 37.151927437641724,
+          "end_time": 38.45224489795918
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 208,
+          "end": 215,
+          "start_time": 38.638004535147395,
+          "end_time": 39.938321995464854
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 216,
+          "end": 223,
+          "start_time": 40.12408163265306,
+          "end_time": 41.424399092970525
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 224,
+          "end": 231,
+          "start_time": 41.61015873015873,
+          "end_time": 42.91047619047619
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 232,
+          "end": 239,
+          "start_time": 43.0962358276644,
+          "end_time": 44.39655328798186
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 240,
+          "end": 247,
+          "start_time": 44.582312925170065,
+          "end_time": 45.88263038548753
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 248,
+          "end": 255,
+          "start_time": 46.068390022675736,
+          "end_time": 47.368707482993194
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 256,
+          "end": 263,
+          "start_time": 47.55446712018141,
+          "end_time": 48.854784580498865
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 264,
+          "end": 271,
+          "start_time": 49.04054421768708,
+          "end_time": 50.340861678004536
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 272,
+          "end": 279,
+          "start_time": 50.52662131519274,
+          "end_time": 51.82693877551021
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 280,
+          "end": 287,
+          "start_time": 52.01269841269841,
+          "end_time": 53.31301587301587
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 288,
+          "end": 295,
+          "start_time": 53.498775510204084,
+          "end_time": 54.79909297052154
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 296,
+          "end": 303,
+          "start_time": 54.98485260770975,
+          "end_time": 56.28517006802721
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 304,
+          "end": 311,
+          "start_time": 56.47092970521542,
+          "end_time": 57.77124716553288
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 312,
+          "end": 319,
+          "start_time": 57.95700680272109,
+          "end_time": 59.25732426303855
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 320,
+          "end": 327,
+          "start_time": 59.44308390022676,
+          "end_time": 60.74340136054422
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 328,
+          "end": 335,
+          "start_time": 60.929160997732424,
+          "end_time": 62.22947845804989
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 336,
+          "end": 343,
+          "start_time": 62.415238095238095,
+          "end_time": 63.715555555555554
+        },
+        {
+          "name": "Chorus/Bridge",
+          "start": 344,
+          "end": 351,
+          "start_time": 63.901315192743766,
+          "end_time": 65.20163265306122
+        }
+      ],
+      "repetition_score": 0.900952380952381,
+      "development_arc": [
+        "Building complexity"
+      ],
+      "climax_points": [
+        21.73387755102041
+      ]
+    },
+    "practice_suggestions": {
+      "difficulty_level": {
+        "overall_difficulty": "easy",
+        "difficulty_score": 1,
+        "difficulty_factors": [
+          "Moderate chord changes"
+        ],
+        "tempo_factor": 28.395432692307693,
+        "chord_complexity": 0.0,
+        "harmonic_rhythm": "moderate"
+      },
+      "recommended_techniques": [
+        "Break song into smaller sections",
+        "Identify repeating patterns",
+        "Practice strumming patterns separately",
+        "Use backing tracks for timing"
+      ],
+      "practice_sections": [
+        {
+          "name": "Rapid changes (measure 7)",
+          "start_time": 4.458231292517007,
+          "end_time": 5.015510204081632,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 10)",
+          "start_time": 6.6873469387755105,
+          "end_time": 7.244625850340136,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        },
+        {
+          "name": "Rapid changes (measure 69)",
+          "start_time": 50.52662131519274,
+          "end_time": 51.08390022675737,
+          "difficulty": "High",
+          "focus": "Chord transitions"
+        }
+      ],
+      "chord_transitions": [
+        {
+          "from_chord": "N",
+          "to_chord": "C major",
+          "time": 3.3436734693877552,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "C major",
+          "to_chord": "F# major",
+          "time": 3.900952380952381,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "F# major",
+          "to_chord": "D major",
+          "time": 4.458231292517007,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "D major",
+          "to_chord": "C# major",
+          "time": 4.6439909297052155,
+          "factors": [
+            "Root change"
+          ]
+        },
+        {
+          "from_chord": "C# major",
+          "to_chord": "D major",
+          "time": 5.015510204081632,
+          "factors": [
+            "Root change"
+          ]
+        }
+      ],
+      "tempo_recommendations": {
+        "original_tempo": 28.395432692307693,
+        "practice_tempo": 60,
+        "target_tempo": 31.234975961538467,
+        "tempo_progression": [
+          17.037259615384617,
+          22.716346153846157,
+          28.395432692307693,
+          31.234975961538467
+        ]
+      }
+    }
+  }
+}
