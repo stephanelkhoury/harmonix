@@ -6,42 +6,70 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD:-password}
+
+  python_service:
+    build: 
+      context: ../python_service
+      dockerfile: Dockerfile
+    container_name: python_service
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      - PORT=8000
+
+  server:
+    build:
+      context: ../server
+      dockerfile: Dockerfile
+    container_name: server
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGO_URL=${MONGO_URL:-mongodb://mongodb:27017/harmonix}
+      - PYTHON_SERVICE_URL=http://python_service:8000
+      - PORT=4000
+    depends_on:
+      - mongodb
+      - python_service
+    volumes:
+      - ../server/uploads:/app/uploads
+    restart: always
 
   backend:
     build:
-      context: ./server
+      context: ../backend
       dockerfile: Dockerfile
     container_name: backend
     ports:
       - "5001:5001"
     environment:
-      - MONGO_URL=mongodb://mongodb:27017/harmonix
+      - MONGODB_URI=${MONGO_URL:-mongodb://mongodb:27017/harmonix}
       - PYTHON_SERVICE_URL=http://python_service:8000
+      - PORT=5001
     depends_on:
       - mongodb
       - python_service
     volumes:
-      - ./backend/uploads:/app/uploads
-    restart: always
-
-  python_service:
-    build: ./python_service
-    container_name: python_service
-    ports:
-      - "8000:8000"
+      - ../backend/uploads:/app/uploads
     restart: always
 
   frontend:
     build:
-      context: ./frontend
+      context: ../frontend
       dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "3000:80"
     environment:
-      - REACT_APP_API_URL=http://backend:5001
+      - REACT_APP_BACKEND_URL=${BACKEND_URL:-http://localhost:5001}
+      - REACT_APP_PYTHON_SERVICE_URL=${PYTHON_URL:-http://localhost:8000}
     depends_on:
       - backend
+      - server
     restart: always
 
 volumes:

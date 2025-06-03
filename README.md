@@ -323,3 +323,38 @@ For detailed information about the project structure, see `PROJECT_STRUCTURE.md`
 - **Troubleshooting**: `docs/TROUBLESHOOTING.md`
 - **Testing**: `tests/README.md`
 - **Scripts**: `scripts/README.md`
+
+## 🚀 Deploy Online
+
+Ready to deploy your Harmonix app to the cloud? We've made it easy!
+
+### Quick Deploy
+
+```bash
+# Check if you're ready for deployment
+./check-deployment.sh
+
+# Interactive deployment guide
+./deploy.sh
+```
+
+### Supported Platforms
+
+- **Railway** - Best for full-stack apps (recommended)
+- **Render** - Great free tier with database support
+- **Vercel** - Perfect for frontend + serverless APIs
+- **Docker** - Deploy anywhere with container support
+- **Netlify** - Static frontend hosting with API proxying
+
+### Production Health Check
+
+After deployment, verify everything is working:
+
+```bash
+# Test your live application
+FRONTEND_URL=https://your-app.com \
+BACKEND_URL=https://your-backend.com \
+node health-check.js
+```
+
+For detailed deployment instructions, see: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)

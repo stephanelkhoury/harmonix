@@ -1,0 +1,58 @@
+version: "1"
+services:
+  - name: frontend
+    source:
+      type: git
+      repo: YOUR_GITHUB_USERNAME/harmonix
+      branch: main
+    build:
+      command: cd frontend && npm install && npm run build
+    start:
+      command: cd frontend && npx serve -s build -l 3000
+    env:
+      - REACT_APP_BACKEND_URL=${{backend.RAILWAY_PRIVATE_DOMAIN}}:5001
+      - REACT_APP_PYTHON_SERVICE_URL=${{python-service.RAILWAY_PRIVATE_DOMAIN}}:8000
+
+  - name: backend
+    source:
+      type: git
+      repo: YOUR_GITHUB_USERNAME/harmonix
+      branch: main
+    build:
+      command: cd backend && npm install
+    start:
+      command: cd backend && npm start
+    env:
+      - MONGODB_URI=${{Mongo.DATABASE_URL}}
+      - PYTHON_SERVICE_URL=${{python-service.RAILWAY_PRIVATE_DOMAIN}}:8000
+      - PORT=5001
+
+  - name: server
+    source:
+      type: git
+      repo: YOUR_GITHUB_USERNAME/harmonix
+      branch: main
+    build:
+      command: cd server && npm install
+    start:
+      command: cd server && npm start
+    env:
+      - MONGO_URL=${{Mongo.DATABASE_URL}}
+      - PYTHON_SERVICE_URL=${{python-service.RAILWAY_PRIVATE_DOMAIN}}:8000
+      - PORT=4000
+
+  - name: python-service
+    source:
+      type: git
+      repo: YOUR_GITHUB_USERNAME/harmonix
+      branch: main
+    build:
+      command: cd python_service && pip install -r requirements.txt
+    start:
+      command: cd python_service && uvicorn main:app --host 0.0.0.0 --port 8000
+    env:
+      - PORT=8000
+
+databases:
+  - name: mongodb
+    plugin: mongodb
