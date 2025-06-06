@@ -8,7 +8,7 @@ import './style/ChordsDictionary.css';
 
 function ChordsDictionary() {
   const [selectedChordType, setSelectedChordType] = useState('major');
-  const [selectedChord, setSelectedChord] = useState('C');
+  const [selectedChord, setSelectedChord] = useState('C'); // Represents the full chord name, e.g., "C", "Am", "Gmaj7"
 
   const chordTypes = [
     { id: 'major', name: 'Major Chords', description: 'Major chords are triads constructed using a root, a major third and a perfect fifth. Major chords usually sound happy and bright.' },
@@ -36,13 +36,13 @@ function ChordsDictionary() {
     'diminished': 'dim',
     'diminished7': 'dim7',
     'augmented': 'aug',
-    'aug7': '7#5',
+    'aug7': '7#5', // ChordVisualizer will need 'C7#5', etc. in its map
     'sus2': 'sus2',
     'sus4': 'sus4',
     'dom7': '7',
-    'm7b5': 'm7b5',
-    'maj6': '6',
-    'min6': 'm6'
+    'm7b5': 'm7b5', // ChordVisualizer will need 'Cm7b5', etc.
+    'maj6': '6',     // ChordVisualizer will need 'C6', etc.
+    'min6': 'm6'     // ChordVisualizer will need 'Cm6', etc.
   };
 
   // Map chord types to note intervals for playback
@@ -70,8 +70,11 @@ function ChordsDictionary() {
     const intervals = chordNoteMap[type] || chordNoteMap['major'];
     
     // Find the root note index
-    const rootIndex = noteNames.indexOf(chordRoot.replace(/[0-9m]/g, ''));
-    if (rootIndex === -1) return [];
+    const rootIndex = noteNames.indexOf(chordRoot.replace(/[0-9m#bA-Za-z]*(sus|aug|dim|maj|min)/g, '').replace(/[0-9#b]/g,'')); // Improved root extraction
+    if (rootIndex === -1) {
+        console.warn(`Could not find root index for: ${chordRoot}`);
+        return [];
+    }
 
     // Calculate all notes in the chord
     return intervals.map(interval => {
@@ -81,36 +84,46 @@ function ChordsDictionary() {
   }, []);
 
   // Example chords for each type
-  const getExampleChords = (type) => {
-    const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-    switch (type) {
-      case 'major':
-      case 'major7':
-      case 'dom7':
-      case 'maj6':
-        return ['C', 'F', 'G', 'D', 'A', 'E'];
-      case 'minor':
-      case 'minor7':
-      case 'min6':
-        return ['Am', 'Dm', 'Em', 'Bm', 'F#m', 'Cm'];
-      case 'diminished':
-      case 'diminished7':
-      case 'm7b5':
-        return ['Bdim', 'Ddim', 'F#dim', 'Adim'];
-      case 'augmented':
-      case 'aug7':
-        return ['Caug', 'Faug', 'Gaug'];
-      case 'sus2':
-      case 'sus4':
-        return ['Csus4', 'Dsus2', 'Gsus4', 'Asus2'];
-      default:
-        return notes;
+  const getExampleChords = useCallback((typeId) => {
+    // typeId is 'major', 'minor', 'major7', etc.
+    let exampleRoots = [];
+    if (typeId.includes('minor') || typeId.includes('diminished') || typeId === 'm7b5' || typeId === 'min6') {
+      exampleRoots = ['A', 'D', 'E', 'B', 'F#', 'C#'].slice(0, 6);
+    } else if (typeId.includes('sus')) {
+      exampleRoots = ['C', 'D', 'G', 'A', 'E', 'F'].slice(0, 6);
+    } else {
+      exampleRoots = ['C', 'F', 'G', 'D', 'A', 'E'].slice(0, 6);
     }
-  };
 
-  // Handle chord change from ChordVisualizer
-  const handleChordChange = (chord) => {
+    const suffix = chordTypeMapping[typeId];
+
+    if (suffix === undefined) {
+      console.error(`[ChordsDictionary] Unknown typeId in getExampleChords: ${typeId}`);
+      return exampleRoots; // Return root notes as a fallback
+    }
+    return exampleRoots.map(root => root + suffix);
+  }, [chordTypeMapping]); // Added chordTypeMapping to dependencies
+
+  // Handle chord type change
+  const handleChordTypeChange = useCallback((newTypeId) => {
+    setSelectedChordType(newTypeId);
+    const examples = getExampleChords(newTypeId);
+    if (examples.length > 0) {
+      setSelectedChord(examples[0]);
+    } else {
+      // Fallback, though getExampleChords should always provide examples
+      const rootNotesForFallback = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+      const suffix = chordTypeMapping[newTypeId] || '';
+      setSelectedChord(rootNotesForFallback[0] + suffix);
+    }
+  }, [getExampleChords, chordTypeMapping]); // Added dependencies
+
+  // Handle chord change from ChordVisualizer (or example buttons)
+  const handleChordSelection = (chord) => {
     setSelectedChord(chord);
+    // Optional: If the selected chord implies a type different from selectedChordType,
+    // you could try to update selectedChordType here, but it might lead to complex state interactions.
+    // For now, clicking an example chord just sets the chord, type remains.
   };
 
   // Function to handle playing a chord
@@ -147,7 +160,7 @@ function ChordsDictionary() {
                   <button
                     key={type.id}
                     className={`chord-type-button ${selectedChordType === type.id ? 'active' : ''}`}
-                    onClick={() => setSelectedChordType(type.id)}
+                    onClick={() => handleChordTypeChange(type.id)} // Updated onClick
                   >
                     {type.name}
                   </button>
@@ -168,8 +181,9 @@ function ChordsDictionary() {
                   <div className="chord-visualizer-wrapper">
                     <ChordVisualizer
                       chordType={chordTypeMapping[selectedChordType]}
-                      onChordChange={handleChordChange}
+                      onChordChange={handleChordSelection}
                       defaultChord={selectedChord}
+                      isControlled={true}
                     />
                     <button 
                       className="play-chord-button" 
@@ -186,7 +200,7 @@ function ChordsDictionary() {
                         <button
                           key={chord}
                           className={`example-button ${selectedChord === chord ? 'active' : ''}`}
-                          onClick={() => setSelectedChord(chord)}
+                          onClick={() => handleChordSelection(chord)} // Updated onClick
                         >
                           {chord}
                         </button>

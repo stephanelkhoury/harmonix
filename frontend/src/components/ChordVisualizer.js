@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './style/ChordVisualizer.css';
 
-function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C' }) {
+function ChordVisualizer({ chordType = '', onChordChange, defaultChord = 'C', isControlled = false }) {
   const [activeChord, setActiveChord] = useState(defaultChord);
   const [activeNote, setActiveNote] = useState(defaultChord);
   const [activeChordType, setActiveChordType] = useState(chordType);
@@ -65,17 +65,25 @@ const chordNotes = {
   'Cdim7': ['C', 'D#', 'F#', 'A'],
   'Csus2': ['C', 'D', 'G'],
   'Csus4': ['C', 'F', 'G'],
+  'C6': ['C', 'E', 'G', 'A'],      // Added
+  'Cm6': ['C', 'D#', 'G', 'A'],   // Added
+  'C7#5': ['C', 'E', 'G#', 'A#'], // Added
+  'Cm7b5': ['C', 'D#', 'F#', 'A#'],// Added
 
   'C#': ['C#', 'F', 'G#'],
   'C#m': ['C#', 'E', 'G#'],
   'C#dim': ['C#', 'E', 'G'],
   'C#aug': ['C#', 'F', 'A'],
   'C#7': ['C#', 'F', 'G#', 'B'],
-  'C#maj7': ['C#', 'F', 'G#', 'C'],
+  'C#maj7': ['C#', 'F', 'G#', 'C'], // Note: C is B#
   'C#m7': ['C#', 'E', 'G#', 'B'],
   'C#dim7': ['C#', 'E', 'G', 'A#'],
   'C#sus2': ['C#', 'D#', 'G#'],
   'C#sus4': ['C#', 'F#', 'G#'],
+  'C#6': ['C#', 'F', 'G#', 'A#'],    // Added
+  'C#m6': ['C#', 'E', 'G#', 'A#'],  // Added
+  'C#7#5': ['C#', 'F', 'A', 'B'],   // Added
+  'C#m7b5': ['C#', 'E', 'G', 'B'], // Added
 
   'D': ['D', 'F#', 'A'],
   'Dm': ['D', 'F', 'A'],
@@ -87,50 +95,70 @@ const chordNotes = {
   'Ddim7': ['D', 'F', 'G#', 'B'],
   'Dsus2': ['D', 'E', 'A'],
   'Dsus4': ['D', 'G', 'A'],
+  'D6': ['D', 'F#', 'A', 'B'],      // Added
+  'Dm6': ['D', 'F', 'A', 'B'],    // Added
+  'D7#5': ['D', 'F#', 'A#', 'C'],   // Added
+  'Dm7b5': ['D', 'F', 'G#', 'C'], // Added
 
   'D#': ['D#', 'G', 'A#'],
   'D#m': ['D#', 'F#', 'A#'],
   'D#dim': ['D#', 'F#', 'A'],
   'D#aug': ['D#', 'G', 'B'],
   'D#7': ['D#', 'G', 'A#', 'C#'],
-  'D#maj7': ['D#', 'G', 'A#', 'D'],
+  'D#maj7': ['D#', 'G', 'A#', 'D'], // Note: D is C##
   'D#m7': ['D#', 'F#', 'A#', 'C#'],
   'D#dim7': ['D#', 'F#', 'A', 'C'],
   'D#sus2': ['D#', 'F', 'A#'],
   'D#sus4': ['D#', 'G#', 'A#'],
+  'D#6': ['D#', 'G', 'A#', 'C'],     // Added
+  'D#m6': ['D#', 'F#', 'A#', 'C'], // Added
+  'D#7#5': ['D#', 'G', 'B', 'C#'],  // Added
+  'D#m7b5': ['D#', 'F#', 'A', 'C#'],// Added
 
   'E': ['E', 'G#', 'B'],
   'Em': ['E', 'G', 'B'],
   'Edim': ['E', 'G', 'A#'],
-  'Eaug': ['E', 'G#', 'C'],
+  'Eaug': ['E', 'G#', 'C'], // Note: C is B#
   'E7': ['E', 'G#', 'B', 'D'],
   'Emaj7': ['E', 'G#', 'B', 'D#'],
   'Em7': ['E', 'G', 'B', 'D'],
   'Edim7': ['E', 'G', 'A#', 'C#'],
   'Esus2': ['E', 'F#', 'B'],
   'Esus4': ['E', 'A', 'B'],
+  'E6': ['E', 'G#', 'B', 'C#'],     // Added
+  'Em6': ['E', 'G', 'B', 'C#'],   // Added
+  'E7#5': ['E', 'G#', 'C', 'D'],    // Added
+  'Em7b5': ['E', 'G', 'A#', 'D'], // Added
 
   'F': ['F', 'A', 'C'],
   'Fm': ['F', 'G#', 'C'],
-  'Fdim': ['F', 'G#', 'B'],
+  'Fdim': ['F', 'G#', 'B'], // Note: B is Cb
   'Faug': ['F', 'A', 'C#'],
   'F7': ['F', 'A', 'C', 'D#'],
   'Fmaj7': ['F', 'A', 'C', 'E'],
   'Fm7': ['F', 'G#', 'C', 'D#'],
-  'Fdim7': ['F', 'G#', 'B', 'D'],
+  'Fdim7': ['F', 'G#', 'B', 'D'], // Note: D is Ebb
   'Fsus2': ['F', 'G', 'C'],
   'Fsus4': ['F', 'A#', 'C'],
+  'F6': ['F', 'A', 'C', 'D'],       // Added
+  'Fm6': ['F', 'G#', 'C', 'D'],     // Added
+  'F7#5': ['F', 'A', 'C#', 'D#'],   // Added
+  'Fm7b5': ['F', 'G#', 'B', 'D#'],  // Added
 
   'F#': ['F#', 'A#', 'C#'],
   'F#m': ['F#', 'A', 'C#'],
   'F#dim': ['F#', 'A', 'C'],
-  'F#aug': ['F#', 'A#', 'D'],
+  'F#aug': ['F#', 'A#', 'D'], // Note: D is Cx
   'F#7': ['F#', 'A#', 'C#', 'E'],
-  'F#maj7': ['F#', 'A#', 'C#', 'F'],
+  'F#maj7': ['F#', 'A#', 'C#', 'F'], // Note: F is E#
   'F#m7': ['F#', 'A', 'C#', 'E'],
-  'F#dim7': ['F#', 'A', 'C', 'D#'],
+  'F#dim7': ['F#', 'A', 'C', 'D#'], // Note: D# is Ebb from C (dim3)
   'F#sus2': ['F#', 'G#', 'C#'],
   'F#sus4': ['F#', 'B', 'C#'],
+  'F#6': ['F#', 'A#', 'C#', 'D#'],    // Added
+  'F#m6': ['F#', 'A', 'C#', 'D#'],  // Added
+  'F#7#5': ['F#', 'A#', 'D', 'E'],   // Added
+  'F#m7b5': ['F#', 'A', 'C', 'E'], // Added
 
   'G': ['G', 'B', 'D'],
   'Gm': ['G', 'A#', 'D'],
@@ -139,55 +167,80 @@ const chordNotes = {
   'G7': ['G', 'B', 'D', 'F'],
   'Gmaj7': ['G', 'B', 'D', 'F#'],
   'Gm7': ['G', 'A#', 'D', 'F'],
-  'Gdim7': ['G', 'A#', 'C#', 'E'],
+  'Gdim7': ['G', 'A#', 'C#', 'E'], // Note: E is Fb from C# (dim3)
   'Gsus2': ['G', 'A', 'D'],
   'Gsus4': ['G', 'C', 'D'],
+  'G6': ['G', 'B', 'D', 'E'],       // Added
+  'Gm6': ['G', 'A#', 'D', 'E'],     // Added
+  'G7#5': ['G', 'B', 'D#', 'F'],    // Added
+  'Gm7b5': ['G', 'A#', 'C#', 'F'],  // Added
 
   'G#': ['G#', 'C', 'D#'],
   'G#m': ['G#', 'B', 'D#'],
   'G#dim': ['G#', 'B', 'D'],
-  'G#aug': ['G#', 'C', 'E'],
+  'G#aug': ['G#', 'C', 'E'], // Note: E is Fx
   'G#7': ['G#', 'C', 'D#', 'F#'],
-  'G#maj7': ['G#', 'C', 'D#', 'G'],
+  'G#maj7': ['G#', 'C', 'D#', 'G'], // Note: G is F##
   'G#m7': ['G#', 'B', 'D#', 'F#'],
-  'G#dim7': ['G#', 'B', 'D', 'F'],
+  'G#dim7': ['G#', 'B', 'D', 'F'], // Note: F is E#
   'G#sus2': ['G#', 'A#', 'D#'],
   'G#sus4': ['G#', 'C#', 'D#'],
+  'G#6': ['G#', 'C', 'D#', 'F'],     // Added
+  'G#m6': ['G#', 'B', 'D#', 'F'],   // Added
+  'G#7#5': ['G#', 'C', 'E', 'F#'],  // Added
+  'G#m7b5': ['G#', 'B', 'D', 'F#'],// Added
 
   'A': ['A', 'C#', 'E'],
   'Am': ['A', 'C', 'E'],
   'Adim': ['A', 'C', 'D#'],
-  'Aaug': ['A', 'C#', 'F'],
+  'Aaug': ['A', 'C#', 'F'], // Note: F is E#
   'A7': ['A', 'C#', 'E', 'G'],
   'Amaj7': ['A', 'C#', 'E', 'G#'],
   'Am7': ['A', 'C', 'E', 'G'],
   'Adim7': ['A', 'C', 'D#', 'F#'],
   'Asus2': ['A', 'B', 'E'],
   'Asus4': ['A', 'D', 'E'],
+  'A6': ['A', 'C#', 'E', 'F#'],     // Added
+  'Am6': ['A', 'C', 'E', 'F#'],   // Added
+  'A7#5': ['A', 'C#', 'F', 'G'],    // Added
+  'Am7b5': ['A', 'C', 'D#', 'G'], // Added
 
   'A#': ['A#', 'D', 'F'],
   'A#m': ['A#', 'C#', 'F'],
   'A#dim': ['A#', 'C#', 'E'],
-  'A#aug': ['A#', 'D', 'F#'],
+  'A#aug': ['A#', 'D', 'F#'], // Note: F# is Gbb
   'A#7': ['A#', 'D', 'F', 'G#'],
-  'A#maj7': ['A#', 'D', 'F', 'A'],
+  'A#maj7': ['A#', 'D', 'F', 'A'], // Note: A is G##
   'A#m7': ['A#', 'C#', 'F', 'G#'],
   'A#dim7': ['A#', 'C#', 'E', 'G'],
   'A#sus2': ['A#', 'C', 'F'],
   'A#sus4': ['A#', 'D#', 'F'],
+  'A#6': ['A#', 'D', 'F', 'G'],     // Added
+  'A#m6': ['A#', 'C#', 'F', 'G'],   // Added
+  'A#7#5': ['A#', 'D', 'F#', 'G#'], // Added
+  'A#m7b5': ['A#', 'C#', 'E', 'G#'],// Added
 
   'B': ['B', 'D#', 'F#'],
   'Bm': ['B', 'D', 'F#'],
   'Bdim': ['B', 'D', 'F'],
-  'Baug': ['B', 'D#', 'G'],
+  'Baug': ['B', 'D#', 'G'], // Note: G is F##
   'B7': ['B', 'D#', 'F#', 'A'],
   'Bmaj7': ['B', 'D#', 'F#', 'A#'],
   'Bm7': ['B', 'D', 'F#', 'A'],
   'Bdim7': ['B', 'D', 'F', 'G#'],
   'Bsus2': ['B', 'C#', 'F#'],
-  'Bsus4': ['B', 'E', 'F#']
+  'Bsus4': ['B', 'E', 'F#'],
+  'B6': ['B', 'D#', 'F#', 'G#'],     // Added
+  'Bm6': ['B', 'D', 'F#', 'G#'],   // Added
+  'B7#5': ['B', 'D#', 'G', 'A'],    // Added
+  'Bm7b5': ['B', 'D', 'F', 'A']   // Added
 };
 
+  const extractRoot = (chordName) => {
+    if (!chordName) return 'C';
+    const match = chordName.match(/^[A-G]#?/);
+    return match ? match[0] : 'C';
+  };
 
   // Enhanced guitar chord fingering positions [string, fret, finger]
   const chordFingerings = {
@@ -266,26 +319,20 @@ const chordNotes = {
     { value: 'm7', label: 'Minor 7th' },
     { value: 'dim7', label: 'Diminished 7th' },
     { value: 'sus2', label: 'Sus2' },
-    { value: 'sus4', label: 'Sus4' }
+    { value: 'sus4', label: 'Sus4' },
+    { value: '6', label: 'Major 6th' },
+    { value: 'm6', label: 'Minor 6th' },
+    { value: '7#5', label: 'Augmented 7th' },
+    { value: 'm7b5', label: 'Half-Diminished' }
   ];
   
   // Check if a piano key is included in the current chord
   const isPianoKeyActive = (note) => {
-    // For simplicity, we'll consider matching notes in any octave
-    // A more sophisticated version could map chord notes to specific octaves
-    return chordNotes[activeChord] && chordNotes[activeChord].includes(note);
+    // Use the new chord highlighting logic
+    const notesToHighlight = getChordNotesToHighlight(activeChord, activeChordType);
+    return notesToHighlight.includes(note);
   };
   
-  // Add useEffect to handle chord type prop changes
-  useEffect(() => {
-    setActiveChordType(chordType);
-    if (chordType !== activeChordType) {
-      const newChord = activeNote + chordType;
-      setActiveChord(newChord);
-      if (onChordChange) onChordChange(newChord);
-    }
-  }, [chordType, activeNote, activeChordType, onChordChange]);
-
   // Update existing handlers with smooth transitions
   const handleNoteChange = (note) => {
     setChordTransition(true);
@@ -301,6 +348,17 @@ const chordNotes = {
   };
   
   const handleChordTypeChange = (type) => {
+    // If controlled by parent (e.g., in ChordsDictionary), don't change state internally
+    if (isControlled) {
+      // Just notify parent, don't change internal state
+      if (onChordChange) {
+        const newChord = activeNote + type;
+        onChordChange(newChord);
+      }
+      return;
+    }
+
+    // If not controlled, behave as before
     setChordTransition(true);
     setTimeout(() => {
       setActiveChordType(type);
@@ -324,9 +382,13 @@ const chordNotes = {
   };
   
   // Enhanced guitar fret interaction
-  const handleFretClick = (string, fret) => {
-    const note = guitarStrings[string].notes[fret];
-    setPlayingNote(`${string}-${fret}`);
+  const handleFretClick = (stringIndex, fretIndex) => {
+    // Safety checks
+    if (stringIndex < 0 || stringIndex >= guitarStrings.length) return;
+    if (fretIndex < 0 || fretIndex >= guitarStrings[stringIndex].notes.length) return;
+    
+    const note = guitarStrings[stringIndex].notes[fretIndex];
+    setPlayingNote(`${stringIndex}-${fretIndex}`);
     
     // Calculate frequency based on string and fret
     const baseFreq = noteFrequencies[note] || 440;
@@ -336,20 +398,46 @@ const chordNotes = {
   };
   
   // Check if a guitar fret position is active for the current chord
-  const isGuitarFretActive = (string, fret) => {
-    if (!chordFingerings[activeChord]) return false;
+  const isGuitarFretActive = (stringIndex, fretIndex) => {
+    // Safety check for valid indices
+    if (stringIndex < 0 || stringIndex >= guitarStrings.length) return false;
+    if (fretIndex < 0 || fretIndex >= guitarStrings[stringIndex].notes.length) return false;
     
-    return chordFingerings[activeChord].some(
-      ([stringNum, fretNum]) => stringNum === string && fretNum === fret
-    );
+    // Get the note at this string and fret position (stringIndex is 0-based)
+    const note = guitarStrings[stringIndex].notes[fretIndex];
+    
+    // Get the notes that should be highlighted for the current chord
+    const notesToHighlight = getChordNotesToHighlight(activeChord, activeChordType);
+    
+    // Check if this note is in the chord
+    const isNoteInChord = notesToHighlight.includes(note);
+    
+    // For specific chord fingerings, use those if available
+    if (chordFingerings[activeChord]) {
+      const hasSpecificFingering = chordFingerings[activeChord].some(
+        ([stringNum, fretNum]) => stringNum === (stringIndex + 1) && fretNum === fretIndex
+      );
+      if (hasSpecificFingering) {
+        return true;
+      }
+    }
+    
+    // Otherwise, show the note if it's in the chord and in a reasonable position
+    // Prioritize lower frets (0-3) for better playability
+    return isNoteInChord && fretIndex <= 3;
   };
 
   // Get finger number for a fret position
-  const getFingerNumber = (string, fret) => {
+  const getFingerNumber = (stringIndex, fretIndex) => {
+    // Safety checks
+    if (stringIndex < 0 || stringIndex >= guitarStrings.length) return null;
+    if (fretIndex < 0) return null;
+    
+    // Only show finger numbers if we have specific fingering data
     if (!chordFingerings[activeChord]) return null;
     
     const fingering = chordFingerings[activeChord].find(
-      ([stringNum, fretNum]) => stringNum === string && fretNum === fret
+      ([stringNum, fretNum]) => stringNum === (stringIndex + 1) && fretNum === fretIndex
     );
     
     return fingering ? fingering[2] : null;
@@ -359,6 +447,70 @@ const chordNotes = {
   const getSuggestedChords = () => {
     const rootNote = activeNote;
     return chordProgressions[rootNote] || [];
+  };
+
+  // New chord highlighting logic
+  const getChordNotesToHighlight = (currentChordName, currentChordType) => {
+    let notesToHighlight = [];
+    let chordKeyToLookup = null;
+    const rootNote = extractRoot(currentChordName); 
+
+    // Primary strategy: Use currentChordName directly if it's a valid key in chordNotes.
+    // currentChordName is expected to be the full name like "Am", "Cmaj7", "C".
+    if (chordNotes[currentChordName]) {
+      chordKeyToLookup = currentChordName;
+      notesToHighlight = chordNotes[currentChordName];
+    } 
+    // Secondary strategy: If currentChordName wasn't a direct key,
+    // or if currentChordType specifies a quality different from currentChordName's implicit quality,
+    // construct the key from rootNote + currentChordType.
+    // (e.g., currentChordName="C", currentChordType="maj7" -> "Cmaj7")
+    else if (currentChordType && currentChordType !== '') {
+      const constructedKey = rootNote + currentChordType;
+      if (chordNotes[constructedKey]) {
+        chordKeyToLookup = constructedKey;
+        notesToHighlight = chordNotes[constructedKey];
+      }
+    }
+
+    // Fallbacks if the above strategies didn't yield notes
+    if (!notesToHighlight || notesToHighlight.length === 0) {
+      // Fallback 1: Try the root note as a major chord if currentChordType is empty (major)
+      // or if other lookups failed.
+      if (chordNotes[rootNote] && (currentChordType === '' || !notesToHighlight || notesToHighlight.length === 0)) {
+        chordKeyToLookup = rootNote;
+        notesToHighlight = chordNotes[rootNote];
+      } else {
+        // Ultimate fallback: C major
+        chordKeyToLookup = 'C';
+        notesToHighlight = chordNotes['C'] || [];
+      }
+    }
+    return notesToHighlight;
+  };
+
+  useEffect(() => {
+    setChordTransition(true);
+    setTimeout(() => setChordTransition(false), 300);
+
+    // Extract root note from defaultChord
+    const rootNote = extractRoot(defaultChord);
+    setActiveNote(rootNote);
+    setActiveChord(defaultChord);
+    setActiveChordType(chordType);
+
+    if (onChordChange) {
+      // Pass the full chord name that is intended to be displayed.
+      // defaultChord is already the full name like "Am", "C", "Cmaj7".
+      onChordChange(defaultChord);
+    }
+  }, [defaultChord, chordType, onChordChange]);
+
+  // Function to play a single note (for piano key click)
+  const playSingleNote = (note) => {
+    if (noteFrequencies[note]) {
+      playNote(noteFrequencies[note]);
+    }
   };
 
   return (
@@ -408,7 +560,9 @@ const chordNotes = {
             <select 
               value={activeChordType}
               onChange={(e) => handleChordTypeChange(e.target.value)}
-              className="chord-dropdown"
+              className={`chord-dropdown ${isControlled ? 'controlled' : ''}`}
+              disabled={isControlled} // Disable dropdown when controlled by parent
+              title={isControlled ? "Chord type is controlled by the dictionary selection" : "Select chord type"}
             >
               {chordTypes.map(type => (
                 <option key={type.value} value={type.value}>{type.label}</option>
@@ -498,8 +652,10 @@ const chordNotes = {
                       key={chord}
                       className="suggestion-button"
                       onClick={() => {
-                        handleNoteChange(chord.replace(/[^A-G#]/g, ''));
-                        handleChordTypeChange(chord.replace(/^[A-G#]+/, ''));
+                        const rootNote = extractRoot(chord);
+                        const chordType = chord.replace(rootNote, '');
+                        handleNoteChange(rootNote);
+                        handleChordTypeChange(chordType);
                       }}
                     >
                       {chord}
@@ -521,8 +677,8 @@ const chordNotes = {
               <div key={stringIndex} className="guitar-string" style={{'--string-index': stringIndex}}>
                 <div className="string-name">{string.name}</div>
                 {string.notes.map((note, fretIndex) => {
-                  const isActive = isGuitarFretActive(stringIndex + 1, fretIndex);
-                  const fingerNumber = getFingerNumber(stringIndex + 1, fretIndex);
+                  const isActive = isGuitarFretActive(stringIndex, fretIndex);
+                  const fingerNumber = getFingerNumber(stringIndex, fretIndex);
                   const isPlaying = playingNote === `${stringIndex}-${fretIndex}`;
                   
                   return (
@@ -561,11 +717,11 @@ const chordNotes = {
       <div className="chord-info">
         <h3>{activeChord} Chord</h3>
         <div className="chord-badge-container">
-          {chordNotes[activeChord]?.map((note, index) => (
+          {getChordNotesToHighlight(activeChord, activeChordType)?.map((note, index) => (
             <span key={index} className="chord-note-badge">{note}</span>
           ))}
         </div>
-        <p>Notes: {chordNotes[activeChord]?.join(', ')}</p>
+        <p>Notes: {getChordNotesToHighlight(activeChord, activeChordType)?.join(', ')}</p>
       </div>
     </div>
   );
