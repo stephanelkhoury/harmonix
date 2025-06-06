@@ -17,7 +17,8 @@ jobs:
           - 27017:27017
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -26,7 +27,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: |
           frontend/package-lock.json
-          backend/package-lock.json
+          backend/package-lock.json  
           server/package-lock.json
     
     - name: Setup Python
@@ -63,7 +64,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
     - name: Check Render secrets
       run: |
@@ -85,7 +87,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
