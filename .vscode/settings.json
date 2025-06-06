@@ -1,0 +1,13 @@
+{
+  "github-actions.workflows.pinned.workflows": [],
+  "github-actions.workflows.pinned.refresh.enabled": false,
+  "yaml.validate": false,
+  "yaml.customTags": [
+    "!ENV scalar",
+    "!LOOKUP scalar"
+  ],
+  "files.associations": {
+    "*.yml": "yaml",
+    "*.yaml": "yaml"
+  }
+}
