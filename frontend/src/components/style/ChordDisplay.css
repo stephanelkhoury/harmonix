@@ -239,8 +239,7 @@
 }
 
 .guitar-string {
-  display: flex;
-  height: 11px;
+  display: flex;;
   position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

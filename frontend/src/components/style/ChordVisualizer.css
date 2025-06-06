@@ -349,9 +349,9 @@
   transition: all 0.2s ease;
 }
 
-.guitar-string {
+.guittring {
   display: flex;
-  height: 32px;
+  height: auto !important;
   position: relative;
   border-bottom: 1px solid rgba(139, 115, 85, 0.3);
   transition: all 0.3s ease;

@@ -18,10 +18,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # Updated to v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4 # Updated to v4
       with:
         node-version: '18'
         cache: 'npm'
@@ -31,7 +31,7 @@ jobs:
           server/package-lock.json
     
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # Updated to v5
       with:
         python-version: '3.9'
         cache: 'pip'
@@ -65,7 +65,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # Updated to v4
     
     - name: Check Render secrets
       run: |
@@ -88,10 +88,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # Updated to v4
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4 # Updated to v4
       with:
         node-version: '18'
         cache: 'npm'
@@ -121,6 +121,6 @@ jobs:
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
         vercel-args: '--prod'
-        vercel-org-id: ${{ secrets.ORG_ID }}
-        vercel-project-id: ${{ secrets.PROJECT_ID }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./frontend

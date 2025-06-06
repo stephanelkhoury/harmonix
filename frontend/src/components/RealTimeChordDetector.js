@@ -89,6 +89,7 @@ const RealTimeChordDetector = () => {
     const setupAudioProcessing = useCallback(async () => {
         try {
             // Get microphone access
+            console.log('[Debug] Requesting microphone access...');
             const stream = await navigator.mediaDevices.getUserMedia({ 
                 audio: {
                     sampleRate: 44100,
@@ -98,27 +99,36 @@ const RealTimeChordDetector = () => {
                     autoGainControl: true
                 } 
             });
-            
             streamRef.current = stream;
+            console.log('[Debug] Microphone access granted.');
             
             // Create audio context
             audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)({
                 sampleRate: 44100
             });
+            console.log('[Debug] AudioContext created.');
             
             // Create source from microphone
             sourceRef.current = audioContextRef.current.createMediaStreamSource(stream);
+            console.log('[Debug] MediaStreamSource created.');
             
             // Create script processor for audio chunks
             const bufferSize = 8192; // Larger buffer for better frequency resolution
             processorRef.current = audioContextRef.current.createScriptProcessor(bufferSize, 1, 1);
+            console.log('[Debug] ScriptProcessorNode created.');
             
             let audioBuffer = [];
             const chunkDuration = 0.5; // 500ms chunks
             const samplesPerChunk = Math.floor(audioContextRef.current.sampleRate * chunkDuration);
             
             processorRef.current.onaudioprocess = (event) => {
+                console.log('[Debug] onaudioprocess triggered.'); // New log
+                console.log(`[Debug] onaudioprocess: isListening=${isListening}, wsState=${wsRef.current?.readyState}`); // New log
+
                 if (!isListening || !wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+                    if (!isListening) console.log('[Debug] onaudioprocess: Not sending because isListening is false.');
+                    if (!wsRef.current) console.log('[Debug] onaudioprocess: Not sending because wsRef.current is null.');
+                    if (wsRef.current && wsRef.current.readyState !== WebSocket.OPEN) console.log(`[Debug] onaudioprocess: Not sending because WebSocket state is ${wsRef.current.readyState}.`);
                     return;
                 }
                 
@@ -161,6 +171,7 @@ const RealTimeChordDetector = () => {
             // Connect audio graph
             sourceRef.current.connect(processorRef.current);
             processorRef.current.connect(audioContextRef.current.destination);
+            console.log('[Debug] Audio graph connected.');
             
         } catch (error) {
             setError('Microphone access denied or not available');
@@ -171,13 +182,18 @@ const RealTimeChordDetector = () => {
     // Start/stop listening
     const toggleListening = useCallback(async () => {
         if (!isListening) {
+            console.log('[Debug] toggleListening: Attempting to start listening.');
             if (!isConnected) {
+                console.log('[Debug] toggleListening: WebSocket not connected, attempting to connect.');
                 connectWebSocket();
             }
             await setupAudioProcessing();
             setIsListening(true);
+            console.log('[Debug] toggleListening: isListening set to true.');
         } else {
+            console.log('[Debug] toggleListening: Attempting to stop listening.');
             setIsListening(false);
+            console.log('[Debug] toggleListening: isListening set to false.');
             
             // Stop audio processing
             if (processorRef.current) {
