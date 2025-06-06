@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "harmonix",
   "builds": [
     {
       "src": "frontend/package.json",
@@ -41,22 +40,7 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production",
-    "MONGODB_URI": "@mongodb-uri",
-    "MONGO_URL": "@mongodb-uri", 
-    "JWT_SECRET": "@jwt-secret",
-    "PYTHON_SERVICE_URL": "@python-service-url",
-    "REACT_APP_BACKEND_URL": "",
-    "REACT_APP_SERVER_URL": "",
-    "REACT_APP_PYTHON_SERVICE_URL": "@python-service-url"
-  },
-  "functions": {
-    "backend/server.js": {
-      "maxDuration": 30
-    },
-    "server/index.js": {
-      "maxDuration": 30
-    }
+    "NODE_ENV": "production"
   },
   "build": {
     "env": {

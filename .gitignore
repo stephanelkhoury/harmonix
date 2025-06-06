@@ -14,3 +14,4 @@ build/
 # Other common ignores
 .env
 .DS_Store
+.vercel
