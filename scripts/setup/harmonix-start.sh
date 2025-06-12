@@ -123,7 +123,7 @@ fi
 
 # Start the backend service using our robust server manager
 echo -e "\n${BLUE}Starting backend service...${NC}"
-$HARMONIX_DIR/../scripts/server_manager.sh restart
+$HARMONIX_DIR/scripts/utils/server_manager.sh restart
 
 if [ $? -eq 0 ]; then
   echo -e "${GREEN}✓ Backend service started and validated successfully${NC}"
